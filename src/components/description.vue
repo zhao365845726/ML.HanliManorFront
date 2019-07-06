@@ -1,0 +1,411 @@
+<template>
+  <div class="container description margin">
+    <img src="../assets/img/bg2.png" alt="" class="img">
+    <div class="container main margin">
+      <div class="about-company">
+        <div class="company-left">
+          <div class="intro-header company-intro-header">
+              <h2 class="intro-header-line">COMPANY PROFIL</h2>
+              <p>品牌介绍</p>
+          </div>
+          <div class="intro-body">
+              <p>2006年8月诞生于武汉的良品铺子，12年来深耕华中，辐射全国，迄今已有逾2000多家门店遍布华中、华东、华南、西北、西南、西北等13省。</p>
+              <p>良品铺子12年专注高端零食，精选全球32大产地食材，产品超过1000种，口味丰富多样，其中以十二经典产品最为著名。由十二经典产品组成的「拾贰经典」高端礼盒，获得众多明星及知名企业追捧。良品铺子自2015年起高端零食连续3年全国销售领先，成为四亿吃货的挑剔之选。</p>
+              <p>2019年良品铺子签约国内一线明星吴亦凡为品牌代言人，并将“高端零食”定义为品牌战略和企业战略，以期以高端零食战略引领行业升级。</p>
+          </div>
+        </div>
+        <div class="company-right">
+            <div class="company-photo img-box">
+                <!-- 图片尺寸 692*484 -->
+                <img src="../assets/img/about_company.jpg" alt="">
+            </div>
+        </div>
+      </div>
+      <div class="about-history">
+        <div class="intro-header">
+            <h2>PHYSICAL STORE</h2>
+            <p>品牌历程</p>
+        </div>
+        <div class="swiper_">
+          <swiper :options="swiperOption" class='swiper-box'>
+            <swiper-slide v-for="(item, index) in swipers" :key="index">
+              <div class="history-item">
+                <div class="history-item__wrap">
+                    <h3 class="history-item__year">2012</h3>
+                    <div class="history-item__img img-box">
+                        <img src="../assets/img/about_company.jpg" alt="2012">
+                    </div>
+                    <div class="history-item__desc">
+                        <p>3月，正式进攻新市场——四川，成都第一家店开业。<br>
+                        5月，良品铺子3.5代形象店万达五店开业。<br>
+                        5月，重新建设第二代占地400平方米的品控监测中心。<br>
+                        10月，成立湖北良品铺子电子商务有限公司。</p>
+                    </div>
+                    <div class="t-r">
+                        <span class="history-item__plus js-history-plus"></span>
+                    </div>
+                </div>
+                <i class="history-item__circle"></i>
+                <i class="history-item__arrow icon-right"></i>
+              </div>
+            </swiper-slide>
+        </swiper>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "description",
+  data() {
+    return {
+      swiperOption: {
+        slidesPerView: 4,
+        spaceBetween: 0,
+        slidesPerGroup: 1,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        autoplayDisableOnInteraction: false
+      },
+      swipers: [
+        {
+          fdcImage: "../assets/img/about_company.jpg"
+        },
+        {
+          fdcImage: "../assets/img/about_company.jpg"
+        },
+        {
+          fdcImage: "../assets/img/about_company.jpg"
+        },
+        {
+          fdcImage: "../assets/img/about_company.jpg"
+        }
+      ]
+    };
+  },
+  components: {},
+  mounted() {
+    
+  }
+};
+</script>
+
+<style scoped>
+.description {
+  margin-bottom: 270px;
+}
+.img {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 114px;
+}
+.main {
+  max-width: 1400px;
+}
+.about-company {
+  position: relative;
+  z-index: 1;
+  font-size: 0;
+}
+.company-left,
+.company-right {
+  display: inline-block;
+  vertical-align: top;
+}
+.company-left {
+  width: 40%;
+  margin-top: 50px;
+}
+.company-right {
+  width: 60%;
+  text-align: right;
+  position: relative;
+}
+.intro-header {
+  color: #00873c;
+}
+.intro-header h2 {
+  font-size: 36px;
+  width: 100%;
+  position: relative;
+}
+.intro-header-line::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 180px;
+  height: 1px;
+  background-color: #00873c;
+}
+.intro-header p {
+  font-size: 33px;
+  margin-top: 36px;
+}
+.intro-body {
+  font-size: 14px;
+  line-height: 28px;
+  color: #333;
+  margin-top: 50px;
+}
+.about-company::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 68%;
+  background-color: #f7f7f7;
+}
+.company-photo {
+  width: 100%;
+  max-width: 692px;
+}
+.img-box img {
+  right: 0;
+  position: absolute;
+  top: 0;
+  max-width: 692px;
+}
+
+.company-photo::before {
+  padding-top: 69.9422%;
+}
+.img-box::before {
+  content: "";
+  display: block;
+}
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+.about-history {
+  margin-top: 110px;
+}
+.swiper_ {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  margin-top: 95px;
+  padding: 0 20px;
+}
+.swiper-box img {
+  position: relative;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  height: auto;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  width: 30px;
+  height: 30px;
+  background-image: none;
+  margin-top: -50px;
+}
+.swiper-button-next{
+  right: 0;
+}
+.swiper-button-next:after, .swiper-button-next:before ,.swiper-button-prev:after, .swiper-button-prev:before {
+  display: block;
+  content: '';
+  width: 15px;
+  height: 2px;
+  background: #b2b2b2;
+  position: absolute;
+  left: 0;
+  top:50%;
+}
+.swiper-button-next:after, .swiper-button-next:before{
+  left: initial;
+  right: 0;
+}
+.swiper-button-next:before {
+   transform: rotate(315deg);
+}
+.swiper-button-next:after {
+  transform: rotate(-135deg);
+  top:5px;
+}
+.swiper-button-prev:before {
+  transform: rotate(45deg);
+}
+.swiper-button-prev:after {
+  transform: rotate(135deg);
+  top:5px;
+} 
+.history-item {
+  position: relative;
+  padding-left: 28px;
+  padding-bottom: 52px;
+  margin-bottom: 20px;
+}
+.history-item::before,
+.history-item::after {
+  content: "";
+  position: absolute;
+  background-color: #b2b2b2;
+}
+.history-item::before {
+  top: 7px;
+  left: 12px;
+  bottom: 32px;
+  width: 1px;
+}
+.history-item::after {
+  right: 8px;
+  bottom: 11px;
+  left: 32px;
+  height: 1px;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+.history-item__wrap {
+  max-width: 248px;
+  margin-right: 10px;
+}
+.history-item__year {
+  position: relative;
+  margin-bottom: 0.5em;
+  font: 700 32px/1 "AvenirLTStd";
+  color: #b2b2b2;
+}
+.history-item__year::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -23px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #b2b2b2;
+}
+.history-item__desc {
+  margin-bottom: 0.5em;
+  height: 48px;
+  min-height: 48px;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 24px;
+  color: gray;
+}
+.history-item__plus {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 15px;
+  height: 15px;
+}
+
+.history-item__plus::before,
+.history-item__plus::after {
+  content: "";
+  position: absolute;
+  background-color: #a0a0a0;
+}
+.history-item__plus::before {
+  top: 0;
+  bottom: 0;
+  left: 7px;
+  width: 1px;
+}
+.history-item__plus::after {
+  top: 7px;
+  right: 0;
+  left: 0;
+  height: 1px;
+}
+.history-item__circle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #b2b2b2;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 60% auto;
+}
+.history-item__arrow {
+  display: none;
+  position: absolute;
+  bottom: -1px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: right;
+}
+@media (max-width: 1400px) {
+  .main {
+    padding: 0 15px;
+  }
+}
+@media (max-width: 1100px) {
+  .company-left {
+    width: 100%;
+    padding-right: 0;
+  }
+  .company-right {
+    width: 100%;
+    max-width: 692px;
+  }
+  .about-company::after {
+    display: none;
+  }
+  .img{
+    margin-bottom: 0;
+  }
+  .intro-header h2{
+    font-size: 27px;
+  }
+  .intro-header p{
+    font-size: 25px;
+    margin-top: 25px;
+  }
+  .intro-body{
+    font-size: 16px;
+  }
+  .about-history{
+    margin-top: 50px;
+  }
+  .swiper_{
+    margin-top: 40px;
+  }
+  .description{
+    margin-bottom: 100px;
+  }
+  .img-box img{
+    width: 100%;
+  }
+}
+</style>
