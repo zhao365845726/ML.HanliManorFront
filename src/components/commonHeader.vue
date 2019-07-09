@@ -1,144 +1,343 @@
 <template>
   <div class="header">
-      <div class="headerTitle margin">
-         <img src="../assets/img/icon.png" class="icon float_left">
-         <div class="container other float_right">
-           <a href="" class="taobao float_left"></a>
-           <a href="" class="jingdong float_left"></a>
-           <div class="container sreach float_left">
-             <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园">
-             <button class="sreachBtn pointer float_left"></button>
-           </div>
-           <div class="language float_right">EN / 中文</div>
-         </div>
+    <div class="headerTitle margin">
+      <img src="../assets/img/icon.png" class="icon float_left">
+      <div class="container other float_right">
+        <a href="" class="taobao float_left"></a>
+        <a href="" class="jingdong float_left"></a>
+        <div class="container sreach float_left">
+          <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园">
+          <button class="sreachBtn pointer float_left"></button>
+        </div>
+        <div class="language float_right">EN / 中文</div>
       </div>
-     <div class="container header-menu" id="dh">
-        <ul class="margin t-c"  >
-          <li class="menu-item pointer" v-for="(item,index) in forklifts" :key="index">
-            <router-link to="/home" class="menu-link"><!--首页-->{{item.Name}}</router-link>
-            <div class="subMenu">
-              <div class="subMenu-bg"><span></span></div>
-              <ul class="subMenu-ul">
-                <li class="subMenu-item" v-for="subitem in daohang" >
-                  <router-link to="/description" class="subMenu-link">{{subitem.Name}}</router-link>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <!--<li class="menu-item pointer">
-            <router-link to="" class="menu-link">关于我们</router-link>
-            <div class="subMenu">
-							<div class="subMenu-bg"><span></span></div>
-							<ul class="subMenu-ul">
-                <li class="subMenu-item">
-                    <router-link to="/description" class="subMenu-link">韩梨庄园介绍</router-link>
-                    <router-link to="/brandStory" class="subMenu-link">好山好水好人家</router-link>
-                  </li>
-              </ul>
-						</div>
-          </li>
-           <li class="menu-item pointer">
-             <router-link to="" class="menu-link">产品世界</router-link>
-            <div class="subMenu">
-							<div class="subMenu-bg"><span></span></div>
-							<ul class="subMenu-ul">
-                <li class="subMenu-item">
-                    <router-link to="/verification" class="subMenu-link">产品验证</router-link>
-                    <router-link to="/product_chanpin" class="subMenu-link">所有品类</router-link>
-                    <router-link to="/store" class="subMenu-link">线上商城</router-link>
-                   
-                  </li>
-              </ul>
-						</div>
-          </li>
-           <li class="menu-item pointer">
-             <router-link to="" class="menu-link">品牌故事</router-link>
-            <div class="subMenu">
-							<div class="subMenu-bg"><span></span></div>
-							<ul class="subMenu-ul">
-                <li class="subMenu-item">
-                  <router-link to="/rule" class="subMenu-link">村规村规</router-link>
-                  <router-link to="/technology" class="subMenu-link">种植技术</router-link>
-                  </li>
-              </ul>
-						</div>
-          </li>
-           <li class="menu-item pointer">
-             <router-link to="" class="menu-link">新闻中心</router-link>
-            <div class="subMenu">
-							<div class="subMenu-bg"><span></span></div>
-							<ul class="subMenu-ul">
-                <li class="subMenu-item">
-                     <router-link to="/notice" class="subMenu-link">企业公告</router-link>
-                    <router-link to="/media" class="subMenu-link">媒体聚焦</router-link>
-                    <router-link to="/video" class="subMenu-link">品牌视频</router-link>
-                  </li>
-              </ul>
-						</div>
-          </li>
-           <li class="menu-item pointer">
-             <router-link to="" class="menu-link">联系我们</router-link>
-            <div class="subMenu">
-							<div class="subMenu-bg"><span></span></div>
-							<ul class="subMenu-ul">
-                <li class="subMenu-item">
-                     <router-link to="/supplier" class="subMenu-link">诚招供应商</router-link>
-                    <router-link to="/contact" class="subMenu-link">联系我们</router-link>
-                  </li>
-              </ul>
-						</div>
-          </li>-->
-        </ul>
-      </div>
-      <div class="btn-manu" @click="fnClickNav">
-        <span></span>
-        <span></span>
-        <span></span>
-        <!--<div class="div1">
-          <ul style="display:-webkit-box;">
-            <li> <router-link to="/description" class="subMenu-link" style=" margin-top:-9px;">韩梨庄园介绍</router-link></li>
-            <li > <router-link to="/brandStory" class="subMenu-link" style=" margin-top:-9px;">好山好水好人家</router-link></li>
-            <li><router-link to="/notice" class="subMenu-link" style=" margin-top:-9px;">企业公告</router-link></li>
-            <li><router-link to="/product_chanpin" class="subMenu-link" style=" margin-top:-9px;">所有品类</router-link></li>
-            <li><router-link to="/contact" class="subMenu-link" style=" margin-top:-9px;">联系我们</router-link></li>
-          </ul> 
-        </div>-->
-      </div>
+    </div>
+
+    <div class="container header-menu">
+      <ul class="margin t-c">
+        <li class="menu-item pointer" v-for="(item,index) in forklifts" >
+          <router-link :to="{path:'home',query:{name:item.Name,id:item.Id}}" class="menu-link">{{item.Name}}</router-link>
+          <div class="subMenu">
+            <div class="subMenu-bg"><span></span></div>
+            <ul class="subMenu-ul">
+              <li class="subMenu-item" v-for="(subitem,index) in sub" v-if="item.Name==='首页'">
+                <router-link :to="{path:'supplier',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link">{{subitem.Name}}</router-link>
+              </li>
+              <li class="subMenu-item" v-for="(subitem,index) in sub_a" v-if="item.Name==='关于我们'">
+                <router-link :to="{path:'description',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='韩梨庄园介绍'">{{subitem.Name}}</router-link>
+                <router-link :to="{path:'brandStory',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='好山好水好人家'">{{subitem.Name}}</router-link>
+              </li>
+              <li class="subMenu-item" v-for="(subitem,index) in sub_b" v-if="item.Name==='产品世界'">
+                <router-link :to="{path:'verification',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='产品验证'">{{subitem.Name}}</router-link>
+                <router-link :to="{path:'product_chanpin',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='所有品类'">{{subitem.Name}}</router-link>
+                <router-link :to="{path:'store',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='线上商城'">{{subitem.Name}}</router-link>
+              </li>
+              <li class="subMenu-item" v-for="(subitem,index) in sub_c" v-if="item.Name==='品牌故事'">
+                <router-link :to="{path:'rule',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='村规民约'">{{subitem.Name}}</router-link>
+                <router-link :to="{path:'technology',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='种植技术'">{{subitem.Name}}</router-link>
+              </li>
+              <li class="subMenu-item" v-for="(subitem,index) in sub_d" v-if="item.Name==='新闻中心'">
+                <router-link :to="{path:'notice',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='企业公告'">{{subitem.Name}}</router-link>
+                <router-link :to="{path:'media',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='媒体聚焦'">{{subitem.Name}}</router-link>
+                <router-link :to="{path:'video',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='品牌视频'">{{subitem.Name}}</router-link>
+              </li>
+              <li class="subMenu-item" v-for="(subitem,index) in sub_e" v-if="item.Name==='联系我们'">
+                <router-link :to="{path:'supplier',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='诚招供应商'">{{subitem.Name}}</router-link>
+                <router-link :to="{path:'contact',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='联系我们'">{{subitem.Name}}</router-link>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="btn-manu" @click="fnClickNav">
+      <span></span>
+      <span></span>
+      <span></span>
+      <!--<div class="div1">
+      <ul style="display:-webkit-box;">
+        <li> <router-link to="/description" class="subMenu-link" style=" margin-top:-9px;">韩梨庄园介绍</router-link></li>
+        <li > <router-link to="/brandStory" class="subMenu-link" style=" margin-top:-9px;">好山好水好人家</router-link></li>
+        <li><router-link to="/notice" class="subMenu-link" style=" margin-top:-9px;">企业公告</router-link></li>
+        <li><router-link to="/product_chanpin" class="subMenu-link" style=" margin-top:-9px;">所有品类</router-link></li>
+        <li><router-link to="/contact" class="subMenu-link" style=" margin-top:-9px;">联系我们</router-link></li>
+      </ul>
+    </div>-->
+    </div>
   </div>
 </template>
-<script>
+<!--<script>
   export default {
+    name: "commonFooter",
     data() {
       return {
+        index_: 0,
+        clickIndex_: 0,
+        list: [
+          {
+            title: "关于我们",
+            list2: [
+              {
+                title: "韩梨庄园"
+              },
+              {
+                title: "品牌历程"
+              },
+              {
+                title: "好山好水好人家"
+              }
+            ]
+          },
+          {
+            title: "产品世界",
+            list2: [
+              {
+                title: "韩梨庄园"
+              },
+              {
+                title: "品牌历程"
+              },
+              {
+                title: "好山好水好人家"
+              }
+            ]
+          },
+          {
+            title: "品牌故事",
+            list2: [
+              {
+                title: "韩梨庄园"
+              },
+              {
+                title: "品牌历程"
+              },
+              {
+                title: "好山好水好人家"
+              }
+            ]
+          },
+          {
+            title: "新闻动态",
+            list2: [
+              {
+                title: "韩梨庄园"
+              },
+              {
+                title: "品牌历程"
+              },
+              {
+                title: "好山好水好人家"
+              }
+            ]
+          },
+          {
+            title: "在线商城",
+            list2: [
+              {
+                title: "韩梨庄园"
+              },
+              {
+                title: "品牌历程"
+              },
+              {
+                title: "好山好水好人家"
+              }
+            ]
+          }
+        ],
+        isShow: false,
         isMouseover: false,
-        forklifts: [
-        ],
-         daohang: [
-        ],
-        
+        forklifts: [],
+        sub: [],
+      }
+    },
+    methods: {
+      fnClickNav() {
+        this.isShow = !this.isShow;
       }
     },
     mounted() {
-     this.$axios
-       .post('http://hlzy.api.milisx.xyz/api/content/homenavigation', {
-       })
-       .then((res) => {
-         this.forklifts = res.data.data;
-         for (var i = 0; i < res.data.data.length; i++) {
-           this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
-             "navid": this.forklifts[i].Id,
-            "PageIndex": 0,
-            "PageSize": 0
-           })
-             .then((res_sub) => {
-               this.daohang = res_sub.data;
-               console.log(this.daohang)
-             })
-            console.log(this.forklifts[i].Id)
-         }
-         console.log(this.forklifts)  
-       })
+      this.$axios
+        .post('http://hlzy.api.milisx.xyz/api/content/homenavigation', {
+        })
+        .then((res) => {
+          this.forklifts = res.data.data;
+          for (var i = 0; i < res.data.data.length; i++) {
+          this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
+            "navid": this.forklifts[i].Id,
+            "PageIndex": 1,
+            "PageSize": 10
+          })
+            .then((res_sub) => {
+              this.sub = res_sub.data.data.lst_viewnavcategory;
+              console.log(this.sub)
+            })
+          }
+          console.log(this.forklifts)
+        })
     }
+  }
+</script>-->
+<script>
+  export default {
+    name: "commonFooter",
+    data() {
+      return {
+      index_: 0,
+      clickIndex_:0,
+      list: [
+        {
+          title: "关于我们",
+          list2: [
+            {
+              title: "韩梨庄园"
+            },
+            {
+              title: "品牌历程"
+            },
+            {
+              title: "好山好水好人家"
+            }
+          ]
+        },
+        {
+          title: "产品世界",
+          list2: [
+            {
+              title: "韩梨庄园"
+            },
+            {
+              title: "品牌历程"
+            },
+            {
+              title: "好山好水好人家"
+            }
+          ]
+        },
+        {
+          title: "品牌故事",
+          list2: [
+            {
+              title: "韩梨庄园"
+            },
+            {
+              title: "品牌历程"
+            },
+            {
+              title: "好山好水好人家"
+            }
+          ]
+        },
+        {
+          title: "新闻动态",
+          list2: [
+            {
+              title: "韩梨庄园"
+            },
+            {
+              title: "品牌历程"
+            },
+            {
+              title: "好山好水好人家"
+            }
+          ]
+        },
+        {
+          title: "在线商城",
+          list2: [
+            {
+              title: "韩梨庄园"
+            },
+            {
+              title: "品牌历程"
+            },
+            {
+              title: "好山好水好人家"
+            }
+          ]
+        }
+      ],
+      isShow:false,
+      isMouseover: false,
+      forklifts: [ ],
+        sub: [],
+        sub_a: [],
+        sub_b: [],
+        sub_c: [],
+        sub_d: [],
+        sub_e: [],
+      }
+    },
+    methods: {
+    fnClickNav(){
+      this.isShow = !this.isShow;
+    }
+  },
+    mounted(){
+      this.$axios
+         .post('http://hlzy.api.milisx.xyz/api/content/homenavigation', {
+         })
+         .then((res) => {
+           this.forklifts = res.data.data;
+           //for (var i = 0; i < res.data.data.length; i++) {
+             this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
+               "navid": this.forklifts[0].Id,
+              "PageIndex": 1,
+              "PageSize": 10
+             })    
+               .then((res_sub) => {
+                 this.sub = res_sub.data.data.lst_viewnavcategory;               
+                 console.log(this.sub)               
+               }) 
+           //}
+            this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
+               "navid": this.forklifts[1].Id,
+              "PageIndex": 1,
+              "PageSize": 10
+             })
+               .then((res_sub) => {
+                 this.sub_a = res_sub.data.data.lst_viewnavcategory;               
+                 console.log(this.sub_a)               
+               })
+            this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
+               "navid": this.forklifts[2].Id,
+              "PageIndex": 1,
+              "PageSize": 10
+             })             
+               .then((res_sub) => {
+                 this.sub_b = res_sub.data.data.lst_viewnavcategory;               
+                 console.log(this.sub_b)               
+               })
+            this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
+               "navid": this.forklifts[3].Id,
+              "PageIndex": 1,
+              "PageSize": 10
+             })             
+               .then((res_sub) => {
+                 this.sub_c = res_sub.data.data.lst_viewnavcategory;               
+                 console.log(this.sub_c)               
+               })
+            this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
+               "navid": this.forklifts[4].Id,
+              "PageIndex": 1,
+              "PageSize": 10
+             })             
+               .then((res_sub) => {
+                 this.sub_d = res_sub.data.data.lst_viewnavcategory;               
+                 console.log(this.sub_d)               
+               })
+            this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
+               "navid": this.forklifts[5].Id,
+              "PageIndex": 1,
+              "PageSize": 10
+             })             
+               .then((res_sub) => {
+                 this.sub_e = res_sub.data.data.lst_viewnavcategory;               
+                 console.log(this.sub_e)               
+               }) 
+            console.log(this.forklifts)
+         })     
+      }
   }
 </script>
 <style scoped>
