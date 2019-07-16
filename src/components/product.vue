@@ -103,13 +103,11 @@ export default {
           <div class="story-intro-03__txt">
             <div class="story-dream-title">
               <p>MEDIA FOCUS</p>
-              <span>韩梨玉露香</span>
+              <span>{{res_a}}</span>
             </div>
             <div class="story-intro__txt">
-              <p>
-                2006年8月诞生于武汉的良品铺子，12年来深耕华中，辐射全国，迄今已有逾2000多家门店遍布华中、华东、华南、西北、西南、西北等13省。
-                良品铺子12年专注高端零食，精选全球32大产地食材，产品超过1000种，口味丰富多样，其中以十二经典产品最为著名。由十二经典产品组成的「拾贰经典」高端礼盒，获得众多明星及知名企业追捧。良品铺子自2015年起高端零食连续3年全国销售领先，成为四亿吃货的挑剔之选。
-                2019年良品铺子签约国内一线明星吴亦凡为品牌代言人，并将“高端零食”定义为品牌战略和企业战略，以期以高端零食战略引领行业升级。
+              <p v-html="res_b">
+                {{res_b}}
               </p>
             </div>
           </div>
@@ -137,9 +135,22 @@ export default {
                         stopOnLastSlide: false,
                         disableOnInteraction: true
                     },
-                }
+            },
+            res_a: [],
+            res_b:[]
           };
-        }
+    },
+    mounted() {
+      this.$axios
+        .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+           "ArticleId": "cbd74a8d-b12f-4af1-8e12-f095a918a66c"
+        })
+        .then((res) => {
+          this.res_a = res.data.data.Title;
+          this.res_b = res.data.data.Body;
+          console.log(res.data.data)
+        })
+    }
      };
 </script>
  <style scoped>

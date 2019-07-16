@@ -8,7 +8,7 @@
           </div>
           <ul class="container list-news">
             <li v-for="(item, index) in list">
-              <router-link to="/mediaDetail" class="news-item">
+              <router-link :to="{path:'mediaDetail',query:{id:item.Id}}" class="news-item">
                   <div class="news-item__bg">
                   </div>
                   <div class="news-item__date">
@@ -16,7 +16,7 @@
                       <span>2019</span>
                   </div>
                   <h3 class="news-item__title">
-                      {{item.title}}
+                    {{item.Title}}
                   </h3>
                   <div class="news-item__img img-box">
                       <img src="../assets/img/about_company.jpg" alt="">
@@ -35,29 +35,6 @@ export default {
   data() {
     return {
       list: [
-        {
-          title:"韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化"
-        },
-        {
-          title: "韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化"
-        },
-        {
-          title: "韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化"
-        },
-        {
-          title: "韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化"
-        },
-        {
-          title: "韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化"
-        },{
-          title: "韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化"
-        },
-        {
-          title: "韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化"
-        },
-        {
-          title: "韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化"
-        }
       ]
     }
   },
@@ -65,7 +42,16 @@ export default {
 
   },
   mounted() {
-
+    this.$axios
+      .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+        "categoryid": "37a17e18-c055-43e6-80be-147a81e78350",
+        "PageIndex": 1,
+        "PageSize":20
+      })
+      .then((res) => {
+        this.list = res.data.data.lst_categoryarticlelist;
+        console.log(this.list)
+      })
   }
 };
 </script>

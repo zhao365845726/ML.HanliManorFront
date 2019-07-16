@@ -7,7 +7,7 @@
           <p class="t-c">品牌视频</p>
         </div>
         <div class="video1">
-          <video src="https://www.runoob.com/try/demo_source/movie.mp4" controls></video>
+          <video src="https://img.51miz.com/Video/10/65/106540_a59efe61e8b775d91e5a5f03413d90b8.mp4" controls></video>
         </div>
         <ul class="btns">
           <li class="list-btn" :class="{'active':index == index_}" v-for="(item, index) in list" :key="item.id"  @click="fnIndex(index)">
@@ -37,28 +37,25 @@ export default {
         { id: 4, title: "品牌视频" }
       ],
       listVideo: [
-        [{ src: "https://www.runoob.com/try/demo_source/movie.mp4" }],
+        [{ src: "https://img.51miz.com/Video/10/68/106810_32251f512b485e2ad607e2a8b96dbca6.mp4" }],
         [
-          { src: "https://www.runoob.com/try/demo_source/movie.mp4" },
-          { src: "https://www.runoob.com/try/demo_source/movie.mp4" }
+          { src: "https://img.51miz.com/Video/2018/12/12/12/20181212127936_V108776_water_bb5c9aaa.mp4" },
+          { src: "https://img.51miz.com/Video/2017/08/17/10/20170817109422_V106989_water_09774bd5.mp4" }
         ],
         [
-          { src: "https://www.runoob.com/try/demo_source/movie.mp4" },
-          { src: "https://www.runoob.com/try/demo_source/movie.mp4" },
-          { src: "https://www.runoob.com/try/demo_source/movie.mp4" }
+          { src: "https://img.51miz.com/Video/2017/11/16/15/20171116157857_V108137_water_9cea1023.mp4" },
+          { src: "https://img.51miz.com/Video/10/67/106757_62301c728c841eb8c7e468414be38a69.mp4" },
+          { src: "https://img.51miz.com/Video/10/60/106010_8f79dade40d324f299cfd8134b520f17.mp4" }
         ],
         [
-          { src: "https://www.runoob.com/try/demo_source/movie.mp4" },
-          { src: "https://www.runoob.com/try/demo_source/movie.mp4" },
-          { src: "https://www.runoob.com/try/demo_source/movie.mp4" },
-          { src: "https://www.runoob.com/try/demo_source/movie.mp4" }
+          { src: "https://img.51miz.com/Video/10/66/106656_820eb46f25152b5dcbf34024c6b07d53.mp4" },
+          { src: "https://img.51miz.com/Video/2017/10/24/17/20171024171723_V107723_water_432fba5f.mp4" },
+          { src: "https://img.51miz.com/Video/2017/09/12/10/20170912104750_V107224_water_037ef257.mp4" },
+          { src: "https://img.51miz.com/Video/10/65/106573_12e534198ae17c3be5d30cdca0648d34.mp4" }
         ],
         [
-          { src: "https://www.runoob.com/try/demo_source/movie.mp4" },
-          { src: "https://www.runoob.com/try/demo_source/movie.mp4" },
-          { src: "https://www.runoob.com/try/demo_source/movie.mp4" },
-          { src: "https://www.runoob.com/try/demo_source/movie.mp4" },
-          { src: "https://www.runoob.com/try/demo_source/movie.mp4" }
+          { src: "https://img.51miz.com/Video/2017/10/19/19/20171019199454_V107668_water_1ae6ae21.mp4" },
+          { src: "https://img.51miz.com/Video/10/64/106400_1bbde15a18ec3ca3aedd27d94cba742f.mp4" },
         ]
       ]
     };

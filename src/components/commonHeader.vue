@@ -66,118 +66,6 @@
     </div>
   </div>
 </template>
-<!--<script>
-  export default {
-    name: "commonFooter",
-    data() {
-      return {
-        index_: 0,
-        clickIndex_: 0,
-        list: [
-          {
-            title: "关于我们",
-            list2: [
-              {
-                title: "韩梨庄园"
-              },
-              {
-                title: "品牌历程"
-              },
-              {
-                title: "好山好水好人家"
-              }
-            ]
-          },
-          {
-            title: "产品世界",
-            list2: [
-              {
-                title: "韩梨庄园"
-              },
-              {
-                title: "品牌历程"
-              },
-              {
-                title: "好山好水好人家"
-              }
-            ]
-          },
-          {
-            title: "品牌故事",
-            list2: [
-              {
-                title: "韩梨庄园"
-              },
-              {
-                title: "品牌历程"
-              },
-              {
-                title: "好山好水好人家"
-              }
-            ]
-          },
-          {
-            title: "新闻动态",
-            list2: [
-              {
-                title: "韩梨庄园"
-              },
-              {
-                title: "品牌历程"
-              },
-              {
-                title: "好山好水好人家"
-              }
-            ]
-          },
-          {
-            title: "在线商城",
-            list2: [
-              {
-                title: "韩梨庄园"
-              },
-              {
-                title: "品牌历程"
-              },
-              {
-                title: "好山好水好人家"
-              }
-            ]
-          }
-        ],
-        isShow: false,
-        isMouseover: false,
-        forklifts: [],
-        sub: [],
-      }
-    },
-    methods: {
-      fnClickNav() {
-        this.isShow = !this.isShow;
-      }
-    },
-    mounted() {
-      this.$axios
-        .post('http://hlzy.api.milisx.xyz/api/content/homenavigation', {
-        })
-        .then((res) => {
-          this.forklifts = res.data.data;
-          for (var i = 0; i < res.data.data.length; i++) {
-          this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
-            "navid": this.forklifts[i].Id,
-            "PageIndex": 1,
-            "PageSize": 10
-          })
-            .then((res_sub) => {
-              this.sub = res_sub.data.data.lst_viewnavcategory;
-              console.log(this.sub)
-            })
-          }
-          console.log(this.forklifts)
-        })
-    }
-  }
-</script>-->
 <script>
   export default {
     name: "commonFooter",
@@ -287,7 +175,7 @@
              })    
                .then((res_sub) => {
                  this.sub = res_sub.data.data.lst_viewnavcategory;               
-                 console.log(this.sub)               
+                 //console.log(this.sub)               
                }) 
            //}
             this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
@@ -297,7 +185,7 @@
              })
                .then((res_sub) => {
                  this.sub_a = res_sub.data.data.lst_viewnavcategory;               
-                 console.log(this.sub_a)               
+                 //console.log(this.sub_a)               
                })
             this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
                "navid": this.forklifts[2].Id,
@@ -306,7 +194,7 @@
              })             
                .then((res_sub) => {
                  this.sub_b = res_sub.data.data.lst_viewnavcategory;               
-                 console.log(this.sub_b)               
+                 //console.log(this.sub_b)               
                })
             this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
                "navid": this.forklifts[3].Id,
@@ -315,7 +203,7 @@
              })             
                .then((res_sub) => {
                  this.sub_c = res_sub.data.data.lst_viewnavcategory;               
-                 console.log(this.sub_c)               
+                 //console.log(this.sub_c)               
                })
             this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
                "navid": this.forklifts[4].Id,
@@ -324,7 +212,7 @@
              })             
                .then((res_sub) => {
                  this.sub_d = res_sub.data.data.lst_viewnavcategory;               
-                 console.log(this.sub_d)               
+                 //console.log(this.sub_d)               
                })
             this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
                "navid": this.forklifts[5].Id,
@@ -333,9 +221,9 @@
              })             
                .then((res_sub) => {
                  this.sub_e = res_sub.data.data.lst_viewnavcategory;               
-                 console.log(this.sub_e)               
+                 //console.log(this.sub_e)               
                }) 
-            console.log(this.forklifts)
+            //console.log(this.forklifts)
          })     
       }
   }

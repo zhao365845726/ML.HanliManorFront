@@ -7,19 +7,24 @@
     <div class="container main margin">
       <div class="hanli1">
         <div>
-          <p class="p1">韩梨庄园<span>HANLIZHUANGYUAN</span></p>
-          <p>韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园</p>
+          <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
+          <p v-for="(item,index) in shuju_a">
+            <a :href="[item.CoverPhoto+'/'+item.Id]">{{item.Title}}</a><span>{{item.CreateTime}}</span>
+          </p>
         </div>
         <br /><br /><br />
         <div>
-          <p class="p1">韩梨庄园<span>HANLIZHUANGYUAN</span></p>
-          <p>韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园</p>
+          <!--<p class="p1">韩梨庄园<span>HANLIZHUANGYUAN</span></p>
+          <p>韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园</p>-->
         </div>
       </div>
       <div class="hanli2">
         <div class="div1">
-          <p class="p1">韩梨庄园<span>HANLIZHUANGYUAN</span></p>
-          <p>韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园</p>
+          <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
+          <p v-for="(item,index) in shuju_b">
+            <a :href="[item.CoverPhoto+'/'+item.Id]">{{item.Title}}</a><span>{{item.CreateTime}}</span>
+            <!--韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园-->
+          </p>
         </div>
         <div class="div2">
           <div></div>
@@ -32,14 +37,20 @@
           <div></div>
         </div>
         <div class="div4">
-          <p class="p1">韩梨庄园<span>HANLIZHUANGYUAN</span></p>
-          <p>韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园</p>
+          <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
+          <p v-for="(item,index) in shuju_c">
+            <a :href="[item.CoverPhoto+'/'+item.Id]">{{item.Title}}</a><span>{{item.CreateTime}}</span>
+            <!--韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园-->
+          </p>
         </div>
       </div>
       <div class="hanli4">
         <div>
-          <p class="p1">韩梨庄园<span>HANLIZHUANGYUAN</span></p>
-          <p>韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园</p>
+          <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
+          <p v-for="(item,index) in shuju_d">
+            <a :href="[item.CoverPhoto+'/'+item.Id]">{{item.Title}}</a><span>{{item.CreateTime}}</span>
+            <!--韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园-->
+          </p>
         </div>
       </div>
     </div>
@@ -47,20 +58,64 @@
 </template>
 
 <script>
-export default {
-  name: "rule",
-  data() {
-    return {
-      msg: "Welcome to Your Vue.js App"
+  export default {
+    name: "rule",
+    data() {
+      return {
+        msg: "Welcome to Your Vue.js App",
+        shuju: [],
+        shuju_a: [],
+        shuju_b: [],
+        shuju_c: [],
+        shuju_d:[]
+      }
+    },
+    mounted() {
+      this.$axios
+        .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+          "categoryid": "a5a566c1-0bc3-4bcb-a43d-aaf9644c13cd",
+          "PageIndex": 1,
+          "PageSize": 20
+        })
+        .then((res) => {
+          this.shuju = res.data.data.lst_categoryarticlelist
+          console.log(this.shuju);
+          var shuju = this.shuju;
+          var shuju_a = shuju.slice(0, 8);
+          this.shuju_a = shuju_a;
+          console.log(this.shuju_a);
+          var shuju_b = shuju.slice(4, 10);
+          this.shuju_b = shuju_b;
+          console.log(this.shuju_b)
+          var shuju_c = shuju.slice(6, 12);
+          this.shuju_c = shuju_c;
+          console.log(this.shuju_c)
+          var shuju_d = shuju.slice(10, 15);
+          this.shuju_d = shuju_d;
+          console.log(this.shuju_d)
+        })
+
     }
   }
-};
 </script>
 
 <style scoped>
 .container{
   overflow: hidden;
 }
+  a {
+    color:black;
+  }
+    a:hover {
+      color:red;
+      font-weight:bolder;
+    }
+ span{
+  float:right;
+  }
+  .span1 {
+    float:none;
+  }
 .rule{
   height: auto;
   background: url(../assets/img/bg10.png) no-repeat;
@@ -93,8 +148,9 @@ export default {
   }
     .hanli1 div {
       border:0px solid;
-      width:80%;
+      width:70%;
       float:right;
+      margin-right:15%;
     }
     .hanli1 div .p1{
     border:0px solid;

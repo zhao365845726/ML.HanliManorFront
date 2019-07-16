@@ -8,7 +8,8 @@
 
 <script>
 import CommonHeader from './components/commonHeader'
-import CommonFooter from './components/commonFooter'
+  import CommonFooter from './components/commonFooter'
+
 export default {
   name: 'App',
   components:{

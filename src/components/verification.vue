@@ -12,14 +12,13 @@
         <div class="story left mt-150">
           <div class="story-inner margin">
             <div class="story-img story-img-02 img-box">
-                <img src="../assets/img/about_company.jpg" alt="">
+                <img :src="Positive_a">
             </div>
             <div class="story-intro story-intro-02">
                 <div class="story-intro__txt story-intro-02__txt">
-                  <div class="title">包装箱正面</div>
-                  <div class="content">
-                     山西晋城高平市野川镇韩家庄村民委员会山西晋城高平市野川镇韩家庄村民委员会山西晋城高平市野川镇韩家庄村民委员会山西晋城高平市野川<br>
-                     镇韩家庄村民委员会山西晋城高平市野川镇韩家庄村民委员会山西晋城高平市野川镇韩家庄村民委员会山西晋城高平市野川镇韩市野川
+                  <div class="title">{{Positive_b}}</div>
+                  <div class="content" v-html="this.Positive">
+                    {{this.Positive}}
                   </div>
                    <div class="tag">
                      <span class="new">NEW</span>
@@ -35,10 +34,9 @@
           <div class="story-inner margin">
             <div class="story-intro story-intro-02">
                 <div class="story-intro__txt story-intro-02__txt story-intro-03__txt">
-                  <div class="title">包装箱正面</div>
-                  <div class="content">
-                     山西晋城高平市野川镇韩家庄村民委员会山西晋城高平市野川镇韩家庄村民委员会山西晋城高平市野川镇韩家庄村民委员会山西晋城高平市野川<br>
-                     镇韩家庄村民委员会山西晋城高平市野川镇韩家庄村民委员会山西晋城高平市野川镇韩家庄村民委员会山西晋城高平市野川镇韩市野川
+                  <div class="title">{{side_b}}</div>
+                  <div class="content" v-html="this.side">
+                    {{this.side}}
                   </div>
                    <div class="tag">
                      <span class="new">NEW</span>
@@ -48,7 +46,7 @@
                 </div>
             </div>
             <div class="story-img img-box">
-                <img src="../assets/img/about_company.jpg" alt="">
+                <img :src="side_a">
             </div>
           </div>
      </div>
@@ -79,8 +77,36 @@ export default {
   name: "verification",
   data() {
     return {
+      Positive: [],
+      Positive_a: [],
+      Positive_b:[],
+      side: [],
+      side_a: [],
+      side_b:[],
     }
-  }
+    },
+  mounted() {
+     this.$axios
+      .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+           "ArticleId": "7331d073-2b32-463d-990b-750ece86048b"
+      })
+       .then((res) => {
+         this.Positive = res.data.data.Body;
+         this.Positive_a = res.data.data.CoverPhoto;
+         this.Positive_b = res.data.data.Title;
+        console.log( this.Positive_a)
+       })
+     this.$axios
+      .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+            "ArticleId": "9a340d98-00f6-4f9c-ad8a-2297fb1d049a"
+      })
+       .then((res_a) => {
+         this.side = res_a.data.data.Body;
+         this.side_a = res_a.data.data.CoverPhoto;
+         this.side_b = res_a.data.data.Title;
+        console.log( this.side)
+      })
+    }
 };
 </script>
 

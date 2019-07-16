@@ -17,10 +17,14 @@ import Contact from '@/components/contact'
 import Sreach from '@/components/sreach'
 import Product_chanpin from '@/components/product_chanpin'
 
-Vue.use(Router)
 
+Vue.use(Router);
 export default new Router({
   routes: [
+    {
+      path: '/',
+      redirect:'/home'
+    },
     {
       path: '/home',
       name: 'home',

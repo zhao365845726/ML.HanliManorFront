@@ -1,7 +1,7 @@
 <template>
   <div class="container brandStory margin">
     <img src="../assets/img/bg5.png" alt="" class="img">
-     <router-link to="/product" class="news-item">
+     <router-link  :to="{path:'product',query:{Id:res_a}}" class="news-item">
     <swiper :options="swiperOption" class="img1">
     <swiper-slide><img src="../assets/img/icon2.png" /></swiper-slide>
     <swiper-slide><img src="../assets/img/icon2.png" /></swiper-slide>
@@ -29,9 +29,22 @@
                         stopOnLastSlide: false,
                         disableOnInteraction: true
                     },
-                }
+            },
+            res_a:[]
           };
-        }
+         },
+      mounted() {
+      this.$axios
+        .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+                "categoryid": "a460675f-8a68-4bbb-b0cd-825f7578fe00",
+                "PageIndex": 1,
+                "PageSize": 10
+              })
+        .then((res) => {
+          this.res_a = res.data.data.lst_categoryarticlelist[0].Id;
+          console.log(res.data.data.lst_categoryarticlelist[0].Id)
+        })
+    }
      };
 </script>
  <style scoped>

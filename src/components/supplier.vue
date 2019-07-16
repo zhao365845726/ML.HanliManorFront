@@ -12,12 +12,8 @@
                   <div class="guide-item__bg"></div>
                   <dl class="guide-intro">
                       <dt>简介</dt>
-                      <dd>
-                          <p>良品铺子股份有限公司是一家致力于休闲食品零售服务的专业品牌连锁运营公司。</p>
-                          <p>公司2011年开放加盟，加盟开放市场遍布全国各地。</p>
-                      </dd>
-                      <dd>
-                          <p>良品铺子已经成为了促进社会和谐发展的企业，在行业内享有良好的美誉，现已成为中国休闲食品零售行业的领导品牌。</p>
+                      <dd style="width:100%;">
+                        <p v-html="jianjie">{{jianjie}}</p>
                       </dd>
                   </dl>
               </div>
@@ -28,32 +24,18 @@
                 <dl class="guide-intro guide-intro2 col-1">
                     <dt>理念</dt>
                     <dd>
-                        <p>资源共享，合作共赢</p>
+                        <p v-html="jianjie_a">{{jianjie_a}}</p>
                     </dd>
                 </dl>
             </div>
           </li>
       </ul>
       <ul class="container place">
-          <li>
+          <li v-for="(item,index) in shuju_a">
             <span class="icon-img"></span>
             <div class="con">
-              <b>产地直供</b>
-              <p>2006年8月诞生于武汉的良品铺子，12年来深耕华中，辐射全国，迄今已有逾</p>
-            </div>
-          </li>
-          <li>
-            <span class="icon-img"></span>
-            <div class="con">
-              <b>产地直供</b>
-              <p>2006年8月诞生于武汉的良品铺子，12年来深耕华中，辐射全国，迄今已有逾</p>
-            </div>
-          </li>
-          <li>
-            <span class="icon-img"></span>
-            <div class="con">
-              <b>产地直供</b>
-              <p>2006年8月诞生于武汉的良品铺子，12年来深耕华中，辐射全国，迄今已有逾</p>
+              <b>{{item.Title}}</b>
+              <p>{{item.Title}}</p>
             </div>
           </li>
         </ul>
@@ -67,48 +49,48 @@
             </div>
             <div class="member-rule-title member-rule-title1">合作条件</div>
 
-            <ul class="list list-6 list-jc mt-80">
+            <ul class="list list-6 list-jc mt-80" >
                 <li>
-                    <div class="jc-item">
+                    <div class="jc-item" >
                         <span class="jc-item__ico icon-jc01"></span>
-                        <h3 class="jc-item__title">控制风险</h3>
-                        <p class="jc-item__desc">韩梨与预想立快速的缴费导师工读生发</p>
+                        <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
+                        <p class="jc-item__desc" v-html="this.jianjie_c">{{this.jianjie_c}}</p>
                     </div>
                 </li>
                 <li>
-                    <div class="jc-item">
-                        <span class="jc-item__ico icon-jc01"></span>
-                        <h3 class="jc-item__title">控制风险</h3>
-                        <p class="jc-item__desc">韩梨与预想立快速的缴费导师工读生发</p>
-                    </div>
+                  <div class="jc-item">
+                    <span class="jc-item__ico icon-jc01"></span>
+                    <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
+                    <p class="jc-item__desc" v-html="this.jianjie_c">{{this.jianjie_c}}</p>
+                  </div>
                 </li>
                 <li>
-                    <div class="jc-item">
-                        <span class="jc-item__ico icon-jc01"></span>
-                        <h3 class="jc-item__title">控制风险</h3>
-                        <p class="jc-item__desc">韩梨与预想立快速的缴费导师工读生发</p>
-                    </div>
+                  <div class="jc-item">
+                    <span class="jc-item__ico icon-jc01"></span>
+                    <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
+                    <p class="jc-item__desc" v-html="this.jianjie_c">{{this.jianjie_c}}</p>
+                  </div>
                 </li>
                 <li>
-                    <div class="jc-item">
-                        <span class="jc-item__ico icon-jc01"></span>
-                        <h3 class="jc-item__title">控制风险</h3>
-                        <p class="jc-item__desc">韩梨与预想立快速的缴费导师工读生发</p>
-                    </div>
-                </li>
-               <li>
-                    <div class="jc-item">
-                        <span class="jc-item__ico icon-jc01"></span>
-                        <h3 class="jc-item__title">控制风险</h3>
-                        <p class="jc-item__desc">韩梨与预想立快速的缴费导师工读生发</p>
-                    </div>
+                  <div class="jc-item">
+                    <span class="jc-item__ico icon-jc01"></span>
+                    <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
+                    <p class="jc-item__desc" v-html="this.jianjie_c">{{this.jianjie_c}}</p>
+                  </div>
                 </li>
                 <li>
-                    <div class="jc-item">
-                        <span class="jc-item__ico icon-jc01"></span>
-                        <h3 class="jc-item__title">控制风险</h3>
-                        <p class="jc-item__desc">韩梨与预想立快速的缴费导师工读生发</p>
-                    </div>
+                  <div class="jc-item">
+                    <span class="jc-item__ico icon-jc01"></span>
+                    <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
+                    <p class="jc-item__desc" v-html="this.jianjie_c">{{this.jianjie_c}}</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="jc-item">
+                    <span class="jc-item__ico icon-jc01"></span>
+                    <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
+                    <p class="jc-item__desc" v-html="this.jianjie_c">{{this.jianjie_c}}</p>
+                  </div>
                 </li>
             </ul>
         </div>
@@ -329,9 +311,53 @@ export default {
   name: "supplier",
   data() {
     return {
-      
+      shuju_a:[],
+      jianjie: [],
+      jianjie_a: [],
+      jianjie_b: [],
+       jianjie_c: [],
     }
-  }
+    },
+    mounted() {
+      this.$axios
+        .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+            "categoryid": "7a14ec45-a68d-4be0-a698-2a70e9122bf8",
+            "PageIndex": 1,
+            "PageSize":10
+        })
+        .then((res) => {
+          this.shuju = res.data.data.lst_categoryarticlelist;
+          var shuju = this.shuju;
+          var shuju_a = shuju.slice(3, 6);
+          this.shuju_a = shuju_a;
+          console.log(res.data.data.lst_categoryarticlelist);
+          this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+                 "ArticleId": "7d3c8d45-c566-4261-b32b-626ff41f5996"
+            })
+            .then((res_a) => {
+              this.jianjie = res_a.data.data.Body;
+              console.log(this.jianjie);
+            })
+           this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+                 "ArticleId": "b4b43286-532c-4d2f-814f-78cfbe17c38e"
+            })
+            .then((res_b) => {
+              this.jianjie_a = res_b.data.data.Body;
+              console.log(this.jianjie_a);
+            })
+          this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+                 "ArticleId": "5e4134e4-89ab-4bd4-bc92-547a9954c984"
+            })
+            .then((res_c) => {
+              this.jianjie_b = res_c.data.data.Title;
+              this.jianjie_c = res_c.data.data.Body;
+              console.log(this.jianjie_b);
+            })
+        })
+    }
 };
 </script>
 
@@ -769,8 +795,8 @@ export default {
 }
 .place li .icon-img{
   float: left;
-  width: 70px;
-  height: 70px;
+  width: 12px;
+  height: 12px;
   background: #00873c;
   border-radius: 50%;
 }

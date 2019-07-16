@@ -6,7 +6,7 @@
           <div class="story-intro story-intro-01">
               <div class="intro-header">
                   <h2>MEDIA FOCUS LLXVMDKDF</h2>
-                  <p>品牌故事</p>
+                  <p>{{this.media_c}}</p>
               </div>
               <div class="story-intro-01__txt">
                   <div>
@@ -15,7 +15,7 @@
               </div>
           </div>
           <div class="story-img img-box">
-              <img src="../assets/img/about_company.jpg" alt="">
+              <img :src="media_d">
           </div>
       </div>
     </div>
@@ -23,13 +23,12 @@
     <div class="story left mt-150">
       <div class="story-inner margin">
         <div class="story-img story-img-02 img-box">
-            <img src="../assets/img/about_company.jpg" alt="">
+            <img :src="photo">
         </div>
         <div class="story-intro story-intro-02">
-            <div class="story-intro__txt story-intro-02__txt">
-                <p>2005年，杨红春从科龙电器离开后，就加入了久久丫，向顾青和梁新科学习作为职业经理人如何向创业者转型。用了将近一年的时间，与大学同学张国强一道，拜访了100多家，走遍了武汉的大街小巷，编写了三版商业计划书。他认为当时的市场中存在“两个基础，一对矛盾”的客观机遇：一是消费者需求升级的基础，顾客需要更有品质更能享受生活的零食；二是中国农业产业化，在全国各地富有特色的基础已经初具规模；一对矛盾是消费者不断升级、追求品质的需求和以大卖场为主导的全而泛，不具专业化品质的提供模式之间的矛盾；这两个基础和一对矛盾是良品铺子作为休闲食品细分品类专业化、零售连锁品牌化经营的土壤。</p>
-                <p>2006年，准备了60多种产品，良品铺子的创始人们于8月28日，在武汉广场对面开了第一家门店。</p>
-            </div>
+          <div class="story-intro__txt story-intro-02__txt">
+            <p v-html="this.media">{{this.media}}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -39,17 +38,16 @@
         <div class="story-intro">
             <div class="story-intro-03__txt">
                 <div class="story-dream-title">
-                    <p>品牌名称的由来</p>
+                    <p>{{this.media_b}}</p>
                     <span>MEDIA FOCUS</span>
                 </div>
                 <div class="story-intro__txt">
-                    <p>“良品铺子”是从300多个名字中挑选出来的，这是基于创业团队对休闲食品零售连锁服务这件事的根本认识而决定的。</p>
-                    <p>2006年4月，杨红春和张国强动员了所有能联系上的朋友、老同事和同学，让大家献计献策给他们的事业取名，一周的时间收集了300多个名字，后来决定选择良品铺子四个字去注册。因为，既然是做食品的，就要凭良心来做吃的，食品安全最重要；休闲食品通俗讲就是零食，吃零食最重要的不是便宜和多，而是吃得好，吃得乐，吃得有品味来享受生活，品质上讲究是这件事的精要；“铺子”是中国最原始的商业形态，是最让消费者感到亲切、自然、轻松的地方。同时“良品铺子”四个字也代表了创业团队对这项事业的认知，即使销售规模再大，永远只是个“为大家提供服务的小地方”的这种小生意模式。</p>
+                  <p v-html="this.media_a">{{this.media_a}}</p>
                 </div>
             </div>
         </div>
         <div class="story-img img-box">
-            <img src="../assets/img/about_company.jpg" alt="">
+            <img :src="media_e">
         </div>
       </div>
     </div>
@@ -61,8 +59,46 @@
 export default {
   name: "brandStory",
   data() {
-    return {};
-  }
+    return {
+      media: [],
+      media_c:[],
+      media_a: [],
+      media_b: [],
+      media_d: [],
+      media_e:[],
+      photo:[],
+    };
+    },
+    mounted() {
+         this.$axios
+           .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+             "ArticleId": "35797c8b-7fee-4163-bf44-9316e6bd17b3"
+           })
+           .then((res_a) => {
+             this.media = res_a.data.data.Body;
+             this.media_c = res_a.data.data.Title;
+             this.media_d = res_a.data.data.CoverPhoto;
+             console.log(this.media)
+           })
+          this.$axios
+           .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+             "ArticleId": "55c55a75-d32b-4921-8dc2-77342bca53cb"
+           })
+           .then((res_b) => {
+             this.media_a = res_b.data.data.Body;
+             this.media_b = res_b.data.data.Title;
+             this.media_e = res_b.data.data.CoverPhoto;
+             console.log(this.media_a)
+             console.log(this.media_b)
+           })
+          this.$axios
+           .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+             "ArticleId": "3aaf2f3f-32e7-4968-b92d-54734c8385f8"
+           })
+            .then((res_c) => {
+              this.photo = res_c.data.data.CoverPhoto;
+           })
+    }
 };
 </script>
 

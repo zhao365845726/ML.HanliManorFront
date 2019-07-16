@@ -11,7 +11,7 @@
         </li>
       </ul>
       <div class="description">@2019 山西韩梨果业有限公司   晋ICP备09021577号        晋公网安备 4201120201521号</div>
-      <div class="back">返回顶部</div>
+      <div class="back" @click="backTop()">返回顶部</div>
     </div>
 </template>
 
@@ -22,7 +22,13 @@ export default {
     return {
       msg: "Welcome to Your Vue.js App"
     };
-  }
+    },
+    methods: {
+      backTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    }
 };
 </script>
 

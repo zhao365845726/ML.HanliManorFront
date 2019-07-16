@@ -9,27 +9,28 @@
           </div>
           <ul class="container notice-list1">
             <li>
-              <img src="../assets/img/about_company.jpg" alt="" class="bg">
+              <img :src="sm_cp" class="bg">
               <router-link to="/sreach" class="news-item">
                 <div class="notice-list1-con">
                   <div class="icon"></div>
                   <span class="tag">MEDIA FOCUS <br>DMKNI</span>
-                  <p class="title ellipsis">企业使命</p>
-                  <p class="content ellipsis2">里水电费金利科技卡风景，水电费</p>
-                </div>
-               </router-link>
-            </li>
-            <li>
-              <img src="../assets/img/about_company.jpg" alt="" class="bg">
-              <router-link to="/sreach" class="news-item">
-                <div class="notice-list1-con">
-                  <div class="icon"></div>
-                  <span class="tag">MEDIA FOCUS <br>DMKNI</span>
-                  <p class="title ellipsis">企业使命</p>
-                  <p class="content ellipsis2">里水电费金利科技卡风景，水电费</p>
+                  <p class="title ellipsis">{{sm_title}}</p>
+                  <p class="content ellipsis2" v-html="sm_body">{{sm_body}}</p>
                 </div>
               </router-link>
             </li>
+            <li>
+              <img :src=" yj_cp" class="bg">
+              <router-link to="/sreach" class="news-item">
+                <div class="notice-list1-con">
+                  <div class="icon"></div>
+                  <span class="tag">MEDIA FOCUS <br>DMKNI</span>
+                  <p class="title ellipsis">{{yj_title}}</p>
+                  <p class="content ellipsis2" v-html="yj_body">{{yj_body}}</p>
+                </div>
+              </router-link>
+            </li>
+
           </ul>
        </div>
        <div class="container list">
@@ -38,26 +39,20 @@
             <p>企业公告</p>
           </div>
           <ul class="container notice-news">
-              <li>
-                <img src="../assets/img/about_company.jpg" alt="" class="notice-left float_left">
-                <router-link to="/sreach" class="news-item">
-                  <div class="notice-right float_left">
-                    <p class="notice-title ellipsis">韩梨庄园看镂空自己当了飞洒十来款风景</p>
-                    <p class="notice-con ellipsis3">2月25日下午，外交部蓝厅举行主题为“新时代的中国：山西新转型 共享新未来”的山西全球推介活动。国务委员兼外长王毅发表致辞，山西省委书记骆惠宁讲话，省长楼阳生进行推介。外交部党委书记齐玉、副部长乐玉成</p>
-                    <p class="notice-time">2019-02-27</p>
-                  </div>
-                </router-link>
-              </li>
-              <li>
-                <img src="../assets/img/about_company.jpg" alt="" class="notice-left float_left">
-                <router-link to="/sreach" class="news-item">
-                  <div class="notice-right float_left">
-                    <p class="notice-title ellipsis">韩梨庄园看镂空自己当了飞洒十来款风景</p>
-                    <p class="notice-con ellipsis3">2月25日下午，外交部蓝厅举行主题为“新时代的中国：山西新转型 共享新未来”的山西全球推介活动。国务委员兼外长王毅发表致辞，山西省委书记骆惠宁讲话，省长楼阳生进行推介。外交部党委书记齐玉、副部长乐玉成</p>
-                    <p class="notice-time">2019-02-27</p>
-                  </div>
-                </router-link>
-              </li>
+            <li v-for="(item,index) in media_a">
+              <img :src="item.CoverPhoto" class="notice-left float_left">
+              <router-link  :to="{path:'sreach',query:{id:item.Id}}" class="news-item">
+                <div class="notice-right float_left">
+                  <p class="notice-title ellipsis"> {{item.Title}}</p>
+                  <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织开展讲党课活动'" v-html="media_b">{{media_b}}</p>
+                  <p class="notice-con ellipsis3" v-if="item.Title==='高平市干部入企服务第15小组莅临公司调研指导工作'" v-html="media_c">{{media_c}}</p>
+                  <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支召开“改革创新、奋发有为”大讨论 动员部署会议'" v-html="media_d">{{media_d}}</p>
+                  <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织召开2018年度领导班子 专题民主生活会'" v-html="media_e">{{media_e}}</p>
+                  <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织集中观看《榜样3》'" v-html="media_f">{{media_f}}</p>
+                  <p class="notice-time">{{item.CreateTime}}</p>
+                </div>
+              </router-link>
+            </li>
           </ul>
        </div>
       </div>
@@ -68,8 +63,99 @@
 export default {
   name: "notice",
   data() {
-    return {};
-  }
+    return {
+      media_a: [],
+      media_b: [],
+      media_c: [],
+      media_d: [],
+      media_e: [],
+      media_f: [],
+      sm_cp: [],
+      sm_title: [],
+      sm_body: [],
+      yj_cp: [],
+      yj_title: [],
+      yj_body:[],
+    };
+  },
+    mounted() {
+      this.$axios
+        .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+            "categoryid": "cd5c323e-5d09-41f6-82b7-9a98b2431370",
+            "PageIndex": 1,
+            "PageSize":20
+        })
+        .then((res) => {
+          this.media = res.data.data.lst_categoryarticlelist;
+          var media = this.media;
+          var media_a = media.slice(2, 7);
+          this.media_a = media_a;
+          console.log(res.data.data.lst_categoryarticlelist)
+          this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId": 'ec7e16b4-98e8-4b28-b77a-1ac1b4eaf387'
+            })
+            .then((res_b) => {
+              this.media_b = res_b.data.data.Body;
+              //console.log(this.media_b);
+            })
+          this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId":'9a4b0c33-77a6-4a58-af2a-f06fc5556520'
+            })
+            .then((res_c) => {
+              this.media_c = res_c.data.data.Body;
+              //console.log(this.media_c);
+            })
+          this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId": 'dbcbdb49-2ea6-4c80-83c8-90e320f0962a'
+            })
+            .then((res_d) => {
+              this.media_d = res_d.data.data.Body;
+              //console.log(this.media_d);
+            })
+          this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId": 'f0aec07e-b54c-4ef4-a9d8-2635894930f6'
+            })
+            .then((res_e) => {
+              this.media_e = res_e.data.data.Body;
+              //console.log(this.media_e);
+            })
+           this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId": '03b21876-a34b-421e-99e1-f402e4047200'
+            })
+            .then((res_f) => {
+              this.media_f = res_f.data.data.Body;
+              //console.log(this.media_f);
+            })
+           this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId": '67bc35b4-1097-4a58-acac-28d18f082ca4'
+            })
+            .then((res_sm) => {
+              this.sm = res_sm.data.data;
+              this.sm_cp = res_sm.data.data.CoverPhoto;
+              this.sm_title = res_sm.data.data.Title;
+              this.sm_body= res_sm.data.data.Body;
+              console.log(this.sm);
+            })
+           this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId": '88f84c01-2c5e-456d-89ff-d9b9b7a151ce'
+            })
+             .then((res_yj) => {
+               this.yj = res_yj.data.data;
+              this.yj_cp = res_yj.data.data.CoverPhoto;
+              this.yj_title = res_yj.data.data.Title;
+              this.yj_body= res_yj.data.data.Body;
+              console.log(this.yj);
+            })
+        })
+
+    }
 };
 </script>
 
@@ -188,6 +274,7 @@ export default {
  font-size: 14px;
  line-height: 28px;
  color: #9fa0a0;
+ height:91px;
 }
 .notice-time{
   font-size: 14px;
@@ -200,6 +287,9 @@ export default {
 .notice-news li:hover .notice-title,.notice-news li:hover .notice-con,.notice-news li:hover .notice-time{
   color: #fff;
 }
+  .notice-con ellipsis3 span {
+    background-color:none;
+  }
 @media (max-width: 1100px) {
   .notice-list1 li{
     height: 500px;

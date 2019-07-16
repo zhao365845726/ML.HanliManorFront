@@ -8,16 +8,14 @@
               <h2 class="intro-header-line">COMPANY PROFIL</h2>
               <p>品牌介绍</p>
           </div>
-          <div class="intro-body">
-              <p>2006年8月诞生于武汉的良品铺子，12年来深耕华中，辐射全国，迄今已有逾2000多家门店遍布华中、华东、华南、西北、西南、西北等13省。</p>
-              <p>良品铺子12年专注高端零食，精选全球32大产地食材，产品超过1000种，口味丰富多样，其中以十二经典产品最为著名。由十二经典产品组成的「拾贰经典」高端礼盒，获得众多明星及知名企业追捧。良品铺子自2015年起高端零食连续3年全国销售领先，成为四亿吃货的挑剔之选。</p>
-              <p>2019年良品铺子签约国内一线明星吴亦凡为品牌代言人，并将“高端零食”定义为品牌战略和企业战略，以期以高端零食战略引领行业升级。</p>
+          <div class="intro-body" >
+            <p v-html="this.company">{{this.company}}</p>
           </div>
         </div>
         <div class="company-right">
             <div class="company-photo img-box">
                 <!-- 图片尺寸 692*484 -->
-                <img src="../assets/img/about_company.jpg" alt="">
+                <img :src="this.company_src">
             </div>
         </div>
       </div>
@@ -28,22 +26,23 @@
         </div>
         <div class="swiper_">
           <swiper :options="swiperOption" class='swiper-box'>
-            <swiper-slide v-for="(item, index) in swipers" :key="index">
+            <swiper-slide v-for="(item, index) in swipers_a" :key="index">
               <div class="history-item">
                 <div class="history-item__wrap">
-                    <h3 class="history-item__year">2012</h3>
-                    <div class="history-item__img img-box">
-                        <img src="../assets/img/about_company.jpg" alt="2012">
-                    </div>
-                    <div class="history-item__desc">
-                        <p>3月，正式进攻新市场——四川，成都第一家店开业。<br>
-                        5月，良品铺子3.5代形象店万达五店开业。<br>
-                        5月，重新建设第二代占地400平方米的品控监测中心。<br>
-                        10月，成立湖北良品铺子电子商务有限公司。</p>
-                    </div>
-                    <div class="t-r">
-                        <span class="history-item__plus js-history-plus"></span>
-                    </div>
+                  <h3 class="history-item__year">{{item.CreateTime}}</h3>
+                  <div class="history-item__img img-box" style="height:160px;">
+                    <img :src="item.CoverPhoto">
+                  </div>
+                  <div class="history-item__desc" :style="overflow" >
+                    <p v-html="nr" v-if="item.Title==='猕猴桃'" >{{nr}}</p>
+                    <p v-html="nr_a" v-if="item.Title==='樱桃'">{{nr_a}}</p>
+                    <p v-html="nr_c" v-if="item.Title==='香蕉'">{{nr_c}}</p>
+                    <p v-html="nr_d" v-if="item.Title==='葡萄'">{{nr_d}}</p>
+                    <p v-html="nr_e" v-if="item.Title==='苹果'">{{nr_e}}</p>
+                  </div>
+                  <div class="t-r">
+                    <span class="history-item__plus js-history-plus" @click="toggle()"></span>
+                  </div>
                 </div>
                 <i class="history-item__circle"></i>
                 <i class="history-item__arrow icon-right"></i>
@@ -57,49 +56,108 @@
     </div>
   </div>
 </template>
-
 <script>
-export default {
-  name: "description",
-  data() {
-    return {
-      swiperOption: {
-        slidesPerView: 4,
-        spaceBetween: 0,
-        slidesPerGroup: 1,
-        loop: true,
-        loopFillGroupWithBlank: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true
+  export default {
+    name: "description",
+    data() {
+      return {
+        swiperOption: {
+          slidesPerView: 4,
+          spaceBetween: 0,
+          slidesPerGroup: 1,
+          loop: true,
+          loopFillGroupWithBlank: true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+          },
+          autoplayDisableOnInteraction: false
         },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        },
-        autoplayDisableOnInteraction: false
-      },
-      swipers: [
-        {
-          fdcImage: "../assets/img/about_company.jpg"
-        },
-        {
-          fdcImage: "../assets/img/about_company.jpg"
-        },
-        {
-          fdcImage: "../assets/img/about_company.jpg"
-        },
-        {
-          fdcImage: "../assets/img/about_company.jpg"
+        swipers_a: [],
+        company_src: [],
+        company: [],
+        nr: [],
+        nr_a: [],
+        nr_c: [],
+        nr_d: [],
+        nr_e:[],
+        display: '',
+        overflow: ''
+      };
+    },
+    methods: {
+      toggle(index_a) {
+        if (this.overflow === 'overflow: hidden') {
+          this.overflow = 'display:inline';
+        } else {
+          this.overflow = 'overflow: hidden';
         }
-      ]
-    };
-  },
-  components: {},
-  mounted() {
-    
+      }
+    },
+    components: {},
+    mounted() {
+      this.$axios
+        .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+          "ArticleId": "69a894ea-0502-40f2-96e0-3cb9a6028628"
+        })
+        .then((res) => {
+          this.company = res.data.data.Body;
+          this.company_src = res.data.data.CoverPhoto;
+        })
+      this.$axios
+        .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+          "categoryid": "96aeb5cd-8712-4999-a029-e08479ef3b1b",
+          "PageIndex": 1,
+          "PageSize": 10
+        })
+        .then((res_a) => {
+          this.swipers = res_a.data.data.lst_categoryarticlelist;
+          var swipers = this.swipers;
+          var swipers_a = swipers.slice(1, 6);
+          this.swipers_a = swipers_a;
+          console.log(this.swipers_a);
+          this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId":'dad0404a-10bc-4601-b461-e812de31c2cb',
+            })
+            .then((res_nr) => {
+              this.nr = res_nr.data.data.Body;
+            })
+          this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId":'e633d80d-25ad-4ae8-aa2a-d90a57995d52',
+            })
+            .then((res_nr_a) => {
+              this.nr_a = res_nr_a.data.data.Body;
+            })
+           this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId":'cbdb409b-09d3-4b7b-901f-a07e43719d4c',
+            })
+            .then((res_nr_b) => {
+              this.nr_c = res_nr_b.data.data.Body;
+            })
+          this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId":'26b12019-0620-4f3b-9474-e54bd2730583',
+            })
+            .then((res_nr_c) => {
+              this.nr_d = res_nr_c.data.data.Body;
+            })
+           this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId":'aba0abc2-cba6-4281-ab57-6b381d645726',
+            })
+            .then((res_nr_d) => {
+              this.nr_e = res_nr_d.data.data.Body;
+            })
+        })
+    }
   }
-};
 </script>
 
 <style scoped>
@@ -315,6 +373,15 @@ export default {
   font-size: 14px;
   line-height: 24px;
   color: gray;
+
+}.history-item__desc_a {
+  margin-bottom: 0.5em;
+  height: 48px;
+  min-height: 48px;
+  font-size: 14px;
+  line-height: 24px;
+  color: gray;
+  display:none;
 }
 .history-item__plus {
   position: relative;

@@ -3,23 +3,25 @@
     <img src="../assets/img/bg2.png" alt="" class="img">
     <div class="container main margin">
       <div class="title">媒体聚焦</div>
-      <div class="container content">
+      <div class="container content" >
         <div class="content-left">
           <div class="time">03.05 <span>2019</span></div>
-          <div class="content-title">韩梨庄园里水电费空间</div>
+          <!--<div class="content-title"></div>-->
+          <div class="content-title" v-for="(item,index) in list"><!--韩梨庄园里水电费空间-->{{item.Title}}</div>
           <p class="share">
             <img src="../assets/img/sp1.png" alt="">
             <img src="../assets/img/sp2.png" alt="">
             <img src="../assets/img/sp3.png" alt="">
           </p>
-          <div class="goback">返回列表</div>
+          <div class="goback">
+            <router-link :to="{path:'media',query:{name:'媒体聚焦',id:'37a17e18-c055-43e6-80be-147a81e78350'}}" class="link_a">返回列表</router-link>
+          </div>
         </div>
         <div class="content-right">
           <img src="../assets/img/bg2.png" alt="">
-          <p>韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化韩家庄文化发展新政策韩家庄文化发展新政策韩家</p>
-          <p>庄文化发展新政策韩家庄文化韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化</p>
-          <p>庄文化发展新政策韩家庄文化韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化发展新政策韩家庄文化</p>
+          <!--<p>{{list_a}}</p>-->
           <img src="../assets/img/bg2.png" alt="">
+          <!--<p>{{list_a}}</p>-->
         </div>
       </div>
     </div>
@@ -31,9 +33,31 @@ export default {
   name: "mediaDetail",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      msg: "Welcome to Your Vue.js App",
+      list: [],
+      list_a:[]
+       }
+    },
+    mounted() {
+      this.$axios
+      .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+        "categoryid": "37a17e18-c055-43e6-80be-147a81e78350",
+        "PageIndex": 1,
+        "PageSize":20
+      })
+      .then((res) => {
+        this.list = res.data.data.lst_categoryarticlelist;
+        console.log(this.list)
+        this.$axios
+          .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+            "ArticleId": this.list.Id
+          })
+          .then((res_a) => {
+            this.list_a = res_a.data.data.Title;
+            console.log(this.list_a)
+          })    
+      })
     }
-  }
 };
 </script>
 
@@ -44,6 +68,12 @@ export default {
 .container{
   overflow: hidden;
 }
+ .link_a {
+    color:black;
+  }
+ .link_a:hover {
+    color:red;
+  }
 .img {
   width: 100%;
   height: auto;
