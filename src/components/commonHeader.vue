@@ -6,8 +6,15 @@
         <a href="" class="taobao float_left"></a>
         <a href="" class="jingdong float_left"></a>
         <div class="container sreach float_left">
-          <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园">
-          <button class="sreachBtn pointer float_left"></button>
+          <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园" type="text" v-model="sreach"/>
+          <button class="sreachBtn pointer float_left" @click="btn"></button>
+          <ul v-for="list in searchData" style="font-size: 14px; color: black;" >
+            <li style="text-align:center;">
+              <span>{{list.name}}</span>
+              <span>{{list.date}}</span>
+              <span>{{list.depart}}</span>
+            </li>
+          </ul>
         </div>
         <div class="language float_right">EN / 中文</div>
       </div>
@@ -54,15 +61,6 @@
       <span></span>
       <span></span>
       <span></span>
-      <!--<div class="div1">
-      <ul style="display:-webkit-box;">
-        <li> <router-link to="/description" class="subMenu-link" style=" margin-top:-9px;">韩梨庄园介绍</router-link></li>
-        <li > <router-link to="/brandStory" class="subMenu-link" style=" margin-top:-9px;">好山好水好人家</router-link></li>
-        <li><router-link to="/notice" class="subMenu-link" style=" margin-top:-9px;">企业公告</router-link></li>
-        <li><router-link to="/product_chanpin" class="subMenu-link" style=" margin-top:-9px;">所有品类</router-link></li>
-        <li><router-link to="/contact" class="subMenu-link" style=" margin-top:-9px;">联系我们</router-link></li>
-      </ul>
-    </div>-->
     </div>
   </div>
 </template>
@@ -154,13 +152,38 @@
         sub_c: [],
         sub_d: [],
         sub_e: [],
+        sreach: '',
+        searchData: '',
+        products:[
+        //假数据
+        {name:"数据1",date:'2018-01-04',depart:'泸化工1'},
+        {name:"数据2",date:'2018-01-25',depart:'泸化工2'},
+        {name:"数据3",date:'2018-02-10',depart:'泸化工3'},
+        {name:"数据4",date:'2018-03-04',depart:'泸化工4'},
+        {name:"数据5",date:'2018-05-24',depart:'泸化工5'},
+        {name:"数据6",date:'2018-10-29',depart:'泸化工6'}
+    	]
       }
     },
     methods: {
     fnClickNav(){
       this.isShow = !this.isShow;
-    }
-  },
+      },
+      btn: function () {
+        var sreach = this.sreach;
+        if (sreach) {
+          this.searchData = this.products.filter(function (products) {
+            console.log(products)
+            return Object.keys(products).some(function (key) {
+              console.log(key)
+              return String(products[key]).toLowerCase().indexOf(sreach) > -1
+            })
+          })
+        } else {
+          alert('请输入你要搜索的关键字')
+        }    
+        }
+      },
     mounted(){
       this.$axios
          .post('http://hlzy.api.milisx.xyz/api/content/homenavigation', {
@@ -281,7 +304,7 @@
   border-bottom-left-radius: 5px;
 }
 .sreachBtn {
-  width: 55px;
+  width: 12%;
   height: 100%;
   background: #fff url(../assets/img/sreach.png) center center no-repeat;
   background-size: auto 18px;

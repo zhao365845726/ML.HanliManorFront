@@ -2,65 +2,70 @@
   <div class="container notice margin">
     <img src="../assets/img/bg3.png" alt="" class="img"> 
     <div class="container main margin">
-       <div class="container  list">
-          <div class="intro-header">
-            <h2>MEDIA FOCUS</h2>
-            <p>庄园理念</p>
-          </div>
-          <ul class="container notice-list1">
-            <li>
-              <img :src="sm_cp" class="bg">
-              <router-link to="/sreach" class="news-item">
-                <div class="notice-list1-con">
-                  <div class="icon"></div>
-                  <span class="tag">MEDIA FOCUS <br>DMKNI</span>
-                  <p class="title ellipsis">{{sm_title}}</p>
-                  <p class="content ellipsis2" v-html="sm_body">{{sm_body}}</p>
-                </div>
-              </router-link>
-            </li>
-            <li>
-              <img :src=" yj_cp" class="bg">
-              <router-link to="/sreach" class="news-item">
-                <div class="notice-list1-con">
-                  <div class="icon"></div>
-                  <span class="tag">MEDIA FOCUS <br>DMKNI</span>
-                  <p class="title ellipsis">{{yj_title}}</p>
-                  <p class="content ellipsis2" v-html="yj_body">{{yj_body}}</p>
-                </div>
-              </router-link>
-            </li>
+      <div class="container  list">
+        <div class="intro-header">
+          <h2>MEDIA FOCUS</h2>
+          <p>庄园理念</p>
+        </div>
+        <ul class="container notice-list1">
+          <li>
+            <img :src="sm_cp" class="bg">
+            <router-link to="/sreach" class="news-item">
+              <div class="notice-list1-con">
+                <div class="icon"></div>
+                <span class="tag">MEDIA FOCUS <br>DMKNI</span>
+                <p class="title ellipsis">{{sm_title}}</p>
+                <p class="content ellipsis2" v-html="sm_body">{{sm_body}}</p>
+              </div>
+            </router-link>
+          </li>
+          <li>
+            <img :src=" yj_cp" class="bg">
+            <router-link to="/sreach" class="news-item">
+              <div class="notice-list1-con">
+                <div class="icon"></div>
+                <span class="tag">MEDIA FOCUS <br>DMKNI</span>
+                <p class="title ellipsis">{{yj_title}}</p>
+                <p class="content ellipsis2" v-html="yj_body">{{yj_body}}</p>
+              </div>
+            </router-link>
+          </li>
 
-          </ul>
-       </div>
-       <div class="container list">
-          <div class="intro-header">
-            <h2>MEDIA FOCUS</h2>
-            <p>企业公告</p>
-          </div>
-          <ul class="container notice-news">
-            <li v-for="(item,index) in media_a">
-              <img :src="item.CoverPhoto" class="notice-left float_left">
-              <router-link  :to="{path:'sreach',query:{id:item.Id}}" class="news-item">
-                <div class="notice-right float_left">
-                  <p class="notice-title ellipsis"> {{item.Title}}</p>
+        </ul>
+      </div>
+      <div class="container list">
+        <div class="intro-header">
+          <h2>MEDIA FOCUS</h2>
+          <p>企业公告</p>
+        </div>
+        <ul class="container notice-news">
+          <li v-for="(item,index) in media_a">
+            <img :src="item.CoverPhoto" class="notice-left float_left">
+            <router-link :to="{path:'sreach',query:{id:item.Id}}" class="news-item">
+              <div class="notice-right float_left">
+                <p class="notice-title ellipsis"> {{item.Title}}</p>
+                <div style="height: 75px;overflow: hidden;padding-top:10px;margin-top:-15px;">
                   <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织开展讲党课活动'" v-html="media_b">{{media_b}}</p>
                   <p class="notice-con ellipsis3" v-if="item.Title==='高平市干部入企服务第15小组莅临公司调研指导工作'" v-html="media_c">{{media_c}}</p>
                   <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支召开“改革创新、奋发有为”大讨论 动员部署会议'" v-html="media_d">{{media_d}}</p>
                   <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织召开2018年度领导班子 专题民主生活会'" v-html="media_e">{{media_e}}</p>
                   <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织集中观看《榜样3》'" v-html="media_f">{{media_f}}</p>
-                  <p class="notice-time">{{item.CreateTime}}</p>
-                </div>
-              </router-link>
-            </li>
-          </ul>
-       </div>
+                </div>   
+                <p class="notice-time">{{item.CreateTime}}</p>
+              </div>
+            </router-link>
+          </li>
+        </ul>
+        <paginate :page-count="20" :page-range="3" :margin-pages="2" :click-handler="clickCallback" :prev-text="'Prev'" :next-text="'Next'" :container-class="'pagination'" :page-class="'page-item'">
+        </paginate>
       </div>
+    </div>
   </div>
 </template>
-
+<!--<script src=".\assets\js\jqPaginator.js"></script>-->
 <script>
-export default {
+  import 'bootstrap/dist/css/bootstrap.min.css'
+  export default {
   name: "notice",
   data() {
     return {
@@ -75,9 +80,14 @@ export default {
       sm_body: [],
       yj_cp: [],
       yj_title: [],
-      yj_body:[],
+      yj_body: [],
+   
     };
-  },
+    },
+
+    methods: {
+       clickCallback:(pageNum) =>{ console.log(pageNum) }
+    },
     mounted() {
       this.$axios
         .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
@@ -154,10 +164,12 @@ export default {
               console.log(this.yj);
             })
         })
-
     }
 };
 </script>
+
+
+
 
 <style scoped>
 .container{
@@ -279,7 +291,7 @@ export default {
 .notice-time{
   font-size: 14px;
   color: #00873c;
-  margin-top: 10px;
+  margin-top: 22px;
 }
 .notice-news li:hover{
   background: #00873c;
@@ -290,6 +302,7 @@ export default {
   .notice-con ellipsis3 span {
     background-color:none;
   }
+
 @media (max-width: 1100px) {
   .notice-list1 li{
     height: 500px;
