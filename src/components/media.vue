@@ -12,14 +12,14 @@
                   <div class="news-item__bg">
                   </div>
                   <div class="news-item__date">
-                      <p>03.05</p>
-                      <span>2019</span>
+                    <p>{{item.CreateTime}}</p>
+                      <!--<span>2019</span>-->
                   </div>
                   <h3 class="news-item__title">
                     {{item.Title}}
                   </h3>
                   <div class="news-item__img img-box">
-                      <img src="../assets/img/about_company.jpg" alt="">
+                      <img :src="item.CoverPhoto">
                   </div>
               </router-link>
             </li>
@@ -165,12 +165,14 @@ export default {
 .news-item:hover {
   background: #00873c;
   color: #fff !important;
+  text-decoration:none;
 }
 .news-item:hover .news-item__date,
 .news-item:hover .news-item__date p,
 .news-item:hover .news-item__date span,
 .news-item:hover .news-item__title {
   color: #fff;
+ 
 }
 @media (max-width: 1100px) {
   .list-news li {

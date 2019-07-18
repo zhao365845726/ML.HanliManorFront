@@ -33,7 +33,7 @@
                   <div class="history-item__img img-box" style="height:160px;">
                     <img :src="item.CoverPhoto">
                   </div>
-                  <div class="history-item__desc" :style="overflow" >
+                  <div class="history-item__desc" :style="overflow" v-show="activeIndex===index"> 
                     <p v-html="nr" v-if="item.Title==='猕猴桃'" >{{nr}}</p>
                     <p v-html="nr_a" v-if="item.Title==='樱桃'">{{nr_a}}</p>
                     <p v-html="nr_c" v-if="item.Title==='香蕉'">{{nr_c}}</p>
@@ -41,7 +41,7 @@
                     <p v-html="nr_e" v-if="item.Title==='苹果'">{{nr_e}}</p>
                   </div>
                   <div class="t-r">
-                    <span class="history-item__plus js-history-plus" @click="toggle()"></span>
+                    <span class="history-item__plus js-history-plus" @click="toggle(index)"></span>
                   </div>
                 </div>
                 <i class="history-item__circle"></i>
@@ -86,16 +86,20 @@
         nr_d: [],
         nr_e:[],
         display: '',
-        overflow: ''
+        overflow: '',
+        activeIndex:-1,
       };
     },
     methods: {
-      toggle(index_a) {
-        if (this.overflow === 'overflow: hidden') {
-          this.overflow = 'display:inline';
-        } else {
-          this.overflow = 'overflow: hidden';
-        }
+      toggle(index) {
+        //if (this.overflow === 'overflow: hidden') {
+        //  //this.overflow = 'display:inline';
+         
+        //} else {
+        //  this.overflow = 'overflow: hidden';
+        //  //this.overflow = 'display:inline';
+        //}
+        this.activeIndex = index;
       }
     },
     components: {},
@@ -119,7 +123,7 @@
           var swipers = this.swipers;
           var swipers_a = swipers.slice(1, 6);
           this.swipers_a = swipers_a;
-          console.log(this.swipers_a);
+          //console.log(this.swipers_a);
           this.$axios
             .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
               "ArticleId":'dad0404a-10bc-4601-b461-e812de31c2cb',

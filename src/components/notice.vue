@@ -36,7 +36,7 @@
       <div class="container list">
         <div class="intro-header">
           <h2>MEDIA FOCUS</h2>
-          <p>企业公告</p>
+          <p>企业公告</p>                
         </div>
         <ul class="container notice-news">
           <li v-for="(item,index) in media_a">
@@ -44,7 +44,7 @@
             <router-link :to="{path:'sreach',query:{id:item.Id}}" class="news-item">
               <div class="notice-right float_left">
                 <p class="notice-title ellipsis"> {{item.Title}}</p>
-                <div style="height: 75px;overflow: hidden;padding-top:10px;margin-top:-15px;">
+                <div style="height: 75px;overflow: hidden;padding-top:10px;margin-top:-15px;" class="div">
                   <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织开展讲党课活动'" v-html="media_b">{{media_b}}</p>
                   <p class="notice-con ellipsis3" v-if="item.Title==='高平市干部入企服务第15小组莅临公司调研指导工作'" v-html="media_c">{{media_c}}</p>
                   <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支召开“改革创新、奋发有为”大讨论 动员部署会议'" v-html="media_d">{{media_d}}</p>
@@ -56,8 +56,7 @@
             </router-link>
           </li>
         </ul>
-        <paginate :page-count="20" :page-range="3" :margin-pages="2" :click-handler="clickCallback" :prev-text="'Prev'" :next-text="'Next'" :container-class="'pagination'" :page-class="'page-item'">
-        </paginate>
+        <pagination v-model="page"  :records="records" :per-page="perPage"  @paginate="recallBack" :options="options" class="page_a"></pagination>
       </div>
     </div>
   </div>
@@ -66,8 +65,8 @@
 <script>
   import 'bootstrap/dist/css/bootstrap.min.css'
   export default {
-  name: "notice",
-  data() {
+    name: "notice",
+    data() {
     return {
       media_a: [],
       media_b: [],
@@ -81,12 +80,22 @@
       yj_cp: [],
       yj_title: [],
       yj_body: [],
-   
-    };
+
+       page: 1,   //默认页数
+       perPage: 5,  //每页显示多少项
+       records:50, //数据总数
+       pageNo: 1,  //当前页码
+       options: {
+         chunk: 5,    //最多显示多少页
+         edgeNavigation: true,   //显示第一页和最后一页链接
+       },
+     };
     },
 
     methods: {
-       clickCallback:(pageNum) =>{ console.log(pageNum) }
+      recallBack() {
+          
+      }
     },
     mounted() {
       this.$axios
@@ -99,6 +108,7 @@
           this.media = res.data.data.lst_categoryarticlelist;
           var media = this.media;
           var media_a = media.slice(2, 7);
+          //var media_a = media;
           this.media_a = media_a;
           console.log(res.data.data.lst_categoryarticlelist)
           this.$axios
@@ -172,6 +182,9 @@
 
 
 <style scoped>
+  .page_a{
+    margin-top:2%;
+  }
 .container{
   overflow: hidden;
 }
@@ -296,13 +309,14 @@
 .notice-news li:hover{
   background: #00873c;
 }
-.notice-news li:hover .notice-title,.notice-news li:hover .notice-con,.notice-news li:hover .notice-time{
+.notice-news li:hover .notice-title,
+.notice-news li:hover .notice-con,
+.notice-news li:hover .notice-time{
   color: #fff;
 }
   .notice-con ellipsis3 span {
     background-color:none;
   }
-
 @media (max-width: 1100px) {
   .notice-list1 li{
     height: 500px;

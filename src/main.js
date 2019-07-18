@@ -8,10 +8,10 @@ import './assets/css/swiper.min.css'
 import 'vue-paginate'
 import VueSwiper from 'vue-awesome-swiper'
 import axios from 'axios'
-import paginate from 'vue-paginate'
+import Pagination from 'vue-pagination-2'
 
 
-Vue.use(paginate)
+Vue.component('pagination', Pagination)
 Vue.use(VueSwiper)
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
