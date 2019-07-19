@@ -68,12 +68,24 @@ export default new Router({
     {
       path: '/notice',
       name: 'notice',
-      component: Notice
+      component: Notice,
+      children: [
+        {
+          path: ':Id',
+          component: MediaDetail
+        }
+      ]
     },
     {
       path: '/media',
       name: 'media',
-      component: Media
+      component: Media,
+      children: [
+        {
+          path: ':Id',
+          component: MediaDetail
+        }
+      ]
     },
     {
       path: '/mediaDetail',

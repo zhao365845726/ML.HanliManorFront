@@ -9,21 +9,25 @@
         <div>
           <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
           <p v-for="(item,index) in shuju_a">
-            <a :href="[item.CoverPhoto+'/'+item.Id]">{{item.Title}}</a><span>{{item.CreateTime}}</span>
+            <router-link :to="{path:'mediaDetail',query:{id:item.Id}}" style="text-decoration:none">
+              {{item.Title}}
+            </router-link>
+           <span>{{item.CreateTime}}</span>
           </p>
         </div>
         <br /><br /><br />
         <div>
-          <!--<p class="p1">韩梨庄园<span>HANLIZHUANGYUAN</span></p>
-          <p>韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园</p>-->
+                
         </div>
       </div>
       <div class="hanli2">
         <div class="div1">
           <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
           <p v-for="(item,index) in shuju_b">
-            <a :href="[item.CoverPhoto+'/'+item.Id]">{{item.Title}}</a><span>{{item.CreateTime}}</span>
-            <!--韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园-->
+            <router-link :to="{path:'mediaDetail',query:{id:item.Id}}" style="text-decoration:none">
+              {{item.Title}}
+            </router-link>
+            <span>{{item.CreateTime}}</span>
           </p>
         </div>
         <div class="div2">
@@ -39,8 +43,10 @@
         <div class="div4">
           <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
           <p v-for="(item,index) in shuju_c">
-            <a :href="[item.CoverPhoto+'/'+item.Id]">{{item.Title}}</a><span>{{item.CreateTime}}</span>
-            <!--韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园-->
+            <router-link :to="{path:'mediaDetail',query:{id:item.Id}}" style="text-decoration:none">
+              {{item.Title}}
+            </router-link>
+            <span>{{item.CreateTime}}</span>
           </p>
         </div>
       </div>
@@ -48,8 +54,10 @@
         <div>
           <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
           <p v-for="(item,index) in shuju_d">
-            <a :href="[item.CoverPhoto+'/'+item.Id]">{{item.Title}}</a><span>{{item.CreateTime}}</span>
-            <!--韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园<br />韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园韩梨庄园-->
+            <router-link :to="{path:'mediaDetail',query:{id:item.Id}}" style="text-decoration:none">
+              {{item.Title}}
+            </router-link>
+           <span>{{item.CreateTime}}</span>
           </p>
         </div>
       </div>

@@ -107,7 +107,20 @@ export default {
     return {
       msg: "Welcome to Your Vue.js App"
     };
-  }
+    },
+    mounted(){
+      this.$axios
+        .post('http://hlzy.api.milisx.xyz/api/content/getarticlesearchlist', {
+            "Title": "生产",
+            "PageIndex": 1,
+            "PageSize": 10
+        })
+        .then((res) => {
+          console.log(res)
+          //this.media = res.data.data.lst_categoryarticlelist;
+          //console.log(this.media)
+        })
+    }
 };
 </script>
 

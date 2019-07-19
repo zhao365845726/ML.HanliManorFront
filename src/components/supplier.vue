@@ -13,7 +13,7 @@
                   <dl class="guide-intro">
                       <dt>简介</dt>
                       <dd style="width:100%;">
-                        <p v-html="jianjie">{{jianjie}}</p>
+                        <p v-html="jianjie"></p>
                       </dd>
                   </dl>
               </div>
@@ -24,7 +24,7 @@
                 <dl class="guide-intro guide-intro2 col-1">
                     <dt>理念</dt>
                     <dd>
-                        <p v-html="jianjie_a">{{jianjie_a}}</p>
+                        <p v-html="jianjie_a"></p>
                     </dd>
                 </dl>
             </div>
@@ -32,11 +32,13 @@
       </ul>
       <ul class="container place">
           <li v-for="(item,index) in shuju_a">
-            <span class="icon-img"></span>
-            <div class="con">
-              <b>{{item.Title}}</b>
-              <p>{{item.Title}}</p>
-            </div>
+            <span class="icon-img"></span>       
+            <router-link :to="{path:'mediaDetail',query:{id:item.Id}}" class="news-item">
+              <div class="con">
+                <b>{{item.Title}}</b>
+                <!--<p>{{item.Title}}</p>-->
+              </div>
+            </router-link>
           </li>
         </ul>
     </div>

@@ -33,8 +33,9 @@
                   <div class="history-item__img img-box" style="height:160px;">
                     <img :src="item.CoverPhoto">
                   </div>
-                  <div class="history-item__desc" :style="overflow" v-show="activeIndex===index"> 
-                    <p v-html="nr" v-if="item.Title==='猕猴桃'" >{{nr}}</p>
+                  <!--<div class="history-item__desc" :style="overflow" >-->
+                  <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
+                    <p v-html="nr" v-if="item.Title==='猕猴桃'">{{nr}}</p>
                     <p v-html="nr_a" v-if="item.Title==='樱桃'">{{nr_a}}</p>
                     <p v-html="nr_c" v-if="item.Title==='香蕉'">{{nr_c}}</p>
                     <p v-html="nr_d" v-if="item.Title==='葡萄'">{{nr_d}}</p>
@@ -49,8 +50,7 @@
               </div>
             </swiper-slide>
         </swiper>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
+         
         </div>
       </div>
     </div>
@@ -71,10 +71,7 @@
             el: ".swiper-pagination",
             clickable: true
           },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev"
-          },
+          
           autoplayDisableOnInteraction: false
         },
         swipers_a: [],
@@ -85,21 +82,14 @@
         nr_c: [],
         nr_d: [],
         nr_e:[],
-        display: '',
-        overflow: '',
-        activeIndex:-1,
+        swiperIndex: '',
+        isShow: false,
       };
     },
     methods: {
       toggle(index) {
-        //if (this.overflow === 'overflow: hidden') {
-        //  //this.overflow = 'display:inline';
-         
-        //} else {
-        //  this.overflow = 'overflow: hidden';
-        //  //this.overflow = 'display:inline';
-        //}
-        this.activeIndex = index;
+        this.swiperIndex = index;
+        this.isShow = !this.isShow;
       }
     },
     components: {},
@@ -378,7 +368,11 @@
   line-height: 24px;
   color: gray;
 
-}.history-item__desc_a {
+}
+.history-item__desc.active{
+  height: auto;
+}
+.history-item__desc_a {
   margin-bottom: 0.5em;
   height: 48px;
   min-height: 48px;

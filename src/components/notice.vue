@@ -10,23 +10,23 @@
         <ul class="container notice-list1">
           <li>
             <img :src="sm_cp" class="bg">
-            <router-link to="/sreach" class="news-item">
+            <router-link :to="{path:'mediaDetail',query:{id:'67bc35b4-1097-4a58-acac-28d18f082ca4'}}" class="news-item">
               <div class="notice-list1-con">
                 <div class="icon"></div>
                 <span class="tag">MEDIA FOCUS <br>DMKNI</span>
                 <p class="title ellipsis">{{sm_title}}</p>
-                <p class="content ellipsis2" v-html="sm_body">{{sm_body}}</p>
+                <p class="content ellipsis2" v-html="sm_body"></p>
               </div>
             </router-link>
           </li>
           <li>
             <img :src=" yj_cp" class="bg">
-            <router-link to="/sreach" class="news-item">
+            <router-link  :to="{path:'mediaDetail',query:{id:'88f84c01-2c5e-456d-89ff-d9b9b7a151ce'}}" class="news-item">
               <div class="notice-list1-con">
                 <div class="icon"></div>
                 <span class="tag">MEDIA FOCUS <br>DMKNI</span>
                 <p class="title ellipsis">{{yj_title}}</p>
-                <p class="content ellipsis2" v-html="yj_body">{{yj_body}}</p>
+                <p class="content ellipsis2" v-html="yj_body"></p>
               </div>
             </router-link>
           </li>
@@ -41,15 +41,15 @@
         <ul class="container notice-news">
           <li v-for="(item,index) in media_a">
             <img :src="item.CoverPhoto" class="notice-left float_left">
-            <router-link :to="{path:'sreach',query:{id:item.Id}}" class="news-item">
+            <router-link :to="{path:'mediaDetail',query:{id:item.Id}}" class="news-item">
               <div class="notice-right float_left">
                 <p class="notice-title ellipsis"> {{item.Title}}</p>
                 <div style="height: 75px;overflow: hidden;padding-top:10px;margin-top:-15px;" class="div">
-                  <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织开展讲党课活动'" v-html="media_b">{{media_b}}</p>
-                  <p class="notice-con ellipsis3" v-if="item.Title==='高平市干部入企服务第15小组莅临公司调研指导工作'" v-html="media_c">{{media_c}}</p>
-                  <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支召开“改革创新、奋发有为”大讨论 动员部署会议'" v-html="media_d">{{media_d}}</p>
-                  <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织召开2018年度领导班子 专题民主生活会'" v-html="media_e">{{media_e}}</p>
-                  <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织集中观看《榜样3》'" v-html="media_f">{{media_f}}</p>
+                  <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织开展讲党课活动'" v-html="media_b"></p>
+                  <p class="notice-con ellipsis3" v-if="item.Title==='高平市干部入企服务第15小组莅临公司调研指导工作'" v-html="media_c"></p>
+                  <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支召开“改革创新、奋发有为”大讨论 动员部署会议'" v-html="media_d"></p>
+                  <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织召开2018年度领导班子 专题民主生活会'" v-html="media_e"></p>
+                  <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织集中观看《榜样3》'" v-html="media_f"></p>
                 </div>   
                 <p class="notice-time">{{item.CreateTime}}</p>
               </div>

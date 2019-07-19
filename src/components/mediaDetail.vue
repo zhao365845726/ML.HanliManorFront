@@ -5,23 +5,29 @@
       <div class="title">媒体聚焦</div>
       <div class="container content" >
         <div class="content-left">
-          <div class="time">03.05 <span>2019</span></div>
+          <div class="time">{{CreateTime}}</div>
           <!--<div class="content-title"></div>-->
-          <div class="content-title" v-for="(item,index) in list"><!--韩梨庄园里水电费空间-->{{item.Title}}</div>
+          <div class="content-title">{{title}}</div>
           <p class="share">
             <img src="../assets/img/sp1.png" alt="">
             <img src="../assets/img/sp2.png" alt="">
             <img src="../assets/img/sp3.png" alt="">
           </p>
-          <div class="goback">
-            <router-link :to="{path:'media',query:{name:'媒体聚焦',id:'37a17e18-c055-43e6-80be-147a81e78350'}}" class="link_a">返回列表</router-link>
+          <div class="goback" @click="gotogoods">
+            返回上一页
           </div>
         </div>
         <div class="content-right">
-          <img src="../assets/img/bg2.png" alt="">
-          <!--<p>{{list_a}}</p>-->
-          <img src="../assets/img/bg2.png" alt="">
-          <!--<p>{{list_a}}</p>-->
+          <p v-html="Body"></p>
+        </div>
+        <div class="pageInfo">
+          <router-link :to="{path:'mediaDetail',query:{id:id}}" style="text-decoration:none">
+            <div class="Prevpage" @click="prev()"><b class="bb">上一篇: {{Title_b}}</b><span></span></div>
+          </router-link>
+          <router-link :to="{path:'mediaDetail',query:{id:id_a}}" style="text-decoration:none">
+            <div class="Nextpage" @click="Next()"><b class="bb_a">下一篇: {{Title_a}}</b><span></span></div>
+          </router-link>
+          
         </div>
       </div>
     </div>
@@ -35,33 +41,90 @@ export default {
     return {
       msg: "Welcome to Your Vue.js App",
       list: [],
-      list_a:[]
+      list_a: [],
+      title: '',
+      Body: '',
+      CreateTime: '',
+      Title_a: '',
+      Title_b: '',
+      Body_a: '',
+      Body_a: '',
+      id: '',
+      id_a:''
        }
     },
+    methods: {
+      gotogoods() {
+        this.$router.go(-1);
+      },
+      prev() {
+        this.Body = this.Body_b;
+        this.title = this.Title_b
+      },
+      Next(index) {
+        this.Body = this.Body_a;
+         this.title=this.Title_a
+      }
+    },
     mounted() {
-      this.$axios
-      .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
-        "categoryid": "37a17e18-c055-43e6-80be-147a81e78350",
-        "PageIndex": 1,
-        "PageSize":20
-      })
-      .then((res) => {
-        this.list = res.data.data.lst_categoryarticlelist;
-        console.log(this.list)
+      var param = window.location.href.split('=')[1];
+      //console.log(param);
         this.$axios
           .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-            "ArticleId": this.list.Id
+            "ArticleId": param
           })
           .then((res_a) => {
-            this.list_a = res_a.data.data.Title;
-            console.log(this.list_a)
-          })    
-      })
+            console.log(res_a);
+            this.title = res_a.data.data.Title;
+            this.Body = res_a.data.data.Body;
+            this.CreateTime = res_a.data.data.CreateTime;
+            //console.log(this.list_a)
+            this.$axios
+              .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+                "ArticleId": res_a.data.obj.NextArticleId   //下一页
+              })
+              .then((res) => {
+                console.log(res)
+                this.Title_a = res.data.data.Title;
+                this.Body_a = res.data.data.Body;
+                 this.id_a= res.data.data.Id;
+                console.log(this.Body_a)
+              })
+            this.$axios
+              .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+                "ArticleId": res_a.data.obj.PreviousArticleId   //上一页
+              })
+              .then((res_b) => {
+                //console.log(res_b)
+                this.Title_b = res_b.data.data.Title;
+                this.Body_b = res_b.data.data.Body;
+                this.id = res_b.data.data.Id;
+                //console.log(this.Title_b)
+              })
+          })   
     }
 };
 </script>
 
 <style scoped>
+  .bb {
+    font-size:16px;
+    color:#595757;
+    float:right;
+  }
+   .bb_a {
+    font-size: 16px;
+    color: #595757;
+    float: right;
+    margin-right: -9.1%;
+    margin-top: 3%;
+  }
+    .bb:hover {
+      color:red;
+    }
+     .bb_a:hover {
+      color:red;
+    }
 .mediaDetail {
   margin-bottom: 270px;
 }

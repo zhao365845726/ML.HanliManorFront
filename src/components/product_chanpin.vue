@@ -1,17 +1,15 @@
 <template>
-  <div class="container brandStory margin">
+  <div class="container brandStory margin" style="margin-bottom:12%;">
     <img src="../assets/img/bg5.png" alt="" class="img">
-     <router-link  :to="{path:'product',query:{Id:res_a}}" class="news-item">
     <swiper :options="swiperOption" class="img1">
-    <swiper-slide><img src="../assets/img/icon2.png" /></swiper-slide>
-    <swiper-slide><img src="../assets/img/icon2.png" /></swiper-slide>
-    <swiper-slide><img src="../assets/img/icon2.png" /></swiper-slide>
-    <swiper-slide><img src="../assets/img/icon2.png" /></swiper-slide>
-    <swiper-slide><img src="../assets/img/icon2.png" /></swiper-slide>
-    <swiper-slide><img src="../assets/img/icon2.png" /></swiper-slide>
-    <div class="swiper-pagination" slot="pagination"></div>
+      <swiper-slide v-for="(item,index) in res_a">
+        <router-link :to="{path:'product',query:{Id:item.Id}}" class="news-item">
+          <img :src="item.CoverPhoto" />
+        </router-link>
+      </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
-     </router-link>
+    
   </div>
 </template>
 <script>
@@ -28,9 +26,9 @@
                         delay: 3000,
                         stopOnLastSlide: false,
                         disableOnInteraction: true
-                    },
+              },
             },
-            res_a:[]
+            res_a: [],
           };
          },
       mounted() {
@@ -41,8 +39,8 @@
                 "PageSize": 10
               })
         .then((res) => {
-          this.res_a = res.data.data.lst_categoryarticlelist[0].Id;
-          console.log(res.data.data.lst_categoryarticlelist[0].Id)
+          this.res_a = res.data.data.lst_categoryarticlelist;
+          console.log(this.res_a)
         })
     }
      };
@@ -63,13 +61,13 @@
       }
    .img1 {
      border:0px solid;
-     width:20%;
+     width:30%;
      height:auto;
-     margin-top:-32%;
+     margin-top:-25%;
    }
      .img1 img {
        width:100%;
-       height:auto;
+       height:300px;
      }
 @media (max-width: 1100px){
 .story-dream-title span {

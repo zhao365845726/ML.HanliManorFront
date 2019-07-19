@@ -5,10 +5,13 @@
       <div class="container other float_right">
         <a href="" class="taobao float_left"></a>
         <a href="" class="jingdong float_left"></a>
+        
         <div class="container sreach float_left">
-          <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园" type="text" v-model="sreach"/>
-          <button class="sreachBtn pointer float_left" @click="btn"></button>
-          <ul v-for="list in searchData" style="font-size: 14px; color: black;" >
+          <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园" type="text" v-model="sreach" />
+          <router-link :to="{path:'sreach',query:{name:'搜索'}}">
+            <button class="sreachBtn pointer float_left" @click="btn"></button>
+          </router-link>
+          <ul v-for="list in searchData" style="font-size: 14px; color: black;">
             <li style="text-align:center;">
               <span>{{list.name}}</span>
               <span>{{list.date}}</span>
