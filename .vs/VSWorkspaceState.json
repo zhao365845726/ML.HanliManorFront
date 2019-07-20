@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\src",
     "\\src\\components",
     "\\src\\router"
   ],
-  "SelectedNode": "\\dist.rar",
+  "SelectedNode": "\\src\\components\\rule.vue",
   "PreviewInSolutionExplorer": false
 }

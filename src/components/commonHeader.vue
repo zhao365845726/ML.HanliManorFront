@@ -8,16 +8,9 @@
         
         <div class="container sreach float_left">
           <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园" type="text" v-model="sreach" />
-          <router-link :to="{path:'sreach',query:{name:'搜索'}}">
+          <router-link :to="{path:'sreach',query:{name:this.searchData}}">
             <button class="sreachBtn pointer float_left" @click="btn"></button>
           </router-link>
-          <ul v-for="list in searchData" style="font-size: 14px; color: black;">
-            <li style="text-align:center;">
-              <span>{{list.name}}</span>
-              <span>{{list.date}}</span>
-              <span>{{list.depart}}</span>
-            </li>
-          </ul>
         </div>
         <div class="language float_right">EN / 中文</div>
       </div>
@@ -156,35 +149,16 @@
         sub_d: [],
         sub_e: [],
         sreach: '',
-        searchData: '',
-        products:[
-        //假数据
-        {name:"数据1",date:'2018-01-04',depart:'泸化工1'},
-        {name:"数据2",date:'2018-01-25',depart:'泸化工2'},
-        {name:"数据3",date:'2018-02-10',depart:'泸化工3'},
-        {name:"数据4",date:'2018-03-04',depart:'泸化工4'},
-        {name:"数据5",date:'2018-05-24',depart:'泸化工5'},
-        {name:"数据6",date:'2018-10-29',depart:'泸化工6'}
-    	]
+        searchData: null,
       }
     },
     methods: {
     fnClickNav(){
       this.isShow = !this.isShow;
       },
-      btn: function () {
-        var sreach = this.sreach;
-        if (sreach) {
-          this.searchData = this.products.filter(function (products) {
-            console.log(products)
-            return Object.keys(products).some(function (key) {
-              console.log(key)
-              return String(products[key]).toLowerCase().indexOf(sreach) > -1
-            })
-          })
-        } else {
-          alert('请输入你要搜索的关键字')
-        }    
+      btn() {
+        this.searchData = this.sreach;
+        //console.log(this.searchData)
         }
       },
     mounted(){

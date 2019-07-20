@@ -1,4 +1,4 @@
-<template>
+<template >
   <div class="container sreach margin">
    <img src="../assets/img/bg3.png" alt="" class="img"> 
    <div class="container main margin">
@@ -8,24 +8,20 @@
           </div>
           <div class="container category">
             <p class="title">企业公告</p>
-            <ul class="container notice-news">
-              <li>
-                <img src="../assets/img/bg3.png" alt="" class="notice-left float_left">
-                <div class="notice-right float_left">
-                  <p class="notice-title">韩梨庄园看镂空自己当了飞洒十来款风景</p>
-                  <p class="notice-con">2月25日下午，外交部蓝厅举行主题为“新时代的中国：山西新转型 共享新未来”的山西全球推介活动。国务委员兼外长王毅发表致辞，山西省委书记骆惠宁讲话，省长楼阳生进行推介。外交部党委书记齐玉、副部长乐玉成</p>
-                   <p class="notice-time">2019-02-27</p>
-                </div>
-              </li>
-              <li>
-                <img src="../assets/img/bg3.png" alt="" class="notice-left float_left">
-                <div class="notice-right float_left">
-                  <p class="notice-title">韩梨庄园看镂空自己当了飞洒十来款风景</p>
-                  <p class="notice-con">2月25日下午，外交部蓝厅举行主题为“新时代的中国：山西新转型 共享新未来”的山西全球推介活动。国务委员兼外长王毅发表致辞，山西省委书记骆惠宁讲话，省长楼阳生进行推介。外交部党委书记齐玉、副部长乐玉成</p>
-                   <p class="notice-time">2019-02-27</p>
-                </div>
-              </li>
-          </ul>
+            <ul class="container notice-news" v-for="(item,index) in list" :key="index">
+              <router-link :to="{path:'mediaDetail',query:{id:item.Id}}" >
+                <li>
+                  <img src="../assets/img/bg3.png" alt="" class="notice-left float_left">
+                  <div class="notice-right float_left">
+                    <p class="notice-title">{{item.Title}}</p>
+                    <div style="height:75px;overflow:hidden;">
+                      <p class="notice-con" v-for="(item_a,index) in list_a" v-html="item_a.body"></p>
+                    </div>
+                    <p class="notice-time">{{item.CreateTime}}</p>
+                  </div>
+                </li>
+                </router-link>
+            </ul>
           </div>
           <div class="container category">
             <p class="title">媒体聚焦</p>
@@ -105,21 +101,114 @@ export default {
   name: "sreach",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      msg: "Welcome to Your Vue.js App",
+      list: [],
+      list_a: [],
     };
     },
-    mounted(){
+    methods: {
+      shuju() {
+        var arr = [];
+        //console.log(arr)
+        var demo =
+        {
+          Name: this.shu,
+          body: this.body
+        }
+        arr.push(demo)
+
+        var demo_a = {
+          Name: this.shu_a,
+          body: this.body_a
+        }
+        arr.push(demo_a)
+
+        var demo_b = {
+          Name: this.shu_b,
+          body: this.body_b
+        }
+        arr.push(demo_b)
+
+        var demo_c = {
+          Name: this.shu_c,
+          body: this.body_c
+        }
+        arr.push(demo_c)
+
+         var demo_d = {
+          Name: this.shu_d,
+          body: this.body_d
+        }
+        arr.push(demo_d)
+        console.log(arr)
+        var a = [{name:'',nci:''}]
+        var b = a.concat({moi:''})
+
+        console.log(b)
+      }
+      
+    },
+    mounted() {
+     
+      var param = window.location.href.split('=')[1];
+      var str = decodeURI(param);
+      //console.log(str)  
       this.$axios
         .post('http://hlzy.api.milisx.xyz/api/content/getarticlesearchlist', {
-            "Title": "生产",
+            "Title": str,
             "PageIndex": 1,
-            "PageSize": 10
+            "PageSize": 5
         })
         .then((res) => {
-          console.log(res)
-          //this.media = res.data.data.lst_categoryarticlelist;
-          //console.log(this.media)
+         
+          this.list = res.data.data.lst_articlesearchlist;
+           console.log(this.list)
+          this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId": this.list[0].Id
+            })
+            .then((shu) => {
+              this.shu = shu.data.data.Title;
+              this.body = shu.data.data.Body
+              this.shuju();
+            })
+          this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId": this.list[1].Id
+            })
+            .then((shu_a) => {
+              this.shu_a = shu_a.data.data.Title;
+              this.body_a = shu_a.data.data.Body
+            })
+          this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId": this.list[2].Id
+            })
+            .then((shu_b) => {
+              this.shu_b = shu_b.data.data.Title;
+              this.body_b = shu_b.data.data.Body
+            })
+          this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId": this.list[3].Id
+            })
+            .then((shu_c) => {
+              this.shu_c = shu_c.data.data.Title;
+              this.body_c = shu_c.data.data.Body
+              this.shuju();
+            })
+          this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId": this.list[4].Id
+            })
+            .then((shu_d) => {
+              this.shu_d = shu_d.data.data.Title;
+              this.body_d = shu_d.data.data.Body
+              this.shuju();
+            })
+        
         })
+      
     }
 };
 </script>
