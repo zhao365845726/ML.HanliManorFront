@@ -36,21 +36,21 @@
       <div class="container list">
         <div class="intro-header">
           <h2>MEDIA FOCUS</h2>
-          <p>企业公告</p>                
+          <p>企业公告</p>
         </div>
         <ul class="container notice-news">
-          <li v-for="(item,index) in media_a">
+          <li v-for="(item,index) in page_a">
             <img :src="item.CoverPhoto" class="notice-left float_left">
             <router-link :to="{path:'mediaDetail',query:{id:item.Id}}" class="news-item">
               <div class="notice-right float_left">
                 <p class="notice-title ellipsis"> {{item.Title}}</p>
-                <div style="height: 75px;overflow: hidden;padding-top:10px;margin-top:-15px;" class="div">
+                <!--<div style="height: 75px;overflow: hidden;padding-top:10px;margin-top:-15px;" class="div">
                   <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织开展讲党课活动'" v-html="media_b"></p>
                   <p class="notice-con ellipsis3" v-if="item.Title==='高平市干部入企服务第15小组莅临公司调研指导工作'" v-html="media_c"></p>
                   <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支召开“改革创新、奋发有为”大讨论 动员部署会议'" v-html="media_d"></p>
                   <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织召开2018年度领导班子 专题民主生活会'" v-html="media_e"></p>
                   <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织集中观看《榜样3》'" v-html="media_f"></p>
-                </div>   
+                </div>-->
                 <p class="notice-time">{{item.CreateTime}}</p>
               </div>
             </router-link>
@@ -66,114 +66,87 @@
   import 'bootstrap/dist/css/bootstrap.min.css'
   export default {
     name: "notice",
+    name:'Pager',
     data() {
-    return {
-      media_a: [],
-      media_b: [],
-      media_c: [],
-      media_d: [],
-      media_e: [],
-      media_f: [],
-      sm_cp: [],
-      sm_title: [],
-      sm_body: [],
-      yj_cp: [],
-      yj_title: [],
-      yj_body: [],
-
-       page: 1,   //默认页数
-       perPage: 5,  //每页显示多少项
-       records:50, //数据总数
-       pageNo: 1,  //当前页码
-       options: {
-         chunk: 5,    //最多显示多少页
-         edgeNavigation: true,   //显示第一页和最后一页链接
-       },
-     };
-    },
-
-    methods: {
-      recallBack() {
-          
+      return {
+        page_a:[],
+        sm_cp: '',
+        sm_title: '',
+        sm_body: '',
+        yj_cp: '',
+        yj_title: '',
+        yj_body: '',
+        page: 1,   //默认页数
+        perPage: 0,  //每页显示多少项
+        records:0, //数据总数
+        pageNo: 1,  //当前页码
+        options: {
+          chunk: 5,    //最多显示多少页
+          edgeNavigation: true,   //显示第一页和最后一页链接
+        }
       }
-    },
+     },
+    methods: {
+      pagination() {
+         var param = window.location.href.split('=')[2];
+        //console.log(param)
+        this.$axios
+          .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+              "categoryid": "cd5c323e-5d09-41f6-82b7-9a98b2431370",
+              "PageIndex": 1,
+              "PageSize":100
+          })
+          .then((res) => {
+            //console.log(res)
+            this.Pagesize = res.data.data.articlecount;
+            this.records = this.Pagesize;
+            this.perPage = parseInt(this.records / 2);
+           
+            //console.log(this.perPage)
+            //console.log(this.records)
+            this.$axios
+              .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+                "categoryid": param,
+                "PageIndex": this.pageNo,
+                "PageSize":this.perPage
+              })
+              .then((page) => {    
+                console.log(page)
+                this.page_a = page.data.data.lst_categoryarticlelist;
+              })
+             this.$axios
+              .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+                "ArticleId": '67bc35b4-1097-4a58-acac-28d18f082ca4'
+              })
+              .then((res_sm) => {
+                this.sm = res_sm.data.data;
+                this.sm_cp = res_sm.data.data.CoverPhoto;
+                this.sm_title = res_sm.data.data.Title;
+                this.sm_body= res_sm.data.data.Body;
+                //console.log(this.sm);
+              })
+             this.$axios
+              .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+                "ArticleId": '88f84c01-2c5e-456d-89ff-d9b9b7a151ce'
+              })
+               .then((res_yj) => {
+                 this.yj = res_yj.data.data;
+                this.yj_cp = res_yj.data.data.CoverPhoto;
+                this.yj_title = res_yj.data.data.Title;
+                this.yj_body= res_yj.data.data.Body;
+                //console.log(this.yj);
+              })
+          })
+      },
+
+      recallBack(index) {
+        console.log(index)
+        this.pageNo = index;
+        console.log(this.pageNo)
+        }
+      },
     mounted() {
-      this.$axios
-        .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
-            "categoryid": "cd5c323e-5d09-41f6-82b7-9a98b2431370",
-            "PageIndex": 1,
-            "PageSize":20
-        })
-        .then((res) => {
-          this.media = res.data.data.lst_categoryarticlelist;
-          var media = this.media;
-          var media_a = media.slice(2, 7);
-          //var media_a = media;
-          this.media_a = media_a;
-          console.log(res.data.data.lst_categoryarticlelist)
-          this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-              "ArticleId": 'ec7e16b4-98e8-4b28-b77a-1ac1b4eaf387'
-            })
-            .then((res_b) => {
-              this.media_b = res_b.data.data.Body;
-              //console.log(this.media_b);
-            })
-          this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-              "ArticleId":'9a4b0c33-77a6-4a58-af2a-f06fc5556520'
-            })
-            .then((res_c) => {
-              this.media_c = res_c.data.data.Body;
-              //console.log(this.media_c);
-            })
-          this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-              "ArticleId": 'dbcbdb49-2ea6-4c80-83c8-90e320f0962a'
-            })
-            .then((res_d) => {
-              this.media_d = res_d.data.data.Body;
-              //console.log(this.media_d);
-            })
-          this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-              "ArticleId": 'f0aec07e-b54c-4ef4-a9d8-2635894930f6'
-            })
-            .then((res_e) => {
-              this.media_e = res_e.data.data.Body;
-              //console.log(this.media_e);
-            })
-           this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-              "ArticleId": '03b21876-a34b-421e-99e1-f402e4047200'
-            })
-            .then((res_f) => {
-              this.media_f = res_f.data.data.Body;
-              //console.log(this.media_f);
-            })
-           this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-              "ArticleId": '67bc35b4-1097-4a58-acac-28d18f082ca4'
-            })
-            .then((res_sm) => {
-              this.sm = res_sm.data.data;
-              this.sm_cp = res_sm.data.data.CoverPhoto;
-              this.sm_title = res_sm.data.data.Title;
-              this.sm_body= res_sm.data.data.Body;
-              console.log(this.sm);
-            })
-           this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-              "ArticleId": '88f84c01-2c5e-456d-89ff-d9b9b7a151ce'
-            })
-             .then((res_yj) => {
-               this.yj = res_yj.data.data;
-              this.yj_cp = res_yj.data.data.CoverPhoto;
-              this.yj_title = res_yj.data.data.Title;
-              this.yj_body= res_yj.data.data.Body;
-              console.log(this.yj);
-            })
-        })
+      this.pagination();
     }
 };
 </script>
@@ -182,6 +155,45 @@
 
 
 <style scoped>
+  /*分页*/
+  .pager>span,.pager>a,.pager>select,.pager>div{
+    float: left;
+    margin-left: 10px;
+}
+
+.pager{
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 10px;
+    height: 48px;
+    line-height: 48px;
+    margin-bottom: 40px;
+}
+
+.pager input,.pager select{
+    height:40px; 
+    line-height:40px;
+    outline:none; 
+    border:1px solid #888; 
+    padding:10px; 
+    box-sizing:border-box;
+}
+.pager input{
+    width: 50px;
+}
+.pager .goto{
+    margin-left: 20px;
+}
+.pager a{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+.pager a:hover{
+    color: green;
+}
+
+/*内容*/
   .page_a{
     margin-top:2%;
   }

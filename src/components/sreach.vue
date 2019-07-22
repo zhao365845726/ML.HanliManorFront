@@ -15,7 +15,7 @@
                   <div class="notice-right float_left">
                     <p class="notice-title">{{item.Title}}</p>
                     <div style="height:75px;overflow:hidden;">
-                      <p class="notice-con" v-for="(item_a,index) in list_a" v-html="item_a.body"></p>
+                      <p class="notice-con" v-html="item.body"></p>
                     </div>
                     <p class="notice-time">{{item.CreateTime}}</p>
                   </div>
@@ -23,7 +23,7 @@
                 </router-link>
             </ul>
           </div>
-          <div class="container category">
+          <!--<div class="container category">
             <p class="title">媒体聚焦</p>
             <ul class="container list-news">
               <li>
@@ -91,7 +91,7 @@
                  <video src=""></video>
               </li>
           </ul>
-          </div>
+          </div>-->
       </div>
   </div>
 </template>
@@ -107,52 +107,55 @@ export default {
     };
     },
     methods: {
-      shuju() {
-        var arr = [];
-        //console.log(arr)
-        var demo =
-        {
-          Name: this.shu,
-          body: this.body
-        }
-        arr.push(demo)
+      //shuju() {
+      //  var arr = [];
+      //  //console.log(arr)
+      //  var demo =
+      //  {
+      //    Name: this.shu,
+      //    body: this.body
+      //  }
+      //  arr.push(demo)
 
-        var demo_a = {
-          Name: this.shu_a,
-          body: this.body_a
-        }
-        arr.push(demo_a)
+      //  var demo_a = {
+      //    Name: this.shu_a,
+      //    body: this.body_a
+      //  }
+      //  arr.push(demo_a)
 
-        var demo_b = {
-          Name: this.shu_b,
-          body: this.body_b
-        }
-        arr.push(demo_b)
+      //  var demo_b = {
+      //    Name: this.shu_b,
+      //    body: this.body_b
+      //  }
+      //  arr.push(demo_b)
 
-        var demo_c = {
-          Name: this.shu_c,
-          body: this.body_c
-        }
-        arr.push(demo_c)
+      //  var demo_c = {
+      //    Name: this.shu_c,
+      //    body: this.body_c
+      //  }
+      //  arr.push(demo_c)
 
-         var demo_d = {
-          Name: this.shu_d,
-          body: this.body_d
-        }
-        arr.push(demo_d)
-        console.log(arr)
-        var a = [{name:'',nci:''}]
-        var b = a.concat({moi:''})
-
-        console.log(b)
-      }
-      
+      //   var demo_d = {
+      //    Name: this.shu_d,
+      //    body: this.body_d
+      //  }
+      //  arr.push(demo_d)
+      //  //this.list_a = arr;
+      //  /*console.log(arr)*///数组list_a
+      //  var shuxing = this.list;
+      //  shuxing[0].body = this.body;
+      //  shuxing[1].body = this.body_a;
+      //  shuxing[2].body = this.body_b;
+      //  shuxing[3].body = this.body_c;
+      //  shuxing[4].body = this.body_d;
+      //  shuxing = this.list
+      //  console.log(this.list)
+      //}
     },
     mounted() {
-     
       var param = window.location.href.split('=')[1];
       var str = decodeURI(param);
-      //console.log(str)  
+      console.log(str)  
       this.$axios
         .post('http://hlzy.api.milisx.xyz/api/content/getarticlesearchlist', {
             "Title": str,
@@ -160,55 +163,55 @@ export default {
             "PageSize": 5
         })
         .then((res) => {
-         
+          console.log(res)
           this.list = res.data.data.lst_articlesearchlist;
-           console.log(this.list)
-          this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-              "ArticleId": this.list[0].Id
-            })
-            .then((shu) => {
-              this.shu = shu.data.data.Title;
-              this.body = shu.data.data.Body
-              this.shuju();
-            })
-          this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-              "ArticleId": this.list[1].Id
-            })
-            .then((shu_a) => {
-              this.shu_a = shu_a.data.data.Title;
-              this.body_a = shu_a.data.data.Body
-            })
-          this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-              "ArticleId": this.list[2].Id
-            })
-            .then((shu_b) => {
-              this.shu_b = shu_b.data.data.Title;
-              this.body_b = shu_b.data.data.Body
-            })
-          this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-              "ArticleId": this.list[3].Id
-            })
-            .then((shu_c) => {
-              this.shu_c = shu_c.data.data.Title;
-              this.body_c = shu_c.data.data.Body
-              this.shuju();
-            })
-          this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-              "ArticleId": this.list[4].Id
-            })
-            .then((shu_d) => {
-              this.shu_d = shu_d.data.data.Title;
-              this.body_d = shu_d.data.data.Body
-              this.shuju();
-            })
-        
+           console.log(this.list)  //数组list
+          //this.$axios
+          //  .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+          //    "ArticleId": this.list[0].Id
+          //  })
+          //  .then((shu) => {
+          //    this.shu = shu.data.data.Title;
+          //    this.body = shu.data.data.Body
+          //    //this.shuju();
+          //  })
+          //this.$axios
+          //  .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+          //    "ArticleId": this.list[1].Id
+          //  })
+          //  .then((shu_a) => {
+          //    this.shu_a = shu_a.data.data.Title;
+          //    this.body_a = shu_a.data.data.Body
+          //    //this.shuju();
+          //  })
+          //this.$axios
+          //  .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+          //    "ArticleId": this.list[2].Id
+          //  })
+          //  .then((shu_b) => {
+          //    this.shu_b = shu_b.data.data.Title;
+          //    this.body_b = shu_b.data.data.Body
+          //    //this.shuju();
+          //  })
+          //this.$axios
+          //  .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+          //    "ArticleId": this.list[3].Id
+          //  })
+          //  .then((shu_c) => {
+          //    this.shu_c = shu_c.data.data.Title;
+          //    this.body_c = shu_c.data.data.Body
+          //    //this.shuju();
+          //  })
+          //this.$axios
+          //  .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+          //    "ArticleId": this.list[4].Id
+          //  })
+          //  .then((shu_d) => {
+          //    this.shu_d = shu_d.data.data.Title;
+          //    this.body_d = shu_d.data.data.Body
+          //    this.shuju();
+          //  })
         })
-      
     }
 };
 </script>
@@ -368,6 +371,8 @@ export default {
   font-size: 25px;
   color: #595757;
   line-height: 48px;
+  height:50px;
+  overflow:hidden;
 }
 .notice-con{
  font-size: 14px;

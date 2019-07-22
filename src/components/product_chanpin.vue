@@ -2,11 +2,11 @@
   <div class="container brandStory margin" style="margin-bottom:12%;">
     <img src="../assets/img/bg5.png" alt="" class="img">
     <swiper :options="swiperOption" class="img1">
-      <swiper-slide v-for="(item,index) in res_a">
+      <!--<swiper-slide v-for="(item,index) in res_a">
         <router-link :to="{path:'product',query:{Id:item.Id}}" class="news-item">
           <img :src="item.CoverPhoto" />
         </router-link>
-      </swiper-slide>
+      </swiper-slide>-->
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
     

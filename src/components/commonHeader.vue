@@ -8,9 +8,7 @@
         
         <div class="container sreach float_left">
           <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园" type="text" v-model="sreach" />
-          <router-link :to="{path:'sreach',query:{name:this.searchData}}">
-            <button class="sreachBtn pointer float_left" @click="btn"></button>
-          </router-link>
+          <button class="sreachBtn pointer float_left" @click="btn"></button>
         </div>
         <div class="language float_right">EN / 中文</div>
       </div>
@@ -149,7 +147,6 @@
         sub_d: [],
         sub_e: [],
         sreach: '',
-        searchData: null,
       }
     },
     methods: {
@@ -157,10 +154,16 @@
       this.isShow = !this.isShow;
       },
       btn() {
-        this.searchData = this.sreach;
-        //console.log(this.searchData)
+        var a = this.sreach;
+        console.log(this.sreach)
+        if (a.length>0) {
+          this.$router.push({ path: 'sreach', query: { name: this.sreach } })
+          this.$router.go(0)
+        } else {
+          alert('请重新输入');
         }
-      },
+      }
+    },
     mounted(){
       this.$axios
          .post('http://hlzy.api.milisx.xyz/api/content/homenavigation', {
@@ -224,8 +227,8 @@
                  //console.log(this.sub_e)               
                }) 
             //console.log(this.forklifts)
-         })     
-      }
+         })
+       }
   }
 </script>
 <style scoped>
