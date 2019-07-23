@@ -9,11 +9,11 @@
               <p>品牌介绍</p>
           </div>
           <div class="intro-body" >
-            <p v-html="this.company">{{this.company}}</p>
+            <p v-html="this.company" style="cursor:text">{{this.company}}</p>
           </div>
         </div>
         <div class="company-right">
-            <div class="company-photo img-box">
+            <div class="company-photo img-box" style="cursor:pointer">
                 <!-- 图片尺寸 692*484 -->
                 <img :src="this.company_src">
             </div>
@@ -31,18 +31,18 @@
                 <div class="history-item__wrap">
                   <h3 class="history-item__year">{{item.CreateTime}}</h3>
                   <div class="history-item__img img-box" style="height:160px;">
-                    <img :src="item.CoverPhoto">
+                    <img :src="item.CoverPhoto" style="cursor:pointer">
                   </div>
                   <!--<div class="history-item__desc" :style="overflow" >-->
                   <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
-                    <p v-html="nr" v-if="item.Title==='猕猴桃'">{{nr}}</p>
-                    <p v-html="nr_a" v-if="item.Title==='樱桃'">{{nr_a}}</p>
-                    <p v-html="nr_c" v-if="item.Title==='香蕉'">{{nr_c}}</p>
-                    <p v-html="nr_d" v-if="item.Title==='葡萄'">{{nr_d}}</p>
-                    <p v-html="nr_e" v-if="item.Title==='苹果'">{{nr_e}}</p>
+                    <p v-html="nr" v-if="item.Title==='猕猴桃'" class="cursor"></p>
+                    <p v-html="nr_a" v-if="item.Title==='樱桃'" class="cursor"></p>
+                    <p v-html="nr_c" v-if="item.Title==='香蕉'" class="cursor"></p>
+                    <p v-html="nr_d" v-if="item.Title==='葡萄'" class="cursor"></p>
+                    <p v-html="nr_e" v-if="item.Title==='苹果'" class="cursor"></p>
                   </div>
                   <div class="t-r">
-                    <span class="history-item__plus js-history-plus" @click="toggle(index)"></span>
+                    <span class="history-item__plus js-history-plus" @click="toggle(index)" style="cursor:pointer"></span>
                   </div>
                 </div>
                 <i class="history-item__circle"></i>
@@ -156,8 +156,11 @@
 
 <style scoped>
 .description {
-  margin-bottom: 270px;
+  margin-bottom: 10%;
 }
+  .cursor {
+    cursor:text;
+  }
 .img {
   width: 100%;
   height: auto;

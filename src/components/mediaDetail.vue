@@ -2,8 +2,8 @@
   <div class="container mediaDetail margin">
     <img src="../assets/img/bg2.png" alt="" class="img">
     <div class="container main margin">
-      <div class="title">媒体聚焦</div>
-      <div class="container content" >
+      <!--<div class="title">媒体聚焦</div>-->
+      <div class="container content">
         <div class="content-left">
           <div class="time">{{CreateTime}}</div>
           <!--<div class="content-title"></div>-->
@@ -20,15 +20,15 @@
         <div class="content-right">
           <p v-html="Body"></p>
         </div>
-        <div class="pageInfo">
-          <router-link :to="{path:'mediaDetail',query:{id:id}}" style="text-decoration:none">
-            <div class="Prevpage" @click="prev()"><b class="bb">上一篇: {{Title_b}}</b><span></span></div>
-          </router-link>
-          <router-link :to="{path:'mediaDetail',query:{id:id_a}}" style="text-decoration:none">
-            <div class="Nextpage" @click="Next()"><b class="bb_a">下一篇: {{Title_a}}</b><span></span></div>
-          </router-link>
-          
-        </div>
+      </div>
+      <div class="pageInfo">
+        <!--<router-link :to="{path:'mediaDetail',query:{id:this.id}}" style="text-decoration:none">-->
+          <div class="Prevpage" @click="prev()"><b class="bb">上一篇: {{Title_b}}</b><span></span></div>
+        <!--</router-link>-->
+        <!--<router-link :to="{path:'mediaDetail',query:{id:this.id_a}}" style="text-decoration:none">-->
+          <div class="Nextpage" @click="Next()"><b class="bb_a">下一篇: {{Title_a}}</b><span></span></div>
+        <!--</router-link>-->
+
       </div>
     </div>
   </div>
@@ -48,7 +48,7 @@ export default {
       Title_a: '',
       Title_b: '',
       Body_a: '',
-      Body_a: '',
+      Body_b: '',
       id: '',
       id_a:''
        }
@@ -57,17 +57,8 @@ export default {
       gotogoods() {
         this.$router.go(-1);
       },
-      prev() {
-        this.Body = this.Body_b;
-        this.title = this.Title_b
-      },
-      Next(index) {
-        this.Body = this.Body_a;
-         this.title=this.Title_a
-      }
-    },
-    mounted() {
-      var param = window.location.href.split('=')[1];
+      pageInfo() {
+        var param = window.location.href.split('=')[1];
       //console.log(param);
         this.$axios
           .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
@@ -88,20 +79,38 @@ export default {
                 this.Title_a = res.data.data.Title;
                 this.Body_a = res.data.data.Body;
                  this.id_a= res.data.data.Id;
-                console.log(this.Body_a)
+                //console.log(this.Body_a)
               })
             this.$axios
               .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
                 "ArticleId": res_a.data.obj.PreviousArticleId   //上一页
               })
               .then((res_b) => {
-                //console.log(res_b)
+                console.log(res_b)
                 this.Title_b = res_b.data.data.Title;
                 this.Body_b = res_b.data.data.Body;
                 this.id = res_b.data.data.Id;
                 //console.log(this.Title_b)
               })
           })   
+      },
+      //上一篇
+      prev() {
+        this.$router.push({
+            path:'mediaDetail',query:{id:this.id}
+        })
+        this.pageInfo()
+      },
+      //下一篇
+      Next() {
+         this.$router.push({
+            path:'mediaDetail',query:{id:this.id_a}
+        })
+        this.pageInfo()
+      }
+    },
+    mounted() {
+      this.pageInfo()
     }
 };
 </script>
@@ -110,14 +119,14 @@ export default {
   .bb {
     font-size:16px;
     color:#595757;
-    float:right;
+    float:left;
+    margin-left:30%;
   }
    .bb_a {
     font-size: 16px;
     color: #595757;
-    float: right;
-    margin-right: -9.1%;
-    margin-top: 3%;
+    float:left;
+    margin-left:8%;
   }
     .bb:hover {
       color:red;
@@ -208,6 +217,7 @@ export default {
   font-size: 14px;
   color: #9fa0a0;
   position: relative;
+  cursor: pointer;
 }
 .goback:after, .goback:before {
   display: block;

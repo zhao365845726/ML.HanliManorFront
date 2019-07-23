@@ -6,7 +6,7 @@
           <div class="story-intro story-intro-01">
               <div class="intro-header">
                   <h2>MEDIA FOCUS LLXVMDKDF</h2>
-                  <p>{{this.media_c}}</p>
+                  <p style="cursor:auto">{{this.media_c}}</p>
               </div>
               <div class="story-intro-01__txt">
                   <div>
@@ -60,13 +60,13 @@ export default {
   name: "brandStory",
   data() {
     return {
-      media: [],
-      media_c:[],
-      media_a: [],
-      media_b: [],
-      media_d: [],
-      media_e:[],
-      photo:[],
+      media: '',
+      media_c:'',
+      media_a: '',
+      media_b: '',
+      media_d: '',
+      media_e:'',
+      photo:'',
     };
     },
     mounted() {
@@ -103,6 +103,9 @@ export default {
 </script>
 
 <style scoped>
+  p {
+    cursor:text;
+  }
 .brandStory {
   margin-bottom: 156px;
 }
@@ -198,6 +201,7 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 /* 第二层 */
 .mt-150 {

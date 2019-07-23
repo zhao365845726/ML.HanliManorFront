@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
 .media {
-  margin-bottom: 200px;
+  margin-bottom: 10%;
 }
 .img {
   width: 100%;

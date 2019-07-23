@@ -1,8 +1,8 @@
 <template>
-  <div class="container footer margin">
-      <ul class="code">
+  <div class="container footer margin" >
+      <ul class="code" >
         <li>
-          <img src="../assets/img/code.png">
+          <img src="../assets/img/code.png" >
           <p>官方公众号</p>
         </li>
         <li>
@@ -11,7 +11,7 @@
         </li>
       </ul>
       <div class="description">@2019 山西韩梨果业有限公司   晋ICP备09021577号        晋公网安备 4201120201521号</div>
-      <div class="back" @click="backTop()">返回顶部</div>
+      <div class="back" @click="backTop()" style="cursor:pointer ">返回顶部</div>
     </div>
 </template>
 

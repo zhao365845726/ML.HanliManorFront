@@ -8,7 +8,7 @@
           <p>庄园理念</p>
         </div>
        <img src="../assets/img/img2.png" alt="" class="list-img">
-       <ul class="container list-btn">
+       <ul class="container list-btn" >
          <li></li>
          <li></li>
          <li></li>
@@ -87,6 +87,7 @@ export default {
   height: auto;
   overflow: hidden;
   margin-bottom: 84px;
+  cursor:-webkit-zoom-in;
 }
 .list-btn{
   display: flex;
@@ -98,6 +99,7 @@ export default {
   height: 280px;
   background: #12aa00;
   border-radius: 50%;
+  cursor:pointer;
 }
 @media (max-width: 1440px) {
   .list-btn li{

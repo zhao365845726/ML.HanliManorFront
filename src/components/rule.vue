@@ -120,6 +120,7 @@
     }
  span{
   float:right;
+  cursor:pointer
   }
   .span1 {
     float:none;
@@ -220,6 +221,7 @@
     margin: auto;
     margin-top: 5%;
     background-color: darkgray;
+    cursor: -webkit-zoom-in;
     }
   .hanli3 {
     border:0px solid;
@@ -240,6 +242,7 @@
     margin-left:7%;
     margin-top: 5%;
     background-color: darkgray;
+    cursor: -webkit-zoom-in;
     }
   .div4 {
      border: 0px solid;

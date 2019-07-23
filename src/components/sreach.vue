@@ -8,8 +8,8 @@
           </div>
           <div class="container category">
             <p class="title">企业公告</p>
-            <ul class="container notice-news" v-for="(item,index) in list" :key="index">
-              <router-link :to="{path:'mediaDetail',query:{id:item.Id}}" >
+            <ul class="container notice-news" v-for="(item,index) in page_a" >
+              <router-link :to="{path:'mediaDetail',query:{id:item.Id}}">
                 <li>
                   <img src="../assets/img/bg3.png" alt="" class="notice-left float_left">
                   <div class="notice-right float_left">
@@ -20,8 +20,9 @@
                     <p class="notice-time">{{item.CreateTime}}</p>
                   </div>
                 </li>
-                </router-link>
+              </router-link>
             </ul>
+            <pagination v-model="page" :records="records" :per-page="perPage" @paginate="recallBack" :options="options" class="page_a"></pagination>
           </div>
           <!--<div class="container category">
             <p class="title">媒体聚焦</p>
@@ -97,65 +98,35 @@
 </template>
 
 <script>
+  import 'bootstrap/dist/css/bootstrap.min.css'
 export default {
   name: "sreach",
+  name:'Pager',
   data() {
     return {
-      msg: "Welcome to Your Vue.js App",
-      list: [],
-      list_a: [],
+      //msg: "Welcome to Your Vue.js App",
+      page_a:[],
+        page: 1,   //默认页数
+        perPage: 1,  //每页显示多少项
+        records: 1, //数据总数
+        pageNo: 1,  //当前页码
+        options: {
+          chunk: 5,    //最多显示多少页
+          edgeNavigation: true,   //显示第一页和最后一页链接
+        }
     };
     },
     methods: {
-      //shuju() {
-      //  var arr = [];
-      //  //console.log(arr)
-      //  var demo =
-      //  {
-      //    Name: this.shu,
-      //    body: this.body
-      //  }
-      //  arr.push(demo)
-
-      //  var demo_a = {
-      //    Name: this.shu_a,
-      //    body: this.body_a
-      //  }
-      //  arr.push(demo_a)
-
-      //  var demo_b = {
-      //    Name: this.shu_b,
-      //    body: this.body_b
-      //  }
-      //  arr.push(demo_b)
-
-      //  var demo_c = {
-      //    Name: this.shu_c,
-      //    body: this.body_c
-      //  }
-      //  arr.push(demo_c)
-
-      //   var demo_d = {
-      //    Name: this.shu_d,
-      //    body: this.body_d
-      //  }
-      //  arr.push(demo_d)
-      //  //this.list_a = arr;
-      //  /*console.log(arr)*///数组list_a
-      //  var shuxing = this.list;
-      //  shuxing[0].body = this.body;
-      //  shuxing[1].body = this.body_a;
-      //  shuxing[2].body = this.body_b;
-      //  shuxing[3].body = this.body_c;
-      //  shuxing[4].body = this.body_d;
-      //  shuxing = this.list
-      //  console.log(this.list)
-      //}
-    },
-    mounted() {
+        recallBack(index) {
+        //console.log(index)
+        this.pageNo = index;
+        //console.log(this.pageNo)
+        this.pagination()
+        },
+      pagination() {
       var param = window.location.href.split('=')[1];
       var str = decodeURI(param);
-      console.log(str)  
+      //console.log(str)  
       this.$axios
         .post('http://hlzy.api.milisx.xyz/api/content/getarticlesearchlist', {
             "Title": str,
@@ -164,54 +135,26 @@ export default {
         })
         .then((res) => {
           console.log(res)
-          this.list = res.data.data.lst_articlesearchlist;
-           console.log(this.list)  //数组list
-          //this.$axios
-          //  .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-          //    "ArticleId": this.list[0].Id
-          //  })
-          //  .then((shu) => {
-          //    this.shu = shu.data.data.Title;
-          //    this.body = shu.data.data.Body
-          //    //this.shuju();
-          //  })
-          //this.$axios
-          //  .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-          //    "ArticleId": this.list[1].Id
-          //  })
-          //  .then((shu_a) => {
-          //    this.shu_a = shu_a.data.data.Title;
-          //    this.body_a = shu_a.data.data.Body
-          //    //this.shuju();
-          //  })
-          //this.$axios
-          //  .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-          //    "ArticleId": this.list[2].Id
-          //  })
-          //  .then((shu_b) => {
-          //    this.shu_b = shu_b.data.data.Title;
-          //    this.body_b = shu_b.data.data.Body
-          //    //this.shuju();
-          //  })
-          //this.$axios
-          //  .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-          //    "ArticleId": this.list[3].Id
-          //  })
-          //  .then((shu_c) => {
-          //    this.shu_c = shu_c.data.data.Title;
-          //    this.body_c = shu_c.data.data.Body
-          //    //this.shuju();
-          //  })
-          //this.$axios
-          //  .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-          //    "ArticleId": this.list[4].Id
-          //  })
-          //  .then((shu_d) => {
-          //    this.shu_d = shu_d.data.data.Title;
-          //    this.body_d = shu_d.data.data.Body
-          //    this.shuju();
-          //  })
+          this.Pagesize = res.data.data.articlecount;
+          this.records = this.Pagesize;
+          console.log( this.records)
+          this.perPage = parseInt(this.records/2);
+          console.log(this.perPage)
+          this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticlesearchlist', {
+                "Title": str,
+                "PageIndex": this.pageNo,
+                "PageSize":  this.perPage
+            })
+           .then((page) => {
+             console.log(page)
+              this.page_a = page.data.data.lst_articlesearchlist;
+              })
         })
+      }
+    },
+    mounted() {
+       this.pagination()
     }
 };
 </script>

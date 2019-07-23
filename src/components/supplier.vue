@@ -416,6 +416,7 @@ export default {
     min-height: 208px;
     background-color: #f7f7f7;
     color: gray;
+    cursor: -webkit-grab;
 }
 .guide-item__bg {
     position: absolute;

@@ -144,6 +144,7 @@ export default {
   margin-top: 97px;
   margin-bottom: 179px;
   position: relative;
+  cursor:pointer;
 }
 .icon .tag{
   font-size: 41px;
@@ -210,6 +211,7 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
+  cursor:pointer;
 }
 .story-intro-02__txt{
   position: absolute;
@@ -233,6 +235,7 @@ export default {
   font-size: 16px;
   line-height: 30px;
   color: #9fa0a0;
+  cursor:text;
 }
 .story-intro-02__txt .tag{
   border-top: 1px solid #ccc;
