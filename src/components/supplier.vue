@@ -50,13 +50,12 @@
                 <p>加盟政策</p>
             </div>
             <div class="member-rule-title member-rule-title1">合作条件</div>
-
             <ul class="list list-6 list-jc mt-80" >
                 <li>
                     <div class="jc-item" >
                         <span class="jc-item__ico icon-jc01"></span>
                         <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
-                        <p class="jc-item__desc" v-html="this.jianjie_c">{{this.jianjie_c}}</p>
+                        <p class="jc-item__desc" v-html="this.jianjie_c"></p>
                     </div>
                 </li>
                 <li>
@@ -141,168 +140,172 @@
     </div>
     
     <div class="join-form">
-        <div class="container main margin">
-            <div class="intro-header center">
-                <h2>MEDIA FOCUS SDFDFGCXTHGF</h2>
-                <p>优惠政策</p>
+      <div class="container main margin">
+        <div class="intro-header center">
+          <h2>MEDIA FOCUS SDFDFGCXTHGF</h2>
+          <p>优惠政策</p>
+        </div>
+        <input class="form-group-input" type="text" name="franchName" id="franchName" @input="franchName" />
+        <form id="infoForm" action="/a/daily/weixin/save" method="post">
+          <div class="form-main mt-50">
+            <div class="form-group">
+              <h3 class="form-sec-title">基础信息</h3>
             </div>
-            <form id="infoForm" action="/a/daily/weixin/save" method="post">
-            <div class="form-main mt-50">
-                <div class="form-group">
-                    <h3 class="form-sec-title">基础信息</h3>
-                </div>
-                <div class="mt-20">
-                    <div class="col col-20">
-                        <div class="form-group">
-                            <label class="form-group-label" for="franchName">姓名<span>*</span></label>
-                            <input class="form-group-input" type="text" name="franchName" id="franchName">
-                        </div>
-                    </div>
-                    <div class="col col-20">
-                        <div class="form-group">
-                            <label class="form-group-label" for="phone">联系方式<span>*</span></label>
-                            <input class="form-group-input" type="text" name="phone" id="phone">
-                        </div>
-                    </div>
-                    <div class="col col-20">
-                        <div class="form-group">
-                            <div class="form-radio-label" for="gender">性别<span>*</span></div>
 
-                            <input class="form-radio-input" type="radio" name="gender" id="gender" value="1" checked="">
-                            <label for="gender" class="label-for-radio">
-                                男
-                            </label>
-                            <input class="form-radio-input" type="radio" name="gender" id="gender2" value="2">
-                            <label for="gender2" class="label-for-radio">
-                                女
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col col-20 pc-show">
-                    <div class="form-group">
-                        <label class="form-group-label" for="birthday">出生年月<span>*</span></label>
-                        <input class="form-group-input" type="text" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false});" name="birthday" id="birthday">
-                    </div>
+            <div class="mt-20">
+              <div class="col col-20">
+                <div class="form-group">
+                  <label class="form-group-label" for="franchName">姓名<span>*</span></label>
+                  <!--<input class="form-group-input" type="text" name="franchName" id="franchName">-->
+                  <input class="form-group-input" type="text" name="franchName" id="franchName" @input="franchName" />
                 </div>
-                    
-                <div class="col col-20">
-                    <div class="form-group">
-                        <div class="form-select">
-                            <label class="form-group-label js-label-select" for="resourceType">信息来源<span>*</span></label>
-                            <select class="form-group-select" name="resourceType" id="resourceType">
-                                <option value="">请选择</option>
-                                <option value="1">网络查询</option>
-                                <option value="2">朋友推荐</option>
-                                <option value="3">400咨询</option>
-                                <option value="4">门店咨询</option>
-                                <option value="7">良品加盟商推荐</option>
-                                <option value="6">其他</option>
-                            </select>
-                        </div>
-                    </div>
+              </div>
+              <div class="col col-20">
+                <div class="form-group">
+                  <label class="form-group-label" for="phone">联系方式<span>*</span></label>
+                  <input class="form-group-input" type="text" name="phone" id="phone">
+                </div>
+              </div>
+              <div class="col col-20">
+                <div class="form-group">
+                  <div class="form-radio-label" for="gender">性别<span>*</span></div>
+
+                  <input class="form-radio-input" type="radio" name="gender" id="gender" value="1" checked="">
+                  <label for="gender" class="label-for-radio">
+                    男
+                  </label>
+                  <input class="form-radio-input" type="radio" name="gender" id="gender2" value="2">
+                  <label for="gender2" class="label-for-radio">
+                    女
+                  </label>
+                </div>
+              </div>
+              <div class="col col-20 pc-show">
+                <div class="form-group">
+                  <label class="form-group-label" for="birthday">出生年月<span>*</span></label>
+                  <input class="form-group-input" type="text" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false});" name="birthday" id="birthday">
                 </div>
               </div>
 
-                <div class="form-group mt-50">
-                    <h3 class="form-sec-title">个人资源</h3>
-                </div>
-                <div class="form-group form-group-resources mt-10">
-                    <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources1" value="2">
-                    <label for="resources1" class="label-for-radio">
-                        行业协会及商会
-                    </label>
-                    <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources2" value="8">
-                    <label for="resources2" class="label-for-radio">
-                        购物中心
-                    </label>
-                    <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources3" value="9">
-                    <label for="resources3" class="label-for-radio">
-                        社会资源
-                    </label>
-                    <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources4" value="1">
-                    <label for="resources4" class="label-for-radio">
-                        品牌连锁
-                    </label>
-                    <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources5" value="10">
-                    <label for="resources5" class="label-for-radio">
-                        交通枢纽
-                    </label>
-                    <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources6" value="7">
-                    <label for="resources6" class="label-for-radio">
-                        其它
-                    </label>
-                </div>
+              <div class="col col-20">
                 <div class="form-group">
-                    <label for="specificResource" class="label-for-textarea">具体资源项目：</label>
-                    <textarea class="form-textarea" name="specificResource" id="specificResource" rows="3"></textarea>
+                  <div class="form-select">
+                    <label class="form-group-label js-label-select" for="resourceType">信息来源<span>*</span></label>
+                    <select class="form-group-select" name="resourceType" id="resourceType">
+                      <option value="">请选择</option>
+                      <option value="1">网络查询</option>
+                      <option value="2">朋友推荐</option>
+                      <option value="3">400咨询</option>
+                      <option value="4">门店咨询</option>
+                      <option value="7">良品加盟商推荐</option>
+                      <option value="6">其他</option>
+                    </select>
+                  </div>
                 </div>
+              </div>
+            </div>
 
-                <div class="form-group mt-50">
-                    <h3 class="form-sec-title">加盟意愿</h3>
-                </div>
-                <div class="mt-20">
-                    <div class="col col-33">
-                        <div class="form-group">
-                            <div class="form-select">
-                                <label class="form-group-label js-label-select" for="intentionProv">意向发展区域<span>*</span></label>
-                                <select name="intentionProv" id="intentionProv">
-                                    <option value="">请选择</option>
-                                    <option value="420001">汉口</option>
-                                    <option value="420002">武昌</option>
-                                    <option value="420003">荆州</option>
-                                    <option value="320000">江苏</option>
-                                    <option value="360000">江西</option>
-                                    <option value="410000">河南</option>
-                                    <option value="430000">湖南</option>
-                                    <option value="440000">深圳</option>
-                                    <option value="500000">重庆</option>
-                                    <option value="510000">四川</option>
-                                    <option value="610000">陕西</option>
-                                    <option value="450000">广西</option>
-                                    <option value="440100">广东</option>
-                                    <option value="340000">安徽</option>
-                                    <option value="330000">浙江</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-33">
-                        <div class="form-group">
-                            <div class="form-select">
-                                <label class="form-group-label js-label-select" for="ifShop">是否有意向店铺<span>*</span></label>
-                                <select name="ifShop" id="ifShop">
-                                    <option value="">请选择</option>
-                                    <option value="1">是</option>
-                                    <option value="2">否</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-33">
-                        <div class="form-group">
-                            <label class="form-group-label" for="intentionAddress">意向店铺地址：</label>
-                            <input class="form-group-input" type="text" name="intentionAddress" id="intentionAddress">
-                        </div>
-                    </div>
-                </div>
+            <div class="form-group mt-50">
+              <h3 class="form-sec-title">个人资源</h3>
+            </div>
+            <div class="form-group form-group-resources mt-10">
+              <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources1" value="2">
+              <label for="resources1" class="label-for-radio">
+                行业协会及商会
+              </label>
+              <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources2" value="8">
+              <label for="resources2" class="label-for-radio">
+                购物中心
+              </label>
+              <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources3" value="9">
+              <label for="resources3" class="label-for-radio">
+                社会资源
+              </label>
+              <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources4" value="1">
+              <label for="resources4" class="label-for-radio">
+                品牌连锁
+              </label>
+              <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources5" value="10">
+              <label for="resources5" class="label-for-radio">
+                交通枢纽
+              </label>
+              <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources6" value="7">
+              <label for="resources6" class="label-for-radio">
+                其它
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="specificResource" class="label-for-textarea">具体资源项目：</label>
+              <textarea class="form-textarea" name="specificResource" id="specificResource" rows="3"></textarea>
+            </div>
 
+            <div class="form-group mt-50">
+              <h3 class="form-sec-title">加盟意愿</h3>
+            </div>
+            <div class="mt-20">
+              <div class="col col-33">
                 <div class="form-group">
-                    <div class="form-tip mt-20">
-                        备注：带<span>*</span>为必选项，具体表格的细节参见官方微信。成功提交后，公司会在7天内予以审核回复，感谢您的耐心等待!
-                    </div>
+                  <div class="form-select">
+                    <label class="form-group-label js-label-select" for="intentionProv">意向发展区域<span>*</span></label>
+                    <select name="intentionProv" id="intentionProv">
+                      <option value="">请选择</option>
+                      <option value="420001">汉口</option>
+                      <option value="420002">武昌</option>
+                      <option value="420003">荆州</option>
+                      <option value="320000">江苏</option>
+                      <option value="360000">江西</option>
+                      <option value="410000">河南</option>
+                      <option value="430000">湖南</option>
+                      <option value="440000">深圳</option>
+                      <option value="500000">重庆</option>
+                      <option value="510000">四川</option>
+                      <option value="610000">陕西</option>
+                      <option value="450000">广西</option>
+                      <option value="440100">广东</option>
+                      <option value="340000">安徽</option>
+                      <option value="330000">浙江</option>
+                    </select>
+                  </div>
                 </div>
+              </div>
+              <div class="col col-33">
+                <div class="form-group">
+                  <div class="form-select">
+                    <label class="form-group-label js-label-select" for="ifShop">是否有意向店铺<span>*</span></label>
+                    <select name="ifShop" id="ifShop">
+                      <option value="">请选择</option>
+                      <option value="1">是</option>
+                      <option value="2">否</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col col-33">
+                <div class="form-group">
+                  <label class="form-group-label" for="intentionAddress">意向店铺地址：</label>
+                  <input class="form-group-input" type="text" name="intentionAddress" id="intentionAddress">
+                </div>
+              </div>
+            </div>
 
-                <div class="t-c mt-60">
-                    <a href="javascript:void(0)" class="btn-apply" onclick="$('#infoForm').submit();">
-                        <div class="btn-apply__bg">
-                            <img src="/static/weixin/images/vip_bg.svg" alt="">
-                        </div>
-                        提交
-                    </a>
+            <div class="form-group">
+              <div class="form-tip mt-20">
+                备注：带<span>*</span>为必选项，具体表格的细节参见官方微信。成功提交后，公司会在7天内予以审核回复，感谢您的耐心等待!
+              </div>
+            </div>
+
+            <div class="t-c mt-60">
+              <a href="javascript:void(0)" class="btn-apply" onclick="$('#infoForm').submit();">
+                <div class="btn-apply__bg">
+                  <img src="/static/weixin/images/vip_bg.svg" alt="">
                 </div>
-                
-            </div></form>
-        </div>
+                提交
+              </a>
+            </div>
+
+          </div>
+        </form>
+      </div>
     </div>
 
   </div>
@@ -318,8 +321,9 @@ export default {
       jianjie_a: [],
       jianjie_b: [],
        jianjie_c: [],
-    }
+     }
     },
+
     mounted() {
       this.$axios
         .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {

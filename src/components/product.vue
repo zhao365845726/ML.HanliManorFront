@@ -2,14 +2,15 @@
 <template>
   <div class="container brandStory margin">
     <img src="../assets/img/bg5.png" alt="" class="img">
-    <swiper :options="swiperOption" class="img1">
-      <!--<swiper-slide v-for="(item,index) in res_c">
-        <router-link :to="{path:'product',query:{Id:item.Id}}" class="news-item">
-          <img :src="item.CoverPhoto" />
-        </router-link>
-      </swiper-slide>-->
-      <div class="swiper-pagination" slot="pagination"></div>
-    </swiper>
+    <div class="wrap" id="wrap" @mouseover="fnonmouseover" @mouseout="fnonmouseout">
+      <ul class="content">
+        <li v-for="(item, index) in imgArr" :key="item.Id">
+          <img :src="item.CoverPhoto" @click="rou(index)" :class="{active:index===ins}">
+        </li>
+      </ul>
+      <a href="javascript:;" class="prev" @click="fnLeft">&#60;</a>
+      <a href="javascript:;" class="next" @click="fnRight">&#62;</a>
+    </div>
 
     <div class="story right mt-80">
       <div class="story-inner margin">
@@ -27,7 +28,7 @@
         </div>
         <div class="story-img img-box wow fadeInRightSmall">
           <!-- Size 700*466 -->
-          <img :src="CoverPhoto"alt="">
+          <img :src="CoverPhoto" alt="" style="width:100%;height:100%;">
         </div>
       </div>
     </div>
@@ -38,52 +39,235 @@
     name: "brandStory",
     data() {
       return {
-        swiperOption: {
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-          },
-          autoplay: {
-            delay: 3000,
-            stopOnLastSlide: false,
-            disableOnInteraction: true
-          },
-        },
+         imgArr: [
+          //  {"path":"http://image.jmta.milisx.com/Fnsc-Kzg8JCwIDZw-k1i5Vclgw8L"},
+          //{"path":"http://image.jmta.milisx.com/Fnsc-Kzg8JCwIDZw-k1i5Vclgw8L"},
+          //{"path":"http://image.jmta.milisx.com/FgoJjCfXxbSzinznMyKLfnOJgDOK"},
+          //{"path":"http://image.jmta.milisx.com/FjbaEyhR1m4mCjna11wZiBlImCkw"},
+          //  { "path": "http://image.jmta.milisx.com/FiycmFyO3oL0yxgtu8X29llTPtbZ" },
+          //  { "path": "http://image.jmta.milisx.com/Fnsc-Kzg8JCwIDZw-k1i5Vclgw8L" },
+          //{"path":"http://image.jmta.milisx.com/FgoJjCfXxbSzinznMyKLfnOJgDOK"},
+        ],
+        size: [
+          { "top": 60, "left": 0, "width": 400, "height": 240, "zIndex": 1, "opacity": 0 },
+          { "top": 60, "left": 0, "width": 400, "height": 240, "zIndex": 2, "opacity": 40 },
+          { "top": 30, "left": 150, "width": 500, "height": 300, "zIndex": 3, "opacity": 70 },
+          { "top": 0, "left": 300, "width": 600, "height": 360, "zIndex": 4, "opacity": 100 },
+          { "top": 30, "left": 550, "width": 500, "height": 300, "zIndex": 3, "opacity": 70 },
+          { "top": 60, "left": 800, "width": 400, "height": 240, "zIndex": 2, "opacity": 40 },
+          { "top": 60, "left": 800, "width": 400, "height": 240, "zIndex": 1, "opacity": 0 }
+        ],
         title: '',
         Body: '',
         CoverPhoto:'',
-        res_c: []
+        res_c: [],
+        isShow: false,
+        speed:3000,
+        falg: true,
+        timerS: '',
+        ins: 0,
+        param:''
       };
     },
+    methods: {
+      rou(num) {
+        this.ins = num
+        this.$router.push({
+          path: 'product', query: { id: this.param }
+          })
+      },
+      ajax() {
+         var param = window.location.href.split('=')[1];
+          //console.log(param);
+          var str = decodeURI(param);
+          //console.log(str)
+          this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+              "categoryid": "a460675f-8a68-4bbb-b0cd-825f7578fe00",
+              "PageIndex": 1,
+              "PageSize": 10
+            })
+            .then((res_c) => {
+              this.res_c = res_c.data.data.lst_categoryarticlelist;
+              this.imgArr = this.res_c;
+              //console.log(this.res_c)
+            })
+          this.$axios
+            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              "ArticleId": param
+            })
+            .then((res) => {
+              this.title = res.data.data.Title;
+              this.Body = res.data.data.Body;
+              this.CoverPhoto = res.data.data.CoverPhoto;
+              this.param = param;
+              console.log(this.param)
+              console.log(res.data.data)
+            })
+      },
+      getStyle: function (obj, attr) {
+        //console.log(obj);
+        //console.log(attr);
+        return obj.currentStyle ? obj.currentStyle[attr] : window.getComputedStyle(obj, null)[attr];
+      },
+      animate: function (obj, json, fn) {
+        //console.log(json)
+        //console.log(obj)
+        clearInterval(obj.timer);
+        var that = this;
+        obj.timer = setInterval(function () {
+          var bool = true;
+          for (var k in json) {
+            var leader;
+            if (k == 'opacity') {
+              if (that.getStyle(obj, k) == undefined) {
+                leader = 100;
+              } else {
+                leader = parseInt(that.getStyle(obj, k) * 100);
+              }
+            } else {
+              leader = parseInt(that.getStyle(obj, k)) || 0;
+            }
+            var step = (json[k] - leader) / 10;
+
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            leader = leader + step;
+            if (k == 'zIndex') {
+              obj.style[k] = json[k];
+            } else if (k == 'opacity') {
+              obj.style[k] = leader / 100;
+              obj.style.filter = 'alpha(opacity=' + leader + ')';
+            } else {
+              obj.style[k] = leader + 'px';
+            }
+            if (json[k] != leader) {
+              bool = false;
+            }
+          }
+          if (bool) {
+            clearInterval(obj.timer);
+            if (fn) {
+              fn();
+            }
+          }
+        }, 10);
+      },
+      fnonmouseover() {
+        this.isShow = true;
+        clearInterval(this.timerS);
+      },
+      fnonmouseout() {
+        this.isShow = false;
+        var that = this;
+        this.timerS = setInterval(function () {
+          that.move(true);
+        }, this.speed);
+      },
+      fnSwiper() {
+        this.move();
+        var that = this;
+        this.timerS = setInterval(function () {
+          that.move(true);
+        }, this.speed)
+      },
+      fnLeft() {
+        if (this.falg) {
+          this.move(true);
+        }
+      },
+      fnRight() {
+        if (this.falg) {
+          this.move(false);
+        }
+      },
+      move: function (bool) {
+        if (bool != undefined) {
+          if (bool) {
+            this.size.unshift(this.size.pop());
+          } else {
+            this.size.push(this.size.shift());
+          }
+        }
+        var wrap = document.getElementById('wrap');
+        var liArr = wrap.getElementsByTagName('li');
+        //console.log(liArr.length)
+        var that = this;
+        for (var i = 0; i < liArr.length; i++) {
+          this.animate(liArr[i], this.size[i], function () {
+            that.falg = true;
+          });
+        }
+      }
+    },
     mounted() {
-      var param = window.location.href.split('=')[1];
-      console.log(param);
-      this.$axios
-        .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
-          "categoryid": "a460675f-8a68-4bbb-b0cd-825f7578fe00",
-          "PageIndex": 1,
-          "PageSize": 10
-        })
-        .then((res_c) => {
-          this.res_c = res_c.data.data.lst_categoryarticlelist;
-          //console.log(this.res_c)
-        })
-      this.$axios
-        .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-          "ArticleId": param
-        })
-        .then((res) => {
-            this.title = res.data.data.Title;
-          this.Body = res.data.data.Body;
-          this.CoverPhoto = res.data.data.CoverPhoto;
-          console.log(res.data.data)
-        })
-    }
+      this.fnSwiper();
+      this.ajax();
+    },
+     
   };
 </script>
 <style scoped>
+   ul {
+    list-style: none;
+  }
+
+  .wrap {
+    position: relative;
+    width: 1200px;
+    height: 360px;
+    margin: 100px auto;
+    margin-top: -30%;
+  }
+
+  .content {
+    position: absolute;
+    width: 1200px;
+    height: 360px;
+  }
+
+    .content li {
+      position: absolute;
+      background-size: 100% 100%;
+      cursor: pointer;
+      display: inline-grid;
+    }
+
+  .wrap a {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    width: 60px;
+    height: 60px;
+    margin-top: -30px;
+    font: 36px/60px "宋体";
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background: rgb(255, 100, 0);
+    background: rgba(255, 100, 0, .2);
+    transition: background 1s ease;
+  }
+
+    .wrap a:hover {
+      background: rgb(255, 100, 0);
+    }
+
+  .prev {
+    left: 30px;
+  }
+
+  .next {
+    right: 30px;
+  }
+
+  .content li img {
+    width: 100%;
+    height: 100%;
+  }
+
+
   .brandStory {
-    margin-bottom: 156px;
+    margin-bottom: 5%;
   }
 
   .img {
@@ -191,7 +375,7 @@
   .story-intro-03__txt {
     position: absolute;
     top: -120px;
-    right: 7%;
+    right: 20%;
     left: 7%;
     text-align: left;
   }

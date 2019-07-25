@@ -31,14 +31,14 @@
           </p>
         </div>
         <div class="div2">
-          <div></div>
-          <div></div>
+          <div><img src="../assets/img/赵晋云 组照《梨乡春早》 (8).jpg" style="width:100%;height:100%;"/></div>
+          <div><img src="../assets/img/骑行1.jpg" style="width:100%;height:100%;" /></div>
         </div>
       </div>
       <div class="hanli3">
         <div class="div3">
-          <div></div>
-          <div></div>
+          <div><img src="../assets/img/韩家庄风光.jpg" style="width:100%;height:100%;" /></div>
+          <div><img src="../assets/img/郭国伟 组照《梨花迎春》 (5).jpg" style="width:100%;height:100%;" /></div>
         </div>
         <div class="div4">
           <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>

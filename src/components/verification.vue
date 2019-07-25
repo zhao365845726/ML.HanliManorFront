@@ -51,23 +51,24 @@
           </div>
      </div>
 
-     <ul class="list-btn margin">
-      <li>
-        <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-            <img src="../assets/img/about_company.jpg" alt="">
-        </a>
-      </li>
-      <li>
-        <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-            <img src="../assets/img/about_company.jpg" alt="">
-        </a>
-      </li>
-      <li>
-        <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-            <img src="../assets/img/about_company.jpg" alt="">
-        </a>
-      </li>
-    </ul>
+        <ul class="list-btn margin">
+          <li>
+            <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
+              <img src="../assets/img/DSC_0902.jpg" alt="">
+            </a>
+          </li>
+          <li>
+            <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
+              <img src="../assets/img/采摘.jpg" alt="">
+            </a>
+          </li>
+          <li>
+            <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
+              <img src="../assets/img/DSC_0903.jpg" alt="">
+            </a>
+          </li>
+
+        </ul>
   </div>
   </div>
 </template>
@@ -217,7 +218,7 @@ export default {
   position: absolute;
   top: 0;
   right: 7%;
-  left: 7%;
+  left: 25%;
   text-align: left;
 }
 .story-intro-03__txt {
@@ -225,6 +226,7 @@ export default {
   top: 0;
   left:0;
   text-align: left;
+  right:33%;
 }
 .story-intro-02__txt .title{
   font-size: 33px;

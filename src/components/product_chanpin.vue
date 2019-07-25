@@ -3,7 +3,11 @@
     <img src="../assets/img/bg5.png" alt="" class="img">
     <div class="wrap" id="wrap" @mouseover="fnonmouseover" @mouseout="fnonmouseout">
       <ul class="content">
-        <li v-for="(item, index) in imgArr"><img :src="item.CoverPhoto" @click="rou"></li>
+        <!--<router-link :to="{path:'product',query:{id:item.Id}}" class="news-item">-->
+          <li v-for="(item, index) in imgArr" :key="index">
+            <img :src="item.CoverPhoto" @click="rou(index)">
+          </li>
+        <!--</router-link>-->
       </ul>
       <a href="javascript:;" class="prev" @click="fnLeft">&#60;</a>
       <a href="javascript:;" class="next" @click="fnRight">&#62;</a>
@@ -36,20 +40,69 @@
           { "top": 60, "left": 800, "width": 400, "height": 240, "zIndex": 1, "opacity": 0 }
         ],
         list_a: '',
+        list_b: '',
+        list_c: '',
+        list_d: '',
+        list_e: '',
+        list_f: '',
+        CoverPhoto_a:'',
         isShow: false,
-        speed: 2000,
+        speed:3000,
         falg: true,
         timerS: '',
-        param:''
       };
 
     },
     methods: {
-      rou() {
-        this.$router.push({
-          path: 'product', query: { id: this.param }
-        })
+      rou(index) {
+        console.log(index)
+        if (index === 0) {
+          this.$router.push({
+            path: 'product', query: { id: this.list_a }
+          })
+        } else if (index === 1) {
+          this.$router.push({
+            path: 'product', query: { id: this.list_b }
+          })
+        }else if (index === 2) {
+          this.$router.push({
+            path: 'product', query: { id: this.list_c }
+          })
+        }else if (index === 3) {
+          this.$router.push({
+            path: 'product', query: { id: this.list_d }
+          })
+        }else if (index === 4) {
+          this.$router.push({
+            path: 'product', query: { id: this.list_e }
+          })
+        }else if (index === 5) {
+          this.$router.push({
+            path: 'product', query: { id: this.list_f }
+          })
+        }
       },
+      ajax() {
+        this.$axios
+        .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+          "categoryid": 'a460675f-8a68-4bbb-b0cd-825f7578fe00',
+          "PageIndex": 1,
+          "PageSize": 10
+        })
+        .then((res) => {
+          console.log(res)
+          this.list = res.data.data.lst_categoryarticlelist;
+          this.list_a = res.data.data.lst_categoryarticlelist[0].Id;
+          this.list_b = res.data.data.lst_categoryarticlelist[1].Id;
+          this.list_c = res.data.data.lst_categoryarticlelist[2].Id;
+          this.list_d = res.data.data.lst_categoryarticlelist[3].Id;
+          this.list_e = res.data.data.lst_categoryarticlelist[4].Id;
+          this.list_f=res.data.data.lst_categoryarticlelist[5].Id;
+          this.imgArr = this.list;
+          console.log(this.imgArr);
+          console.log(this.list_a);
+          })
+        },
       getStyle: function (obj, attr) {
         //console.log(obj);
         //console.log(attr);
@@ -145,31 +198,8 @@
       }
     },
     mounted() {
-      //this.swiper()
       this.fnSwiper();
-      this.$axios
-        .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
-          "categoryid": 'a460675f-8a68-4bbb-b0cd-825f7578fe00',
-          "PageIndex": 1,
-          "PageSize": 10
-        })
-        .then((res) => {
-          console.log(res)
-          this.list = res.data.data.lst_categoryarticlelist;
-          this.list_a = res.data.data.lst_categoryarticlelist[1].Id;
-          this.imgArr = this.list;
-          console.log(this.imgArr);
-          console.log(this.list_a);
-    
-          //this.$axios
-          //  .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-          //    "ArticleId": 
-          //  })
-          //  .then((res) => {
-          //    this.param = param;
-          //  })
-
-        })
+      this.ajax();
     }
   }
 </script>
@@ -203,8 +233,8 @@
       position: absolute;
       background-size: 100% 100%;
       cursor: pointer;
+      display: inline-grid;
     }
-
   .wrap a {
     position: absolute;
     z-index: 2;
