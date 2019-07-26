@@ -111,7 +111,8 @@
         .then((res_a) => {
           this.swipers = res_a.data.data.lst_categoryarticlelist;
           var swipers = this.swipers;
-          var swipers_a = swipers.slice(1, 6);
+          //var swipers_a = swipers.slice(1, 6);
+          var swipers_a = swipers;
           this.swipers_a = swipers_a;
           //console.log(this.swipers_a);
           this.$axios

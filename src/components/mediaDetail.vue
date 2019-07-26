@@ -9,15 +9,16 @@
           <!--<div class="content-title"></div>-->
           <div class="content-title">{{title}}</div>
           <p class="share">
-            <img src="../assets/img/sp1.png" alt="">
+            <!--<img src="../assets/img/sp1.png" alt="">
             <img src="../assets/img/sp2.png" alt="">
-            <img src="../assets/img/sp3.png" alt="">
+            <img src="../assets/img/sp3.png" alt="">-->
           </p>
           <div class="goback" @click="gotogoods">
             返回上一页
           </div>
         </div>
-        <div class="content-right">
+        <div class="content-right" >
+          <div style="width:100%;height:300px;"> <img :src="CoverPhoto" /></div>
           <p v-html="Body"></p>
         </div>
       </div>
@@ -45,6 +46,7 @@ export default {
       title: '',
       Body: '',
       CreateTime: '',
+      CoverPhoto:'',
       Title_a: '',
       Title_b: '',
       Body_a: '',
@@ -69,7 +71,8 @@ export default {
             this.title = res_a.data.data.Title;
             this.Body = res_a.data.data.Body;
             this.CreateTime = res_a.data.data.CreateTime;
-            //console.log(this.list_a)
+            this.CoverPhoto = res_a.data.data.CoverPhoto;
+            //console.log(this.res_a)
             this.$axios
               .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
                 "ArticleId": res_a.data.obj.NextArticleId   //下一页
@@ -120,7 +123,7 @@ export default {
     font-size:16px;
     color:#595757;
     float:left;
-    margin-left:30%;
+    /*margin-left:30%;*/
   }
    .bb_a {
     font-size: 16px;
@@ -171,13 +174,15 @@ export default {
 }
 .content-right{
   float: left;
-  width: 60%;
+  width: 50%;
   height: auto;
   overflow: hidden;
+  margin-left:10%;
 }
 .content-right img{
   width: 100%;
   margin-bottom: 20px;
+  height:-webkit-fill-available;
 }
 .content-right p{
   font-size: 14px;

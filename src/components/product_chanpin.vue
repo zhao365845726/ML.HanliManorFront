@@ -3,11 +3,9 @@
     <img src="../assets/img/bg5.png" alt="" class="img">
     <div class="wrap" id="wrap" @mouseover="fnonmouseover" @mouseout="fnonmouseout">
       <ul class="content">
-        <!--<router-link :to="{path:'product',query:{id:item.Id}}" class="news-item">-->
           <li v-for="(item, index) in imgArr" :key="index">
             <img :src="item.CoverPhoto" @click="rou(index)">
           </li>
-        <!--</router-link>-->
       </ul>
       <a href="javascript:;" class="prev" @click="fnLeft">&#60;</a>
       <a href="javascript:;" class="next" @click="fnRight">&#62;</a>
@@ -21,15 +19,7 @@
     data() {
       return {
         list: [],
-        imgArr: [
-          //  {"path":"http://image.jmta.milisx.com/Fnsc-Kzg8JCwIDZw-k1i5Vclgw8L"},
-          //{"path":"http://image.jmta.milisx.com/Fnsc-Kzg8JCwIDZw-k1i5Vclgw8L"},
-          //{"path":"http://image.jmta.milisx.com/FgoJjCfXxbSzinznMyKLfnOJgDOK"},
-          //{"path":"http://image.jmta.milisx.com/FjbaEyhR1m4mCjna11wZiBlImCkw"},
-          //  { "path": "http://image.jmta.milisx.com/FiycmFyO3oL0yxgtu8X29llTPtbZ" },
-          //  { "path": "http://image.jmta.milisx.com/Fnsc-Kzg8JCwIDZw-k1i5Vclgw8L" },
-          //{"path":"http://image.jmta.milisx.com/FgoJjCfXxbSzinznMyKLfnOJgDOK"},
-        ],
+        imgArr: [],
         size: [
           { "top": 60, "left": 0, "width": 400, "height": 240, "zIndex": 1, "opacity": 0 },
           { "top": 60, "left": 0, "width": 400, "height": 240, "zIndex": 2, "opacity": 40 },
@@ -39,12 +29,6 @@
           { "top": 60, "left": 800, "width": 400, "height": 240, "zIndex": 2, "opacity": 40 },
           { "top": 60, "left": 800, "width": 400, "height": 240, "zIndex": 1, "opacity": 0 }
         ],
-        list_a: '',
-        list_b: '',
-        list_c: '',
-        list_d: '',
-        list_e: '',
-        list_f: '',
         CoverPhoto_a:'',
         isShow: false,
         speed:3000,
@@ -55,32 +39,10 @@
     },
     methods: {
       rou(index) {
-        console.log(index)
-        if (index === 0) {
-          this.$router.push({
-            path: 'product', query: { id: this.list_a }
-          })
-        } else if (index === 1) {
-          this.$router.push({
-            path: 'product', query: { id: this.list_b }
-          })
-        }else if (index === 2) {
-          this.$router.push({
-            path: 'product', query: { id: this.list_c }
-          })
-        }else if (index === 3) {
-          this.$router.push({
-            path: 'product', query: { id: this.list_d }
-          })
-        }else if (index === 4) {
-          this.$router.push({
-            path: 'product', query: { id: this.list_e }
-          })
-        }else if (index === 5) {
-          this.$router.push({
-            path: 'product', query: { id: this.list_f }
-          })
-        }
+        console.log(this.imgArr[index].Id)
+        this.$router.push({
+          path: 'product', query: {id:this.imgArr[index].Id}
+        })
       },
       ajax() {
         this.$axios
@@ -92,12 +54,6 @@
         .then((res) => {
           console.log(res)
           this.list = res.data.data.lst_categoryarticlelist;
-          this.list_a = res.data.data.lst_categoryarticlelist[0].Id;
-          this.list_b = res.data.data.lst_categoryarticlelist[1].Id;
-          this.list_c = res.data.data.lst_categoryarticlelist[2].Id;
-          this.list_d = res.data.data.lst_categoryarticlelist[3].Id;
-          this.list_e = res.data.data.lst_categoryarticlelist[4].Id;
-          this.list_f=res.data.data.lst_categoryarticlelist[5].Id;
           this.imgArr = this.list;
           console.log(this.imgArr);
           console.log(this.list_a);
@@ -204,13 +160,6 @@
   }
 </script>
 <style scoped>
-  /*.wrapper >  .swiper-pagination-bullet-active {
-      background: #fff;
-      }
-   .wrapper {
-    width: 50%;
-    margin: auto;
-   }*/
   ul {
     list-style: none;
   }
@@ -267,28 +216,19 @@
     width: 100%;
     height: 100%;
   }
-  /*[v-cloak] {
-        display: none;
-    }*/
-
-
-
   .brandStory {
     margin-bottom: 156px;
   }
-
   .img {
     width: 100%;
     height: auto;
     overflow: hidden;
     margin-bottom: 0px;
   }
-
   .main {
     max-width: 1400px;
     overflow: hidden;
   }
-
   .img1 {
     border: 0px solid;
     width: 100%;

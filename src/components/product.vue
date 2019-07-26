@@ -5,7 +5,7 @@
     <div class="wrap" id="wrap" @mouseover="fnonmouseover" @mouseout="fnonmouseout">
       <ul class="content">
         <li v-for="(item, index) in imgArr" :key="item.Id">
-          <img :src="item.CoverPhoto" @click="rou(index)" :class="{active:index===ins}">
+          <img :src="item.CoverPhoto" @click="rou(index)">
         </li>
       </ul>
       <a href="javascript:;" class="prev" @click="fnLeft">&#60;</a>
@@ -28,7 +28,7 @@
         </div>
         <div class="story-img img-box wow fadeInRightSmall">
           <!-- Size 700*466 -->
-          <img :src="CoverPhoto" alt="" style="width:100%;height:100%;">
+          <img :src="CoverPhoto" alt="" style="width:100%;height:100%;cursor:pointer">
         </div>
       </div>
     </div>
@@ -39,15 +39,7 @@
     name: "brandStory",
     data() {
       return {
-         imgArr: [
-          //  {"path":"http://image.jmta.milisx.com/Fnsc-Kzg8JCwIDZw-k1i5Vclgw8L"},
-          //{"path":"http://image.jmta.milisx.com/Fnsc-Kzg8JCwIDZw-k1i5Vclgw8L"},
-          //{"path":"http://image.jmta.milisx.com/FgoJjCfXxbSzinznMyKLfnOJgDOK"},
-          //{"path":"http://image.jmta.milisx.com/FjbaEyhR1m4mCjna11wZiBlImCkw"},
-          //  { "path": "http://image.jmta.milisx.com/FiycmFyO3oL0yxgtu8X29llTPtbZ" },
-          //  { "path": "http://image.jmta.milisx.com/Fnsc-Kzg8JCwIDZw-k1i5Vclgw8L" },
-          //{"path":"http://image.jmta.milisx.com/FgoJjCfXxbSzinznMyKLfnOJgDOK"},
-        ],
+         imgArr: [],
         size: [
           { "top": 60, "left": 0, "width": 400, "height": 240, "zIndex": 1, "opacity": 0 },
           { "top": 60, "left": 0, "width": 400, "height": 240, "zIndex": 2, "opacity": 40 },
@@ -66,15 +58,24 @@
         falg: true,
         timerS: '',
         ins: 0,
-        param:''
       };
     },
     methods: {
-      rou(num) {
-        this.ins = num
-        this.$router.push({
-          path: 'product', query: { id: this.param }
-          })
+      rou(index) {
+        //console.log(this.imgArr[index].Id);
+         this.$axios
+                .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+                  "ArticleId": this.imgArr[index].Id
+                })
+                .then((data) => {
+                  console.log(data)
+                  this.Body_a = data.data.data.Body;
+                  this.Body = this.Body_a;
+                  this.CoverPhoto_a = data.data.data.CoverPhoto;
+                  this.CoverPhoto = this.CoverPhoto_a;
+                  this.title_a = data.data.data.Title;
+                  this.title = this.title_a;
+                })
       },
       ajax() {
          var param = window.location.href.split('=')[1];
@@ -90,6 +91,7 @@
             .then((res_c) => {
               this.res_c = res_c.data.data.lst_categoryarticlelist;
               this.imgArr = this.res_c;
+              //console.log(this.list_a)
               //console.log(this.res_c)
             })
           this.$axios
@@ -100,8 +102,6 @@
               this.title = res.data.data.Title;
               this.Body = res.data.data.Body;
               this.CoverPhoto = res.data.data.CoverPhoto;
-              this.param = param;
-              console.log(this.param)
               console.log(res.data.data)
             })
       },
@@ -190,7 +190,7 @@
         }
         var wrap = document.getElementById('wrap');
         var liArr = wrap.getElementsByTagName('li');
-        //console.log(liArr.length)
+        console.log(liArr.length)
         var that = this;
         for (var i = 0; i < liArr.length; i++) {
           this.animate(liArr[i], this.size[i], function () {

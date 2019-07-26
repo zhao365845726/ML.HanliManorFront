@@ -3,9 +3,10 @@
     "",
     "\\src",
     "\\src\\assets",
+    "\\src\\assets\\img",
     "\\src\\components",
     "\\src\\router"
   ],
-  "SelectedNode": "\\src\\components\\commonHeader.vue",
+  "SelectedNode": "\\src\\components\\supplier.vue",
   "PreviewInSolutionExplorer": false
 }

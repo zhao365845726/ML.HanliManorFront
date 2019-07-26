@@ -9,10 +9,10 @@
         </div>
        <img src="../assets/img/img2.png" alt="" class="list-img">
        <ul class="container list-btn" >
-         <li></li>
-         <li></li>
-         <li></li>
-         <li></li>
+         <li><img src="../assets/img/照片 041.jpg" class="img_a"/></li>
+         <li><img src="../assets/img/照片 058.jpg" class="img_a" /></li>
+         <li><img src="../assets/img/照片 1759.jpg" class="img_a" /></li>
+         <li><img src="../assets/img/照片 988.jpg" class="img_a" /></li>
        </ul>
      </div>
       <div class="list">
@@ -22,10 +22,10 @@
         </div>
        <img src="../assets/img/img5.png" alt="" class="list-img">
        <ul class="container list-btn">
-         <li></li>
-         <li></li>
-         <li></li>
-         <li></li>
+         <li><img src="../assets/img/采摘.jpg" class="img_a" /></li>
+         <li><img src="../assets/img/照片 1083.jpg" class="img_a" /></li>
+         <li><img src="../assets/img/_MG_0702.jpg" class="img_a" /></li>
+         <li><img src="../assets/img/_MG_0850.jpg" class="img_a" /></li>
        </ul>
      </div>
    </div>
@@ -49,6 +49,14 @@ export default {
 .technology {
   margin-bottom: 100px;
 }
+  .img_a {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid #00873c;
+    top: 0;
+    left: 0;
+  }
 .img {
   width: 100%;
   height: auto;

@@ -34,17 +34,16 @@ export default {
   name: "media",
   data() {
     return {
-      list: [
-      ]
+      list: [],
+      
     }
   },
-  components: {
-
-  },
-  mounted() {
+    mounted() {
+      var param = window.location.href.split('=')[2];
+      console.log(param)
     this.$axios
       .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
-        "categoryid": "37a17e18-c055-43e6-80be-147a81e78350",
+        "categoryid": param,
         "PageIndex": 1,
         "PageSize":20
       })
