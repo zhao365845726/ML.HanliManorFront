@@ -9,13 +9,13 @@
               <p>品牌介绍</p>
           </div>
           <div class="intro-body" >
-            <p v-html="this.company" style="cursor:text">{{this.company}}</p>
+            <p v-html="this.company" style="cursor:text"></p>
           </div>
         </div>
         <div class="company-right">
             <div class="company-photo img-box" style="cursor:pointer">
                 <!-- 图片尺寸 692*484 -->
-                <img :src="this.company_src">
+                <img src="http://image.jmta.milisx.com/lg9SSeviQuETH4wYxVCT7dnqHhG0">
             </div>
         </div>
       </div>
@@ -75,13 +75,12 @@
           autoplayDisableOnInteraction: false
         },
         swipers_a: [],
-        company_src: [],
-        company: [],
-        nr: [],
-        nr_a: [],
-        nr_c: [],
-        nr_d: [],
-        nr_e:[],
+        company: '',
+        nr: '',
+        nr_a: '',
+        nr_c: '',
+        nr_d: '',
+        nr_e:'',
         swiperIndex: '',
         isShow: false,
       };
@@ -92,7 +91,6 @@
         this.isShow = !this.isShow;
       }
     },
-    components: {},
     mounted() {
       this.$axios
         .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
@@ -100,7 +98,6 @@
         })
         .then((res) => {
           this.company = res.data.data.Body;
-          this.company_src = res.data.data.CoverPhoto;
         })
       this.$axios
         .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {

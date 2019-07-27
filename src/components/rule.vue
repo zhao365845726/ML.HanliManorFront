@@ -31,14 +31,14 @@
           </p>
         </div>
         <div class="div2">
-          <div><img src="../assets/img/赵晋云 组照《梨乡春早》 (8).jpg" style="width:100%;height:100%;"/></div>
-          <div><img src="../assets/img/骑行1.jpg" style="width:100%;height:100%;" /></div>
+          <div><img src="http://image.jmta.milisx.com/llWw8_OizK7mlIy_tRWbS2-mTesF" style="width:100%;height:100%;"/></div>
+          <div><img src="http://image.jmta.milisx.com/ln6UFMZvhgXALowFrVurL5yl9TI8" style="width:100%;height:100%;" /></div>
         </div>
       </div>
       <div class="hanli3">
         <div class="div3">
-          <div><img src="../assets/img/韩家庄风光.jpg" style="width:100%;height:100%;" /></div>
-          <div><img src="../assets/img/郭国伟 组照《梨花迎春》 (5).jpg" style="width:100%;height:100%;" /></div>
+          <div><img src="http://image.jmta.milisx.com/lpxZp072QkHUpBEK37Cb9Aq7lScd" style="width:100%;height:100%;" /></div>
+          <div><img src="http://image.jmta.milisx.com/lrFRC-ghsJ5tP9L1FAntIIsDGVxe" style="width:100%;height:100%;" /></div>
         </div>
         <div class="div4">
           <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
@@ -86,6 +86,7 @@
           "PageSize": 20
         })
         .then((res) => {
+          //console.log(res)
           this.shuju = res.data.data.lst_categoryarticlelist
           console.log(this.shuju);
           var shuju = this.shuju;

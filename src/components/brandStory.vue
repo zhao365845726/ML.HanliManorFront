@@ -15,7 +15,7 @@
               </div>
           </div>
           <div class="story-img img-box">
-              <img :src="media_d">
+              <img src="http://image.jmta.milisx.com/lg9SSeviQuETH4wYxVCT7dnqHhG0">
           </div>
       </div>
     </div>
@@ -23,11 +23,11 @@
     <div class="story left mt-150">
       <div class="story-inner margin">
         <div class="story-img story-img-02 img-box">
-            <img :src="photo">
+            <img src="http://image.jmta.milisx.com/FktWRJzSQHttdA5M_btwodbAksap">
         </div>
         <div class="story-intro story-intro-02">
           <div class="story-intro__txt story-intro-02__txt">
-            <p v-html="this.media">{{this.media}}</p>
+            <p v-html="this.media"></p>
           </div>
         </div>
       </div>
@@ -42,12 +42,12 @@
                     <span>MEDIA FOCUS</span>
                 </div>
                 <div class="story-intro__txt">
-                  <p v-html="this.media_a">{{this.media_a}}</p>
+                  <p v-html="this.media_a"></p>
                 </div>
             </div>
         </div>
         <div class="story-img img-box">
-            <img :src="media_e">
+            <img src="http://image.jmta.milisx.com/luFSp1cqrp689Jegq9SX5lUBtUJ0">
         </div>
       </div>
     </div>
@@ -64,9 +64,6 @@ export default {
       media_c:'',
       media_a: '',
       media_b: '',
-      media_d: '',
-      media_e:'',
-      photo:'',
     };
     },
     mounted() {
@@ -77,8 +74,6 @@ export default {
            .then((res_a) => {
              this.media = res_a.data.data.Body;
              this.media_c = res_a.data.data.Title;
-             this.media_d = res_a.data.data.CoverPhoto;
-             console.log(this.media)
            })
           this.$axios
            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
@@ -87,17 +82,16 @@ export default {
            .then((res_b) => {
              this.media_a = res_b.data.data.Body;
              this.media_b = res_b.data.data.Title;
-             this.media_e = res_b.data.data.CoverPhoto;
-             console.log(this.media_a)
-             console.log(this.media_b)
+             //console.log(this.media_b)
            })
-          this.$axios
-           .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
-             "ArticleId": "3aaf2f3f-32e7-4968-b92d-54734c8385f8"
-           })
-            .then((res_c) => {
-              this.photo = res_c.data.data.CoverPhoto;
-           })
+          //this.$axios
+          // .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+          //   "ArticleId": "3aaf2f3f-32e7-4968-b92d-54734c8385f8"
+          // })
+          //  .then((res_c) => {
+          //    this.photo = res_c.data.data.CoverPhoto;
+          //    console.log(this.photo)
+          // })
     }
 };
 </script>

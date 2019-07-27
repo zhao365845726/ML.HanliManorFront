@@ -161,7 +161,7 @@ export default {
 
 <style scoped>
 .sreach {
-  margin-bottom: 114px;
+  margin-bottom: 1%;
 }
 .img {
   width: 100%;

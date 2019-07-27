@@ -54,7 +54,7 @@
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="../assets/img/照片 1083.jpg" class="img_a" />
+                <img src="http://image.jmta.milisx.com/lu1TbzpLUNbj-nO_Zs2dBR2y5-h5" class="img_a" />
               </span>
               <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
               <p class="jc-item__desc" v-html="this.jianjie_c"></p>
@@ -63,7 +63,7 @@
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="../assets/img/照片 988.jpg"  class="img_a"/>
+                <img src="http://image.jmta.milisx.com/lnw9tnICRJbBcw5Isrz_KwgR_f5L"  class="img_a"/>
               </span>
               <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
               <p class="jc-item__desc" v-html="this.jianjie_c"></p>
@@ -72,7 +72,7 @@
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="../assets/img/照片 058.jpg" class="img_a" />
+                <img src="http://image.jmta.milisx.com/Fq43h0jXcsZqB-GEJhEa6lPw128Z" class="img_a" />
               </span>
               <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
               <p class="jc-item__desc" v-html="this.jianjie_c"></p>
@@ -81,7 +81,7 @@
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="../assets/img/照片 041.jpg" class="img_a" />
+                <img src="http://image.jmta.milisx.com/lsWRClkUMwBKIahbYzWKNMmzF20k" class="img_a" />
               </span>
               <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
               <p class="jc-item__desc" v-html="this.jianjie_c"></p>
@@ -90,7 +90,7 @@
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="../assets/img/采摘.jpg" class="img_a" />
+                <img src="http://image.jmta.milisx.com/FufcvqZ5EzKW7abLem1Ys4Z5YuQE" class="img_a" />
               </span>
               <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
               <p class="jc-item__desc" v-html="this.jianjie_c"></p>
@@ -99,7 +99,7 @@
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="../assets/img/_MG_0702.jpg" class="img_a" />
+                <img src="http://image.jmta.milisx.com/FiPbTT6czFQg5lH0qu_YeQPktMpN" class="img_a" />
               </span>
               <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
               <p class="jc-item__desc" v-html="this.jianjie_c"></p>

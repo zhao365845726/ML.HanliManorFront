@@ -12,7 +12,7 @@
         <div class="story left mt-150">
           <div class="story-inner margin">
             <div class="story-img story-img-02 img-box">
-                <img :src="Positive_a">
+                <img src="http://image.jmta.milisx.com/Fvn0L8Nj2iostyznIB83YV_2OsPu">
             </div>
             <div class="story-intro story-intro-02">
                 <div class="story-intro__txt story-intro-02__txt">
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="story-img img-box">
-                <img :src="side_a">
+                <img src="http://image.jmta.milisx.com/FqyKUp8GaX_zaVJMcWXg_Ot5yS28">
             </div>
           </div>
      </div>
@@ -52,17 +52,17 @@
         <ul class="list-btn margin">
           <li>
             <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-              <img src="../assets/img/DSC_0902.jpg" alt="">
+              <img src="http://image.jmta.milisx.com/FkE58LzjQpLaTXHjcwpHOaAKNkVi" alt="">
             </a>
           </li>
           <li>
             <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-              <img src="../assets/img/采摘.jpg" alt="">
+              <img src="http://image.jmta.milisx.com/lsWRClkUMwBKIahbYzWKNMmzF20k" alt="">
             </a>
           </li>
           <li>
             <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-              <img src="../assets/img/DSC_0903.jpg" alt="">
+              <img src="http://image.jmta.milisx.com/FkHIWpzBzlc5E1qXTHk-otpbAFlZ" alt="">
             </a>
           </li>
 
@@ -76,24 +76,29 @@ export default {
   name: "verification",
   data() {
     return {
-      Positive: [],
-      Positive_a: [],
-      Positive_b:[],
-      side: [],
-      side_a: [],
-      side_b:[],
+      Positive: '',
+      Positive_b:'',
+      side: '',
+      side_b:'',
     }
     },
-  mounted() {
+    mounted() {
+      //this.$axios
+      //  .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+      //      "categoryid": "ac1e5571-d81f-4fc7-886c-c4ba6d7a871a",
+      //      "PageIndex": 1,
+      //      "PageSize": 10
+      //  })
+      //  .then((potop) => {
+      //    console.log(potop)
+      //  })
      this.$axios
       .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
            "ArticleId": "7331d073-2b32-463d-990b-750ece86048b"
       })
        .then((res) => {
          this.Positive = res.data.data.Body;
-         this.Positive_a = res.data.data.CoverPhoto;
          this.Positive_b = res.data.data.Title;
-        console.log( this.Positive_a)
        })
      this.$axios
       .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
@@ -101,9 +106,7 @@ export default {
       })
        .then((res_a) => {
          this.side = res_a.data.data.Body;
-         this.side_a = res_a.data.data.CoverPhoto;
          this.side_b = res_a.data.data.Title;
-        console.log( this.side)
       })
     }
 };

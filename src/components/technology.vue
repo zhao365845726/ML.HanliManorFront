@@ -9,10 +9,10 @@
         </div>
        <img src="../assets/img/img2.png" alt="" class="list-img">
        <ul class="container list-btn" >
-         <li><img src="../assets/img/照片 041.jpg" class="img_a"/></li>
-         <li><img src="../assets/img/照片 058.jpg" class="img_a" /></li>
-         <li><img src="../assets/img/照片 1759.jpg" class="img_a" /></li>
-         <li><img src="../assets/img/照片 988.jpg" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/Fl4-TfG0eZ8VR6cyvtiRdGYbrCSn" class="img_a"/></li>
+         <li><img src="http://image.jmta.milisx.com/FiPbTT6czFQg5lH0qu_YeQPktMpN" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/lu1TbzpLUNbj-nO_Zs2dBR2y5-h5" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/lsWRClkUMwBKIahbYzWKNMmzF20k" class="img_a" /></li>
        </ul>
      </div>
       <div class="list">
@@ -22,10 +22,10 @@
         </div>
        <img src="../assets/img/img5.png" alt="" class="list-img">
        <ul class="container list-btn">
-         <li><img src="../assets/img/采摘.jpg" class="img_a" /></li>
-         <li><img src="../assets/img/照片 1083.jpg" class="img_a" /></li>
-         <li><img src="../assets/img/_MG_0702.jpg" class="img_a" /></li>
-         <li><img src="../assets/img/_MG_0850.jpg" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/lnw9tnICRJbBcw5Isrz_KwgR_f5L" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/llA_7dSKM5eRZfdVgStX7s3y9yvf" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/Fq43h0jXcsZqB-GEJhEa6lPw128Z" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/FufcvqZ5EzKW7abLem1Ys4Z5YuQE" class="img_a" /></li>
        </ul>
      </div>
    </div>
@@ -38,7 +38,19 @@ export default {
   data() {
     return {
     }
+  },
+  mounted() {
+    //this.$axios
+    //  .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+    //      "categoryid": "b6b4e273-fe79-4a92-9232-05d48696b2af",
+    //      "PageIndex": 1,
+    //      "PageSize": 10
+    //  })
+    //  .then((res) => {
+    //    console.log(res)
+    //  })
   }
+  
 };
 </script>
 
