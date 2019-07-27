@@ -372,6 +372,7 @@ export default {
   }
   .icon .tag{
     font-size: 20px;
+    margin-top: -18%;
   }
   .intro-header h2, .intro-header p p{
     font-size: 20px;
@@ -385,5 +386,9 @@ export default {
   .mall-item {
     margin:0 20px;
   }
+  .intro-header[data-v-9f8abeaa] {
+    color: #00873c;
+    margin-bottom: 18%;
+}
 }
 </style>

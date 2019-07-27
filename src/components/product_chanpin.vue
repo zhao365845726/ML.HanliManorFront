@@ -144,7 +144,7 @@
         }
         var wrap = document.getElementById('wrap');
         var liArr = wrap.getElementsByTagName('li');
-        //console.log(liArr.length)
+        console.log(liArr.length)
         var that = this;
         for (var i = 0; i < liArr.length; i++) {
           this.animate(liArr[i], this.size[i], function () {

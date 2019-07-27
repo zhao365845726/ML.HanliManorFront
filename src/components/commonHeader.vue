@@ -151,7 +151,9 @@
     },
     methods: {
     fnClickNav(){
-      this.isShow = !this.isShow;
+        this.isShow = !this.isShow;
+        console.log(this.list)
+
       },
       btn() {
         var a = this.sreach;

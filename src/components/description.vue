@@ -30,7 +30,7 @@
               <div class="history-item">
                 <div class="history-item__wrap">
                   <h3 class="history-item__year">{{item.CreateTime}}</h3>
-                  <div class="history-item__img img-box" style="height:160px;">
+                  <div class="history-item__img img-box"id="img">
                     <img :src="item.CoverPhoto" style="cursor:pointer">
                   </div>
                   <!--<div class="history-item__desc" :style="overflow" >-->
@@ -158,6 +158,9 @@
 }
   .cursor {
     cursor:text;
+  }
+  #img {
+   height:160px;
   }
 .img {
   width: 100%;
@@ -443,7 +446,7 @@
   }
   .company-right {
     width: 100%;
-    max-width: 692px;
+    max-width: 820px;
   }
   .about-company::after {
     display: none;
@@ -474,4 +477,45 @@
     width: 100%;
   }
 }
+
+  @media (max-width: 414px) {
+    .history-item__year{
+        position: relative;
+        margin-bottom: 0.5em;
+        font: 500 14px/1 "AvenirLTStd";
+        color: #b2b2b2;
+    }
+    .history-item__desc{
+        margin-bottom: 0.5em;
+        height: 48px;
+        min-height: 48px;
+        overflow: hidden;
+        font-size: 10px;
+        line-height: 16px;
+        color: gray;
+    }
+      #img {
+       height:100px;
+      }
+  }
+   @media (max-width: 375px) {
+    .history-item__year{
+        position: relative;
+        margin-bottom: 0.5em;
+        font: 500 14px/1 "AvenirLTStd";
+        color: #b2b2b2;
+    }
+    .history-item__desc{
+        margin-bottom: 0.5em;
+        height: 48px;
+        min-height: 48px;
+        overflow: hidden;
+        font-size: 10px;
+        line-height: 16px;
+        color: gray;
+    }
+      #img {
+       height:78px;
+      }
+  }
 </style>
