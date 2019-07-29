@@ -68,7 +68,7 @@ export default {
     },
     mounted() {
          this.$axios
-           .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+           .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
              "ArticleId": "35797c8b-7fee-4163-bf44-9316e6bd17b3"
            })
            .then((res_a) => {
@@ -76,7 +76,7 @@ export default {
              this.media_c = res_a.data.data.Title;
            })
           this.$axios
-           .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+           .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
              "ArticleId": "55c55a75-d32b-4921-8dc2-77342bca53cb"
            })
            .then((res_b) => {
@@ -85,7 +85,7 @@ export default {
              //console.log(this.media_b)
            })
           //this.$axios
-          // .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+          // .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
           //   "ArticleId": "3aaf2f3f-32e7-4968-b92d-54734c8385f8"
           // })
           //  .then((res_c) => {
@@ -210,7 +210,7 @@ export default {
   position: absolute;
   top: 0;
   right: 7%;
-  left: 7%;
+  left: 21%;
   text-align: left;
 }
 /* 第三层 */
@@ -220,6 +220,7 @@ export default {
   top: 0;
   left:0;
   text-align: left;
+   margin-top: -11%;
 }
 .story-dream-title p {
   position: absolute;

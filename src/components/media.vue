@@ -42,7 +42,7 @@ export default {
       var param = window.location.href.split('=')[2];
       console.log(param)
     this.$axios
-      .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+      .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
         "categoryid": param,
         "PageIndex": 1,
         "PageSize":20
@@ -57,7 +57,7 @@ export default {
 
 <style scoped>
 .media {
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 .img {
   width: 100%;

@@ -63,7 +63,7 @@ export default {
         var param = window.location.href.split('=')[1];
       //console.log(param);
         this.$axios
-          .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+          .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
             "ArticleId": param
           })
           .then((res_a) => {
@@ -74,7 +74,7 @@ export default {
             this.CoverPhoto = res_a.data.data.CoverPhoto;
             //console.log(this.res_a)
             this.$axios
-              .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
                 "ArticleId": res_a.data.obj.NextArticleId   //下一页
               })
               .then((res) => {
@@ -85,7 +85,7 @@ export default {
                 //console.log(this.Body_a)
               })
             this.$axios
-              .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
                 "ArticleId": res_a.data.obj.PreviousArticleId   //上一页
               })
               .then((res_b) => {
@@ -124,12 +124,14 @@ export default {
     color:#595757;
     float:left;
     /*margin-left:30%;*/
+     cursor:pointer;
   }
    .bb_a {
     font-size: 16px;
     color: #595757;
-    float:left;
-    margin-left:8%;
+    float:right;
+    /*margin-left:8%;*/
+    cursor:pointer;
   }
     .bb:hover {
       color:red;
@@ -138,7 +140,7 @@ export default {
       color:red;
     }
 .mediaDetail {
-  margin-bottom: 270px;
+  margin-bottom: 5%;
 }
 .container{
   overflow: hidden;
@@ -165,6 +167,7 @@ export default {
 }
 .content{
   margin-top: 84px;
+  margin-bottom:3%;
 }
 .content-left{
   float: left;
@@ -183,6 +186,7 @@ export default {
   width: 100%;
   margin-bottom: 20px;
   height:-webkit-fill-available;
+  cursor:pointer;
 }
 .content-right p{
   font-size: 14px;

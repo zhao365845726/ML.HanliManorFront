@@ -80,7 +80,7 @@
     },
     mounted() {
       this.$axios
-        .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+        .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
           "categoryid": "a5a566c1-0bc3-4bcb-a43d-aaf9644c13cd",
           "PageIndex": 1,
           "PageSize": 20
@@ -162,7 +162,7 @@
   overflow: hidden;
   background: url(../assets/img/line.png) no-repeat;
   background-size: 85% 100%;
-  margin-bottom: 209px;
+  margin-bottom: 125px;
   border:0px solid;
 }
   .chuancheng {

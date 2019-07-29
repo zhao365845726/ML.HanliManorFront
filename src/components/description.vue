@@ -93,14 +93,14 @@
     },
     mounted() {
       this.$axios
-        .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+        .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
           "ArticleId": "69a894ea-0502-40f2-96e0-3cb9a6028628"
         })
         .then((res) => {
           this.company = res.data.data.Body;
         })
       this.$axios
-        .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+        .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
           "categoryid": "96aeb5cd-8712-4999-a029-e08479ef3b1b",
           "PageIndex": 1,
           "PageSize": 10
@@ -113,35 +113,35 @@
           this.swipers_a = swipers_a;
           //console.log(this.swipers_a);
           this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
               "ArticleId":'dad0404a-10bc-4601-b461-e812de31c2cb',
             })
             .then((res_nr) => {
               this.nr = res_nr.data.data.Body;
             })
           this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
               "ArticleId":'e633d80d-25ad-4ae8-aa2a-d90a57995d52',
             })
             .then((res_nr_a) => {
               this.nr_a = res_nr_a.data.data.Body;
             })
            this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
               "ArticleId":'cbdb409b-09d3-4b7b-901f-a07e43719d4c',
             })
             .then((res_nr_b) => {
               this.nr_c = res_nr_b.data.data.Body;
             })
           this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
               "ArticleId":'26b12019-0620-4f3b-9474-e54bd2730583',
             })
             .then((res_nr_c) => {
               this.nr_d = res_nr_c.data.data.Body;
             })
            this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
               "ArticleId":'aba0abc2-cba6-4281-ab57-6b381d645726',
             })
             .then((res_nr_d) => {
@@ -154,7 +154,7 @@
 
 <style scoped>
 .description {
-  margin-bottom: 10%;
+  margin-bottom: 6%;
 }
   .cursor {
     cursor:text;

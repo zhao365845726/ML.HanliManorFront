@@ -193,15 +193,18 @@
               </div>
               <div class="col col-20 pc-show">
                 <div class="form-group">
-                  <label class="form-group-label" for="birthday">出生年月<span>*</span></label>
-                  <input class="form-group-input" type="text" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false});" name="birthday" id="birthday">
+                  <!--<label class="form-group-label" for="birthday">出生年月<span>*</span></label>-->
+                  <!--<input class="form-group-input" type="text" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false});" name="birthday" id="birthday">-->
+                  <date @chang="changeTime" :date="startTime" :option="timeoption" :limit="limit" >
+
+                  </date>
                 </div>
               </div>
 
               <div class="col col-20">
                 <div class="form-group">
                   <div class="form-select">
-                    <label class="form-group-label js-label-select" for="resourceType">信息来源<span>*</span></label>
+                    <label class="form-group-label_a js-label-select" for="resourceType">信息来源<span>*</span></label>
                     <select class="form-group-select" name="resourceType" id="resourceType">
                       <option value="">---请选择---</option>
                       <option value="1">网络查询</option>
@@ -212,6 +215,7 @@
                       <option value="6">其他</option>
                     </select>
                   </div>
+              
                 </div>
               </div>
             </div>
@@ -219,29 +223,29 @@
             <div class="form-group mt-50">
               <h3 class="form-sec-title">个人资源<span style="color: #00873c;">*</span><span style="font-size:12px;">(请选择3项)</span></h3>
             </div>
-            <div class="form-group form-group-resources mt-10">
-              <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources1" value="1" @click="cktest(this)">
-              <label for="resources1" class="label-for-radio">
+            <div class="form-group form-group-resources mt-10" id="div">
+              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources1" value="1" @click="cktest(this)">
+              <label for="resources1" class="label-for-radio_a" >
                 行业协会及商会
               </label>
-              <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources2" value="2" @click="cktest(this)">
-              <label for="resources2" class="label-for-radio">
+              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources2" value="2" @click="cktest(this)">
+              <label for="resources2" class="label-for-radio_a" >
                 购物中心
               </label>
-              <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources3" value="3" @click="cktest(this)">
-              <label for="resources3" class="label-for-radio">
+              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources3" value="3" @click="cktest(this)">
+              <label for="resources3" class="label-for-radio_a" >
                 社会资源
               </label>
-              <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources4" value="4" @click="cktest(this)">
-              <label for="resources4" class="label-for-radio">
+              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources4" value="4" @click="cktest(this)">
+              <label for="resources4" class="label-for-radio_a" >
                 品牌连锁
               </label>
-              <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources5" value="5" @click="cktest(this)">
-              <label for="resources5" class="label-for-radio">
+              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources5" value="5" @click="cktest(this)">
+              <label for="resources5" class="label-for-radio_a">
                 交通枢纽
               </label>
-              <input class="form-radio-input" type="checkbox" name="personalResourceList" id="resources6" value="6" @click="cktest(this)">
-              <label for="resources6" class="label-for-radio">
+              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources6" value="6" @click="cktest(this)">
+              <label for="resources6" class="label-for-radio_a" >
                 其它
               </label>
             </div>
@@ -257,7 +261,7 @@
               <div class="col col-33">
                 <div class="form-group">
                   <div class="form-select">
-                    <label class="form-group-label js-label-select" for="intentionProv">意向发展区域<span>*</span></label>
+                    <label class="form-group-label_a js-label-select" for="intentionProv">意向发展区域<span>*</span></label>
                     <select name="intentionProv" id="intentionProv">
                       <option value="">---请选择---</option>
                       <option value="420001">汉口</option>
@@ -282,7 +286,7 @@
               <div class="col col-33">
                 <div class="form-group">
                   <div class="form-select">
-                    <label class="form-group-label js-label-select" for="ifShop">是否有意向店铺<span>*</span></label>
+                    <label class="form-group-label_a js-label-select" for="ifShop">是否有意向店铺<span>*</span></label>
                     <select name="ifShop" id="ifShop">
                       <option value="">---请选择---</option>
                       <option value="1">是</option>
@@ -332,6 +336,44 @@
         jianjie_a: [],
         jianjie_b: [],
         jianjie_c: [],
+        startTime: { time: '2008-08-08' },//默认初始时间
+        timeoption: {
+          type: 'day',//day , multi-day //针对日期的限制
+          week: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+          month: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+          format: 'YYYY-MM-DD',//日期
+          inputStyle: {//input样式
+            'display': 'inline-block',
+            'padding': '.1rem .05rem',
+            'line-height': '50px',
+            'width': '200px',
+            'font-size': '14px',
+            'border': '1px solid #eeeeee',
+            'border-radius':'2px',
+          },
+          color: {//字体颜色
+           header: '#35acff',//头部
+           headerText:'#fff'
+          },
+          buttons: {
+            ok: '确定',
+            cancel:'取消'
+          },
+          overlayOpacity: 0.5, // 遮罩透明度
+          placeholder: '请选时间', // 提示日期
+          dismissible: false // 默认true 待定
+        },
+        limit: [
+          {//对时间区间的设定
+            type: 'weekday',
+            available:[1,2,3,4,5,6,0]
+          },
+          {
+            type: 'fromto',
+            from: '2016-02-01',//最早的开始时间
+            to:'time1'//这个时间是我自己拼接出来的当前时间，也可以自己写入
+          }
+        ],
       }
     },
     methods: {
@@ -360,11 +402,16 @@
             }
           }
         }
-      }
+      },
+      changeTime() { }
+      //WdatePicker() {
+        
+        
+      //}
   },
 mounted() {
   this.$axios
-    .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+    .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
       "categoryid": "7a14ec45-a68d-4be0-a698-2a70e9122bf8",
       "PageIndex": 1,
       "PageSize": 10
@@ -376,7 +423,7 @@ mounted() {
       this.shuju_a = shuju_a;
       console.log(res.data.data.lst_categoryarticlelist);
       this.$axios
-        .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+        .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
           "ArticleId": "7d3c8d45-c566-4261-b32b-626ff41f5996"
         })
         .then((res_a) => {
@@ -384,7 +431,7 @@ mounted() {
           console.log(this.jianjie);
         })
       this.$axios
-        .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+        .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
           "ArticleId": "b4b43286-532c-4d2f-814f-78cfbe17c38e"
         })
         .then((res_b) => {
@@ -392,7 +439,7 @@ mounted() {
           console.log(this.jianjie_a);
         })
       this.$axios
-        .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+        .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
           "ArticleId": "5e4134e4-89ab-4bd4-bc92-547a9954c984"
         })
         .then((res_c) => {
@@ -409,6 +456,12 @@ mounted() {
     * {
       box-sizing: border-box;
     }
+  #resourceType  option{
+    width:100px;
+  }
+  #div {
+    margin-top:40px;
+  }
       .img_a {
     width: 100%;
     height: 100%;
@@ -421,7 +474,7 @@ mounted() {
     .supplier {
       margin-bottom:5%;
     }
-
+    
     .container {
       overflow: hidden;
     }
@@ -582,7 +635,7 @@ mounted() {
       border-radius: 50%;
       background-color: #00873c;
     }
-
+  
     .member-rule-title1::before {
       background-color: #fff;
     }
@@ -730,19 +783,35 @@ mounted() {
       margin-left: 12px;
     }
 
-    .form-group-label {
-      position: absolute;
-      z-index: 1;
-      top: 0;
-      right: 0;
-      left: 0;
-      padding-left: 10px;
-      height: 50px;
-      font-size: 16px;
-      line-height: 50px;
-      color: gray;
-      letter-spacing: .06em;
-    }
+   .form-group-label{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding-left: 10px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    color: gray;
+    letter-spacing: .06em;
+    cursor: text;
+}
+      .form-group-label_a{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding-left: 10px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    color: gray;
+    letter-spacing: .06em;
+    cursor: text;
+    background-color: white;
+}
 
       .form-group-label span {
         color: #00873c;
@@ -772,8 +841,11 @@ mounted() {
 
     .form-radio-input {
       display: none;
+    } 
+    .form-radio-input_a {
+      /*display: none;*/
+      margin-left:80px;
     }
-
       .form-radio-input:checked + label {
         color: #00873c;
       }
@@ -798,14 +870,16 @@ mounted() {
         z-index: 2;
         opacity: 1;
         display: block;
-        width: 100%;
+        width: 66%;
         height: 50px;
         border: 0;
         background-color: transparent;
         outline: 0;
         font-size: 16px;
-        padding-left: 38%;
+        /*padding-left: 38%;*/
         color: gray;
+        cursor:pointer;
+        float:right;
       }
     /*.form-select::after {
       content: "";
@@ -840,6 +914,17 @@ mounted() {
       letter-spacing: .06em;
       cursor: pointer;
     }
+  .label-for-radio_a {
+    position: relative;
+      display: inline-block;
+      font-size: 16px;
+      line-height: 50px;
+      color: gray;
+      letter-spacing: .06em;
+      cursor: pointer;
+      margin-left:0px;
+      
+  }
 
       .label-for-radio::before {
         margin-top: -8px;
@@ -850,7 +935,6 @@ mounted() {
         border-radius: 50%;
         background-color: #fff;
       }
-
     .label-for-textarea {
       font-size: 16px;
       line-height: 40px;
@@ -877,6 +961,7 @@ mounted() {
       display: inline-block;
       vertical-align: top;
       width: 33.3333%;
+      margin-top:20px;
     }
 
     .form-tip {
@@ -901,6 +986,7 @@ mounted() {
       line-height: 68px;
       text-align: center;
       color: #fff;
+      text-decoration:none;
     }
 
     .btn-apply__bg {

@@ -7,7 +7,7 @@
         <a href="" class="jingdong float_left"></a>
         
         <div class="container sreach float_left">
-          <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园" type="text" v-model="sreach" />
+          <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园" type="text" v-model="sreach"  @keyup.enter="searchEnterFun"/>
           <button class="sreachBtn pointer float_left" @click="btn"></button>
         </div>
         <div class="language float_right">EN / 中文</div>
@@ -164,35 +164,46 @@
         } else {
           alert('请重新输入');
         }
+      },
+      searchEnterFun:function(e){
+        var keyCode = window.event ? e.keyCode : e.which;
+        //console.log(keyCode)
+        //console.log(e)
+          if(keyCode == 13 && this.sreach){
+            this.$router.push({ path: 'sreach', query: { name: this.sreach } })
+            this.$router.go(0)
+          }
       }
     },
     mounted(){
       this.$axios
-         .post('http://hlzy.api.milisx.xyz/api/content/homenavigation', {
+         .post('http://hlzy.api.gpscxqyw.com/api/content/homenavigation', {
          })
-         .then((res) => {
-           this.forklifts = res.data.data;
+        .then((res) => {
+          console.log(res)
+          this.forklifts = res.data.data;
+          console.log(this.forklifts)
            //for (var i = 0; i < res.data.data.length; i++) {
-             this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
+             this.$axios.post('http://hlzy.api.gpscxqyw.com/api/content/getnavcategorylist', {
                "navid": this.forklifts[0].Id,
               "PageIndex": 1,
               "PageSize": 10
              })    
                .then((res_sub) => {
-                 this.sub = res_sub.data.data.lst_viewnavcategory;               
-                 //console.log(this.sub)               
+                 this.sub = res_sub.data.data.lst_viewnavcategory;
+                 console.log(this.sub)               
                }) 
            //}
-            this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
+            this.$axios.post('http://hlzy.api.gpscxqyw.com/api/content/getnavcategorylist', {
                "navid": this.forklifts[1].Id,
               "PageIndex": 1,
               "PageSize": 10
              })
                .then((res_sub) => {
                  this.sub_a = res_sub.data.data.lst_viewnavcategory;               
-                 //console.log(this.sub_a)               
+                 console.log(this.sub_a)               
                })
-            this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
+            this.$axios.post('http://hlzy.api.gpscxqyw.com/api/content/getnavcategorylist', {
                "navid": this.forklifts[2].Id,
               "PageIndex": 1,
               "PageSize": 10
@@ -201,7 +212,7 @@
                  this.sub_b = res_sub.data.data.lst_viewnavcategory;               
                  //console.log(this.sub_b)               
                })
-            this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
+            this.$axios.post('http://hlzy.api.gpscxqyw.com/api/content/getnavcategorylist', {
                "navid": this.forklifts[3].Id,
               "PageIndex": 1,
               "PageSize": 10
@@ -210,7 +221,7 @@
                  this.sub_c = res_sub.data.data.lst_viewnavcategory;               
                  //console.log(this.sub_c)               
                })
-            this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
+            this.$axios.post('http://hlzy.api.gpscxqyw.com/api/content/getnavcategorylist', {
                "navid": this.forklifts[4].Id,
               "PageIndex": 1,
               "PageSize": 10
@@ -219,7 +230,7 @@
                  this.sub_d = res_sub.data.data.lst_viewnavcategory;               
                  //console.log(this.sub_d)               
                })
-            this.$axios.post('http://hlzy.api.milisx.xyz/api/content/getnavcategorylist', {
+            this.$axios.post('http://hlzy.api.gpscxqyw.com/api/content/getnavcategorylist', {
                "navid": this.forklifts[5].Id,
               "PageIndex": 1,
               "PageSize": 10
@@ -313,6 +324,7 @@
   line-height: 69px;
   color: #fff;
   margin: 0 35px;
+  text-decoration:none;
 }
 .subMenu {
   position: absolute;
@@ -347,6 +359,7 @@
   font-size: 14px;
   line-height: 44px;
   color: gray;
+  text-decoration:none;
 }
 .subMenu-link:last-child {
   border-bottom: 0;

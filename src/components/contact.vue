@@ -44,7 +44,7 @@
          <div class="list code">
            <span class="list-title">验证码</span>
            <input type="text">
-           <div class="code-con">b0a5</div>
+           <div class="code-con"><!--b0a5--></div>
          </div>
        </div>
        <div class="submit-box">
@@ -74,7 +74,7 @@ export default {
   width: auto;
   height: auto;
   overflow: hidden;
-  margin-bottom:200px;
+  margin-bottom:5%;
 }
 h2{
   font-size: 36px;
@@ -210,6 +210,7 @@ h2{
   line-height: 38px;
 	background-color: #00873c;
   border-radius: 10px;
+  cursor:pointer;
 }
 @media (max-width: 1250px) {
   .main{

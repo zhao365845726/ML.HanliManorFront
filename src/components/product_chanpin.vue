@@ -46,7 +46,7 @@
       },
       ajax() {
         this.$axios
-        .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+        .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
           "categoryid": 'a460675f-8a68-4bbb-b0cd-825f7578fe00',
           "PageIndex": 1,
           "PageSize": 10

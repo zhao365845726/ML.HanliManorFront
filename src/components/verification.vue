@@ -93,7 +93,7 @@ export default {
       //    console.log(potop)
       //  })
      this.$axios
-      .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+      .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
            "ArticleId": "7331d073-2b32-463d-990b-750ece86048b"
       })
        .then((res) => {
@@ -101,7 +101,7 @@ export default {
          this.Positive_b = res.data.data.Title;
        })
      this.$axios
-      .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+      .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
             "ArticleId": "9a340d98-00f6-4f9c-ad8a-2297fb1d049a"
       })
        .then((res_a) => {

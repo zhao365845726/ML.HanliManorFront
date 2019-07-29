@@ -64,7 +64,7 @@
       rou(index) {
         //console.log(this.imgArr[index].Id);
          this.$axios
-                .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+                .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
                   "ArticleId": this.imgArr[index].Id
                 })
                 .then((data) => {
@@ -83,7 +83,7 @@
           var str = decodeURI(param);
           //console.log(str)
           this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
+            .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
               "categoryid": "a460675f-8a68-4bbb-b0cd-825f7578fe00",
               "PageIndex": 1,
               "PageSize": 10
@@ -95,7 +95,7 @@
               //console.log(this.res_c)
             })
           this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticledetail', {
+            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
               "ArticleId": param
             })
             .then((res) => {
@@ -374,7 +374,7 @@
 
   .story-intro-03__txt {
     position: absolute;
-    top: -120px;
+    top: -80px;
     right: 20%;
     left: 7%;
     text-align: left;

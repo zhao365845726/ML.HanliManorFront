@@ -3,10 +3,9 @@
     "",
     "\\src",
     "\\src\\assets",
-    "\\src\\assets\\img",
     "\\src\\components",
     "\\src\\router"
   ],
-  "SelectedNode": "\\src\\assets\\img\\_MG_0702.JPG",
+  "SelectedNode": "\\src\\components\\product_chanpin.vue",
   "PreviewInSolutionExplorer": false
 }

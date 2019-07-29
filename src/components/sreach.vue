@@ -128,7 +128,7 @@ export default {
       var str = decodeURI(param);
       //console.log(str)  
       this.$axios
-        .post('http://hlzy.api.milisx.xyz/api/content/getarticlesearchlist', {
+        .post('http://hlzy.api.gpscxqyw.com/api/content/getarticlesearchlist', {
             "Title": str,
             "PageIndex": 1,
             "PageSize": 5
@@ -138,10 +138,10 @@ export default {
           this.Pagesize = res.data.data.articlecount;
           this.records = this.Pagesize;
           console.log( this.records)
-          this.perPage = parseInt(this.records/2);
+          this.perPage = parseInt(5);
           console.log(this.perPage)
           this.$axios
-            .post('http://hlzy.api.milisx.xyz/api/content/getarticlesearchlist', {
+            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticlesearchlist', {
                 "Title": str,
                 "PageIndex": this.pageNo,
                 "PageSize":  this.perPage
