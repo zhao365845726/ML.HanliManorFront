@@ -195,12 +195,12 @@
                 <div class="form-group">
                   <!--<label class="form-group-label" for="birthday">出生年月<span>*</span></label>-->
                   <!--<input class="form-group-input" type="text" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false});" name="birthday" id="birthday">-->
-                  <date @chang="changeTime" :date="startTime" :option="timeoption" :limit="limit" >
-
+                  <label for="birthday" class="form-group-label_b">出生年月<span>*</span></label>
+                  <date @chang="changeTime" :date="startTime" :option="timeoption" :limit="limit"  for="birthday">
+                                        
                   </date>
                 </div>
               </div>
-
               <div class="col col-20">
                 <div class="form-group">
                   <div class="form-select">
@@ -219,7 +219,6 @@
                 </div>
               </div>
             </div>
-
             <div class="form-group mt-50">
               <h3 class="form-sec-title">个人资源<span style="color: #00873c;">*</span><span style="font-size:12px;">(请选择3项)</span></h3>
             </div>
@@ -253,7 +252,6 @@
               <label for="specificResource" class="label-for-textarea">具体资源项目：</label>
               <textarea class="form-textarea" name="specificResource" id="specificResource" rows="3"></textarea>
             </div>
-
             <div class="form-group mt-50">
               <h3 class="form-sec-title">加盟意愿</h3>
             </div>
@@ -302,13 +300,11 @@
                 </div>
               </div>
             </div>
-
             <div class="form-group">
               <div class="form-tip mt-20">
                 备注：带<span>*</span>为必选项，具体表格的细节参见官方微信。成功提交后，公司会在7天内予以审核回复，感谢您的耐心等待!
               </div>
             </div>
-
             <div class="t-c mt-60">
               <a href="javascript:void(0)" class="btn-apply" onclick="$('#infoForm').submit();">
                 <div class="btn-apply__bg">
@@ -317,12 +313,10 @@
                 提交
               </a>
             </div>
-
           </div>
         </form>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -336,7 +330,8 @@
         jianjie_a: [],
         jianjie_b: [],
         jianjie_c: [],
-        startTime: { time: '2008-08-08' },//默认初始时间
+        startTime: { time: '2012-08-08' },//默认初始时间
+        endTime: { time: ''},//结束时间
         timeoption: {
           type: 'day',//day , multi-day //针对日期的限制
           week: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
@@ -346,10 +341,11 @@
             'display': 'inline-block',
             'padding': '.1rem .05rem',
             'line-height': '50px',
-            'width': '200px',
+            'width': '225px',
             'font-size': '14px',
             'border': '1px solid #eeeeee',
-            'border-radius':'2px',
+            'border-radius': '2px',
+            'padding-left':'116px',
           },
           color: {//字体颜色
            header: '#35acff',//头部
@@ -370,8 +366,8 @@
           },
           {
             type: 'fromto',
-            from: '2016-02-01',//最早的开始时间
-            to:'time1'//这个时间是我自己拼接出来的当前时间，也可以自己写入
+            from: '',//最早的开始时间
+            to:''//这个时间是我自己拼接出来的当前时间，也可以自己写入
           }
         ],
       }
@@ -812,11 +808,31 @@ mounted() {
     cursor: text;
     background-color: white;
 }
+      .form-group-label_b{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding-left: 10px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    color: gray;
+    letter-spacing: .06em;
+    background-color: white;
+    width: 95px;
+}
 
       .form-group-label span {
         color: #00873c;
       }
-
+      .form-group-label_a span {
+        color: #00873c;
+      }
+      .form-group-label_b span {
+        color: #00873c;
+      }
     .form-group-input {
       padding: 0 0 0 10px;
       margin: 0;

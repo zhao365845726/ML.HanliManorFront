@@ -162,7 +162,7 @@
           this.$router.push({ path: 'sreach', query: { name: this.sreach } })
           this.$router.go(0)
         } else {
-          alert('请重新输入');
+          alert('输入为空，请重新输入');
         }
       },
       searchEnterFun:function(e){
@@ -172,6 +172,8 @@
           if(keyCode == 13 && this.sreach){
             this.$router.push({ path: 'sreach', query: { name: this.sreach } })
             this.$router.go(0)
+          } else {
+            alert('输入为空，请重新输入');
           }
       }
     },
