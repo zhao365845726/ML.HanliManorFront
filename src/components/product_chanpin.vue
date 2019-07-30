@@ -151,11 +151,16 @@
             that.falg = true;
           });
         }
+      },
+      xys() {
+        var windowWidth = $(window).width();
+        console.log(windowWidth)
       }
     },
     mounted() {
       this.fnSwiper();
       this.ajax();
+      this.xys()
     }
   }
 </script>

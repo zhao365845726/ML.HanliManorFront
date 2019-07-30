@@ -4,7 +4,24 @@
      <div class="main margin">
        <h2 class="t-c">MEDIA FOCUS</h2>
        <span class="title t-c">联系我们</span>
-       <div class="map"></div>
+       <!--<div class="map"></div>-->
+
+       <div class="amap-page-container">
+         <div :style="{width:'100%',height:'566px'}">
+           <el-amap vid="amap" :plugin="plugin" class="amap-demo" :center="center" style="height:566px;width:100%;">
+           </el-amap>
+         </div>
+         <div class="toolbar">
+           <span v-if="loaded">
+             location: lng = {{ lng }} lat = {{ lat }}
+           </span>
+           <span v-else>正在定位</span>
+         </div>
+         <div v-on:click="req_post()">
+           查询周边
+         </div>
+       </div>
+
        <ul class="address">
          <li>
            <div class="item">
@@ -57,14 +74,53 @@
 <script>
 export default {
   name: "contact",
-  data() {
-    return {
-    }
-  }
+   data(){
+            const self = this;
+            return {
+              center: [121.59996, 31.197646],
+              lng: 0,
+              lat: 0,
+              loaded: false,
+              plugin: [
+                {
+                enableHighAccuracy: true,//是否使用高精度定位，默认:true
+                timeout: 100,          //超过10秒后停止定位，默认：无穷大
+                maximumAge: 0,           //定位结果缓存0毫秒，默认：0
+                convert: true,           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
+                showButton: true,        //显示定位按钮，默认：true
+                buttonPosition: 'RB',    //定位按钮停靠位置，默认：'LB'，左下角
+                showMarker: true,        //定位成功后在定位到的位置显示点标记，默认：true
+                showCircle: true,        //定位成功后用圆圈表示定位精度范围，默认：true
+                panToLocation: true,     //定位成功后将定位到的位置作为地图中心点，默认：true
+                zoomToAccuracy:true,//定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：f
+                extensions:'all',
+                pName: 'Geolocation',
+                events: {
+                  init(o) {
+                    // o 是高德地图定位插件实例
+                    o.getCurrentPosition((status, result) => {
+                      console.log(result)
+                      if (result && result.position) {
+                        self.lng = result.position.lng;
+                        self.lat = result.position.lat;
+                        self.center = [self.lng, self.lat];
+                        self.loaded = true;
+                        self.$nextTick();
+                      }
+                    });
+                  }
+                }
+              }
+                ]
+            }
+          }
 };
 </script>
 
 <style scoped>
+  .amap-demo {
+    height: 300px;
+  }
 .img{
   width: 100%;
   margin-bottom: 114px;
@@ -87,13 +143,21 @@ h2{
   color: #00873c;
   margin-top: 36px;
 }
-.map{
+  .amap-page-container {
+    border: 0px solid;
+    width: 100%;
+    height: 600px;
+    background: white;
+    margin-top: 90px;
+    margin-bottom: 80px;
+  }
+/*.map{
   width: 100%;
   height: 600px;
   background: #ccc;
   margin-top: 90px;
   margin-bottom: 80px;
-}
+}*/
 .address{
   width: 100%;
   height: auto;

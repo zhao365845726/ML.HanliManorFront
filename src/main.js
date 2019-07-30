@@ -10,13 +10,18 @@ import VueSwiper from 'vue-awesome-swiper'
 import axios from 'axios'
 import Pagination from 'vue-pagination-2'
 import myDatepicker from 'vue-datepicker/vue-datepicker-es6.vue'
+import AMap from 'vue-amap'
 
-
+Vue.use(AMap)  
 Vue.component('date', myDatepicker)
 Vue.component('pagination', Pagination)
 Vue.use(VueSwiper)
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
+AMap.initAMapApiLoader({
+  key: '',
+  plugin: ['AMap.Geolocation']
+})
 
 /* eslint-disable no-new */
 new Vue({

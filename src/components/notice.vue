@@ -107,7 +107,7 @@
             //console.log(res)
             this.Pagesize = res.data.data.articlecount;
             this.records = this.Pagesize;
-            this.perPage = parseInt(this.records / 2);
+            this.perPage = parseInt(5);
             //console.log(this.perPage)
             //console.log(this.records)
             this.$axios
