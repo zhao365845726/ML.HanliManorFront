@@ -5,9 +5,9 @@
       <div class="container other float_right">
         <a href="" class="taobao float_left"></a>
         <a href="" class="jingdong float_left"></a>
-        
+
         <div class="container sreach float_left">
-          <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园" type="text" v-model="sreach"  @keyup.enter="searchEnterFun"/>
+          <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园" type="text" v-model="sreach" @keyup.enter="searchEnterFun" />
           <button class="sreachBtn pointer float_left" @click="btn"></button>
         </div>
         <div class="language float_right">EN / 中文</div>
@@ -16,7 +16,7 @@
 
     <div class="container header-menu">
       <ul class="margin t-c">
-        <li class="menu-item pointer" v-for="(item,index) in forklifts" >
+        <li class="menu-item pointer" v-for="(item,index) in forklifts">
           <router-link :to="{path:'home',query:{name:item.Name,id:item.Id}}" class="menu-link">{{item.Name}}</router-link>
           <div class="subMenu">
             <div class="subMenu-bg"><span></span></div>
@@ -51,6 +51,21 @@
         </li>
       </ul>
     </div>
+    <footer style="display:none;" v-show="isShow">
+      <ul class="nav nav-tabs" >
+        <li role="presentation" v-for="(item,index) in list"  class="li">
+          <a class="a1" @click="rou(index)">{{item.title}}</a>
+          <div class="div2">
+            <ul v-for="(itemsub,index) in item.list2" >
+              <li>
+                <a @click="rou_a(index)">{{itemsub.title}}</a>
+              </li>
+            </ul>
+          </div>        
+        </li>
+      </ul>
+    </footer>
+
     <div class="btn-manu" @click="fnClickNav">
       <span></span>
       <span></span>
@@ -59,6 +74,7 @@
   </div>
 </template>
 <script>
+   import 'bootstrap/dist/css/bootstrap.min.css'
   export default {
     name: "commonFooter",
     data() {
@@ -67,30 +83,27 @@
       clickIndex_:0,
       list: [
         {
-          title: "关于我们",
+          title: "首页",
           list2: [
             {
-              title: "韩梨庄园"
+              title: "庄园介绍"
             },
             {
-              title: "品牌历程"
+              title: "好山好水"
             },
-            {
-              title: "好山好水好人家"
-            }
           ]
         },
         {
           title: "产品世界",
           list2: [
             {
-              title: "韩梨庄园"
+              title: "产品验证"
             },
             {
-              title: "品牌历程"
+              title: "媒体聚焦"
             },
             {
-              title: "好山好水好人家"
+              title: "线上商城"
             }
           ]
         },
@@ -98,42 +111,36 @@
           title: "品牌故事",
           list2: [
             {
-              title: "韩梨庄园"
+              title: "村规民约"
+            },
+            {
+              title: "种植技术"
+            },
+          ]
+        },
+        {
+          title: "新闻中心",
+          list2: [
+            {
+              title: "企业公告"
             },
             {
               title: "品牌历程"
             },
             {
-              title: "好山好水好人家"
+              title: "品牌视频"
             }
           ]
         },
         {
-          title: "新闻动态",
+          title: "联系我们",
           list2: [
             {
-              title: "韩梨庄园"
+              title: "诚招供应商"
             },
             {
-              title: "品牌历程"
+              title: "联系我们"
             },
-            {
-              title: "好山好水好人家"
-            }
-          ]
-        },
-        {
-          title: "在线商城",
-          list2: [
-            {
-              title: "韩梨庄园"
-            },
-            {
-              title: "品牌历程"
-            },
-            {
-              title: "好山好水好人家"
-            }
           ]
         }
       ],
@@ -151,9 +158,39 @@
     },
     methods: {
     fnClickNav(){
-        this.isShow = !this.isShow;
-        console.log(this.list)
-
+        this.isShow = !this.isShow;    
+      },
+      rou(index) {
+        //console.log(index)
+        if (index === 0) {
+          this.$router.push({ path: 'home', query: { name: '首页', id: '44ac585c-f6e9-4ed2-a8fb-bec639821345' } })
+        } else if (index === 1) {
+          this.$router.push({ path: 'home', query: { name: '产品世界', id: 'fbcc90b2-4c03-48d4-8fe2-0d876026afd0' } })
+        }else if (index === 2) {
+          this.$router.push({ path: 'home', query: { name: '品牌故事', id: 'fefb6175-f4b7-4205-ae94-5f655757d926' } })
+        }else if (index === 3) {
+          this.$router.push({ path: 'home', query: { name: '新闻中心', id: 'b5af22c8-59b7-4cbd-94c0-6d8ed6c2473a' } })
+        }else if (index === 4) {
+          this.$router.push({ path: 'home', query: { name: '联系我们', id: '6ac5883a-67f8-4079-aa14-f34361142750' } })
+        }
+      },
+      rou_a(index) {
+        console.log(index)
+        if (index === 0) {
+          if (index === 0) {
+            this.$router.push({ path: 'description', query: { name: '韩梨庄园介绍', id: '96aeb5cd-8712-4999-a029-e08479ef3b1b' } })
+          } else if (index === 1) {
+            this.$router.push({ path: 'brandStory', query: { name: '好山好水好人家', id: 'b1c97066-0750-49d8-9b34-cb3f85f3a097' } })
+          }
+        } else if (index===1) {
+          if (index === 0) {
+            this.$router.push({ path: 'verification', query: { name: '产品验证', id: 'ac1e5571-d81f-4fc7-886c-c4ba6d7a871a' } })
+          } else if (index === 1) {
+            this.$router.push({ path: 'product_chanpin', query: { name: '所有品类', id: 'a460675f-8a68-4bbb-b0cd-825f7578fe00' } })
+          } else if (index===2) {
+            this.$router.push({ path: 'store', query: { name: '线上商城', id: 'e6e0ea92-0f43-418b-b838-b88b69744e57' } })
+          }
+        }
       },
       btn() {
         var a = this.sreach;
@@ -247,6 +284,45 @@
   }
 </script>
 <style scoped>
+  .a1 {
+        color: white;
+    background-color: #009944;
+  }
+    .a1:hover {
+      color:#009944;
+      background-color:white;
+    }
+  .div2 {
+    /*border:1px solid;*/
+    margin-top:2%;
+    border-top:2px solid #009944;
+    margin-right:2px;
+    
+  }
+  .div2  {
+    position:absolute;
+    display:none;
+  }
+    .div2 ul li {
+      text-align:center;
+      display:block;
+    }
+      .div2 ul li a {
+        color:#009944;
+      }
+  .nav li:hover .div2  {
+    display:block;
+    width: 75px;
+    background-color: white;
+    line-height:20px;
+  }
+  .nav {
+    padding-left:5px;
+  }
+  footer {
+    margin-bottom:10px;
+    margin-top:-10px;
+  }
 .header {
   position: relative;
 }
@@ -504,5 +580,93 @@
 .subMenu-item{
   border-bottom: 1px solid #eee;
 }
+ .a1 {
+    color: white;
+    background-color: #009944;
+    font-size:16px;
+  }
+  .div2 ul li a {
+    color:#009944;
+    font-size:16px;
+  }
+   .nav li:hover .div2  {
+    display: block;
+    width: 91px;
+    background-color: white;
+    line-height: 27px;
+    padding-top: 5px;
+  }
+  .li {
+    margin-right:38px;
+    margin-bottom:0px;
+    }
+  .nav {
+    padding-left:91px;
+  }
+  footer {
+    margin-bottom: 15px;
+    margin-top: -10px;
+    background-color: #009944;
+  }
 }
+  @media (max-width: 375px) {
+     .a1 {
+    color: white;
+    background-color: #009944;
+    font-size:12px;
+  }
+  .div2 ul li a {
+    color:#009944;
+    font-size:12px;
+  }
+   .nav li:hover .div2  {
+    display: block;
+    width: 75px;
+    background-color: white;
+    line-height: 27px;
+    padding-top: 5px;
+  }
+  .li {
+    margin-right:0px;
+    margin-bottom:0px;
+    }
+  .nav {
+    padding-left:5px;
+  }
+  footer {
+    margin-bottom: 10px;
+    margin-top: -10px;
+    background-color: white;
+  }
+  }
+   @media (max-width: 414px) {
+     .a1 {
+    color: white;
+    background-color: #009944;
+    font-size:12px;
+  }
+  .div2 ul li a {
+    color:#009944;
+    font-size:12px;
+  }
+   .nav li:hover .div2  {
+    display: block;
+    width: 75px;
+    background-color: white;
+    line-height: 27px;
+    padding-top: 5px;
+  }
+  .li {
+    margin-right:0px;
+    margin-bottom:0px;
+    }
+  .nav {
+    padding-left:2%;
+  }
+  footer {
+    margin-bottom: 10px;
+    margin-top: -10px;
+    background-color: #009944;
+  }
+  }
 </style>
