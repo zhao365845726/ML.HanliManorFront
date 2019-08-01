@@ -2,10 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\assets",
-    "\\src\\components",
-    "\\src\\router"
+    "\\src\\components"
   ],
-  "SelectedNode": "\\src\\components\\product_chanpin.vue",
+  "SelectedNode": "\\src\\components\\description.vue",
   "PreviewInSolutionExplorer": false
 }

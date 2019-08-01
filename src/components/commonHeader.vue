@@ -65,7 +65,6 @@
         </li>
       </ul>
     </footer>
-
     <div class="btn-manu" @click="fnClickNav">
       <span></span>
       <span></span>
@@ -146,7 +145,7 @@
       ],
       isShow:false,
       isMouseover: false,
-      forklifts: [ ],
+      forklifts: [],
         sub: [],
         sub_a: [],
         sub_b: [],

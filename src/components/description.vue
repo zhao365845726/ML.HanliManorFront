@@ -29,21 +29,21 @@
             <swiper-slide v-for="(item, index) in swipers_a" :key="index">
               <div class="history-item">
                 <div class="history-item__wrap">
-                  <h3 class="history-item__year">{{item.CreateTime}}</h3>
+                  <h3 class="history-item__year" >{{item.CreateTime}}</h3>
                   <div class="history-item__img img-box"id="img">
                     <img :src="item.CoverPhoto" style="cursor:pointer">
                   </div>
                   <!--<div class="history-item__desc" :style="overflow" >-->
                   <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
-                    <p v-html="nr" v-if="item.Title==='猕猴桃'" class="cursor"></p>
-                    <p v-html="nr_a" v-if="item.Title==='樱桃'" class="cursor"></p>
-                    <p v-html="nr_c" v-if="item.Title==='香蕉'" class="cursor"></p>
-                    <p v-html="nr_d" v-if="item.Title==='葡萄'" class="cursor"></p>
-                    <p v-html="nr_e" v-if="item.Title==='苹果'" class="cursor"></p>
+                    <p v-html="item.body" class="cursor"></p>
                   </div>
                   <div class="t-r">
-                    <span class="history-item__plus js-history-plus" @click="toggle(index)" style="cursor:pointer"></span>
+                    <!--<span class="history-item__plus js-history-plus" @click="toggle(index)" style="cursor:pointer"></span>-->
+                    <div class="more">
+                      <a @click="toggle(index)"></a>
+                    </div>
                   </div>
+                 
                 </div>
                 <i class="history-item__circle"></i>
                 <i class="history-item__arrow icon-right"></i>
@@ -76,83 +76,128 @@
         },
         swipers_a: [],
         company: '',
-        nr: '',
-        nr_a: '',
-        nr_c: '',
-        nr_d: '',
-        nr_e:'',
         swiperIndex: '',
         isShow: false,
       };
     },
     methods: {
+      ajax() {
+        this.$axios
+          .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+            "ArticleId": "69a894ea-0502-40f2-96e0-3cb9a6028628"
+          })
+          .then((res) => {
+            this.company = res.data.data.Body;
+          })
+      },
       toggle(index) {
         this.swiperIndex = index;
         this.isShow = !this.isShow;
-      }
+
+      },
+      shuju() {
+        this.$axios
+          .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
+            "categoryid": "96aeb5cd-8712-4999-a029-e08479ef3b1b",
+            "PageIndex": 1,
+            "PageSize": 10
+          })
+          .then((res_a) => {
+            console.log(res_a)
+            this.swipers = res_a.data.data.lst_categoryarticlelist;
+            this.$axios
+              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+                "ArticleId": this.swipers[0].Id
+              })
+              .then((res) => {
+                this.body_a = res.data.data.Body;
+                this.swipers[0]['body'] = this.body_a
+                //console.log(this.swipers)
+              })
+            this.$axios
+              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+                "ArticleId": this.swipers[1].Id
+              })
+              .then((res_a) => {
+                this.body_b = res_a.data.data.Body;
+                this.swipers[1]['body'] = this.body_b
+                //console.log(this.swipers)
+              })
+            this.$axios
+              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+                "ArticleId": this.swipers[2].Id
+              })
+              .then((res_c) => {
+                this.body_c = res_c.data.data.Body;
+                this.swipers[2]['body'] = this.body_c
+                //console.log(this.swipers)
+              })
+            this.$axios
+              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+                "ArticleId": this.swipers[3].Id
+              })
+              .then((res_d) => {
+                this.body_d = res_d.data.data.Body;
+                this.swipers[3]['body'] = this.body_d
+                //console.log(this.swipers)
+              })
+            this.$axios
+              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+                "ArticleId": this.swipers[4].Id
+              })
+              .then((res_e) => {
+                this.body_e = res_e.data.data.Body;
+                this.swipers[4]['body'] = this.body_e
+                //console.log(this.swipers)
+              })
+            this.$axios
+              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+                "ArticleId": this.swipers[5].Id
+              })
+              .then((res_f) => {
+                this.body_f = res_f.data.data.Body;
+                this.swipers[5]['body'] = this.body_f
+                //console.log(this.swipers)
+              })
+            this.swipers_a = this.swipers
+            console.log(this.swipers_a)
+          })
+       }
     },
     mounted() {
-      this.$axios
-        .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-          "ArticleId": "69a894ea-0502-40f2-96e0-3cb9a6028628"
-        })
-        .then((res) => {
-          this.company = res.data.data.Body;
-        })
-      this.$axios
-        .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
-          "categoryid": "96aeb5cd-8712-4999-a029-e08479ef3b1b",
-          "PageIndex": 1,
-          "PageSize": 10
-        })
-        .then((res_a) => {
-          this.swipers = res_a.data.data.lst_categoryarticlelist;
-          var swipers = this.swipers;
-          //var swipers_a = swipers.slice(1, 6);
-          var swipers_a = swipers;
-          this.swipers_a = swipers_a;
-          //console.log(this.swipers_a);
-          this.$axios
-            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-              "ArticleId":'dad0404a-10bc-4601-b461-e812de31c2cb',
-            })
-            .then((res_nr) => {
-              this.nr = res_nr.data.data.Body;
-            })
-          this.$axios
-            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-              "ArticleId":'e633d80d-25ad-4ae8-aa2a-d90a57995d52',
-            })
-            .then((res_nr_a) => {
-              this.nr_a = res_nr_a.data.data.Body;
-            })
-           this.$axios
-            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-              "ArticleId":'cbdb409b-09d3-4b7b-901f-a07e43719d4c',
-            })
-            .then((res_nr_b) => {
-              this.nr_c = res_nr_b.data.data.Body;
-            })
-          this.$axios
-            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-              "ArticleId":'26b12019-0620-4f3b-9474-e54bd2730583',
-            })
-            .then((res_nr_c) => {
-              this.nr_d = res_nr_c.data.data.Body;
-            })
-           this.$axios
-            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-              "ArticleId":'aba0abc2-cba6-4281-ab57-6b381d645726',
-            })
-            .then((res_nr_d) => {
-              this.nr_e = res_nr_d.data.data.Body;
-            })
-        })
+      this.ajax();
+      this.shuju();
     }
   }
 </script>
 
 <style scoped>
+  .more{
+            width: 12px;
+            height: 12px;
+            cursor: pointer;
+			float:right;
+            -webkit-transition: all .7s ease-in-out;
+            -o-transition: all .7s ease-in-out;
+            transition: all .7s ease-in-out;
+			margin-top:14px;
+        }
+        .more a{
+            display: block;
+            width: 12px;
+            height: 12px;
+            background: url(http://www.youth.cn/images/20170829icon_all.png) no-repeat -10px -11px;
+        }
+        .more a:hover{
+            background: url(http://www.youth.cn/images/20170829icon_all.png) no-repeat -26px -11px;
+        }
+        .more:hover{
+            transform:rotate(270deg);
+            -ms-transform:rotate(270deg); 	/* IE 9 */
+            -moz-transform:rotate(270deg); 	/* Firefox */
+            -webkit-transform:rotate(270deg); /* Safari 和 Chrome */
+            -o-transform:rotate(270deg);
+        }
 .description {
   margin-bottom: 6%;
 }
@@ -371,7 +416,7 @@
   font-size: 14px;
   line-height: 24px;
   color: gray;
-
+  margin-top:10px;
 }
 .history-item__desc.active{
   height: auto;
@@ -418,7 +463,7 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: #b2b2b2;
+  background-color: #00873C;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 60% auto;
