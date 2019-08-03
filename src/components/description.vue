@@ -27,30 +27,30 @@
         <div class="swiper_">
           <swiper :options="swiperOption" class='swiper-box'>
             <swiper-slide v-for="(item, index) in swipers_a" :key="index">
-              <div class="history-item">
+              <div class="history-item" v-bind:class="{'active': index == swiperIndex && isShow}">
                 <div class="history-item__wrap">
-                  <h3 class="history-item__year" >{{item.CreateTime}}</h3>
-                  <div class="history-item__img img-box"id="img">
+                  <h3 class="history-item__year" v-bind:class="{'active': index == swiperIndex && isShow}">{{item.CreateTime}}</h3>
+                  <div class="history-item__img img-box" id="img">
                     <img :src="item.CoverPhoto" style="cursor:pointer">
                   </div>
-                  <!--<div class="history-item__desc" :style="overflow" >-->
                   <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
                     <p v-html="item.body" class="cursor"></p>
                   </div>
                   <div class="t-r">
-                    <!--<span class="history-item__plus js-history-plus" @click="toggle(index)" style="cursor:pointer"></span>-->
                     <div class="more">
                       <a @click="toggle(index)"></a>
                     </div>
                   </div>
-                 
+
                 </div>
-                <i class="history-item__circle"></i>
+                <i class="history-item__circle" v-bind:class="{'active': index == swiperIndex && isShow}"></i>
                 <i class="history-item__arrow icon-right"></i>
               </div>
             </swiper-slide>
-        </swiper>
-         
+
+          </swiper>
+          <div class="swiper-button-prev"></div><!--左箭头。如果放置在swiper-container外面，需要自定义样式。-->
+          <div class="swiper-button-next"></div><!--右箭头。如果放置在swiper-container外面，需要自定义样式。-->
         </div>
       </div>
     </div>
@@ -71,7 +71,11 @@
             el: ".swiper-pagination",
             clickable: true
           },
-          
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+            hideOnClick: true,
+          },
           autoplayDisableOnInteraction: false
         },
         swipers_a: [],
@@ -93,7 +97,6 @@
       toggle(index) {
         this.swiperIndex = index;
         this.isShow = !this.isShow;
-
       },
       shuju() {
         this.$axios
@@ -329,7 +332,8 @@
   width: 30px;
   height: 30px;
   background-image: none;
-  margin-top: -50px;
+  margin-top: -18px;
+  margin-left:-11px;
 }
 .swiper-button-next{
   right: 0;
@@ -337,13 +341,18 @@
 .swiper-button-next:after, .swiper-button-next:before ,.swiper-button-prev:after, .swiper-button-prev:before {
   display: block;
   content: '';
-  width: 15px;
+  width: 25px;
   height: 2px;
-  background: #b2b2b2;
+  background: #00873C;
   position: absolute;
   left: 0;
-  top:50%;
+  top:72%;
+  opacity:0.2
 }
+  .swiper-button-next:hover:before,.swiper-button-next:hover:after,.swiper-button-prev:hover:after,.swiper-button-prev:hover:before {
+    background: #00873C;
+    opacity:1;
+  }
 .swiper-button-next:after, .swiper-button-next:before{
   left: initial;
   right: 0;
@@ -368,6 +377,21 @@
   padding-bottom: 52px;
   margin-bottom: 20px;
 }
+ .history-item.active::before {
+    top: 120px;
+  left: 12px;
+  bottom: 32px;
+  width: 1px;
+  }
+.history-item.active::before
+ {
+    content: "";
+    position: absolute;
+    background-color: #00873C;
+}
+  .history-item.active::after {
+    background-color:white;
+  }
 .history-item::before,
 .history-item::after {
   content: "";
@@ -398,6 +422,13 @@
   font: 700 32px/1 "AvenirLTStd";
   color: #b2b2b2;
 }
+  .history-item__year.active {
+    color:#00873C;
+  }
+    .history-item__year.active::before {
+      background-color:#00873C;
+      top:11px;
+    }
 .history-item__year::before {
   content: "";
   position: absolute;
@@ -419,7 +450,9 @@
   margin-top:10px;
 }
 .history-item__desc.active{
-  height: auto;
+  /*height: auto;*/
+  height: 255px;
+  overflow: auto;
 }
 .history-item__desc_a {
   margin-bottom: 0.5em;
@@ -468,6 +501,14 @@
   background-repeat: no-repeat;
   background-size: 60% auto;
 }
+  .history-item__circle.active {
+    border: 6.5px solid #00873C;
+    background-color: white;
+    margin-left: 3.05px;
+    width: 20px;
+    height: 20px;
+    top: 505px;
+  }
 .history-item__arrow {
   display: none;
   position: absolute;

@@ -218,9 +218,9 @@
          .post('http://hlzy.api.gpscxqyw.com/api/content/homenavigation', {
          })
         .then((res) => {
-          console.log(res)
+          //console.log(res)
           this.forklifts = res.data.data;
-          console.log(this.forklifts)
+          //console.log(this.forklifts)
            //for (var i = 0; i < res.data.data.length; i++) {
              this.$axios.post('http://hlzy.api.gpscxqyw.com/api/content/getnavcategorylist', {
                "navid": this.forklifts[0].Id,
@@ -229,7 +229,7 @@
              })    
                .then((res_sub) => {
                  this.sub = res_sub.data.data.lst_viewnavcategory;
-                 console.log(this.sub)               
+                 //console.log(this.sub)               
                }) 
            //}
             this.$axios.post('http://hlzy.api.gpscxqyw.com/api/content/getnavcategorylist', {
@@ -239,7 +239,7 @@
              })
                .then((res_sub) => {
                  this.sub_a = res_sub.data.data.lst_viewnavcategory;               
-                 console.log(this.sub_a)               
+                 //console.log(this.sub_a)               
                })
             this.$axios.post('http://hlzy.api.gpscxqyw.com/api/content/getnavcategorylist', {
                "navid": this.forklifts[2].Id,

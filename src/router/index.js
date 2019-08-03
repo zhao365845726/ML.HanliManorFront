@@ -18,6 +18,7 @@ import Sreach from '@/components/sreach'
 import Product_chanpin from '@/components/product_chanpin'
 
 
+
 Vue.use(Router);
 export default new Router({
   routes: [
@@ -116,6 +117,7 @@ export default new Router({
       path: '/product_chanpin',
       name: '/product_chanpin',
       component: Product_chanpin
-    }
+    },
+
   ]
 })

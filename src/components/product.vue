@@ -3,9 +3,29 @@
   <div class="container brandStory margin">
     <img src="../assets/img/bg5.png" alt="" class="img">
     <div class="wrap" id="wrap" @mouseover="fnonmouseover" @mouseout="fnonmouseout">
+      <!--<ul class="content">
+    <li v-for="(item, index) in imgArr" :key="item.Id">
+      <img :src="item.CoverPhoto" @click="rou(index)">
+    </li>
+  </ul>-->
       <ul class="content">
-        <li v-for="(item, index) in imgArr" :key="item.Id">
-          <img :src="item.CoverPhoto" @click="rou(index)">
+        <li>
+          <img src="http://image.jmta.milisx.com/FiL6RiMg7rwGDXIXwBecA0gMCZtg" @click="roua()">
+        </li>
+        <li>
+          <img src="http://image.jmta.milisx.com/lqmBxrKzxsqxVX3FPn91h9H7RXEG" @click="roub()">
+        </li>
+        <li>
+          <img src="http://image.jmta.milisx.com/ls7TusQLhovPKLngTGKlGL4pqxFF" @click="rouc()">
+        </li>
+        <li>
+          <img src="http://image.jmta.milisx.com/lnQFGGu_p6HxyYBNvs1l9Do_GM-2" @click="roud()">
+        </li>
+        <li>
+          <img src="http://image.jmta.milisx.com/FrcaLbWf6jEJYAkMUk0XuumXqp6Y" @click="roue()">
+        </li>
+        <li>
+          <img src="http://image.jmta.milisx.com/FljqX72_vNbsmUluno7oLA9QP_fJ" @click="rouf()">
         </li>
       </ul>
       <a href="javascript:;" class="prev" @click="fnLeft">&#60;</a>
@@ -39,7 +59,7 @@
     name: "brandStory",
     data() {
       return {
-         imgArr: [],
+        imgArr: [],
         size: [
           { "top": 60, "left": 0, "width": 400, "height": 240, "zIndex": 1, "opacity": 0 },
           { "top": 60, "left": 0, "width": 400, "height": 240, "zIndex": 2, "opacity": 40 },
@@ -61,22 +81,80 @@
       };
     },
     methods: {
-      rou(index) {
-        //console.log(this.imgArr[index].Id);
-         this.$axios
+      roua() {
+        this.$axios
                 .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-                  "ArticleId": this.imgArr[index].Id
+                  "ArticleId": this.imgArr[0].Id
                 })
                 .then((data) => {
                   console.log(data)
-                  this.Body_a = data.data.data.Body;
-                  this.Body = this.Body_a;
-                  this.CoverPhoto_a = data.data.data.CoverPhoto;
-                  this.CoverPhoto = this.CoverPhoto_a;
-                  this.title_a = data.data.data.Title;
-                  this.title = this.title_a;
+                  this.Body = data.data.data.Body;
+                  this.CoverPhoto = data.data.data.CoverPhoto;
+                  this.title = data.data.data.Title;
                 })
       },
+      roub() {
+        this.$axios
+                .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+                  "ArticleId": this.imgArr[1].Id
+                })
+                .then((data) => {
+                  console.log(data)
+                  this.Body = data.data.data.Body;
+                  this.CoverPhoto = data.data.data.CoverPhoto;
+                  this.title = data.data.data.Title;
+                })
+      },
+      rouc() {
+        this.$axios
+                .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+                  "ArticleId": this.imgArr[2].Id
+                })
+                .then((data) => {
+                  console.log(data)
+                  this.Body = data.data.data.Body;
+                  this.CoverPhoto = data.data.data.CoverPhoto;
+                  this.title = data.data.data.Title;
+                })
+      },
+      roud() {
+        this.$axios
+                .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+                  "ArticleId": this.imgArr[3].Id
+                })
+                .then((data) => {
+                  console.log(data)
+                  this.Body = data.data.data.Body;
+                  this.CoverPhoto = data.data.data.CoverPhoto;
+                  this.title = data.data.data.Title;
+                })
+      },
+      roue() {
+        this.$axios
+                .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+                  "ArticleId": this.imgArr[4].Id
+                })
+                .then((data) => {
+                  console.log(data)
+                  this.Body = data.data.data.Body;
+                  this.CoverPhoto = data.data.data.CoverPhoto;
+                  this.title = data.data.data.Title;
+                })
+      },
+      rouf() {
+        this.$axios
+                .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+                  "ArticleId": this.imgArr[5].Id
+                })
+                .then((data) => {
+                  console.log(data)
+                  this.Body = data.data.data.Body;
+                  this.CoverPhoto = data.data.data.CoverPhoto;
+                  this.title = data.data.data.Title;
+                })
+      },
+  
+      
       ajax() {
          var param = window.location.href.split('=')[1];
           //console.log(param);

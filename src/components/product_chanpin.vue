@@ -2,10 +2,30 @@
   <div class="container brandStory margin" style="margin-bottom:12%;">
     <img src="../assets/img/bg5.png" alt="" class="img">
     <div class="wrap" id="wrap" @mouseover="fnonmouseover" @mouseout="fnonmouseout">
+      <!--<ul class="content">
+        <li v-for="(item, index) in imgArr" :key="index">
+          <img :src="item.CoverPhoto" @click="rou(index)">
+        </li>
+      </ul>-->
       <ul class="content">
-          <li v-for="(item, index) in imgArr" :key="index">
-            <img :src="item.CoverPhoto" @click="rou(index)">
-          </li>
+        <li>
+          <img src="http://image.jmta.milisx.com/FiL6RiMg7rwGDXIXwBecA0gMCZtg" @click="roua()">
+        </li>
+        <li>
+          <img src="http://image.jmta.milisx.com/lqmBxrKzxsqxVX3FPn91h9H7RXEG" @click="roub()">
+        </li>
+        <li>
+          <img src="http://image.jmta.milisx.com/ls7TusQLhovPKLngTGKlGL4pqxFF" @click="rouc()">
+        </li>
+        <li>
+          <img src="http://image.jmta.milisx.com/lnQFGGu_p6HxyYBNvs1l9Do_GM-2" @click="roud()">
+        </li>
+        <li>
+          <img src="http://image.jmta.milisx.com/FrcaLbWf6jEJYAkMUk0XuumXqp6Y" @click="roue()">
+        </li>
+        <li>
+          <img src="http://image.jmta.milisx.com/FljqX72_vNbsmUluno7oLA9QP_fJ" @click="rouf()">
+        </li>
       </ul>
       <a href="javascript:;" class="prev" @click="fnLeft">&#60;</a>
       <a href="javascript:;" class="next" @click="fnRight">&#62;</a>
@@ -29,19 +49,53 @@
           { "top": 60, "left": 800, "width": 400, "height": 240, "zIndex": 2, "opacity": 40 },
           { "top": 60, "left": 800, "width": 400, "height": 240, "zIndex": 1, "opacity": 0 }
         ],
+         size_a: [
+          { "top": 60, "left": 0, "width":100, "height": 140, "zIndex": 1, "opacity": 0 },
+          { "top": 30, "left": 88, "width":100, "height": 109, "zIndex": 2, "opacity": 60 },
+          { "top": 16, "left": 154, "width":173, "height": 138, "zIndex": 3, "opacity": 80 },
+          { "top": 0, "left": 250, "width": 255, "height": 170, "zIndex": 4, "opacity": 100 },
+          { "top": 16, "left": 432, "width": 173, "height": 138, "zIndex": 3, "opacity": 80 },
+          { "top": 60, "left": 700, "width": 100, "height": 140, "zIndex": 2, "opacity": 40 },
+          { "top": 60, "left": 700, "width": 100, "height": 140, "zIndex": 1, "opacity": 0 }
+        ],
         CoverPhoto_a:'',
         isShow: false,
-        speed:3000,
+        speed:2000,
         falg: true,
         timerS: '',
+        width: window.innerWidth,
       };
 
     },
     methods: {
-      rou(index) {
-        console.log(this.imgArr[index].Id)
+      roua() {
         this.$router.push({
-          path: 'product', query: {id:this.imgArr[index].Id}
+          path: 'product', query: {id:'7869bae1-2d2c-49ec-91ae-2fd601cee23b'}
+        })
+      },
+      roub() {
+        this.$router.push({
+          path: 'product', query: {id:'75aa0cee-7b32-41c7-9349-c93ac17bad72'}
+        })
+      },
+      rouc() {
+        this.$router.push({
+          path: 'product', query: {id:'38a4b177-368d-456e-a0a1-0db8f173c4cd'}
+        })
+      },
+      roud() {
+        this.$router.push({
+          path: 'product', query: {id:'55c5c530-b97f-44b2-9021-4dac8a085e68'}
+        })
+      },
+      roue() {
+        this.$router.push({
+          path: 'product', query: {id:'63834175-3c0d-4706-a985-b8dba2db466c'}
+        })
+      },
+      rouf() {
+        this.$router.push({
+          path: 'product', query: {id:'e6edd3bd-a483-4d3e-9bb9-aeae9fe16022'}
         })
       },
       ajax() {
@@ -56,7 +110,6 @@
           this.list = res.data.data.lst_categoryarticlelist;
           this.imgArr = this.list;
           console.log(this.imgArr);
-          console.log(this.list_a);
           })
         },
       getStyle: function (obj, attr) {
@@ -78,6 +131,7 @@
                 leader = 100;
               } else {
                 leader = parseInt(that.getStyle(obj, k) * 100);
+                //console.log(leader)
               }
             } else {
               leader = parseInt(that.getStyle(obj, k)) || 0;
@@ -123,6 +177,9 @@
         this.timerS = setInterval(function () {
           that.move(true);
         }, this.speed)
+        if (this.width === 768) {
+          this.size = this.size_a;
+        }
       },
       fnLeft() {
         if (this.falg) {
@@ -152,15 +209,11 @@
           });
         }
       },
-      xys() {
-        var windowWidth = $(window).width();
-        console.log(windowWidth)
-      }
     },
     mounted() {
       this.fnSwiper();
       this.ajax();
-      this.xys()
+      console.log(this.width, this.height)
     }
   }
 </script>
@@ -271,6 +324,18 @@
       height: 200px;
       margin-top: -28%;
     }
+    .wrap {
+    position: relative;
+    width: 100%;
+    height: 360px;
+    margin: 100px auto;
+    margin-top: -30%;
+  }
+    .content {
+    position: absolute;
+    width: 100%;
+    height: 360px;
+  }
   }
 
   @media (max-width: 1024px) {
