@@ -3,8 +3,8 @@
     <div class="headerTitle margin">
       <img src="../assets/img/icon.png" class="icon float_left">
       <div class="container other float_right">
-        <a href="" class="taobao float_left"></a>
-        <a href="" class="jingdong float_left"></a>
+        <a href="https://www.taobao.com/" class="taobao float_left"></a>
+        <a href="https://www.jd.com/?cu=true&utm_source=baidu-search&utm_medium=cpc&utm_campaign=t_262767352_baidusearch&utm_term=106807362512_0_8c328599297641dfbaa3fbe55a8d7cf1" class="jingdong float_left"></a>
 
         <div class="container sreach float_left">
           <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园" type="text" v-model="sreach" @keyup.enter="searchEnterFun" />

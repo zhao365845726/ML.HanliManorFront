@@ -8,34 +8,34 @@
         </div>
         <ul class="list">
           <li>
-            <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
+            <a href="https://www.taobao.com/" class="mall-item">
                <i class="icon-tianmao"></i>
+            </a>
+            <div class="mall-item-name">淘宝</div>
+          </li>
+          <li>
+            <a href="https://www.tmall.com/?ali_trackid=2:mm_26632258_3504122_48284354:1564882382_136_2104611908&clk1=5606d12bd92d9b482aa48c8d19453b08&upsid=5606d12bd92d9b482aa48c8d19453b08" class="mall-item">
+               <t class="icon-tianmao"></t>
             </a>
             <div class="mall-item-name">天猫</div>
           </li>
           <li>
-            <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-               <i class="icon-tianmao"></i>
+            <a href="https://www.jd.com/?cu=true&utm_source=baidu-search&utm_medium=cpc&utm_campaign=t_262767352_baidusearch&utm_term=106807362512_0_8c328599297641dfbaa3fbe55a8d7cf1" class="mall-item">
+               <j class="icon-tianmao"></j>
             </a>
-            <div class="mall-item-name">天猫</div>
+            <div class="mall-item-name">京东</div>
           </li>
           <li>
-            <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-               <i class="icon-tianmao"></i>
+            <a href="https://www.pinduoduo.com/" class="mall-item">
+               <d class="icon-tianmao"></d>
             </a>
-            <div class="mall-item-name">天猫</div>
+            <div class="mall-item-name">拼多多</div>
           </li>
           <li>
-            <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-               <i class="icon-tianmao"></i>
+            <a href="https://www.mogu.com/" class="mall-item">
+               <m class="icon-tianmao"></m>
             </a>
-            <div class="mall-item-name">天猫</div>
-          </li>
-          <li>
-            <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-               <i class="icon-tianmao"></i>
-            </a>
-            <div class="mall-item-name">天猫</div>
+            <div class="mall-item-name">蘑菇街</div>
           </li>
         </ul>
         </div>
@@ -111,6 +111,48 @@ export default {
   position: absolute;
   top: 25%;
   left: 25%;
+}
+.mall-item j {
+  display: block;
+  width: 50%;
+  height: 50%;
+  background: url(../assets/img/jingdong.png) no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+}
+.mall-item t {
+  display: block;
+    width: 83%;
+    height: 53%;
+    background: url(/static/img/tianmao.3613060.jpg) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 24%;
+    left: 9%;
+}
+.mall-item d {
+  display: block;
+  width: 50%;
+  height: 50%;
+  background: url(../assets/img/pinduoduo.jpg) no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  border-radius: 18%;
+}
+.mall-item m {
+  display: block;
+  width: 50%;
+  height: 50%;
+  background: url(../assets/img/蘑菇街.jpg) no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  border-radius: 18%;
 }
 .mall-item:hover::before {
   background: #00873c url(../assets/img/bg_02.svg) center center no-repeat;

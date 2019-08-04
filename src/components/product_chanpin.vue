@@ -50,13 +50,13 @@
           { "top": 60, "left": 800, "width": 400, "height": 240, "zIndex": 1, "opacity": 0 }
         ],
          size_a: [
-          { "top": 60, "left": 0, "width":100, "height": 140, "zIndex": 1, "opacity": 0 },
+          { "top": 30, "left": 88, "width":100, "height": 109, "zIndex": 1, "opacity": 0 },
           { "top": 30, "left": 88, "width":100, "height": 109, "zIndex": 2, "opacity": 60 },
           { "top": 16, "left": 154, "width":173, "height": 138, "zIndex": 3, "opacity": 80 },
           { "top": 0, "left": 250, "width": 255, "height": 170, "zIndex": 4, "opacity": 100 },
           { "top": 16, "left": 432, "width": 173, "height": 138, "zIndex": 3, "opacity": 80 },
-          { "top": 60, "left": 700, "width": 100, "height": 140, "zIndex": 2, "opacity": 40 },
-          { "top": 60, "left": 700, "width": 100, "height": 140, "zIndex": 1, "opacity": 0 }
+          { "top": 30, "left": 570, "width": 100, "height": 109, "zIndex": 2, "opacity": 60 },
+          { "top": 30, "left": 570, "width": 100, "height": 109, "zIndex": 1, "opacity": 0 }
         ],
         CoverPhoto_a:'',
         isShow: false,
@@ -334,7 +334,24 @@
     .content {
     position: absolute;
     width: 100%;
-    height: 360px;
+    height: 200px;
+  }
+    .wrap a {
+    position: absolute;
+    z-index: 2;
+    top: 25%;
+    width: 60px;
+    height: 60px;
+    margin-top: -30px;
+    font: 36px/60px "宋体";
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background: rgb(255, 100, 0);
+    background: rgba(255, 100, 0, .2);
+    transition: background 1s ease;
+    margin-left:-2px;
+    margin-right:-22px;
   }
   }
 

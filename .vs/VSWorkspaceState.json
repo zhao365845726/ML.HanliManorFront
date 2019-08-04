@@ -3,9 +3,9 @@
     "",
     "\\src",
     "\\src\\assets",
-    "\\src\\assets\\img",
-    "\\src\\components"
+    "\\src\\components",
+    "\\src\\router"
   ],
-  "SelectedNode": "\\src\\assets\\img\\about_company.jpg",
+  "SelectedNode": "\\src\\components\\product.vue",
   "PreviewInSolutionExplorer": false
 }
