@@ -117,7 +117,7 @@
   }
     a:hover {
       color:red;
-      font-weight:bolder;
+      /*font-weight:bolder;*/
     }
   .hanli1 .title {
       border: 0px solid;

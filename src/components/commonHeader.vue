@@ -10,7 +10,7 @@
           <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园" type="text" v-model="sreach" @keyup.enter="searchEnterFun" />
           <button class="sreachBtn pointer float_left" @click="btn"></button>
         </div>
-        <div class="language float_right">EN / 中文</div>
+        <div class="language float_right"><span >EN</span> / <span>中文</span></div>
       </div>
     </div>
 
@@ -58,6 +58,7 @@
           <div class="div2">
             <ul v-for="(itemsub,index) in item.list2" >
               <li>
+                <!--<router-link>{{itemsub.title}}</router-link>-->
                 <a @click="rou_a(index)">{{itemsub.title}}</a>
               </li>
             </ul>
@@ -85,10 +86,11 @@
           title: "首页",
           list2: [
             {
-              title: "庄园介绍"
+              title: "庄园介绍",
             },
             {
-              title: "好山好水"
+              title: "好山好水",
+              id:''
             },
           ]
         },
@@ -175,21 +177,22 @@
       },
       rou_a(index) {
         console.log(index)
-        if (index === 0) {
-          if (index === 0) {
+        if (this.list[0].title) {
+          if (index == 0 ) {
             this.$router.push({ path: 'description', query: { name: '韩梨庄园介绍', id: '96aeb5cd-8712-4999-a029-e08479ef3b1b' } })
-          } else if (index === 1) {
+          } else if (index == 1) {
             this.$router.push({ path: 'brandStory', query: { name: '好山好水好人家', id: 'b1c97066-0750-49d8-9b34-cb3f85f3a097' } })
           }
-        } else if (index===1) {
-          if (index === 0) {
-            this.$router.push({ path: 'verification', query: { name: '产品验证', id: 'ac1e5571-d81f-4fc7-886c-c4ba6d7a871a' } })
-          } else if (index === 1) {
-            this.$router.push({ path: 'product_chanpin', query: { name: '所有品类', id: 'a460675f-8a68-4bbb-b0cd-825f7578fe00' } })
-          } else if (index===2) {
-            this.$router.push({ path: 'store', query: { name: '线上商城', id: 'e6e0ea92-0f43-418b-b838-b88b69744e57' } })
+        } else if (!this.list[0].title) {
+          console.log(this.list[1].title)
+            if (index == 0) {
+              this.$router.push({ path: 'verification', query: { name: '产品验证', id: 'ac1e5571-d81f-4fc7-886c-c4ba6d7a871a' } })
+            } else if (index == 1) {
+              this.$router.push({ path: 'product_chanpin', query: { name: '所有品类', id: 'a460675f-8a68-4bbb-b0cd-825f7578fe00' } })
+            } else if (index==2) {
+              this.$router.push({ path: 'store', query: { name: '线上商城', id: 'e6e0ea92-0f43-418b-b838-b88b69744e57' } })
+            }
           }
-        }
       },
       btn() {
         var a = this.sreach;

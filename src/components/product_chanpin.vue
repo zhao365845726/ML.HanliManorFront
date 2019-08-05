@@ -49,7 +49,7 @@
           { "top": 60, "left": 800, "width": 400, "height": 240, "zIndex": 2, "opacity": 40 },
           { "top": 60, "left": 800, "width": 400, "height": 240, "zIndex": 1, "opacity": 0 }
         ],
-         size_a: [
+         size_a: [//768
           { "top": 30, "left": 88, "width":100, "height": 109, "zIndex": 1, "opacity": 0 },
           { "top": 30, "left": 88, "width":100, "height": 109, "zIndex": 2, "opacity": 60 },
           { "top": 16, "left": 154, "width":173, "height": 138, "zIndex": 3, "opacity": 80 },
@@ -57,6 +57,33 @@
           { "top": 16, "left": 432, "width": 173, "height": 138, "zIndex": 3, "opacity": 80 },
           { "top": 30, "left": 570, "width": 100, "height": 109, "zIndex": 2, "opacity": 60 },
           { "top": 30, "left": 570, "width": 100, "height": 109, "zIndex": 1, "opacity": 0 }
+        ],
+         size_b: [//414
+          { "top": 13, "left": 37, "width":100, "height": 80, "zIndex": 1, "opacity": 0 },
+          { "top": 13, "left": 37, "width":100, "height": 80, "zIndex": 2, "opacity": 50 },
+          { "top": 8, "left": 73, "width":132, "height": 90, "zIndex": 3, "opacity": 70 },
+          { "top": 0, "left": 120, "width": 145, "height": 105, "zIndex": 4, "opacity": 100 },
+          { "top": 8, "left": 182, "width": 132, "height": 90, "zIndex": 3, "opacity": 70 },
+          { "top": 13, "left": 249, "width": 100, "height": 80, "zIndex": 2, "opacity": 50 },
+          { "top": 13, "left": 249, "width": 100, "height": 80, "zIndex": 1, "opacity": 0 }
+        ],
+         size_c: [//375
+          { "top": 11, "left": 40, "width":80, "height": 66, "zIndex": 1, "opacity": 0 },
+          { "top": 11, "left": 40, "width":80, "height": 66, "zIndex": 2, "opacity": 50 },
+          { "top": 6, "left": 74, "width":100, "height": 76, "zIndex": 3, "opacity": 70 },
+          { "top": 0, "left": 112, "width": 120, "height": 88, "zIndex": 4, "opacity": 100 },
+          { "top": 6, "left": 172, "width": 100, "height": 76, "zIndex": 3, "opacity": 70 },
+          { "top": 11, "left": 226, "width": 80, "height": 66, "zIndex": 2, "opacity": 50 },
+          { "top": 11, "left": 226, "width": 80, "height": 66, "zIndex": 1, "opacity": 0 }
+        ],
+         size_d: [//1024
+           { "top": 31, "left": 101, "width":245, "height": 160, "zIndex": 1, "opacity": 0 },
+          { "top": 31, "left": 101, "width": 245, "height": 160, "zIndex": 2, "opacity": 40 },
+          { "top": 16, "left": 196, "width": 300, "height": 190, "zIndex": 3, "opacity": 70 },
+          { "top": 0, "left": 315, "width": 360, "height": 220, "zIndex": 4, "opacity": 100 },
+          { "top": 16, "left": 490, "width": 300, "height": 190, "zIndex": 3, "opacity": 70 },
+          { "top": 31, "left": 648, "width": 245, "height":160, "zIndex": 2, "opacity": 40 },
+          { "top": 31, "left": 648, "width": 245, "height": 160, "zIndex": 1, "opacity": 0 }
         ],
         CoverPhoto_a:'',
         isShow: false,
@@ -106,10 +133,10 @@
           "PageSize": 10
         })
         .then((res) => {
-          console.log(res)
+          //console.log(res)
           this.list = res.data.data.lst_categoryarticlelist;
           this.imgArr = this.list;
-          console.log(this.imgArr);
+          //console.log(this.imgArr);
           })
         },
       getStyle: function (obj, attr) {
@@ -179,6 +206,12 @@
         }, this.speed)
         if (this.width === 768) {
           this.size = this.size_a;
+        } else if (this.width === 414) {
+          this.size = this.size_b;
+        }else if (this.width === 375) {
+          this.size = this.size_c;
+        }else if (this.width === 1024) {
+          this.size = this.size_d;
         }
       },
       fnLeft() {
@@ -201,7 +234,7 @@
         }
         var wrap = document.getElementById('wrap');
         var liArr = wrap.getElementsByTagName('li');
-        console.log(liArr.length)
+        //console.log(liArr.length)
         var that = this;
         for (var i = 0; i < liArr.length; i++) {
           this.animate(liArr[i], this.size[i], function () {
@@ -213,7 +246,7 @@
     mounted() {
       this.fnSwiper();
       this.ajax();
-      console.log(this.width, this.height)
+      //console.log(this.width, this.height)
     }
   }
 </script>
@@ -362,5 +395,71 @@
       height: 160px;
       margin-top: -28%;
     }
+    .wrap a{
+    position: absolute;
+    z-index: 2;
+    top: 32%;
+    width: 60px;
+    height: 60px;
+    margin-top: -30px;
+    font: 36px/60px "\5B8B\4F53";
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background: rgb(255, 100, 0);
+    background: rgba(255, 100, 0, .2);
+    -webkit-transition: background 1s ease;
+    transition: background 1s ease;
+    margin-left: -27px;
+    margin-right: -29px;
+}
+    .wrap {
+    position: relative;
+    width: 100%;
+    height: 360px;
+    margin: 100px auto;
+    margin-top: -30%;
+
+}
+  }
+  @media(max-width:414px) {
+    .wrap a {
+    position: absolute;
+    z-index: 2;
+    top: 25%;
+    width: 30px;
+    height: 30px;
+    margin-top: -50px;
+    font: 25px/32px "\5B8B\4F53";
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background: rgb(255, 100, 0);
+    background: rgba(255, 100, 0, .2);
+    -webkit-transition: background 1s ease;
+    transition: background 1s ease;
+    margin-left: -29px;
+    margin-right: -30px;
+}
+  }
+    @media(max-width:375px) {
+    .wrap a {
+    position: absolute;
+    z-index: 2;
+    top: 22%;
+    width: 30px;
+    height: 30px;
+    margin-top: -50px;
+    font: 25px/32px "\5B8B\4F53";
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background: rgb(255, 100, 0);
+    background: rgba(255, 100, 0, .2);
+    -webkit-transition: background 1s ease;
+    transition: background 1s ease;
+    margin-left: -29px;
+    margin-right: -30px;
+}
   }
 </style>

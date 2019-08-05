@@ -126,7 +126,7 @@ export default {
   display: block;
     width: 83%;
     height: 53%;
-    background: url(/static/img/tianmao.3613060.jpg) no-repeat;
+    background: url(../assets/img/tianmao.jpg) no-repeat;
     background-size: 100% 100%;
     position: absolute;
     top: 24%;

@@ -37,8 +37,8 @@
                     <p v-html="item.body" class="cursor"></p>
                   </div>
                   <div class="t-r">
-                    <div class="more">
-                      <a @click="toggle(index)"></a>
+                    <div class="more" >
+                      <a @click="toggle(index)"  v-bind:class="{'active': index == swiperIndex && isShow}"></a>
                     </div>
                   </div>
 
@@ -200,6 +200,15 @@
             -moz-transform:rotate(270deg); 	/* Firefox */
             -webkit-transform:rotate(270deg); /* Safari 和 Chrome */
             -o-transform:rotate(270deg);
+        }
+        .more >a.active{
+            display: block;
+            width: 12px;
+            height: 7px;
+            background:none;
+            border-bottom: 2px solid #00873C;
+            border-top:2px solid #00873C;
+            margin-left: -2px;
         }
 .description {
   margin-bottom: 6%;
