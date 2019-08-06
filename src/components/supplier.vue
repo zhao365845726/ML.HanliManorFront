@@ -474,7 +474,13 @@ mounted() {
     .container {
       overflow: hidden;
     }
-
+ .place li :hover.con b {
+    display: block;
+    font-weight: normal;
+    font-size: 21px;
+    margin-bottom: 10px;
+    color:#00873C;
+}
     .img {
       width: 100%;
       height: auto;
@@ -1094,14 +1100,12 @@ mounted() {
       .list-jp::before {
         top: 29px;
       }
-
       .jp-item__num {
         width: 60px;
         height: 60px;
         font-size: 32px;
         line-height: 66px;
       }
-
       .jp-item__desc {
         font-size: 16px;
       }

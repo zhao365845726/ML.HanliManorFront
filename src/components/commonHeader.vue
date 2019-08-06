@@ -10,7 +10,9 @@
           <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园" type="text" v-model="sreach" @keyup.enter="searchEnterFun" />
           <button class="sreachBtn pointer float_left" @click="btn"></button>
         </div>
-        <div class="language float_right"><span >EN</span> / <span>中文</span></div>
+        <div class="language float_right"><span>EN</span> / <span>中文</span></div>
+        <!--<p>{{ $t('language.name') }}</p>
+        <p>{{ $t('navbar.contact') }}</p>-->
       </div>
     </div>
 
@@ -158,7 +160,7 @@
       }
     },
     methods: {
-    fnClickNav(){
+      fnClickNav(){
         this.isShow = !this.isShow;    
       },
       rou(index) {
@@ -214,7 +216,13 @@
           } else {
             alert('输入为空，请重新输入');
           }
-      }
+      },
+ //     changeLang() {
+　//　　let locale = localStorage.getItem('language')||'cn';
+　//　　let temp=locale === 'cn' ? 'en' : 'cn';
+　//　　this.$i18n.locale=temp;//改变当前语言
+　//　　　localStorage.language=temp;
+　//}
     },
     mounted(){
       this.$axios

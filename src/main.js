@@ -11,8 +11,10 @@ import axios from 'axios'
 import Pagination from 'vue-pagination-2'
 import myDatepicker from 'vue-datepicker/vue-datepicker-es6.vue'
 import AMap from 'vue-amap'
+//import VueI18n from 'vue-i18n'
 
-Vue.use(AMap)  
+Vue.use(AMap)
+//Vue.use(VueI18n)
 Vue.component('date', myDatepicker)
 Vue.component('pagination', Pagination)
 Vue.use(VueSwiper)
@@ -22,7 +24,6 @@ AMap.initAMapApiLoader({
   key: '',
   plugin: ['AMap.Geolocation']
 })
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -30,4 +31,21 @@ new Vue({
   components: { App },
   template: '<App/>'
   
+})
+import VueI18n from 'vue-i18n';
+Vue.use(VueI18n);
+const i18n = new VueI18n({
+  locale: localStorage.getItem('language') || 'cn', //使用localStorage缓存到本地，当下次使用时可默认当前使用语言
+  messages: {
+    'cn': require('./i18n/lang/cn'),
+    'en': require('./i18n/lang/en')
+    
+  }
+})
+new Vue({ 
+  el: '#app',
+  router,
+  i18n,
+  template: '<App/>',
+  components: { App }
 })
