@@ -5,6 +5,6 @@ module.exports = {
     name: '中文'
   },
   navbar: {
-    home: 'Home',
+    home: '首页',
   }
 }

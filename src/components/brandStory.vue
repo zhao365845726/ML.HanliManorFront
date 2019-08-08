@@ -1,29 +1,38 @@
 <template>
   <div class="container brandStory margin">
     <img src="../assets/img/bg3.png" alt="" class="img">
+    <!--<div style="border:1px solid">
+      <input type="text" v-model="search" style="border:1px solid">
+      <ul>
+        <li v-for="(item,index) in items">
+          <span>{{item.name}}</span>
+          <span>{{item.msg}}</span>
+        </li>
+      </ul>
+    </div>-->
+
     <div class="container story right">
       <div class="story-inner margin">
-          <div class="story-intro story-intro-01">
-              <div class="intro-header">
-                  <h2>MEDIA FOCUS LLXVMDKDF</h2>
-                  <p style="cursor:auto">{{this.media_c}}</p>
-              </div>
-              <div class="story-intro-01__txt">
-                  <div>
-                      <p class="t-c">守护本来的味道<br>韩家庄人民欢迎您</p>
-                  </div>
-              </div>
+        <div class="story-intro story-intro-01">
+          <div class="intro-header">
+            <h2>MEDIA FOCUS LLXVMDKDF</h2>
+            <p style="cursor:auto">{{this.media_c}}</p>
           </div>
-          <div class="story-img img-box">
-              <img src="http://image.jmta.milisx.com/lg9SSeviQuETH4wYxVCT7dnqHhG0">
+          <div class="story-intro-01__txt">
+            <div>
+              <p class="t-c">守护本来的味道<br>韩家庄人民欢迎您</p>
+            </div>
           </div>
+        </div>
+        <div class="story-img img-box">
+          <img src="http://image.jmta.milisx.com/lg9SSeviQuETH4wYxVCT7dnqHhG0">
+        </div>
       </div>
     </div>
-
     <div class="story left mt-150">
       <div class="story-inner margin">
         <div class="story-img story-img-02 img-box">
-            <img src="http://image.jmta.milisx.com/FktWRJzSQHttdA5M_btwodbAksap">
+          <img src="http://image.jmta.milisx.com/FktWRJzSQHttdA5M_btwodbAksap">
         </div>
         <div class="story-intro story-intro-02">
           <div class="story-intro__txt story-intro-02__txt">
@@ -32,26 +41,24 @@
         </div>
       </div>
     </div>
-
     <div class="story right mt-150">
       <div class="story-inner margin">
         <div class="story-intro">
-            <div class="story-intro-03__txt">
-                <div class="story-dream-title">
-                    <p>{{this.media_b}}</p>
-                    <span>MEDIA FOCUS</span>
-                </div>
-                <div class="story-intro__txt">
-                  <p v-html="this.media_a"></p>
-                </div>
+          <div class="story-intro-03__txt">
+            <div class="story-dream-title">
+              <p>{{this.media_b}}</p>
+              <span>MEDIA FOCUS</span>
             </div>
+            <div class="story-intro__txt">
+              <p v-html="this.media_a"></p>
+            </div>
+          </div>
         </div>
         <div class="story-img img-box">
-            <img src="http://image.jmta.milisx.com/luFSp1cqrp689Jegq9SX5lUBtUJ0">
+          <img src="http://image.jmta.milisx.com/luFSp1cqrp689Jegq9SX5lUBtUJ0">
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -64,8 +71,38 @@ export default {
       media_c:'',
       media_a: '',
       media_b: '',
+       //search:'',
+       //list:[
+       // {name:'AAA',msg:'aaa文本介绍1'},
+       // {name:'BBB',msg:'bbb文本介绍2'},
+       // {name:'CCC',msg:'ccc文本介绍3'},
+       // {name:'DDD',msg:'ddd文本介绍4'},
+       // {name:'EEE',msg:'eee文本介绍5'},
+       //]
     };
-    },
+  },
+ // computed: {
+ // //过滤方法
+ // items: function() {
+ //  var _search = this.search;
+ //  if (_search) {
+ //   //不区分大小写处理
+ //    var reg = new RegExp(_search, 'ig')
+ //    console.log(reg)
+ //   //es6 filter过滤匹配，有则返回当前，无则返回所有
+ //   return this.list.filter(function(e) {
+ //     //匹配所有字段
+ //     console.log(e)
+ //     return Object.keys(e).some(function (key) {
+ //     return e[key].match(reg);
+ //    })
+ //    //匹配某个字段
+ //    // return e.name.match(reg);
+ //   })
+ //  };
+ //  return this.list;
+ // }
+ //},
     mounted() {
          this.$axios
            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {

@@ -7,12 +7,17 @@
         <a href="https://www.jd.com/?cu=true&utm_source=baidu-search&utm_medium=cpc&utm_campaign=t_262767352_baidusearch&utm_term=106807362512_0_8c328599297641dfbaa3fbe55a8d7cf1" class="jingdong float_left"></a>
 
         <div class="container sreach float_left">
-          <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园" type="text" v-model="sreach" @keyup.enter="searchEnterFun" />
+          <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园" type="text" v-model="sreach" @keyup.enter="searchEnterFun" @input="search($event)" />
           <button class="sreachBtn pointer float_left" @click="btn"></button>
+          <ul class="sousuo">
+            <li v-for="(item,index) in list_b">
+              <span>{{item.Title}}</span>
+            </li>
+          </ul>
         </div>
-        <div class="language float_right"><span>EN</span> / <span>中文</span></div>
+        <div class="language float_right"><span @click="changeen()">EN</span> / <span @click="changcn()">中文</span></div>
         <!--<p>{{ $t('language.name') }}</p>
-        <p>{{ $t('navbar.contact') }}</p>-->
+      <p>{{ $t('navbar.home') }}</p>-->
       </div>
     </div>
 
@@ -54,17 +59,17 @@
       </ul>
     </div>
     <footer style="display:none;" v-show="isShow">
-      <ul class="nav nav-tabs" >
-        <li role="presentation" v-for="(item,index) in list"  class="li">
+      <ul class="nav nav-tabs">
+        <li role="presentation" v-for="(item,index) in list" class="li">
           <a class="a1" @click="rou(index)">{{item.title}}</a>
           <div class="div2">
-            <ul v-for="(itemsub,index) in item.list2" >
+            <ul v-for="(itemsub,index) in item.list2">
               <li>
                 <!--<router-link>{{itemsub.title}}</router-link>-->
                 <a @click="rou_a(index)">{{itemsub.title}}</a>
               </li>
             </ul>
-          </div>        
+          </div>
         </li>
       </ul>
     </footer>
@@ -157,8 +162,31 @@
         sub_d: [],
         sub_e: [],
         sreach: '',
+        list_b: [],
       }
     },
+    // computed: {
+    //   // 过滤方法
+    //   items: function () {       
+    //     var _search = this.materialName;
+    //     if (_search) {
+    //      //不区分大小写处理
+    //       var reg = new RegExp(_search, 'ig')
+    //       console.log(reg)
+    //      //es6 filter过滤匹配，有则返回当前，无则返回所有
+    //      return this.list_a.filter(function(e) {
+    //        //匹配所有字段
+    //        console.log(e)
+    //        return Object.keys(e).some(function (key) {
+    //        return e[key].match(reg);
+    //       })
+    //       //匹配某个字段
+    //       // return e.name.match(reg);
+    //      })
+    //     };
+    //     return this.list_b;
+    //    }
+    //},
     methods: {
       fnClickNav(){
         this.isShow = !this.isShow;    
@@ -217,12 +245,43 @@
             alert('输入为空，请重新输入');
           }
       },
- //     changeLang() {
-　//　　let locale = localStorage.getItem('language')||'cn';
-　//　　let temp=locale === 'cn' ? 'en' : 'cn';
-　//　　this.$i18n.locale=temp;//改变当前语言
-　//　　　localStorage.language=temp;
-　//}
+      changeen() {
+        let locale = localStorage.getItem('language') || 'cn';
+    //    console.log(locale)
+    //    let temp=locale === 'cn' ? 'en' : 'cn';
+    //    this.$i18n.locale = temp;//改变当前语言
+    //    console.log(temp)
+　　　　//localStorage.language=temp;
+      },
+      changcn() {
+        let locale = localStorage.getItem('language') || 'en';
+    //    console.log(locale)
+    //    let temp=locale === 'en' ? 'cn' : 'en';
+    //    this.$i18n.locale = temp;//改变当前语言
+    //    console.log(temp)
+　　　　//localStorage.language=temp;
+      },
+      search: function (event) {
+        //console.log(event)
+          //直接通过event.data可以获得文本内容
+         console.log(this.sreach)
+        if (event.data != null) {
+          this.materialName = event.data;
+          this.sreach = this.materialName
+         
+          console.log(this.materialName)
+          this.$axios
+            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticlesearchlist', {
+              "Title": this.sreach,
+              "PageIndex": 1,
+              "PageSize": 50
+            })
+            .then((name) => {
+              console.log(name)
+              this.list_b = name.data.data.lst_articlesearchlist;
+            })
+        } 
+        }
     },
     mounted(){
       this.$axios
@@ -289,11 +348,38 @@
                  //console.log(this.sub_e)               
                }) 
             //console.log(this.forklifts)
-         })
+        })
        }
   }
 </script>
 <style scoped>
+  .sousuo {
+    /*border: 1px solid;*/
+    margin-top: 31px;
+    background-color: white;
+    opacity: 0.8;
+    border-top: 0;
+    /*display:none;*/
+    position:relative;
+    z-index:1
+  }
+   .float_left:hover .sousuo {
+      display:block;
+    }
+    .sousuo li {
+     font-size: 15px;
+    line-height: 25px;
+    height: 25px;
+    /*border: 1px solid;*/
+    text-indent: 16px;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    }
+     .sousuo :hover {
+     background-color:#00873C;
+    }
   .a1 {
         color: white;
     background-color: #009944;
