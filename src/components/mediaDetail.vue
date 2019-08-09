@@ -61,7 +61,7 @@ export default {
       },
       pageInfo() {
         var param = window.location.href.split('=')[1];
-      //console.log(param);
+         console.log(param);
         this.$axios
           .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
             "ArticleId": param
@@ -114,6 +114,7 @@ export default {
     },
     mounted() {
       this.pageInfo()
+      //this.$router.go(0)
     }
 };
 </script>
