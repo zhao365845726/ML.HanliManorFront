@@ -93,10 +93,11 @@
             list2: [
               {
                 title: "庄园介绍",
+                link:'description'
               },
               {
                 title: "好山好水",
-                id: ''
+                link:'brandStory'
               },
             ]
           },
@@ -104,13 +105,16 @@
             title: "产品世界",
             list2: [
               {
-                title: "产品验证"
+                title: "产品验证",
+                link:'verification'
               },
               {
-                title: "媒体聚焦"
+                title: "所有品类",
+                link:'product_chanpin'
               },
               {
-                title: "线上商城"
+                title: "线上商城",
+                link:'store'
               }
             ]
           },
@@ -118,10 +122,12 @@
             title: "品牌故事",
             list2: [
               {
-                title: "村规民约"
+                title: "村规民约",
+                link:'rule'
               },
               {
-                title: "种植技术"
+                title: "种植技术",
+                link:'technology'
               },
             ]
           },
@@ -129,13 +135,16 @@
             title: "新闻中心",
             list2: [
               {
-                title: "企业公告"
+                title: "企业公告",
+                link:'notice'
               },
               {
-                title: "品牌历程"
+                title: "媒体聚焦",
+                link:'media'
               },
               {
-                title: "品牌视频"
+                title: "品牌视频",
+                link:'video'
               }
             ]
           },
@@ -143,10 +152,12 @@
             title: "联系我们",
             list2: [
               {
-                title: "诚招供应商"
+                title: "诚招供应商",
+                link:'supplier'
               },
               {
-                title: "联系我们"
+                title: "联系我们",
+                link:'contact'
               },
             ]
           }
@@ -185,22 +196,28 @@
       },
       rou_a(index) {
         console.log(index)
-        if (this.list[0].title) {
-          if (index == 0) {
-            this.$router.push({ path: 'description', query: { name: '韩梨庄园介绍', id: '96aeb5cd-8712-4999-a029-e08479ef3b1b' } })
-          } else if (index == 1) {
-            this.$router.push({ path: 'brandStory', query: { name: '好山好水好人家', id: 'b1c97066-0750-49d8-9b34-cb3f85f3a097' } })
-          }
-        } else if (!this.list[1].title) {
-          console.log(this.list[1].title)
-          if (index == 0) {
-            this.$router.push({ path: 'verification', query: { name: '产品验证', id: 'ac1e5571-d81f-4fc7-886c-c4ba6d7a871a' } })
-          } else if (index == 1) {
-            this.$router.push({ path: 'product_chanpin', query: { name: '所有品类', id: 'a460675f-8a68-4bbb-b0cd-825f7578fe00' } })
-          } else if (index == 2) {
-            this.$router.push({ path: 'store', query: { name: '线上商城', id: 'e6e0ea92-0f43-418b-b838-b88b69744e57' } })
-          }
-        }
+        this.router.push({ path:this.list[index].list2[index].link })
+        //console.log(this.list[1].list2[0].title)
+        //if (index == 0) {
+        //  this.$router.push({ path: 'description', query: { name: '韩梨庄园介绍', id: '96aeb5cd-8712-4999-a029-e08479ef3b1b' } })
+        //} 
+        
+        //if (index && this.list[index].title) {
+        //  if (index == 0) {
+        //    this.$router.push({ path: 'description', query: { name: '韩梨庄园介绍', id: '96aeb5cd-8712-4999-a029-e08479ef3b1b' } })
+        //  } else if (index == 1) {
+        //    this.$router.push({ path: 'brandStory', query: { name: '好山好水好人家', id: 'b1c97066-0750-49d8-9b34-cb3f85f3a097' } })
+        //  }
+        //} else if (index && this.list[index].title) {
+        //  console.log(this.list[1].title)
+        //  if (index == 0) {
+        //    this.$router.push({ path: 'verification', query: { name: '产品验证', id: 'ac1e5571-d81f-4fc7-886c-c4ba6d7a871a' } })
+        //  } else if (index == 1) {
+        //    this.$router.push({ path: 'product_chanpin', query: { name: '所有品类', id: 'a460675f-8a68-4bbb-b0cd-825f7578fe00' } })
+        //  } else if (index == 2) {
+        //    this.$router.push({ path: 'store', query: { name: '线上商城', id: 'e6e0ea92-0f43-418b-b838-b88b69744e57' } })
+        //  }
+        //}
       },
       btn() {
         var a = this.sreach;
@@ -725,7 +742,14 @@
     .div2 ul li a {
       color: #009944;
       font-size: 16px;
+      text-decoration:none;
     }
+       .div2 ul:hover li  {
+      background-color:#009944;
+    }
+    .div2 ul:hover li a {
+      color:white;
+    } 
 
     .nav li:hover .div2 {
       display: block;
@@ -797,8 +821,14 @@
     .div2 ul li a {
       color: #009944;
       font-size: 12px;
+      text-decoration:none;
     }
-
+    .div2 ul:hover li  {
+      background-color:#009944;
+    }
+    .div2 ul:hover li a {
+      color:white;
+    } 
     .nav li:hover .div2 {
       display: block;
       width: 75px;
