@@ -59,15 +59,41 @@
     </div>
     <footer style="display:none;" v-show="isShow">
       <ul class="nav nav-tabs">
-        <li role="presentation" v-for="(item,index) in list" class="li">
-          <a class="a1" @click="rou(index)">{{item.title}}</a>
+        <li role="presentation" v-for="(item,index) in forklifts" class="li">
+          <a class="a1" @click="rou(index)">{{item.Name}}</a>
           <div class="div2">
-            <ul v-for="(itemsub,index) in item.list2">
-              <li>
-                <!--<router-link>{{itemsub.title}}</router-link>-->
-                <a @click="rou_a(index)">{{itemsub.title}}</a>
+            <ul >
+              <li  v-for="(subitem,index) in sub" v-if="item.Name==='首页'">
+                <router-link :to="{path:'supplier',query:{name:subitem.Name,id:subitem.Id}}">{{subitem.Name}}</router-link>
+              </li>
+              <li  v-for="(subitem,index) in sub_a" v-if="item.Name==='关于我们'">
+                <router-link :to="{path:'description',query:{name:subitem.Name,id:subitem.Id}}"  v-if="subitem.Name==='韩梨庄园介绍'">{{subitem.Name}}</router-link>
+                <router-link :to="{path:'brandStory',query:{name:subitem.Name,id:subitem.Id}}"  v-if="subitem.Name==='好山好水好人家'">{{subitem.Name}}</router-link>
+              </li>
+              <li  v-for="(subitem,index) in sub_b" v-if="item.Name==='产品世界'">
+                <router-link :to="{path:'verification',query:{name:subitem.Name,id:subitem.Id}}"  v-if="subitem.Name==='产品验证'">{{subitem.Name}}</router-link>
+                <router-link :to="{path:'product_chanpin',query:{name:subitem.Name,id:subitem.Id}}"  v-if="subitem.Name==='所有品类'">{{subitem.Name}}</router-link>
+                <router-link :to="{path:'store',query:{name:subitem.Name,id:subitem.Id}}" v-if="subitem.Name==='线上商城'">{{subitem.Name}}</router-link>
+              </li>
+              <li v-for="(subitem,index) in sub_c" v-if="item.Name==='品牌故事'">
+                <router-link :to="{path:'rule',query:{name:subitem.Name,id:subitem.Id}}"  v-if="subitem.Name==='村规民约'">{{subitem.Name}}</router-link>
+                <router-link :to="{path:'technology',query:{name:subitem.Name,id:subitem.Id}}"  v-if="subitem.Name==='种植技术'">{{subitem.Name}}</router-link>
+              </li>
+              <li  v-for="(subitem,index) in sub_d" v-if="item.Name==='新闻中心'">
+                <router-link :to="{path:'notice',query:{name:subitem.Name,id:subitem.Id}}"  v-if="subitem.Name==='企业公告'">{{subitem.Name}}</router-link>
+                <router-link :to="{path:'media',query:{name:subitem.Name,id:subitem.Id}}"  v-if="subitem.Name==='媒体聚焦'">{{subitem.Name}}</router-link>
+                <router-link :to="{path:'video',query:{name:subitem.Name,id:subitem.Id}}"  v-if="subitem.Name==='品牌视频'">{{subitem.Name}}</router-link>
+              </li>
+              <li  v-for="(subitem,index) in sub_e" v-if="item.Name==='联系我们'">
+                <router-link :to="{path:'supplier',query:{name:subitem.Name,id:subitem.Id}}"  v-if="subitem.Name==='诚招供应商'">{{subitem.Name}}</router-link>
+                <router-link :to="{path:'contact',query:{name:subitem.Name,id:subitem.Id}}"  v-if="subitem.Name==='联系我们'">{{subitem.Name}}</router-link>
               </li>
             </ul>
+            <!--<ul v-for="(itemsub,index) in item.list2">
+              <li>
+                <a @click="rou_a()">{{itemsub.title}}</a>
+              </li>
+            </ul>-->
           </div>
         </li>
       </ul>
@@ -87,81 +113,6 @@
       return {
         index_: 0,
         clickIndex_: 0,
-        list: [
-          {
-            title: "首页",
-            list2: [
-              {
-                title: "庄园介绍",
-                link:'description'
-              },
-              {
-                title: "好山好水",
-                link:'brandStory'
-              },
-            ]
-          },
-          {
-            title: "产品世界",
-            list2: [
-              {
-                title: "产品验证",
-                link:'verification'
-              },
-              {
-                title: "所有品类",
-                link:'product_chanpin'
-              },
-              {
-                title: "线上商城",
-                link:'store'
-              }
-            ]
-          },
-          {
-            title: "品牌故事",
-            list2: [
-              {
-                title: "村规民约",
-                link:'rule'
-              },
-              {
-                title: "种植技术",
-                link:'technology'
-              },
-            ]
-          },
-          {
-            title: "新闻中心",
-            list2: [
-              {
-                title: "企业公告",
-                link:'notice'
-              },
-              {
-                title: "媒体聚焦",
-                link:'media'
-              },
-              {
-                title: "品牌视频",
-                link:'video'
-              }
-            ]
-          },
-          {
-            title: "联系我们",
-            list2: [
-              {
-                title: "诚招供应商",
-                link:'supplier'
-              },
-              {
-                title: "联系我们",
-                link:'contact'
-              },
-            ]
-          }
-        ],
         isShow: false,
         isMouseover: false,
         forklifts: [],
@@ -182,41 +133,17 @@
       },
       rou(index) {
         //console.log(index)
-        if (index === 0) {
-          this.$router.push({ path: 'home', query: { name: '首页', id: '44ac585c-f6e9-4ed2-a8fb-bec639821345' } })
-        } else if (index === 1) {
-          this.$router.push({ path: 'home', query: { name: '产品世界', id: 'fbcc90b2-4c03-48d4-8fe2-0d876026afd0' } })
-        } else if (index === 2) {
-          this.$router.push({ path: 'home', query: { name: '品牌故事', id: 'fefb6175-f4b7-4205-ae94-5f655757d926' } })
-        } else if (index === 3) {
-          this.$router.push({ path: 'home', query: { name: '新闻中心', id: 'b5af22c8-59b7-4cbd-94c0-6d8ed6c2473a' } })
-        } else if (index === 4) {
-          this.$router.push({ path: 'home', query: { name: '联系我们', id: '6ac5883a-67f8-4079-aa14-f34361142750' } })
-        }
-      },
-      rou_a(index) {
-        console.log(index)
-        this.router.push({ path:this.list[index].list2[index].link })
-        //console.log(this.list[1].list2[0].title)
-        //if (index == 0) {
-        //  this.$router.push({ path: 'description', query: { name: '韩梨庄园介绍', id: '96aeb5cd-8712-4999-a029-e08479ef3b1b' } })
-        //} 
-        
-        //if (index && this.list[index].title) {
-        //  if (index == 0) {
-        //    this.$router.push({ path: 'description', query: { name: '韩梨庄园介绍', id: '96aeb5cd-8712-4999-a029-e08479ef3b1b' } })
-        //  } else if (index == 1) {
-        //    this.$router.push({ path: 'brandStory', query: { name: '好山好水好人家', id: 'b1c97066-0750-49d8-9b34-cb3f85f3a097' } })
-        //  }
-        //} else if (index && this.list[index].title) {
-        //  console.log(this.list[1].title)
-        //  if (index == 0) {
-        //    this.$router.push({ path: 'verification', query: { name: '产品验证', id: 'ac1e5571-d81f-4fc7-886c-c4ba6d7a871a' } })
-        //  } else if (index == 1) {
-        //    this.$router.push({ path: 'product_chanpin', query: { name: '所有品类', id: 'a460675f-8a68-4bbb-b0cd-825f7578fe00' } })
-        //  } else if (index == 2) {
-        //    this.$router.push({ path: 'store', query: { name: '线上商城', id: 'e6e0ea92-0f43-418b-b838-b88b69744e57' } })
-        //  }
+        this.$router.push({ path: 'home', query: { name: this.forklifts[index].Name, id: this.forklifts[index].Id } })
+        //if (index === 0) {
+        //  this.$router.push({ path: 'home', query: { name: '首页', id: '44ac585c-f6e9-4ed2-a8fb-bec639821345' } })
+        //} else if (index === 1) {
+        //  this.$router.push({ path: 'home', query: { name: '产品世界', id: 'fbcc90b2-4c03-48d4-8fe2-0d876026afd0' } })
+        //} else if (index === 2) {
+        //  this.$router.push({ path: 'home', query: { name: '品牌故事', id: 'fefb6175-f4b7-4205-ae94-5f655757d926' } })
+        //} else if (index === 3) {
+        //  this.$router.push({ path: 'home', query: { name: '新闻中心', id: 'b5af22c8-59b7-4cbd-94c0-6d8ed6c2473a' } })
+        //} else if (index === 4) {
+        //  this.$router.push({ path: 'home', query: { name: '联系我们', id: '6ac5883a-67f8-4079-aa14-f34361142750' } })
         //}
       },
       btn() {
@@ -287,7 +214,7 @@
         .then((res) => {
           //console.log(res)
           this.forklifts = res.data.data;
-          //console.log(this.forklifts)
+          console.log(this.forklifts)
           //for (var i = 0; i < res.data.data.length; i++) {
           this.$axios.post('http://hlzy.api.gpscxqyw.com/api/content/getnavcategorylist', {
             "navid": this.forklifts[0].Id,
@@ -760,12 +687,12 @@
     }
 
     .li {
-      margin-right: 38px;
+      margin-right: 34px;
       margin-bottom: 0px;
     }
 
     .nav {
-      padding-left: 91px;
+      padding-left: 32px;
     }
 
     footer {

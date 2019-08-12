@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="company-right">
-            <div class="company-photo img-box" style="cursor:pointer">
+            <div class="company-photo img-boxa" style="cursor:pointer">
                 <!-- 图片尺寸 692*484 -->
                 <img src="http://image.jmta.milisx.com/lg9SSeviQuETH4wYxVCT7dnqHhG0">
             </div>
@@ -31,7 +31,7 @@
                 <div class="history-item__wrap">
                   <h3 class="history-item__year" v-bind:class="{'active': index == swiperIndex && isShow}">{{item.CreateTime}}</h3>
                   <div class="history-item__img img-box" id="img">
-                    <img :src="item.CoverPhoto" style="cursor:pointer">
+                    <img :src="item.CoverPhoto" style="cursor:pointer"> 
                   </div>
                   <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
                     <p v-html="item.body" class="cursor"></p>
@@ -225,6 +225,8 @@
   overflow: hidden;
   margin-bottom: 114px;
 }
+  .img-boxa {
+  }
 .main {
   max-width: 1400px;
 }
@@ -269,7 +271,7 @@
   margin-top: 36px;
 }
 .intro-body {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 28px;
   color: #333;
   margin-top: 50px;
@@ -288,13 +290,37 @@
   width: 100%;
   max-width: 692px;
 }
+  .img-box {
+    display: block;
+    margin: 0 0;
+    /*position: relative;*/
+  }
+    .img-box::before {
+      content: "";
+      display: block;
+      padding-top:64%;
+      border: 1px solid #00873c;
+      border-radius: 0;
+      position: relative;
+    }
+    .img-box:hover::before {
+      background: #00873c url(../assets/img/bg_02.svg) center center no-repeat;
+      background-size: 50% 50%;
+      z-index: 3;
+      cursor:pointer;
+    }
 .img-box img {
   right: 0;
   position: absolute;
   top: 0;
   max-width: 692px;
 }
-
+.img-boxa img {
+  right: 0;
+  position: absolute;
+  top: 0;
+  max-width: 692px;
+}
 .company-photo::before {
   padding-top: 69.9422%;
 }
@@ -332,6 +358,7 @@
   max-width: none;
   width: 100%;
   height: 100%;
+  top:-160px;
 }
 .swiper-slide {
   height: auto;
@@ -456,7 +483,7 @@
   font-size: 14px;
   line-height: 24px;
   color: gray;
-  margin-top:10px;
+  margin-top:13px;
 }
 .history-item__desc.active{
   /*height: auto;*/

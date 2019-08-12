@@ -36,7 +36,7 @@
         </div>
         <div class="story-intro story-intro-02">
           <div class="story-intro__txt story-intro-02__txt">
-            <p v-html="this.media"></p>
+            <p v-html="this.media" style="font-size:13px;"></p>
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
               <span>MEDIA FOCUS</span>
             </div>
             <div class="story-intro__txt">
-              <p v-html="this.media_a"></p>
+              <p v-html="this.media_a" style="font-size:13px;"></p>
             </div>
           </div>
         </div>

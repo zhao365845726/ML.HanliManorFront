@@ -3,11 +3,8 @@
     "",
     "\\src",
     "\\src\\assets",
-    "\\src\\components",
-    "\\src\\i18n",
     "\\src\\i18n\\lang",
     "\\src\\router"
   ],
-  "SelectedNode": "\\src\\components\\mediaDetail.vue",
   "PreviewInSolutionExplorer": false
 }

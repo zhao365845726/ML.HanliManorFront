@@ -4,23 +4,36 @@
    <div class="container main margin">
      <div class="list">
        <div class="intro-header">
-          <h2>MEDIA FOCUS</h2>
-          <p>庄园理念</p>
-        </div>
+         <h2>MEDIA FOCUS</h2>
+         <p>庄园理念</p>
+       </div>
        <img src="../assets/img/img2.png" alt="" class="list-img">
-       <ul class="container list-btn" >
-         <li><img src="http://image.jmta.milisx.com/Fl4-TfG0eZ8VR6cyvtiRdGYbrCSn" class="img_a"/></li>
+       <ul class="container list-btn">
+         <li><img src="http://image.jmta.milisx.com/Fl4-TfG0eZ8VR6cyvtiRdGYbrCSn" class="img_a" /></li>
          <li><img src="http://image.jmta.milisx.com/FiPbTT6czFQg5lH0qu_YeQPktMpN" class="img_a" /></li>
          <li><img src="http://image.jmta.milisx.com/lu1TbzpLUNbj-nO_Zs2dBR2y5-h5" class="img_a" /></li>
          <li><img src="http://image.jmta.milisx.com/lsWRClkUMwBKIahbYzWKNMmzF20k" class="img_a" /></li>
        </ul>
      </div>
-      <div class="list">
+     <div class="list">
        <div class="intro-header intro-header2">
-          <h2>MEDIA FOCUS</h2>
-          <p>产品包装</p>
-        </div>
+         <h2>MEDIA FOCUS</h2>
+         <p>产品包装</p>
+       </div>
        <img src="../assets/img/img5.png" alt="" class="list-img">
+       <ul class="container list-btn">
+         <li><img src="http://image.jmta.milisx.com/lnw9tnICRJbBcw5Isrz_KwgR_f5L" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/llA_7dSKM5eRZfdVgStX7s3y9yvf" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/Fq43h0jXcsZqB-GEJhEa6lPw128Z" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/FufcvqZ5EzKW7abLem1Ys4Z5YuQE" class="img_a" /></li>
+       </ul>
+     </div>
+     <div class="list"  style="top:50px;">
+       <div class="intro-header intro-header3">
+         <h2>MEDIA FOCUS</h2>
+         <p>储运发货</p>
+       </div>
+       <img src="../assets/img/bg6 (4).png" alt="" class="list-img">
        <ul class="container list-btn">
          <li><img src="http://image.jmta.milisx.com/lnw9tnICRJbBcw5Isrz_KwgR_f5L" class="img_a" /></li>
          <li><img src="http://image.jmta.milisx.com/llA_7dSKM5eRZfdVgStX7s3y9yvf" class="img_a" /></li>
@@ -97,6 +110,11 @@ export default {
   line-height: 27px;
   color: #00873c;
 }
+  .intro-header3 {
+    right:0;
+    top:1px;
+
+  }
 .intro-header p{
   font-size: 33px;
   margin-top: 36px;

@@ -128,13 +128,14 @@ export default {
 .list-video {
   position: relative;
   font-size: 0;
+  padding:0;
 }
 .list-video li {
   display: inline-block;
   vertical-align: top;
   width: 50%;
   height: 420px;
-  padding: 20px 10px;
+  padding: 20px 0px;
 }
 .list-video li video {
   width: 100%;

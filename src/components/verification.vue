@@ -17,7 +17,7 @@
             <div class="story-intro story-intro-02">
                 <div class="story-intro__txt story-intro-02__txt">
                   <div class="title">{{Positive_b}}</div>
-                  <div class="content" v-html="this.Positive"></div>
+                  <div class="content" v-html="this.Positive" ></div>
                    <div class="tag">
                      <span class="new">NEW</span>
                      <span class="tag2">启用全新包装</span>
