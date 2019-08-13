@@ -4,7 +4,7 @@
     <div class="container main margin">
         <div class="intro-header">
           <h2 class="t-c">MEDIA FOCUS</h2>
-          <p class="t-c">产品验证</p>
+          <p class="t-c"><span></span>产品验证<span></span></p>
         </div>
         <div class="icon">
           <div class="tag">2019“韩梨”<br>全新包装</div>
@@ -129,9 +129,10 @@ export default {
   color: #00873c;
 }
 .intro-header h2 {
-  font-size: 36px;
-  line-height: 27px;
-  width: 100%;
+  font-size: 38px;
+    line-height: 27px;
+    width: 100%;
+    font-weight: 600;
 }
 .intro-header p {
   font-size: 33px;

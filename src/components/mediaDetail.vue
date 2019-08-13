@@ -2,16 +2,16 @@
   <div class="container mediaDetail margin">
     <img src="../assets/img/bg2.png" alt="" class="img">
     <div class="container main margin">
-      <!--<div class="title">媒体聚焦</div>-->
+      <div class="title">媒体聚焦</div>
       <div class="container content">
         <div class="content-left">
           <div class="time">{{CreateTime}}</div>
           <!--<div class="content-title"></div>-->
           <div class="content-title">{{title}}</div>
           <p class="share">
-            <!--<img src="../assets/img/sp1.png" alt="">
+            <img src="../assets/img/sp1.png" alt="">
             <img src="../assets/img/sp2.png" alt="">
-            <img src="../assets/img/sp3.png" alt="">-->
+            <img src="../assets/img/sp3.png" alt="">
           </p>
           <div class="goback" @click="gotogoods">
             返回上一页
@@ -60,8 +60,11 @@ export default {
         this.$router.go(-1);
       },
       pageInfo() {
-        var param = window.location.href.split('=')[1];
-         console.log(param);
+        var param = window.location.href.split('=')[2];
+        console.log(param);
+        var param_a = window.location.href.split('=')[1];
+        var str = decodeURI(param_a);
+        console.log(str)
         this.$axios
           .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
             "ArticleId": param
@@ -124,7 +127,7 @@ export default {
     font-size:16px;
     color:#595757;
     float:left;
-    /*margin-left:30%;*/
+    margin-left:1%;
      cursor:pointer;
   }
    .bb_a {
@@ -165,6 +168,7 @@ export default {
   font-size: 14px;
   color: #000000;
   line-height: 56px;
+  margin-left:18px;
 }
 .content{
   margin-top: 84px;
@@ -194,11 +198,13 @@ export default {
   line-height: 22px;
   color: #595757;
   margin-bottom: 20px;
+  margin-top:17px;
 }
 .time{
   font-size: 31px;
   color: #000000;
   position: relative;
+  font-weight:600;
 }
 .time span{
   font-size: 12px;

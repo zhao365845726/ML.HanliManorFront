@@ -2,9 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\assets",
-    "\\src\\i18n\\lang",
-    "\\src\\router"
+    "\\src\\assets\\img",
+    "\\src\\components",
+    "\\src\\i18n\\lang"
   ],
+  "SelectedNode": "\\src\\components\\verification.vue",
   "PreviewInSolutionExplorer": false
 }

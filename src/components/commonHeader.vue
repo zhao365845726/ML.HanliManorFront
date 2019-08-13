@@ -134,17 +134,6 @@
       rou(index) {
         //console.log(index)
         this.$router.push({ path: 'home', query: { name: this.forklifts[index].Name, id: this.forklifts[index].Id } })
-        //if (index === 0) {
-        //  this.$router.push({ path: 'home', query: { name: '首页', id: '44ac585c-f6e9-4ed2-a8fb-bec639821345' } })
-        //} else if (index === 1) {
-        //  this.$router.push({ path: 'home', query: { name: '产品世界', id: 'fbcc90b2-4c03-48d4-8fe2-0d876026afd0' } })
-        //} else if (index === 2) {
-        //  this.$router.push({ path: 'home', query: { name: '品牌故事', id: 'fefb6175-f4b7-4205-ae94-5f655757d926' } })
-        //} else if (index === 3) {
-        //  this.$router.push({ path: 'home', query: { name: '新闻中心', id: 'b5af22c8-59b7-4cbd-94c0-6d8ed6c2473a' } })
-        //} else if (index === 4) {
-        //  this.$router.push({ path: 'home', query: { name: '联系我们', id: '6ac5883a-67f8-4079-aa14-f34361142750' } })
-        //}
       },
       btn() {
         var a = this.sreach;

@@ -11,7 +11,7 @@
       </ul>
     </div>-->
 
-    <div class="container story right">
+    <div class=" story right">
       <div class="story-inner margin">
         <div class="story-intro story-intro-01">
           <div class="intro-header">
@@ -25,14 +25,17 @@
           </div>
         </div>
         <div class="story-img img-box">
-          <img src="http://image.jmta.milisx.com/lg9SSeviQuETH4wYxVCT7dnqHhG0">
+          <!--<img src="http://image.jmta.milisx.com/lg9SSeviQuETH4wYxVCT7dnqHhG0">-->
+          <img :src="this.photo">
+
         </div>
       </div>
     </div>
     <div class="story left mt-150">
       <div class="story-inner margin">
         <div class="story-img story-img-02 img-box">
-          <img src="http://image.jmta.milisx.com/FktWRJzSQHttdA5M_btwodbAksap">
+          <!--<img src="http://image.jmta.milisx.com/FktWRJzSQHttdA5M_btwodbAksap">-->
+          <img :src="this.CoverPhoto">
         </div>
         <div class="story-intro story-intro-02">
           <div class="story-intro__txt story-intro-02__txt">
@@ -55,7 +58,8 @@
           </div>
         </div>
         <div class="story-img img-box">
-          <img src="http://image.jmta.milisx.com/luFSp1cqrp689Jegq9SX5lUBtUJ0">
+          <!--<img src="http://image.jmta.milisx.com/luFSp1cqrp689Jegq9SX5lUBtUJ0">-->
+          <img :src="this.CoverPhoto_a">
         </div>
       </div>
     </div>
@@ -79,6 +83,9 @@ export default {
        // {name:'DDD',msg:'ddd文本介绍4'},
        // {name:'EEE',msg:'eee文本介绍5'},
        //]
+      CoverPhoto_a: '',
+      CoverPhoto: '',
+      photo:'',
     };
   },
  // computed: {
@@ -111,6 +118,8 @@ export default {
            .then((res_a) => {
              this.media = res_a.data.data.Body;
              this.media_c = res_a.data.data.Title;
+             this.CoverPhoto = res_a.data.data.CoverPhoto;
+             console.log(res_a)
            })
           this.$axios
            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
@@ -119,16 +128,17 @@ export default {
            .then((res_b) => {
              this.media_a = res_b.data.data.Body;
              this.media_b = res_b.data.data.Title;
+             this.CoverPhoto_a = res_b.data.data.CoverPhoto;
              //console.log(this.media_b)
            })
-          //this.$axios
-          // .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-          //   "ArticleId": "3aaf2f3f-32e7-4968-b92d-54734c8385f8"
-          // })
-          //  .then((res_c) => {
-          //    this.photo = res_c.data.data.CoverPhoto;
-          //    console.log(this.photo)
-          // })
+          this.$axios
+           .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+             "ArticleId": "3aaf2f3f-32e7-4968-b92d-54734c8385f8"
+           })
+            .then((res_c) => {
+              this.photo = res_c.data.data.CoverPhoto;
+              console.log(this.photo)
+           })
     }
 };
 </script>
@@ -140,6 +150,11 @@ export default {
 .brandStory {
   margin-bottom: 156px;
 }
+  .t-c {
+      line-height: 29px;
+    font-family: cursive;
+    font-size: 22px;
+  }
 .img {
   width: 100%;
   height: auto;
@@ -192,9 +207,10 @@ export default {
   color: #00873c;
 }
 .intro-header h2 {
-  font-size: 36px;
-  line-height: 27px;
-  width: 100%;
+    font-size: 37px;
+    line-height: 27px;
+    width: 100%;
+    font-weight: 600;
 }
 .intro-header p {
   font-size: 33px;
@@ -264,6 +280,7 @@ export default {
   top: 0;
   left: 0;
   font-size: 30px;
+  color:#00873C;
 }
 .story-dream-title span {
   display: block;

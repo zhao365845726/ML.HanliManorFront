@@ -10,7 +10,7 @@
         <ul class="container notice-list1">
           <li>
             <img :src="sm_cp" class="bg">
-            <router-link :to="{path:'mediaDetail',query:{id:'67bc35b4-1097-4a58-acac-28d18f082ca4'}}" class="news-item">
+            <router-link :to="{path:'mediaDetail',query:{name:'企业公告',id:'67bc35b4-1097-4a58-acac-28d18f082ca4'}}" class="news-item">
               <div class="notice-list1-con">
                 <div class="icon"></div>
                 <span class="tag">MEDIA FOCUS <br>DMKNI</span>
@@ -21,7 +21,7 @@
           </li>
           <li>
             <img :src=" yj_cp" class="bg">
-            <router-link  :to="{path:'mediaDetail',query:{id:'88f84c01-2c5e-456d-89ff-d9b9b7a151ce'}}" class="news-item">
+            <router-link  :to="{path:'mediaDetail',query:{name:'企业公告',id:'88f84c01-2c5e-456d-89ff-d9b9b7a151ce'}}" class="news-item">
               <div class="notice-list1-con">
                 <div class="icon"></div>
                 <span class="tag">MEDIA FOCUS <br>DMKNI</span>
@@ -40,7 +40,7 @@
         </div>
         <ul class="container notice-news">
           <li v-for="(item,index) in page_a">
-            <router-link :to="{path:'mediaDetail',query:{id:item.Id}}" class="news-item">
+            <router-link :to="{path:'mediaDetail',query:{name:'企业公告',id:item.Id}}" class="news-item">
               <img :src="item.CoverPhoto" class="notice-left float_left">
               <div class="notice-right float_left">
                 <p class="notice-title ellipsis"> {{item.Title}}</p>
@@ -219,6 +219,7 @@
   font-size: 36px;
   width: 100%;
   line-height: 27px;
+  font-weight: 800;
 }
 .intro-header p {
   font-size: 33px;
@@ -226,6 +227,7 @@
 }
 .notice-list1 {
   margin-top: 50px;
+  padding:0;
 }
 .notice-list1 li {
   float: left;
@@ -245,7 +247,7 @@
   width: 333px;
   height: 353px;
   background-color: rgba(255, 255, 255, 0.6);
-  opacity: 0.6;
+  opacity: 1.6;
   padding: 43px 29px;
   position: absolute;
   top: 40px;
@@ -254,7 +256,7 @@
 .notice-list1-con .icon {
   width: 55px;
   height: 55px;
-  background: url(../assets/img/jiantou.png) no-repeat;
+  background: url(../assets/img/11.png) no-repeat;
   background-size: 100% 100%;
   margin-bottom: 55px;
 }
@@ -262,11 +264,14 @@
   font-size: 32px;
   color: #595757;
   line-height: 32px;
+  font-weight: 800;
 }
 .notice-list1-con .title {
-  font-size: 24px;
-  color: #595757;
-  margin: 16px 0;
+      font-size: 25px;
+    color: #595757;
+    margin: 16px 0;
+    margin-top: 12px;
+    margin-bottom: 32px;
 }
 .notice-list1-con .content {
   font-size: 14px;
@@ -287,12 +292,13 @@
 }
 .notice-news{
   margin-top: 48px;
+  padding:0;
 }
 .notice-news li{
-  width: 100%;
-  height: 195px;
-  background: #efefef;
-  margin-bottom: 40px;
+    width: 100%;
+    height: 170px;
+    background: #efefef;
+    margin-bottom: 18px;
 }
 .notice-news li .notice-left{
   width: 345px;
@@ -314,9 +320,10 @@
  height:91px;
 }
 .notice-time{
-  font-size: 14px;
-  color: #00873c;
-  margin-top: 22px;
+    font-size: 14px;
+    color: #00873c;
+    margin-top: 59px;
+    font-weight: 600;
 }
 .notice-news li:hover{
   background: #00873c;
