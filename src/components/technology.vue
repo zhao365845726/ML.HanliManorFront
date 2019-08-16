@@ -8,11 +8,11 @@
          <p>庄园理念</p>
        </div>
        <img src="../assets/img/img2.png" alt="" class="list-img">
-       <ul class="container list-btn">
-         <li><img src="http://image.jmta.milisx.com/Fl4-TfG0eZ8VR6cyvtiRdGYbrCSn" class="img_a" /></li>
-         <li><img src="http://image.jmta.milisx.com/FiPbTT6czFQg5lH0qu_YeQPktMpN" class="img_a" /></li>
-         <li><img src="http://image.jmta.milisx.com/lu1TbzpLUNbj-nO_Zs2dBR2y5-h5" class="img_a" /></li>
-         <li><img src="http://image.jmta.milisx.com/lsWRClkUMwBKIahbYzWKNMmzF20k" class="img_a" /></li>
+       <ul class="container list-btns">
+         <li><img src="http://image.jmta.milisx.com/Fp7XBDjMrdBBd2rwOn0PD3XGrJYD" class="img_b" /><p>太阳能驱虫</p></li>    
+         <li><img src="http://image.jmta.milisx.com/FlSs5tonAlzaGONc7OCDtEPVrEg-" class="img_b" /><p>人工套袋防虫</p></li>
+         <li><img src="http://image.jmta.milisx.com/Fno9fGEaI4TfCtu2f0ahuyUkmTsW" class="img_b" /><p>山泉水灌溉</p></li>
+         <li><img src="http://image.jmta.milisx.com/FozgQMrCqytOxSPuOda1JBmnA2rD" class="img_b" /><p>自产农家肥</p></li>
        </ul>
      </div>
      <div class="list">
@@ -22,10 +22,10 @@
        </div>
        <img src="../assets/img/img5.png" alt="" class="list-img">
        <ul class="container list-btn">
-         <li><img src="http://image.jmta.milisx.com/lnw9tnICRJbBcw5Isrz_KwgR_f5L" class="img_a" /></li>
-         <li><img src="http://image.jmta.milisx.com/llA_7dSKM5eRZfdVgStX7s3y9yvf" class="img_a" /></li>
-         <li><img src="http://image.jmta.milisx.com/Fq43h0jXcsZqB-GEJhEa6lPw128Z" class="img_a" /></li>
-         <li><img src="http://image.jmta.milisx.com/FufcvqZ5EzKW7abLem1Ys4Z5YuQE" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/FjWWUX8BOW3973yhXsXntuMIfuSa" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/FvpuvoCqONN-fZ8_MjypTAGW75U-" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/FvSP89jlC8NQbqm0WrlFeMVTbk4Q" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/FlXf41dEYARghbJQQ5RpsShenYsg" class="img_a" /></li>
        </ul>
      </div>
      <div class="list"  style="top:50px;">
@@ -35,10 +35,10 @@
        </div>
        <img src="../assets/img/bg6 (4).png" alt="" class="list-img">
        <ul class="container list-btn">
-         <li><img src="http://image.jmta.milisx.com/lnw9tnICRJbBcw5Isrz_KwgR_f5L" class="img_a" /></li>
-         <li><img src="http://image.jmta.milisx.com/llA_7dSKM5eRZfdVgStX7s3y9yvf" class="img_a" /></li>
-         <li><img src="http://image.jmta.milisx.com/Fq43h0jXcsZqB-GEJhEa6lPw128Z" class="img_a" /></li>
-         <li><img src="http://image.jmta.milisx.com/FufcvqZ5EzKW7abLem1Ys4Z5YuQE" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/FsvzFiB5VSL-VFImhE9dsv1mjOts" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/Ft9ausd23bXVnIRK13_Th7yZEFcF" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/FkH1zTzy9Luitf0_hGne89aphuw7" class="img_a" /></li>
+         <li><img src="http://image.jmta.milisx.com/FjsyP424Iy_85FEmwmHq-UNAocyF" class="img_a" /></li>
        </ul>
      </div>
    </div>
@@ -53,15 +53,15 @@ export default {
     }
   },
   mounted() {
-    //this.$axios
-    //  .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
-    //      "categoryid": "b6b4e273-fe79-4a92-9232-05d48696b2af",
-    //      "PageIndex": 1,
-    //      "PageSize": 10
-    //  })
-    //  .then((res) => {
-    //    console.log(res)
-    //  })
+    this.$axios
+      .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
+          "categoryid": "b6b4e273-fe79-4a92-9232-05d48696b2af",
+          "PageIndex": 1,
+          "PageSize": 20
+      })
+      .then((res) => {
+        console.log(res)
+      })
   }
   
 };
@@ -82,11 +82,19 @@ export default {
     top: 0;
     left: 0;
   }
+  .img_b {
+    width: 100%;
+    height: 86%;
+    border-radius: 50%;
+    border: 1px solid #00873c;
+    top: 0;
+    left: 0;
+  }
 .img {
   width: 100%;
   height: auto;
   overflow: hidden;
-  margin-bottom: 22px;
+  margin-bottom: 114px;
 }
 .main{
   max-width: 1400px;
@@ -109,6 +117,7 @@ export default {
   font-size: 36px;
   line-height: 27px;
   color: #00873c;
+  font-weight:600;
 }
   .intro-header3 {
     right:0;
@@ -139,6 +148,24 @@ export default {
   border-radius: 50%;
   cursor:pointer;
 }
+  .list-btns {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-around;
+  }
+  .list-btns li {
+  width: 280px;
+  height: auto;
+  border-radius: 50%;
+  cursor:pointer;
+  padding-bottom:17px;
+  }
+    .list-btns li p {
+    text-align: center;
+    margin-top: 16px;
+    color: #00873C;
+    font-weight: 600;
+    }
 @media (max-width: 1440px) {
   .list-btn li{
     width: 230px;

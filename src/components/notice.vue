@@ -9,10 +9,10 @@
         </div>
         <ul class="container notice-list1">
           <li>
-            <img :src="sm_cp" class="bg">
+            <img src="../assets/img/企业公告1.jpg" class="bg">
             <router-link :to="{path:'mediaDetail',query:{name:'企业公告',id:'67bc35b4-1097-4a58-acac-28d18f082ca4'}}" class="news-item">
               <div class="notice-list1-con">
-                <div class="icon"></div>
+                <div class="icon_a"></div>
                 <span class="tag">MEDIA FOCUS <br>DMKNI</span>
                 <p class="title ellipsis">{{sm_title}}</p>
                 <p class="content ellipsis2" v-html="sm_body"></p>
@@ -20,7 +20,7 @@
             </router-link>
           </li>
           <li>
-            <img :src=" yj_cp" class="bg">
+            <img src="../assets/img/企业公告2.jpg" class="bg">
             <router-link  :to="{path:'mediaDetail',query:{name:'企业公告',id:'88f84c01-2c5e-456d-89ff-d9b9b7a151ce'}}" class="news-item">
               <div class="notice-list1-con">
                 <div class="icon"></div>
@@ -44,13 +44,9 @@
               <img :src="item.CoverPhoto" class="notice-left float_left">
               <div class="notice-right float_left">
                 <p class="notice-title ellipsis"> {{item.Title}}</p>
-                <!--<div style="height: 75px;overflow: hidden;padding-top:10px;margin-top:-15px;" class="div">
-      <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织开展讲党课活动'" v-html="media_b"></p>
-      <p class="notice-con ellipsis3" v-if="item.Title==='高平市干部入企服务第15小组莅临公司调研指导工作'" v-html="media_c"></p>
-      <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支召开“改革创新、奋发有为”大讨论 动员部署会议'" v-html="media_d"></p>
-      <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织召开2018年度领导班子 专题民主生活会'" v-html="media_e"></p>
-      <p class="notice-con ellipsis3" v-if="item.Title==='公司党总支组织集中观看《榜样3》'" v-html="media_f"></p>
-    </div>-->
+                <div>
+                  <p class="p1">{{item.Abstract}}</p>
+                </div>
                 <p class="notice-time">{{item.CreateTime}}</p>
               </div>
             </router-link>
@@ -71,10 +67,8 @@
     data() {
       return {
         page_a:[],
-        sm_cp: '',
         sm_title: '',
         sm_body: '',
-        yj_cp: '',
         yj_title: '',
         yj_body: '',
         page: 1,   //默认页数
@@ -104,7 +98,7 @@
             "PageSize": 100
           })
           .then((res) => {
-            //console.log(res)
+            console.log(res)
             this.Pagesize = res.data.data.articlecount;
             this.records = this.Pagesize;
             this.perPage = parseInt(5);
@@ -127,7 +121,6 @@
               })
               .then((res_sm) => {
                 this.sm = res_sm.data.data;
-                this.sm_cp = res_sm.data.data.CoverPhoto;
                 this.sm_title = res_sm.data.data.Title;
                 this.sm_body = res_sm.data.data.Body;
                 //console.log(this.sm);
@@ -138,7 +131,6 @@
               })
               .then((res_yj) => {
                 this.yj = res_yj.data.data;
-                this.yj_cp = res_yj.data.data.CoverPhoto;
                 this.yj_title = res_yj.data.data.Title;
                 this.yj_body = res_yj.data.data.Body;
                 //console.log(this.yj);
@@ -169,7 +161,15 @@
     line-height: 48px;
     margin-bottom: 40px;
 }
-
+   .p1 {
+    font-size: 14px;
+    color: #595757;
+    height:40px;
+    
+  }
+   .container li:hover .p1{
+     color:white;
+   }
 .pager input,.pager select{
     height:40px; 
     line-height:40px;
@@ -207,6 +207,7 @@
   width: 100%;
   height: auto;
   overflow: hidden;
+  margin-bottom: 114px;
 }
 .main {
   max-width: 1400px;
@@ -246,7 +247,7 @@
 .notice-list1-con {
   width: 333px;
   height: 353px;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(242,242,242,0.85);
   opacity: 1.6;
   padding: 43px 29px;
   position: absolute;
@@ -257,6 +258,13 @@
   width: 55px;
   height: 55px;
   background: url(../assets/img/11.png) no-repeat;
+  background-size: 100% 100%;
+  margin-bottom: 55px;
+}
+.notice-list1-con .icon_a {
+  width: 55px;
+  height: 55px;
+  background: url(../assets/img/jiantou.png) no-repeat;
   background-size: 100% 100%;
   margin-bottom: 55px;
 }
@@ -283,6 +291,10 @@
 }
 .notice-list1-con:hover .icon {
   background: url(../assets/img/jiang.png) no-repeat;
+  background-size: 100% 100%;
+}
+.notice-list1-con:hover .icon_a {
+  background: url(../assets/img/jiantou1.png) no-repeat;
   background-size: 100% 100%;
 }
 .notice-list1-con:hover .tag,
@@ -322,7 +334,7 @@
 .notice-time{
     font-size: 14px;
     color: #00873c;
-    margin-top: 59px;
+    margin-top: 18px;
     font-weight: 600;
 }
 .notice-news li:hover{

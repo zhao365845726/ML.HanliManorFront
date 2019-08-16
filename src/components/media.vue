@@ -8,7 +8,7 @@
           </div>
           <ul class="container list-news">
             <li v-for="(item, index) in list">
-              <router-link :to="{path:'mediaDetail',query:{id:item.Id}}" class="news-item">
+              <router-link :to="{path:'mediaDetail',query:{name:'媒体聚焦',id:item.Id}}" class="news-item">
                   <div class="news-item__bg">
                   </div>
                   <div class="news-item__date">
@@ -75,6 +75,7 @@ export default {
   font-size: 36px;
   width: 100%;
   line-height: 27px;
+  font-weight:600;
 }
 .intro-header p {
   font-size: 33px;
@@ -128,7 +129,7 @@ export default {
   font-size: 14px;
 }
 .news-item__title {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   font-size: 14px;
   line-height: 30px;
   height: 60px;
@@ -160,11 +161,16 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
+   transition:all 0.3s ease-out;
+    -moz-transition:all 0.3s ease-out;
+    -webkit-transition:all 0.3s ease-out;
+    -o-transition:all 0.3s ease-out;
 }
 .news-item:hover {
   background: #00873c;
   color: #fff !important;
   text-decoration:none;
+      transform:scale(1.05,1.05);
 }
 .news-item:hover .news-item__date,
 .news-item:hover .news-item__date p,

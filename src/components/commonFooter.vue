@@ -10,7 +10,7 @@
           <p>官方淘宝店</p>
         </li>
       </ul>
-      <div class="description">@2019 山西韩梨果业有限公司   晋ICP备09021577号        晋公网安备 4201120201521号</div>
+      <div class="description">@2019 山西韩梨果业有限公司   晋ICP备19007463号-1        晋公网安备 4201120201521号</div>
       <div class="back" @click="backTop()" style="cursor:pointer ">返回顶部</div>
     </div>
 </template>

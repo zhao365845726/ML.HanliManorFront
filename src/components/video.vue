@@ -89,6 +89,7 @@ export default {
   font-size: 36px;
   width: 100%;
   line-height: 27px;
+  font-weight:600;
 }
 .intro-header p {
   font-size: 33px;

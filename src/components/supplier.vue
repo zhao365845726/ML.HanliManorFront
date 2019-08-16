@@ -33,7 +33,7 @@
       <ul class="container place">
         <li v-for="(item,index) in shuju_a">
           <span class="icon-img"></span>
-          <router-link :to="{path:'mediaDetail',query:{id:item.Id}}" class="news-item">
+          <router-link :to="{path:'mediaDetail',query:{name:'诚招供应商',id:item.Id}}" class="news-item">
             <div class="con">
               <b>{{item.Title}}</b>
               <!--<p>{{item.Title}}</p>-->
@@ -54,55 +54,68 @@
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="http://image.jmta.milisx.com/lu1TbzpLUNbj-nO_Zs2dBR2y5-h5" class="img_a" />
+                <img src="../assets/img/p1.jpg" class="img_a" />
               </span>
-              <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
-              <p class="jc-item__desc" v-html="this.jianjie_c"></p>
+              <h3 class="jc-item__title">认同文化理念</h3>
+              <p class="jc-item__desc"></p>
+              <!--<h3 class="jc-item__title">{{this.jianjie_b}}</h3>
+  <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
             </div>
           </li>
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="http://image.jmta.milisx.com/lnw9tnICRJbBcw5Isrz_KwgR_f5L"  class="img_a"/>
+                <img src="../assets/img/p2.jpg" class="img_a" />
               </span>
-              <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
-              <p class="jc-item__desc" v-html="this.jianjie_c"></p>
+              <h3 class="jc-item__title">风险意识</h3>
+              <p class="jc-item__desc">经营预测、抗风险能力</p>
+              <!--<h3 class="jc-item__title">{{this.jianjie_b}}</h3>
+  <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
             </div>
           </li>
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="http://image.jmta.milisx.com/Fq43h0jXcsZqB-GEJhEa6lPw128Z" class="img_a" />
+                <img src="../assets/img/p3.jpg" class="img_a" />
               </span>
-              <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
-              <p class="jc-item__desc" v-html="this.jianjie_c"></p>
+              <h3 class="jc-item__title">合作</h3>
+              <p class="jc-item__desc">有激情、有商誉、有梦想</p>
+              <!--<h3 class="jc-item__title">{{this.jianjie_b}}</h3>
+  <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
             </div>
           </li>
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="http://image.jmta.milisx.com/lsWRClkUMwBKIahbYzWKNMmzF20k" class="img_a" />
+                <img src="../assets/img/p4.jpg" class="img_a" />
               </span>
-              <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
-              <p class="jc-item__desc" v-html="this.jianjie_c"></p>
+              <h3 class="jc-item__title">了解行业</h3>
+              <p class="jc-item__desc">关注、热衷</p>
+              <!--<h3 class="jc-item__title">{{this.jianjie_b}}</h3>
+  <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
+              <p class="jc-item__desc"></p>
             </div>
           </li>
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="http://image.jmta.milisx.com/FufcvqZ5EzKW7abLem1Ys4Z5YuQE" class="img_a" />
+                <img src="../assets/img/p5.jpg" class="img_a" />
               </span>
-              <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
-              <p class="jc-item__desc" v-html="this.jianjie_c"></p>
+              <h3 class="jc-item__title">模式</h3>
+              <p class="jc-item__desc">有较成熟的经营模式、理念</p>
+              <!--<h3 class="jc-item__title">{{this.jianjie_b}}</h3>
+  <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
             </div>
           </li>
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="http://image.jmta.milisx.com/FiPbTT6czFQg5lH0qu_YeQPktMpN" class="img_a" />
+                <img src="../assets/img/p6.jpg" class="img_a" />
               </span>
-              <h3 class="jc-item__title">{{this.jianjie_b}}</h3>
-              <p class="jc-item__desc" v-html="this.jianjie_c"></p>
+              <h3 class="jc-item__title">认同管理</h3>
+              <p class="jc-item__desc">懂经营</p>
+              <!--<h3 class="jc-item__title">{{this.jianjie_b}}</h3>
+  <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
             </div>
           </li>
         </ul>
@@ -328,8 +341,8 @@
         shuju_a: [],
         jianjie: [],
         jianjie_a: [],
-        jianjie_b: [],
-        jianjie_c: [],
+        //jianjie_b: [],
+        //jianjie_c: [],
         startTime: { time: '2012-08-08' },//默认初始时间
         endTime: { time: ''},//结束时间
         timeoption: {
@@ -400,10 +413,6 @@
         }
       },
       changeTime() { }
-      //WdatePicker() {
-        
-        
-      //}
   },
 mounted() {
   this.$axios
@@ -434,15 +443,15 @@ mounted() {
           this.jianjie_a = res_b.data.data.Body;
           console.log(this.jianjie_a);
         })
-      this.$axios
-        .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-          "ArticleId": "5e4134e4-89ab-4bd4-bc92-547a9954c984"
-        })
-        .then((res_c) => {
-          this.jianjie_b = res_c.data.data.Title;
-          this.jianjie_c = res_c.data.data.Body;
-          console.log(this.jianjie_b);
-        })
+      //this.$axios
+      //  .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+      //    "ArticleId": "5e4134e4-89ab-4bd4-bc92-547a9954c984"
+      //  })
+      //  .then((res_c) => {
+      //    this.jianjie_b = res_c.data.data.Title;
+      //    this.jianjie_c = res_c.data.data.Body;
+      //    console.log(this.jianjie_b);
+      //  })
     })
 }
 };
@@ -501,6 +510,7 @@ mounted() {
         width: 100%;
         line-height: 27px;
         text-align: center;
+        font-weight:600;
       }
 
       .intro-header p {
@@ -677,7 +687,7 @@ mounted() {
     }
 
     .jc-item__desc {
-      font-size: 14px;
+      font-size: 13px;
       line-height: 28px;
       text-align: center;
     }

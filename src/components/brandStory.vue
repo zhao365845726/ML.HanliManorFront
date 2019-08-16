@@ -250,6 +250,16 @@ export default {
   height: 100%;
   cursor: pointer;
 }
+  .img-box img {
+      transition:all 0.3s ease-out;
+    -moz-transition:all 0.3s ease-out;
+    -webkit-transition:all 0.3s ease-out;
+    -o-transition:all 0.3s ease-out;
+  }
+    .img-box img:hover {
+    transform:scale(1.05,1.05);
+  }
+    
 /* 第二层 */
 .mt-150 {
   margin-top: 150px;

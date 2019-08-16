@@ -100,7 +100,7 @@
     methods: {
       roua() {
         this.$router.push({
-          path: 'product', query: {id:'7869bae1-2d2c-49ec-91ae-2fd601cee23b'}
+          path: 'product', query: { id: '7869bae1-2d2c-49ec-91ae-2fd601cee23b' },     
         })
       },
       roub() {
@@ -236,8 +236,9 @@
           }
         }
         var wrap = document.getElementById('wrap');
+       
         var liArr = wrap.getElementsByTagName('li');
-        //console.log(liArr.length)
+        console.log(liArr.length)
         var that = this;
         for (var i = 0; i < liArr.length; i++) {
           this.animate(liArr[i], this.size[i], function () {
@@ -247,7 +248,12 @@
       },
     },
     mounted() {
-      this.fnSwiper();
+      //document.URL = location.href;
+      
+      setTimeout(() =>{
+         this.fnSwiper();
+        },5000);
+     
       this.ajax();
       //console.log(this.width, this.height)
     }

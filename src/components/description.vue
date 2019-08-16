@@ -21,36 +21,34 @@
       </div>
       <div class="about-history">
         <div class="intro-header">
-            <h2>PHYSICAL STORE</h2>
-            <p>品牌历程</p>
+          <h2>PHYSICAL STORE</h2>
+          <p>品牌历程</p>
         </div>
         <div class="swiper_">
           <swiper :options="swiperOption" class='swiper-box'>
-            <swiper-slide v-for="(item, index) in swipers_a" :key="index">
-              <div class="history-item" v-bind:class="{'active': index == swiperIndex && isShow}">
+            <swiper-slide v-for="(item, index) in swipers" :key="index">
+              <div class="history-item" v-bind:class="{'active': index == swiperIndex && isShow}" @click="toggle(index)">
                 <div class="history-item__wrap">
                   <h3 class="history-item__year" v-bind:class="{'active': index == swiperIndex && isShow}">{{item.CreateTime}}</h3>
                   <div class="history-item__img img-box" id="img">
-                    <img :src="item.CoverPhoto" style="cursor:pointer"> 
+                    <img :src="item.CoverPhoto" style="cursor:pointer">
                   </div>
                   <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
-                    <p v-html="item.body" class="cursor"></p>
+                    <p class="cursor">{{item.Abstract}}</p>
                   </div>
                   <div class="t-r">
-                    <div class="more" >
-                      <a @click="toggle(index)"  v-bind:class="{'active': index == swiperIndex && isShow}"></a>
+                    <div class="more">
+                      <a v-bind:class="{'active': index == swiperIndex && isShow}"></a>
                     </div>
                   </div>
-
                 </div>
                 <i class="history-item__circle" v-bind:class="{'active': index == swiperIndex && isShow}"></i>
                 <i class="history-item__arrow icon-right"></i>
               </div>
             </swiper-slide>
-
           </swiper>
-          <div class="swiper-button-prev"></div><!--左箭头。如果放置在swiper-container外面，需要自定义样式。-->
-          <div class="swiper-button-next"></div><!--右箭头。如果放置在swiper-container外面，需要自定义样式。-->
+          <div class="swiper-button-prev" style="top:176px"></div>
+          <div class="swiper-button-next"></div>
         </div>
       </div>
     </div>
@@ -64,21 +62,19 @@
         swiperOption: {
           slidesPerView: 4,
           spaceBetween: 0,
-          slidesPerGroup: 1,
+          slidesPerGroup: 4,
+          stopOnLastSlide: true,
+          //centeredSlides : true,
           loop: true,
           loopFillGroupWithBlank: true,
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true
-          },
+          loopAdditionalSlides:2,
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
-            hideOnClick: true,
+            hideOnClick: false,
           },
-          autoplayDisableOnInteraction: false
         },
-        swipers_a: [],
+        swipers: [],
         company: '',
         swiperIndex: '',
         isShow: false,
@@ -108,68 +104,16 @@
           .then((res_a) => {
             console.log(res_a)
             this.swipers = res_a.data.data.lst_categoryarticlelist;
-            this.$axios
-              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-                "ArticleId": this.swipers[0].Id
-              })
-              .then((res) => {
-                this.body_a = res.data.data.Body;
-                this.swipers[0]['body'] = this.body_a
-                //console.log(this.swipers)
-              })
-            this.$axios
-              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-                "ArticleId": this.swipers[1].Id
-              })
-              .then((res_a) => {
-                this.body_b = res_a.data.data.Body;
-                this.swipers[1]['body'] = this.body_b
-                //console.log(this.swipers)
-              })
-            this.$axios
-              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-                "ArticleId": this.swipers[2].Id
-              })
-              .then((res_c) => {
-                this.body_c = res_c.data.data.Body;
-                this.swipers[2]['body'] = this.body_c
-                //console.log(this.swipers)
-              })
-            this.$axios
-              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-                "ArticleId": this.swipers[3].Id
-              })
-              .then((res_d) => {
-                this.body_d = res_d.data.data.Body;
-                this.swipers[3]['body'] = this.body_d
-                //console.log(this.swipers)
-              })
-            this.$axios
-              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-                "ArticleId": this.swipers[4].Id
-              })
-              .then((res_e) => {
-                this.body_e = res_e.data.data.Body;
-                this.swipers[4]['body'] = this.body_e
-                //console.log(this.swipers)
-              })
-            this.$axios
-              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-                "ArticleId": this.swipers[5].Id
-              })
-              .then((res_f) => {
-                this.body_f = res_f.data.data.Body;
-                this.swipers[5]['body'] = this.body_f
-                //console.log(this.swipers)
-              })
-            this.swipers_a = this.swipers
-            console.log(this.swipers_a)
+            
           })
        }
     },
     mounted() {
       this.ajax();
       this.shuju();
+      setTimeout(() =>{
+         this.swiperOption;
+        },1000);
     }
   }
 </script>
@@ -218,7 +162,7 @@
   margin-bottom: 6%;
 }
   .cursor {
-    cursor:text;
+    cursor:pointer;
   }
   #img {
    height:160px;
@@ -229,8 +173,7 @@
   overflow: hidden;
   margin-bottom: 114px;
 }
-  .img-boxa {
-  }
+
 .main {
   max-width: 1400px;
 }
@@ -295,44 +238,36 @@
   width: 100%;
   max-width: 692px;
 }
+  .company-photo img {
+    transition:all 0.3s ease-out;
+    -moz-transition:all 0.3s ease-out;
+    -webkit-transition:all 0.3s ease-out;
+    -o-transition:all 0.3s ease-out;
+  }
+  .company-photo img:hover {
+    transform:scale(1.05,1.05);
+  }
   .img-box {
     display: block;
     margin: 0 0;
     /*position: relative;*/
   }
-    .img-box::before {
-      content: "";
-      display: block;
-      padding-top:64%;
-      border: 1px solid #00873c;
-      background: #00873c url(../assets/img/img.png) center center no-repeat;
-      background-size: 100% 50%;
-      border-radius: 0;
-      position: relative;
-      width:0px;
-      transition:width .2s;
-        transition-timing-function:linear;
-        /* Firefox 4 */
-        -moz-transition:width .2s;
-        -moz-transition-timing-function:linear;
-        /* Safari and Chrome */
-        -webkit-transition:width .2s;
-        -webkit-transition-timing-function:linear;
-        /* Opera */
-        -o-transition:width .2s;
-        -o-transition-timing-function:linear;
-        z-index:100;
-        opacity:0.6;
-        filter:alpha(opacity=60);
+       .img-box::before {
+            content: "";
+            display: block;
+            padding-top: 0%;
+            border: 1px solid #00873c;
+            border-radius: 0;
+            height: 160px;
+            width: 248px;
+            position: absolute;
+
     }
     .img-box:hover::before {
-      background: #00873c url(../assets/img/img.png) center center no-repeat;
-      background-size: 70% 50%;
-      z-index: 3;
-      cursor:pointer;
-      width:248px;
-      opacity:1.0;
-      filter:alpha(opacity=100);
+       background: #00873c url(../assets/img/33.png) center center no-repeat;
+        background-size: 100% 100%;
+        z-index: 3;
+        cursor:pointer;
     }
 .img-box img {
   right: 0;
@@ -342,9 +277,10 @@
 }
 .img-boxa img {
   right: 0;
-  position: absolute;
+  /*position: absolute;*/
   top: 0;
   max-width: 692px;
+  margin-left:21%;
 }
 .company-photo::before {
   padding-top: 69.9422%;
@@ -383,7 +319,7 @@
   max-width: none;
   width: 100%;
   height: 100%;
-  top:-160px;
+  /*top:-160px;*/
 }
 .swiper-slide {
   height: auto;
@@ -395,6 +331,7 @@
   background-image: none;
   margin-top: -18px;
   margin-left:-11px;
+  /*border:1px solid;*/
 }
 .swiper-button-next{
   right: 0;
@@ -512,7 +449,7 @@
 }
 .history-item__desc.active{
   /*height: auto;*/
-  height: 255px;
+  height: auto;
   overflow: auto;
 }
 .history-item__desc_a {
@@ -568,7 +505,7 @@
     margin-left: 3.05px;
     width: 20px;
     height: 20px;
-    top: 505px;
+    top: auto;
   }
 .history-item__arrow {
   display: none;

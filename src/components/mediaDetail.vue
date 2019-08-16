@@ -2,10 +2,13 @@
   <div class="container mediaDetail margin">
     <img src="../assets/img/bg2.png" alt="" class="img">
     <div class="container main margin">
-      <div class="title">媒体聚焦</div>
+      <div class="title">{{this.str}}</div>
       <div class="container content">
         <div class="content-left">
-          <div class="time">{{CreateTime}}</div>
+          <div class="time">
+            {{this.yue}}.{{this.ri}}
+            <span class="nian">{{this.nian}}</span>
+          </div>
           <!--<div class="content-title"></div>-->
           <div class="content-title">{{title}}</div>
           <p class="share">
@@ -45,14 +48,18 @@ export default {
       list_a: [],
       title: '',
       Body: '',
-      CreateTime: '',
+      //CreateTime: '',
       CoverPhoto:'',
       Title_a: '',
       Title_b: '',
       Body_a: '',
       Body_b: '',
       id: '',
-      id_a:''
+      id_a: '',
+      str: '',
+      nian: '',
+      yue: '',
+      ri:''
        }
     },
     methods: {
@@ -61,10 +68,12 @@ export default {
       },
       pageInfo() {
         var param = window.location.href.split('=')[2];
-        console.log(param);
+        //console.log(param);
         var param_a = window.location.href.split('=')[1];
-        var str = decodeURI(param_a);
-        console.log(str)
+        var str = param_a.split('&')[0];
+        var s = decodeURI(str);
+        //console.log(s)
+        this.str = s;
         this.$axios
           .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
             "ArticleId": param
@@ -73,9 +82,17 @@ export default {
             console.log(res_a);
             this.title = res_a.data.data.Title;
             this.Body = res_a.data.data.Body;
-            this.CreateTime = res_a.data.data.CreateTime;
+            //this.CreateTime = res_a.data.data.CreateTime;
             this.CoverPhoto = res_a.data.data.CoverPhoto;
+            var time = res_a.data.data.CreateTime.split('-');
+            var nian = time[0];
+            var yue = time[1];
+            var ri = time[2];
+            //console.log(ri)
             //console.log(this.res_a)
+            this.nian = nian;
+            this.yue = yue;
+            this.ri = ri;
             this.$axios
               .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
                 "ArticleId": res_a.data.obj.NextArticleId   //下一页
@@ -127,7 +144,7 @@ export default {
     font-size:16px;
     color:#595757;
     float:left;
-    margin-left:1%;
+    /*margin-left:1%;*/
      cursor:pointer;
   }
    .bb_a {
@@ -159,7 +176,7 @@ export default {
   width: 100%;
   height: auto;
   overflow: hidden;
-  margin-bottom: 110px;
+  margin-bottom: 114px;
 }
 .main {
   max-width: 1400px;
@@ -168,7 +185,7 @@ export default {
   font-size: 14px;
   color: #000000;
   line-height: 56px;
-  margin-left:18px;
+  /*margin-left:18px;*/
 }
 .content{
   margin-top: 84px;
@@ -207,10 +224,14 @@ export default {
   font-weight:600;
 }
 .time span{
-  font-size: 12px;
-  position: absolute;
-  right:50%;
-  bottom:12px;
+  font-size: 13px;
+    position: absolute;
+    right: 0%;
+    bottom: 0px;
+    /* border: 1px solid; */
+    /* margin-top: 0px; */
+    /* top: -22px; */
+    line-height: 41px;
 }
 .content-title{
   font-size: 27px;

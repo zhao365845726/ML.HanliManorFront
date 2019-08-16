@@ -35,7 +35,7 @@
             <a href="https://www.mogu.com/" class="mall-item">
                <m class="icon-tianmao"></m>
             </a>
-            <div class="mall-item-name">蘑菇街</div>
+            <div class="mall-item-name">顺丰快递</div>
           </li>
         </ul>
         </div>
@@ -71,6 +71,7 @@ export default {
   font-size: 36px;
   line-height: 27px;
   width: 100%;
+  font-weight:600;
 }
 .intro-header p {
   font-size: 33px;
@@ -106,21 +107,23 @@ export default {
   display: block;
   width: 50%;
   height: 50%;
-  background: url(../assets/img/taobao.png) no-repeat;
+  background: url(../assets/img/淘宝.jpg) no-repeat;
   background-size: 100% 100%;
   position: absolute;
   top: 25%;
   left: 25%;
+  border-radius: 18%;
 }
 .mall-item j {
   display: block;
   width: 50%;
   height: 50%;
-  background: url(../assets/img/jingdong.png) no-repeat;
+  background: url(../assets/img/京东.jpg) no-repeat;
   background-size: 100% 100%;
   position: absolute;
   top: 25%;
   left: 25%;
+  border-radius: 18%;
 }
 .mall-item t {
   display: block;
@@ -147,7 +150,7 @@ export default {
   display: block;
   width: 50%;
   height: 50%;
-  background: url(../assets/img/蘑菇街.jpg) no-repeat;
+  background: url(../assets/img/顺丰.jpg) no-repeat;
   background-size: 100% 100%;
   position: absolute;
   top: 25%;
@@ -155,8 +158,8 @@ export default {
   border-radius: 18%;
 }
 .mall-item:hover::before {
-  background: #00873c url(../assets/img/bg_02.svg) center center no-repeat;
-  background-size: 50% 50%;
+  background: #00873c url(../assets/img/33.png) center center no-repeat;
+  background-size: 80% 60%;
   z-index: 3;
 }
 .mall-item-name {

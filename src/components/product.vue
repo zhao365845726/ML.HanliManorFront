@@ -35,7 +35,7 @@
       <a href="javascript:;" class="next" @click="fnRight">&#62;</a>
     </div>
 
-    <div class="story right mt-80">
+    <div class="story right mt-80" id="demo">
       <div class="story-inner margin">
         <div class="story-intro">
           <div class="story-intro-03__txt">
@@ -329,6 +329,7 @@
     mounted() {
       this.fnSwiper();
       this.ajax();
+      document.querySelector('#demo').scrollIntoView(true);
     },
      
   };

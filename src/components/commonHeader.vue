@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="headerTitle margin">
-      <img src="../assets/img/icon.png" class="icon float_left">
+      <img src="../assets/img/logo1.png" class="icon float_left">
       <div class="container other float_right">
         <a href="https://www.taobao.com/" class="taobao float_left"></a>
         <a href="https://www.jd.com/?cu=true&utm_source=baidu-search&utm_medium=cpc&utm_campaign=t_262767352_baidusearch&utm_term=106807362512_0_8c328599297641dfbaa3fbe55a8d7cf1" class="jingdong float_left"></a>
@@ -23,7 +23,9 @@
     <div class="container header-menu">
       <ul class="margin t-c">
         <li class="menu-item pointer" v-for="(item,index) in forklifts">
-          <router-link :to="{path:'home',query:{name:item.Name,id:item.Id}}" class="menu-link">{{item.Name}}</router-link>
+          <!--<router-link :to="{path:'home',query:{name:item.Name,id:item.Id}}" class="menu-link">{{item.Name}}</router-link>-->
+          <!--<router-link :to="{path:'home'}" class="menu-link">{{item.Name}}</router-link>-->
+          <a class="menu-link" @click="link(index)">{{item.Name}}</a>
           <div class="subMenu">
             <div class="subMenu-bg"><span></span></div>
             <ul class="subMenu-ul">
@@ -35,8 +37,8 @@
                 <router-link :to="{path:'brandStory',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='好山好水好人家'">{{subitem.Name}}</router-link>
               </li>
               <li class="subMenu-item" v-for="(subitem,index) in sub_b" v-if="item.Name==='产品世界'">
+                <router-link :to="{path:'product_chanpin',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='所有品类'" >{{subitem.Name}}</router-link>
                 <router-link :to="{path:'verification',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='产品验证'">{{subitem.Name}}</router-link>
-                <router-link :to="{path:'product_chanpin',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='所有品类'">{{subitem.Name}}</router-link>
                 <router-link :to="{path:'store',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='线上商城'">{{subitem.Name}}</router-link>
               </li>
               <li class="subMenu-item" v-for="(subitem,index) in sub_c" v-if="item.Name==='品牌故事'">
@@ -194,6 +196,11 @@
         console.log(index)
         this.$router.push({ path: 'mediaDetail', query: { id: this.list_b[index].Id } })
         this.$router.go(0)
+      },
+      link(index) {
+        if (index ===0) {
+          this.$router.push({ path: 'home'})
+        }
       }
     },
     mounted() {
@@ -201,7 +208,7 @@
         .post('http://hlzy.api.gpscxqyw.com/api/content/homenavigation', {
         })
         .then((res) => {
-          //console.log(res)
+          console.log(res)
           this.forklifts = res.data.data;
           console.log(this.forklifts)
           //for (var i = 0; i < res.data.data.length; i++) {
@@ -370,7 +377,7 @@
     }
 
   .icon {
-    height: 59px;
+    height: 61px;
   }
 
   .other {

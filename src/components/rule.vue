@@ -9,11 +9,12 @@
         <div>
           <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
           <p v-for="(item,index) in shuju_a">
-            <router-link :to="{path:'mediaDetail',query:{id:item.Id}}" style="text-decoration:none">
+            <router-link :to="{path:'mediaDetail',query:{name:'村规民约',id:item.Id}}" style="text-decoration:none">
               <div class="title">{{item.Title}}</div> 
             </router-link>
            <span>{{item.CreateTime}}</span>
           </p>
+          <!--<!--<p v-html="this.body" style="cursor:pointer"></p>-->-->
         </div>
         <br /><br /><br />
         <div>
@@ -24,26 +25,27 @@
         <div class="div1">
           <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
           <p v-for="(item,index) in shuju_b">
-            <router-link :to="{path:'mediaDetail',query:{id:item.Id}}" style="text-decoration:none">
+            <router-link :to="{path:'mediaDetail',query:{name:'村规民约',id:item.Id}}" style="text-decoration:none">
               <div class="title1">{{item.Title}}</div>
             </router-link>
             <span>{{item.CreateTime}}</span>
           </p>
+        <!--<p v-html="this.body_a" style="cursor:pointer"></p>-->
         </div>
         <div class="div2">
-          <div><img src="http://image.jmta.milisx.com/llWw8_OizK7mlIy_tRWbS2-mTesF" style="width:100%;height:100%;"/></div>
-          <div><img src="http://image.jmta.milisx.com/ln6UFMZvhgXALowFrVurL5yl9TI8" style="width:100%;height:100%;" /></div>
+          <div><img :src="this.pop" style="width:100%;height:100%;"/></div>
+          <div><img :src="this.pop_a" style="width:100%;height:100%;" /></div>
         </div>
       </div>
       <div class="hanli3">
         <div class="div3">
-          <div><img src="http://image.jmta.milisx.com/lpxZp072QkHUpBEK37Cb9Aq7lScd" style="width:100%;height:100%;" /></div>
-          <div><img src="http://image.jmta.milisx.com/lrFRC-ghsJ5tP9L1FAntIIsDGVxe" style="width:100%;height:100%;" /></div>
+          <div><img src="http://image.jmta.milisx.com/FjDIMvVSUke-Wgx6hD6QD9fXfmYG" style="width:100%;height:100%;" /></div>
+          <div><img src="http://image.jmta.milisx.com/Fm2bBH2uMQAF3gCt5ZkbqmYvLwnp" style="width:100%;height:100%;" /></div>
         </div>
         <div class="div4">
           <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
           <p v-for="(item,index) in shuju_c">
-            <router-link :to="{path:'mediaDetail',query:{id:item.Id}}" style="text-decoration:none" >
+            <router-link :to="{path:'mediaDetail',query:{name:'村规民约',id:item.Id}}" style="text-decoration:none" >
               <div class="title2">{{item.Title}}</div>
             </router-link>
             <span>{{item.CreateTime}}</span>
@@ -54,7 +56,7 @@
         <div>
           <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
           <p v-for="(item,index) in shuju_d">
-            <router-link :to="{path:'mediaDetail',query:{id:item.Id}}" style="text-decoration:none">
+            <router-link :to="{path:'mediaDetail',query:{name:'村规民约',id:item.Id}}" style="text-decoration:none">
               <div class="title3">{{item.Title}}</div>
             </router-link>
            <span>{{item.CreateTime}}</span>
@@ -75,7 +77,11 @@
         shuju_a: [],
         shuju_b: [],
         shuju_c: [],
-        shuju_d:[]
+        shuju_d:[],
+        body: '',
+        pop: '',
+        body_a: '',
+        pop_a:'',
       }
     },
     mounted() {
@@ -89,21 +95,38 @@
           //console.log(res)
           this.shuju = res.data.data.lst_categoryarticlelist
           console.log(this.shuju);
+          this.$axios
+            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+              "ArticleId": "c9eb96e7-903f-4e61-9add-86b71ad5cb13"
+            })
+            .then((body) => {
+              console.log(body)
+              this.body = body.data.data.Body;
+              this.pop = body.data.data.CoverPhoto;
+            })
+          this.$axios
+            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+              "ArticleId": "78426a52-2bed-479f-b967-6a5329d7c3ec"
+            })
+            .then((body_a) => {
+              console.log(body_a)
+              this.body_a = body_a.data.data.Body;
+              this.pop_a = body_a.data.data.CoverPhoto;
+            })
           var shuju = this.shuju;
-          var shuju_a = shuju.slice(0, 8);
+          var shuju_a = shuju.slice(0, 9);
           this.shuju_a = shuju_a;
           console.log(this.shuju_a);
-          var shuju_b = shuju.slice(4, 10);
+          var shuju_b = shuju.slice(10, 15);
           this.shuju_b = shuju_b;
           console.log(this.shuju_b)
           var shuju_c = shuju.slice(6, 12);
           this.shuju_c = shuju_c;
-          console.log(this.shuju_c)
+          //console.log(this.shuju_c)
           var shuju_d = shuju.slice(10, 15);
           this.shuju_d = shuju_d;
-          console.log(this.shuju_d)
+          //console.log(this.shuju_d)
         })
-
     }
   }
 </script>
@@ -153,7 +176,7 @@
   }
 .rule{
   height: auto;
-  background: url(../assets/img/bg10.png) no-repeat;
+  background: url(../assets/img/bg20.png) no-repeat;
   background-size: 100% auto;
 }
 .margin{
@@ -173,7 +196,7 @@
   width: 100%;
   height: auto;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 114px;
 }
   .hanli1 {
    border: 0px solid;
@@ -214,7 +237,7 @@
     width: 50%;
     float: left;
     height: 225px;
-    margin-top: 10%;
+    margin-top: 7%;
     margin-left: 9%;
   }
   .hanli2 .div1 .p1 {

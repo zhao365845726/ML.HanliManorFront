@@ -4,7 +4,7 @@
     <div class="container main margin">
         <div class="intro-header">
           <h2 class="t-c">MEDIA FOCUS</h2>
-          <p class="t-c"><span></span>产品验证<span></span></p>
+          <p class="t-c" >产品验证</p>
         </div>
         <div class="icon">
           <div class="tag">2019“韩梨”<br>全新包装</div>
@@ -12,7 +12,7 @@
         <div class="story left mt-150">
           <div class="story-inner margin">
             <div class="story-img story-img-02 img-box">
-                <img src="http://image.jmta.milisx.com/Fvn0L8Nj2iostyznIB83YV_2OsPu">
+                <img src="http://image.jmta.milisx.com/FvzVE66ajdNz7pz46M2D2EmMEf8H">
             </div>
             <div class="story-intro story-intro-02">
                 <div class="story-intro__txt story-intro-02__txt">
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="story-img img-box">
-                <img src="http://image.jmta.milisx.com/FqyKUp8GaX_zaVJMcWXg_Ot5yS28">
+                <img src="http://image.jmta.milisx.com/FhWTmNbg4trmMnTuG-OHzMGRUs8e">
             </div>
           </div>
      </div>
@@ -52,17 +52,17 @@
         <ul class="list-btn margin">
           <li>
             <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-              <img src="http://image.jmta.milisx.com/FkE58LzjQpLaTXHjcwpHOaAKNkVi" alt="">
+              <img src="http://image.jmta.milisx.com/Fpwq8z1nXgTjaAg9t1naZLTBS5I_" alt="">
             </a>
           </li>
           <li>
             <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-              <img src="http://image.jmta.milisx.com/lsWRClkUMwBKIahbYzWKNMmzF20k" alt="">
+              <img src="http://image.jmta.milisx.com/FqGvpnyr1FdUTU1SRocdd7YpPb4Y" alt="">
             </a>
           </li>
           <li>
             <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-              <img src="http://image.jmta.milisx.com/FkHIWpzBzlc5E1qXTHk-otpbAFlZ" alt="">
+              <img src="http://image.jmta.milisx.com/FtVtLQ84qyOjTzN1IZaxfSz73SYs" alt="">
             </a>
           </li>
 
@@ -79,19 +79,29 @@ export default {
       Positive: '',
       Positive_b:'',
       side: '',
-      side_b:'',
+      side_b: '',
+      //pop: '',
+      //pop_a: '',
+      //pop_b: '',
+      //pop_c: '',
+      //pop_d:'',
     }
     },
     mounted() {
-      //this.$axios
-      //  .post('http://hlzy.api.milisx.xyz/api/content/getcategoryarticlelist', {
-      //      "categoryid": "ac1e5571-d81f-4fc7-886c-c4ba6d7a871a",
-      //      "PageIndex": 1,
-      //      "PageSize": 10
-      //  })
-      //  .then((potop) => {
-      //    console.log(potop)
-      //  })
+      this.$axios
+        .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
+            "categoryid": "ac1e5571-d81f-4fc7-886c-c4ba6d7a871a",
+            "PageIndex": 1,
+            "PageSize": 10
+        })
+        .then((potop) => {
+          console.log(potop)
+          this.pop = potop.data.data.lst_categoryarticlelist[0].CoverPhoto;
+          this.pop_a = potop.data.data.lst_categoryarticlelist[1].CoverPhoto;
+          this.pop_b= potop.data.data.lst_categoryarticlelist[2].CoverPhoto;
+          this.pop_c= potop.data.data.lst_categoryarticlelist[3].CoverPhoto;
+          this.pop_d= potop.data.data.lst_categoryarticlelist[4].CoverPhoto;
+        })
      this.$axios
       .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
            "ArticleId": "7331d073-2b32-463d-990b-750ece86048b"
@@ -119,11 +129,29 @@ export default {
 .verification {
   margin-bottom: 260px;
 }
+  /*.intro-header p::after {
+    content: "";
+    position: absolute;
+    top: 806px;
+    width: 63px;
+    height: 1px;
+    right: 43%;
+    background-color: #00873c;
+  }
+   .intro-header p::before {
+    content: "";
+    position: absolute;
+    width: 63px;
+    height: 1px;
+    left: 43%;
+    top: 806px;
+    background-color: #00873c;
+  }*/
 .img {
   width: 100%;
   height: auto;
   overflow: hidden;
-  margin-bottom: 80px;
+  margin-bottom: 114px;
 }
 .intro-header {
   color: #00873c;
@@ -169,9 +197,16 @@ export default {
   bottom: 0;
   width: 43.75%;
   background-color: #efefef;
+  /*content: "";
+    position: absolute;
+    top: 74px;
+    bottom: 0;
+    width: 43.75%;
+    height: 80%;
+    background-color: #efefef;*/
 }
 .story.right::before {
-  right: 0;
+  right: 0px;
 }
 .story-inner {
   position: relative;
@@ -210,12 +245,19 @@ export default {
 }
 .img-box img {
   right: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  cursor:pointer;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition:all 0.3s ease-out;
+    -moz-transition:all 0.3s ease-out;
+    -webkit-transition:all 0.3s ease-out;
+    -o-transition:all 0.3s ease-out;
 }
+  .img-box img:hover {
+    transform:scale(1.05,1.05);
+  }
 .story-intro-02__txt{
   position: absolute;
   top: 0;
@@ -258,7 +300,7 @@ export default {
   line-height: 17px;
 	background-color: #00873c;
   border-radius: 8.5px;
-  margin-top: 8px;
+  margin-top: 5px;
 }
 .story-intro-02__txt .tag .tag2,.story-intro-02__txt .tag .tag3{
   display: inline-block;
@@ -267,6 +309,7 @@ export default {
 }
 .mt-150 {
   margin-top: 150px;
+  /*padding:200px;*/
 }
 .list-btn{
   width: 100%;
