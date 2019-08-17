@@ -1,6 +1,6 @@
 <template>
     <div class="container store">
-       <img src="../assets/img/bg3.png" alt="" class="img">
+       <img src="../assets/img/产品商城.png" alt="" class="img">
        <div class="container main margin">
         <div class="intro-header">
             <h2 class="t-c">ONLINE MALL</h2>

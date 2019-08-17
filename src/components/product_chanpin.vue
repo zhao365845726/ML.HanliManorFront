@@ -9,25 +9,25 @@
       </ul>-->
       <ul class="content">
         <li>
-          <img src="http://image.jmta.milisx.com/FiL6RiMg7rwGDXIXwBecA0gMCZtg" @click="roua()">
+          <img src="../assets/img/m4.jpg" @click="roua()"><!--油杏-->
         </li>
         <li>
-          <img src="http://image.jmta.milisx.com/lqmBxrKzxsqxVX3FPn91h9H7RXEG" @click="roub()">
+          <img src="../assets/img/m1.jpg" @click="roub()"><!--西梅-->
         </li>
         <li>
-          <img src="http://image.jmta.milisx.com/ls7TusQLhovPKLngTGKlGL4pqxFF" @click="rouc()">
+          <img src="../assets/img/m2.jpg" @click="roud()"><!--李子-->
         </li>
         <li>
-          <img src="http://image.jmta.milisx.com/lnQFGGu_p6HxyYBNvs1l9Do_GM-2" @click="roud()">
+          <img src="../assets/img/m7.jpg" @click="rouc()"><!--梨-->
         </li>
         <li>
-          <img src="http://image.jmta.milisx.com/FrcaLbWf6jEJYAkMUk0XuumXqp6Y" @click="roue()">
+          <img src="../assets/img/m5.jpg" @click="roue()"><!--桃子-->
         </li>
         <li>
-          <img src="http://image.jmta.milisx.com/FljqX72_vNbsmUluno7oLA9QP_fJ" @click="rouf()">
+          <img src="../assets/img/m6.jpg" @click="rouf()"><!--苹果-->
         </li>
         <li>
-          <img src="http://image.jmta.milisx.com/ls7TusQLhovPKLngTGKlGL4pqxFF" @click="rouf()">
+          <img src="../assets/img/m3.jpg" @click="roug()"><!--石榴-->
         </li>
       </ul>
       <a href="javascript:;" class="prev" @click="fnLeft">&#60;</a>
@@ -90,7 +90,7 @@
         ],
         CoverPhoto_a:'',
         isShow: false,
-        speed:2000,
+        speed:20000,
         falg: true,
         timerS: '',
         width: window.innerWidth,
@@ -128,6 +128,11 @@
           path: 'product', query: {id:'e6edd3bd-a483-4d3e-9bb9-aeae9fe16022'}
         })
       },
+      roug() {
+        this.$router.push({
+          path: 'product', query: {id:'38dce4cb-0635-4f69-a6bc-5f154b30f3ae'}
+        })
+      },
       ajax() {
         this.$axios
         .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
@@ -136,7 +141,7 @@
           "PageSize": 10
         })
         .then((res) => {
-          //console.log(res)
+          console.log(res)
           this.list = res.data.data.lst_categoryarticlelist;
           this.imgArr = this.list;
           //console.log(this.imgArr);
@@ -247,13 +252,10 @@
         }
       },
     },
-    mounted() {
-      //document.URL = location.href;
-      
-      setTimeout(() =>{
+    mounted() {      
+      ////setTimeout(() =>{
          this.fnSwiper();
-        },5000);
-     
+        //},5000);  
       this.ajax();
       //console.log(this.width, this.height)
     }

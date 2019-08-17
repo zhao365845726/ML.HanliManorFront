@@ -1,6 +1,6 @@
 <template>
   <div class="container contact margin">
-     <img src="../assets/img/bg2.png" alt="" class="img">
+     <img src="../assets/img/联系我们.png" alt="" class="img">
      <div class="main margin">
        <h2 class="t-c">MEDIA FOCUS</h2>
        <span class="title t-c">联系我们</span>
@@ -8,8 +8,19 @@
 
        <div class="amap-page-container">
          <div :style="{width:'100%',height:'566px'}">
-           <el-amap vid="amap" :plugin="plugin" class="amap-demo" :center="center" style="height:566px;width:100%;">
+           <el-amap vid="amap" :plugin="plugin" class="amap-demo" :center="center" style="height:566px;width:100%;" :zoom="zoom">
+             <el-amap-marker :position="center" vid="marker" ></el-amap-marker>
+             <el-amap-circle vid="circle"
+                             :center="center"
+                             :radius="radius"
+                             fill-opacity="0.2"
+                             strokeColor="#38f"
+                             strokeOpacity="0.8"
+                             strokeWeight="1"
+                             fillColor="#38f">
+             </el-amap-circle>
            </el-amap>
+
          </div>
          <div class="toolbar">
            <span v-if="loaded">
@@ -23,25 +34,11 @@
        </div>
 
        <ul class="address">
-         <li>
+         <li v-for="(item,index) in res">
            <div class="item">
-              <span class="address-title">韩梨庄园（基地）</span>
-              <p class="address-con">山西晋城高平市野川镇韩家庄村民委员会</p>
-              <p class="tel">庄园电话：020-351548</p>
-           </div>
-         </li>
-          <li>
-           <div class="item margin">
-              <span class="address-title">韩梨庄园（基地）</span>
-              <p class="address-con">山西晋城高平市野川镇韩家庄村民委员会</p>
-              <p class="tel">庄园电话：020-351548</p>
-           </div>
-         </li>
-          <li>
-           <div class="item float_right">
-              <span class="address-title">韩梨庄园（基地）</span>
-              <p class="address-con">山西晋城高平市野川镇韩家庄村民委员会</p>
-              <p class="tel">庄园电话：020-351548</p>
+             <span class="address-title">{{item.Title}}</span>
+             <p class="address-con">{{item.Abstract}}</p>
+              <!--<p class="tel"></p>-->
            </div>
          </li>
        </ul>
@@ -75,45 +72,51 @@
 export default {
   name: "contact",
    data(){
-            const self = this;
+            //const self = this;
+            let self = this;
             return {
-              center: [121.59996, 31.197646],
-              lng: 0,
-              lat: 0,
+              //center: [112.768327, 35.840101],
+              center: [112.765223, 35.838691],
+              //lng: 112.765223,
+              //lat: 35.838691,
+               //center: [121.5273285, 31.21515044],//圆心位置
+               radius:200,
+              zoom: 14, // 初始化地图时显示的地图放大等级
               loaded: false,
-              plugin: [
-                {
-                enableHighAccuracy: true,//是否使用高精度定位，默认:true
-                timeout: 100,          //超过10秒后停止定位，默认：无穷大
-                maximumAge: 0,           //定位结果缓存0毫秒，默认：0
-                convert: true,           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
-                showButton: true,        //显示定位按钮，默认：true
-                buttonPosition: 'RB',    //定位按钮停靠位置，默认：'LB'，左下角
-                showMarker: true,        //定位成功后在定位到的位置显示点标记，默认：true
-                showCircle: true,        //定位成功后用圆圈表示定位精度范围，默认：true
-                panToLocation: true,     //定位成功后将定位到的位置作为地图中心点，默认：true
-                zoomToAccuracy:true,//定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：f
-                extensions:'all',
-                pName: 'Geolocation',
-                events: {
-                  init(o) {
-                    // o 是高德地图定位插件实例
+              plugin: [{
+                   pName: 'Geolocation',
+                   showMarker:false,
+                   events: {
+                    init(o) {
+                      //定位成功 自动将marker和circle移到定位点
                     o.getCurrentPosition((status, result) => {
-                      console.log(result)
-                      if (result && result.position) {
-                        self.lng = result.position.lng;
-                        self.lat = result.position.lat;
-                        self.center = [self.lng, self.lat];
-                        self.loaded = true;
-                        self.$nextTick();
-                      }
+                      console.log(result);
+                       if (result && result.position) {
+                        self.center=[result.position.lng,result.position.lat]
+                        self.loaded = true; 
+                        }else{
+                         console.log(`定位失败`)
+                        }
                     });
+                      //console.log(o);
+                    }
                   }
-                }
-              }
-                ]
+              }],
+              res:[],
             }
-          }
+    },
+    mounted() {
+      this.$axios
+            .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
+              "categoryid": "24d61bb2-7670-40c0-bc62-a5f6324df3d2",
+              "PageIndex": 1,
+              "PageSize": 10
+            })
+            .then((res) => {
+              this.res = res.data.data.lst_categoryarticlelist;
+              console.log(this.res)
+            })
+    }
 };
 </script>
 
@@ -209,8 +212,10 @@ h2{
   top:40px;
 }
 .address li p{
-  font-size: 16px;
-	color: #9fa0a0; 
+    font-size: 16px;
+    color: #9fa0a0;
+    width: 72%;
+    line-height: 29px;
 }
 .tel{
   margin-top: 35px;

@@ -1,6 +1,6 @@
 <template>
   <div class="container technology margin">
-   <img src="../assets/img/bg6.png" alt="" class="img"> 
+   <img src="../assets/img/种植技术.png" alt="" class="img"> 
    <div class="container main margin">
      <div class="list">
        <div class="intro-header">
@@ -81,6 +81,10 @@ export default {
     border: 1px solid #00873c;
     top: 0;
     left: 0;
+    transition:all 0.3s ease-out;
+    -moz-transition:all 0.3s ease-out;
+    -webkit-transition:all 0.3s ease-out;
+    -o-transition:all 0.3s ease-out;
   }
   .img_b {
     width: 100%;
@@ -89,6 +93,10 @@ export default {
     border: 1px solid #00873c;
     top: 0;
     left: 0;
+    transition:all 0.3s ease-out;
+    -moz-transition:all 0.3s ease-out;
+    -webkit-transition:all 0.3s ease-out;
+    -o-transition:all 0.3s ease-out;
   }
 .img {
   width: 100%;
@@ -144,9 +152,13 @@ export default {
 .list-btn li{
   width: 280px;
   height: 280px;
-  background: #12aa00;
+  /*background: #12aa00;*/
   border-radius: 50%;
   cursor:pointer;
+   transition:all 0.3s ease-out;
+    -moz-transition:all 0.3s ease-out;
+    -webkit-transition:all 0.3s ease-out;
+    -o-transition:all 0.3s ease-out;
 }
   .list-btns {
   display: flex;
@@ -159,13 +171,25 @@ export default {
   border-radius: 50%;
   cursor:pointer;
   padding-bottom:17px;
+     transition:all 0.3s ease-out;
+    -moz-transition:all 0.3s ease-out;
+    -webkit-transition:all 0.3s ease-out;
+    -o-transition:all 0.3s ease-out;
   }
+    .list-btns li .img_b:hover {
+      transform:scale(0.95,0.95);
+      border:none;
+    }
     .list-btns li p {
     text-align: center;
     margin-top: 16px;
     color: #00873C;
     font-weight: 600;
     }
+  .list-btn li .img_a:hover {
+    transform:scale(0.95,0.95);
+      border:none;
+  }
 @media (max-width: 1440px) {
   .list-btn li{
     width: 230px;

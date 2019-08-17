@@ -1,6 +1,6 @@
 <template>
   <div class="container video margin">
-     <img src="../assets/img/bg3.png" alt="" class="img">
+     <img src="../assets/img/品牌视频.png" alt="" class="img">
      <div class="container main margin">
         <div class="intro-header">
           <h2 class="t-c">MEDIA FOCUS</h2>
@@ -123,7 +123,8 @@ export default {
   cursor: pointer;
 }
 .btns li.active {
-  color: #00873c;
+  color: white;
+  background-color:#00873c;
   font-weight: 700px;
 }
 .list-video {

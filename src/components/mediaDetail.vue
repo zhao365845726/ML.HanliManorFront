@@ -1,6 +1,6 @@
 <template>
   <div class="container mediaDetail margin">
-    <img src="../assets/img/bg2.png" alt="" class="img">
+    <img src="../assets/img/联系我们.png" alt="" class="img">
     <div class="container main margin">
       <div class="title">{{this.str}}</div>
       <div class="container content">

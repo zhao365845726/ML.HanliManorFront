@@ -1,6 +1,6 @@
 <template>
   <div class="container notice margin">
-    <img src="../assets/img/bg3.png" alt="" class="img"> 
+    <img src="../assets/img/企业公告.png" alt="" class="img"> 
     <div class="container main margin">
       <div class="container  list">
         <div class="intro-header">
@@ -241,9 +241,38 @@
   margin-left: 0;
 }
 .notice-list1 li .bg {
-  width: 100%;
-  height: 100%;
+  /*width: 100%;
+  height: 100%;*/
+  /*width: calc((100% - 33px) / 2);*/
+  height: 687px;
+  width:684px;
+  /*border:1px solid;*/
+   transition:all 0.3s ease-out;
+    -moz-transition:all 0.3s ease-out;
+    -webkit-transition:all 0.3s ease-out;
+    -o-transition:all 0.3s ease-out;
 }
+  .notice-list1 li .bg:hover{
+     transform:scale(1.02,1.02);
+     border:none;
+  }
+    .notice-list1 li:hover .notice-list1-con {
+      background-color: #00873c;
+    }
+     .notice-list1 li:hover .notice-list1-con .icon_a  {
+        background: url(../assets/img/jiantou1.png) no-repeat;
+        background-size: 100% 100%;
+    }
+     .notice-list1 li:hover .notice-list1-con .icon  {
+        background: url(../assets/img/jiang.png) no-repeat;
+        background-size: 100% 100%;
+    }
+      .notice-list1 li:hover .notice-list1-con .tag,
+      .notice-list1 li:hover .notice-list1-con .title,
+      .notice-list1 li:hover .notice-list1-con .content {
+         color: #fff;
+      }
+
 .notice-list1-con {
   width: 333px;
   height: 353px;
@@ -289,19 +318,19 @@
   background: #00873c;
   opacity: 1;
 }
-.notice-list1-con:hover .icon {
+/*.notice-list1-con:hover .icon {
   background: url(../assets/img/jiang.png) no-repeat;
   background-size: 100% 100%;
 }
 .notice-list1-con:hover .icon_a {
   background: url(../assets/img/jiantou1.png) no-repeat;
   background-size: 100% 100%;
-}
-.notice-list1-con:hover .tag,
+}*/
+/*.notice-list1-con:hover .tag,
 .notice-list1-con:hover .title,
 .notice-list1-con:hover .content {
   color: #fff;
-}
+}*/
 .notice-news{
   margin-top: 48px;
   padding:0;

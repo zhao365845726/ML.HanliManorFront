@@ -1,6 +1,6 @@
 <template>
   <div class="container brandStory margin">
-    <img src="../assets/img/bg3.png" alt="" class="img">
+    <img src="../assets/img/好山好水.png" alt="" class="img">
     <!--<div style="border:1px solid">
       <input type="text" v-model="search" style="border:1px solid">
       <ul>

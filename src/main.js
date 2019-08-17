@@ -20,9 +20,20 @@ Vue.component('pagination', Pagination)
 Vue.use(VueSwiper)
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
+Vue.config.productionTip = false
 AMap.initAMapApiLoader({
-  key: '',
-  plugin: ['AMap.Geolocation']
+  key: 'e1dedc6bdd765d46693986ff7ff969f4',
+  plugin: [
+    'AMap.Autocomplete',
+    'AMap.PlaceSearch',
+    'AMap.Scale',
+    'AMap.OverView',
+    'AMap.ToolBar',
+    'AMap.MapType',
+    'AMap.PolyEditor',
+    'AMap.CircleEditor',
+    "AMap.Geolocation" 
+  ]
 })
 /* eslint-disable no-new */
 new Vue({

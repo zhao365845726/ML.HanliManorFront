@@ -1,6 +1,6 @@
 <template>
   <div class="container supplier margin">
-    <img src="../assets/img/bg3.png" alt="" class="img">
+    <img src="../assets/img/供应商.png" alt="" class="img">
     <div class="container main margin">
       <div class="intro-header">
         <h2>MEDIA FOCUS SDFDFGCXTHGF</h2>
@@ -31,14 +31,20 @@
         </li>
       </ul>
       <ul class="container place">
-        <li v-for="(item,index) in shuju_a">
+        <!--<li v-for="(item,index) in shuju_a">
           <span class="icon-img"></span>
           <router-link :to="{path:'mediaDetail',query:{name:'诚招供应商',id:item.Id}}" class="news-item">
             <div class="con">
               <b>{{item.Title}}</b>
-              <!--<p>{{item.Title}}</p>-->
             </div>
           </router-link>
+        </li>-->
+        <li v-for="(item,index) in shuju_a">
+          <img class="icon-img" :src="item.CoverPhoto">
+          <div class="con">
+            <b style="cursor:text">{{item.Title}}</b>
+            <p style="cursor:text">{{item.Abstract}}</p>
+          </div>
         </li>
       </ul>
     </div>
@@ -424,8 +430,8 @@ mounted() {
     .then((res) => {
       this.shuju = res.data.data.lst_categoryarticlelist;
       var shuju = this.shuju;
-      var shuju_a = shuju.slice(3, 6);
-      this.shuju_a = shuju_a;
+      //var shuju_a = shuju.slice(3, 6);
+      this.shuju_a = shuju;
       console.log(res.data.data.lst_categoryarticlelist);
       this.$axios
         .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
@@ -483,13 +489,14 @@ mounted() {
     .container {
       overflow: hidden;
     }
- .place li :hover.con b {
+ /*.place li :hover.con b {
     display: block;
     font-weight: normal;
     font-size: 21px;
     margin-bottom: 10px;
     color:#00873C;
-}
+    
+}*/
     .img {
       width: 100%;
       height: auto;
@@ -543,7 +550,7 @@ mounted() {
       min-height: 208px;
       background-color: #f7f7f7;
       color: gray;
-      cursor: -webkit-grab;
+      /*cursor: -webkit-grab;*/
     }
 
     .guide-item__bg {
@@ -588,6 +595,7 @@ mounted() {
       width: 49%;
       font-size: 14px;
       line-height: 24px;
+      cursor:text;
     }
 
     .guide-intro2 dd {
@@ -607,7 +615,6 @@ mounted() {
     .list li:hover .guide-intro dt, .list li:hover .guide-intro dd {
       color: #fff;
     }
-
       .list li:hover .guide-intro dt::before {
         background: #fff;
       }
@@ -615,6 +622,7 @@ mounted() {
     .join-conditions {
       padding: 80px 0;
       background-color: #00873c;
+      margin-top:68px;
     }
 
       .join-conditions .intro-header {
@@ -1035,14 +1043,15 @@ mounted() {
     .place li {
       float: left;
       width: 33.33%;
-      height: 298px;
+      height: 230px;
       padding: 110px 36px;
+      padding-bottom:0;
     }
 
       .place li .icon-img {
         float: left;
-        width: 12px;
-        height: 12px;
+        width: 70px;
+        height: 70px;
         background: #00873c;
         border-radius: 50%;
       }

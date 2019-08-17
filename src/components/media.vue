@@ -1,6 +1,6 @@
 <template>
   <div class="container media margin">
-     <img src="../assets/img/bg3.png" alt="" class="img">
+     <img src="../assets/img/媒体聚焦.png" alt="" class="img">
       <div class="container main margin">
           <div class="intro-header">
             <h2 class="t-c">MEDIA FOCUS</h2>
@@ -30,12 +30,11 @@
 </template>
 
 <script>
-export default {
+ export default {
   name: "media",
   data() {
     return {
       list: [],
-      
     }
   },
     mounted() {
@@ -49,7 +48,7 @@ export default {
       })
       .then((res) => {
         this.list = res.data.data.lst_categoryarticlelist;
-        console.log(this.list)
+        //console.log(this.list)
       })
   }
 };
@@ -121,6 +120,7 @@ export default {
 }
 .news-item__date p {
   font: 700 30px/1 "AvenirLTStd";
+  font-size:25px;
 }
 .news-item__date span {
   position: absolute;

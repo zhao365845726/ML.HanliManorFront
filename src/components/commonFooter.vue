@@ -41,6 +41,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-content: center;
+   -webkit-user-select: text;
 }
 .code {
   width: auto;
@@ -67,6 +68,7 @@ export default {
   letter-spacing: 1.1px;
   text-align: center;
   margin-top: 7px;
+   -webkit-user-select: text;
 }
 .description {
   width: auto;
@@ -75,6 +77,7 @@ export default {
   letter-spacing: 0.9px;
   color: #000000;
   margin-top: 78px;
+  -webkit-user-select: text;
 }
 .back {
   width: 69px;

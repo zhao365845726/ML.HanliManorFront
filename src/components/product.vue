@@ -10,25 +10,25 @@
   </ul>-->
       <ul class="content">
         <li>
-          <img src="http://image.jmta.milisx.com/FiL6RiMg7rwGDXIXwBecA0gMCZtg" @click="roua()">
+          <img src="../assets/img/m6.jpg" @click="roua()"><!--苹果-->
         </li>
         <li>
-          <img src="http://image.jmta.milisx.com/lqmBxrKzxsqxVX3FPn91h9H7RXEG" @click="roub()">
+          <img src="../assets/img/m5.jpg" @click="roub()"><!--桃子-->
         </li>
         <li>
-          <img src="http://image.jmta.milisx.com/ls7TusQLhovPKLngTGKlGL4pqxFF" @click="rouc()">
+          <img src="../assets/img/m2.jpg" @click="rouc()"><!--李子-->
         </li>
         <li>
-          <img src="http://image.jmta.milisx.com/lnQFGGu_p6HxyYBNvs1l9Do_GM-2" @click="roud()">
+          <img src="../assets/img/m7.jpg" @click="roud()"><!--梨-->
         </li>
         <li>
-          <img src="http://image.jmta.milisx.com/FrcaLbWf6jEJYAkMUk0XuumXqp6Y" @click="roue()">
+          <img src="../assets/img/m1.jpg" @click="roue()"><!--西梅-->
         </li>
         <li>
-          <img src="http://image.jmta.milisx.com/FljqX72_vNbsmUluno7oLA9QP_fJ" @click="rouf()">
+          <img src="../assets/img/m4.jpg" @click="rouf()"><!--油杏-->
         </li>
         <li>
-          <img src="http://image.jmta.milisx.com/lnQFGGu_p6HxyYBNvs1l9Do_GM-2" @click="roud()">
+          <img src="../assets/img/m3.jpg" @click="roug()"><!--梨-->
         </li>
       </ul>
       <a href="javascript:;" class="prev" @click="fnLeft">&#60;</a>
@@ -62,7 +62,7 @@
     name: "brandStory",
     data() {
       return {
-        imgArr: [],
+        //imgArr: [],
         size: [
           { "top": 10, "left": -47, "width": 173, "height": 530, "zIndex": 1, "opacity": 70 },
           { "top": -11, "left":121, "width": 181, "height": 570, "zIndex": 2, "opacity": 80 },
@@ -113,7 +113,7 @@
         CoverPhoto:'',
         res_c: [],
         isShow: false,
-        speed:3000,
+        speed:30000,
         falg: true,
         timerS: '',
         ins: 0,
@@ -124,7 +124,7 @@
       roua() {
         this.$axios
                 .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-                  "ArticleId": this.imgArr[0].Id
+                  "ArticleId": 'e6edd3bd-a483-4d3e-9bb9-aeae9fe16022'
                 })
                 .then((data) => {
                   console.log(data)
@@ -136,7 +136,7 @@
       roub() {
         this.$axios
                 .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-                  "ArticleId": this.imgArr[1].Id
+                  "ArticleId": '63834175-3c0d-4706-a985-b8dba2db466c'
                 })
                 .then((data) => {
                   console.log(data)
@@ -148,7 +148,7 @@
       rouc() {
         this.$axios
                 .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-                  "ArticleId": this.imgArr[2].Id
+                  "ArticleId": '55c5c530-b97f-44b2-9021-4dac8a085e68'
                 })
                 .then((data) => {
                   console.log(data)
@@ -160,7 +160,7 @@
       roud() {
         this.$axios
                 .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-                  "ArticleId": this.imgArr[3].Id
+                  "ArticleId": '38a4b177-368d-456e-a0a1-0db8f173c4cd'
                 })
                 .then((data) => {
                   console.log(data)
@@ -172,7 +172,7 @@
       roue() {
         this.$axios
                 .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-                  "ArticleId": this.imgArr[4].Id
+                  "ArticleId": '75aa0cee-7b32-41c7-9349-c93ac17bad72'
                 })
                 .then((data) => {
                   console.log(data)
@@ -184,7 +184,7 @@
       rouf() {
         this.$axios
                 .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
-                  "ArticleId": this.imgArr[5].Id
+                  "ArticleId": '7869bae1-2d2c-49ec-91ae-2fd601cee23b'
                 })
                 .then((data) => {
                   console.log(data)
@@ -193,7 +193,18 @@
                   this.title = data.data.data.Title;
                 })
       },
-  
+    roug() {
+        this.$axios
+                .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+                  "ArticleId":'38dce4cb-0635-4f69-a6bc-5f154b30f3ae'
+                })
+                .then((data) => {
+                  console.log(data)
+                  this.Body = data.data.data.Body;
+                  this.CoverPhoto = data.data.data.CoverPhoto;
+                  this.title = data.data.data.Title;
+                })
+      },
       
       ajax() {
          var param = window.location.href.split('=')[1];
@@ -208,7 +219,7 @@
             })
             .then((res_c) => {
               this.res_c = res_c.data.data.lst_categoryarticlelist;
-              this.imgArr = this.res_c;
+              //this.imgArr = this.res_c;
               //console.log(this.list_a)
               //console.log(this.res_c)
             })

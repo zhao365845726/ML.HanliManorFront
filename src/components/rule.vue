@@ -1,6 +1,6 @@
 <template>
   <div class="container rule">
-    <img src="../assets/img/bg2.png" alt="" class="img">
+    <img src="../assets/img/村规民约.png" alt="" class="img">
     <div class="chuancheng">
       <img  src="../assets/img/bg11.png" alt="" class="img"/>
     </div>
@@ -14,11 +14,10 @@
             </router-link>
            <span>{{item.CreateTime}}</span>
           </p>
-          <!--<!--<p v-html="this.body" style="cursor:pointer"></p>-->-->
+          <!--<p v-html="this.body" style="cursor:pointer"></p>-->
         </div>
         <br /><br /><br />
-        <div>
-                
+        <div>          
         </div>
       </div>
       <div class="hanli2">
