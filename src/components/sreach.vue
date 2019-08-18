@@ -2,98 +2,99 @@
   <div class="container sreach margin">
    <img src="../assets/img/bg3.png" alt="" class="img"> 
    <div class="container main margin">
-          <div class="intro-header">
-            <h2 class="t-c">MEDIA FOCUS</h2>
-            <p class="t-c">搜寻结果</p>
-          </div>
-          <div class="container category">
-            <p class="title">企业公告</p>
-            <ul class="container notice-news" v-for="(item,index) in page_a" >
-              <router-link :to="{path:'mediaDetail',query:{id:item.Id}}">
-                <li>
-                  <img src="../assets/img/bg3.png" alt="" class="notice-left float_left">
-                  <div class="notice-right float_left">
-                    <p class="notice-title">{{item.Title}}</p>
-                    <div style="height:75px;overflow:hidden;">
-                      <p class="notice-con" v-html="item.body"></p>
-                    </div>
-                    <p class="notice-time">{{item.CreateTime}}</p>
-                  </div>
-                </li>
-              </router-link>
-            </ul>
-            <pagination v-model="page" :records="records" :per-page="perPage" @paginate="recallBack" :options="options" class="page_a"></pagination>
-          </div>
-          <!--<div class="container category">
-            <p class="title">媒体聚焦</p>
-            <ul class="container list-news">
-              <li>
-                <a href="" class="news-item">
-                    <div class="news-item__bg">
-                    </div>
-                    <div class="news-item__date">
-                        <p>03.05</p>
-                        <span>2019</span>
-                    </div>
-                    <h3 class="news-item__title">
-                        良品铺子的“局部战役”
-                    </h3>
-                    <div class="news-item__img img-box">
-                        <img src="../assets/img/bg3.png" alt="">
-                    </div>
-                </a>
-              </li>
-              <li>
-                <a href="" class="news-item">
-                    <div class="news-item__bg">
-                        <img src="../assets/img/bg3.png" alt="">
-                    </div>
-                    <div class="news-item__date">
-                        <p>03.05</p>
-                        <span>2019</span>
-                    </div>
-                    <h3 class="news-item__title">
-                        良品铺子的“局部战役”
-                    </h3>
-                    <div class="news-item__img img-box">
-                        <img src="../assets/img/bg3.png" alt="">
-                    </div>
-                </a>
-              </li>
-              <li>
-                <a href="" class="news-item">
-                    <div class="news-item__bg">
-                        <img src="../assets/img/bg3.png" alt="">
-                    </div>
-                    <div class="news-item__date">
-                        <p>03.05</p>
-                        <span>2019</span>
-                    </div>
-                    <h3 class="news-item__title">
-                        良品铺子的“局部战役”
-                    </h3>
-                    <div class="news-item__img img-box">
-                        <img src="../assets/img/bg3.png" alt="">
-                    </div>
-                </a>
-              </li>
-          </ul>
-          </div>
-          <div class="container category">
-            <p class="title">品牌视频</p>
-            <ul class="container video-news">
-              <li>
-                 <video src=""></video>
-              </li>
-              <li>
-                 <video src=""></video>
-              </li>
-              <li>
-                 <video src=""></video>
-              </li>
-          </ul>
-          </div>-->
-      </div>
+     <div class="intro-header">
+       <h2 class="t-c">MEDIA FOCUS</h2>
+       <p class="t-c">搜寻结果</p>
+     </div>
+     <div class="container category">
+       <p class="title">企业公告</p>
+       <ul class="container notice-news" v-for="(item,index) in page_a">
+         <router-link :to="{path:'mediaDetail',query:{id:item.Id}}">
+           <li>
+             <img src="../assets/img/bg3.png" alt="" class="notice-left float_left">
+             <div class="notice-right float_left">
+               <p class="notice-title">{{item.Title}}</p>
+               <div style="height:75px;overflow:hidden;">
+                 <p class="notice-con" v-html="item.body"></p>
+               </div>
+               <p class="notice-time">{{item.CreateTime}}</p>
+             </div>
+           </li>
+         </router-link>
+       </ul>
+       <!--<pagination v-model="page" :records="records" :per-page="perPage" @paginate="recallBack" :options="options" class="page_a"></pagination>-->
+     </div>
+     <div class="container category">
+       <p class="title">媒体聚焦</p>
+       <ul class="container list-news">
+         <li>
+           <a href="" class="news-item">
+             <div class="news-item__bg">
+             </div>
+             <div class="news-item__date">
+               <p>03.05</p>
+               <span>2019</span>
+             </div>
+             <h3 class="news-item__title">
+               良品铺子的“局部战役”
+             </h3>
+             <div class="news-item__img img-box">
+               <img src="../assets/img/bg3.png" alt="">
+             </div>
+           </a>
+         </li>
+         <li>
+           <a href="" class="news-item">
+             <div class="news-item__bg">
+               <img src="../assets/img/bg3.png" alt="">
+             </div>
+             <div class="news-item__date">
+               <p>03.05</p>
+               <span>2019</span>
+             </div>
+             <h3 class="news-item__title">
+               良品铺子的“局部战役”
+             </h3>
+             <div class="news-item__img img-box">
+               <img src="../assets/img/bg3.png" alt="">
+             </div>
+           </a>
+         </li>
+         <li>
+           <a href="" class="news-item">
+             <div class="news-item__bg">
+               <img src="../assets/img/bg3.png" alt="">
+             </div>
+             <div class="news-item__date">
+               <p>03.05</p>
+               <span>2019</span>
+             </div>
+             <h3 class="news-item__title">
+               良品铺子的“局部战役”
+             </h3>
+             <div class="news-item__img img-box">
+               <img src="../assets/img/bg3.png" alt="">
+             </div>
+           </a>
+         </li>
+       </ul>
+     </div>
+     <div class="container category">
+       <p class="title">品牌视频</p>
+       <ul class="container video-news">
+         <li>
+           <video src=""></video>
+         </li>
+         <li>
+           <video src=""></video>
+         </li>
+         <li>
+           <video src=""></video>
+         </li>
+       </ul>
+     </div>
+     <pagination v-model="page" :records="records" :per-page="perPage" @paginate="recallBack" :options="options" class="page_a"></pagination>
+   </div>
   </div>
 </template>
 
@@ -138,7 +139,7 @@ export default {
           this.Pagesize = res.data.data.articlecount;
           this.records = this.Pagesize;
           console.log( this.records)
-          this.perPage = parseInt(5);
+          this.perPage = parseInt(3);
           console.log(this.perPage)
           this.$axios
             .post('http://hlzy.api.gpscxqyw.com/api/content/getarticlesearchlist', {

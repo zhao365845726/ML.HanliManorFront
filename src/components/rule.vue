@@ -138,7 +138,7 @@
     color:black;
   }
     a:hover {
-      color:red;
+      color:#01873D;
       /*font-weight:bolder;*/
     }
   .hanli1 .title {

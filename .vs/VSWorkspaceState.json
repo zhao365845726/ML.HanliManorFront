@@ -3,8 +3,9 @@
     "",
     "\\src",
     "\\src\\assets",
+    "\\src\\assets\\css",
     "\\src\\components"
   ],
-  "SelectedNode": "\\src\\components\\brandStory.vue",
+  "SelectedNode": "\\src\\components\\description.vue",
   "PreviewInSolutionExplorer": false
 }

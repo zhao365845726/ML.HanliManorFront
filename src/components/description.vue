@@ -24,9 +24,35 @@
           <h2>PHYSICAL STORE</h2>
           <p>品牌历程</p>
         </div>
-        <div class="swiper_">
-          <swiper :options="swiperOption" class='swiper-box'>
-            <swiper-slide v-for="(item, index) in swipers" :key="index">
+        <!--<div class="swiper_">
+          <swiper :options="swiperOption" class='swiper-box' v-if="swipers.length" prefix="mySwiper">
+            <swiper-slide v-for="(item, index) in swipers" :key="index" :data-index="index">
+              <div class="history-item" v-bind:class="{'active': index == swiperIndex && isShow}" @click="toggle(index)">
+                <div class="history-item__wrap">
+                  <h3 class="history-item__year" v-bind:class="{'active': index == swiperIndex && isShow}">{{item.CreateTime}}</h3>
+                  <div class="history-item__img img-box" id="img">
+                    <img :src="item.CoverPhoto" style="cursor:pointer">
+                  </div>
+                  <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
+                    <p class="cursor">{{item.Abstract}}</p>
+                  </div>
+                  <div class="t-r">
+                    <div class="more">
+                      <a v-bind:class="{'active': index == swiperIndex && isShow}"></a>
+                    </div>
+                  </div>
+                </div>
+                <i class="history-item__circle" v-bind:class="{'active': index == swiperIndex && isShow}"></i>
+                <i class="history-item__arrow icon-right"></i>
+              </div>
+            </swiper-slide>
+          </swiper>
+          <div class="swiper-button-prev" style="top:176px"></div>
+          <div class="swiper-button-next" style="top:176px"></div>
+        </div>-->
+            <div class="swiper_">
+          <swiper :options="swiperOption" class='swiper-box' v-if="swipers.length">
+            <swiper-slide v-for="(item, index) in swipers" :key="index" >
               <div class="history-item" v-bind:class="{'active': index == swiperIndex && isShow}" @click="toggle(index)">
                 <div class="history-item__wrap">
                   <h3 class="history-item__year" v-bind:class="{'active': index == swiperIndex && isShow}">{{item.CreateTime}}</h3>
@@ -50,213 +76,6 @@
           <div class="swiper-button-prev" style="top:176px"></div>
           <div class="swiper-button-next" style="top:176px"></div>
         </div>
-
-        <div class="swiper_">
-          <swiper :options="swiperOption" class='swiper-box'>
-            <swiper-slide>
-              <div class="history-item" v-bind:class="{'active': index == swiperIndex && isShow}" @click="toggle(index)">
-                <div class="history-item__wrap">
-                  <h3 class="history-item__year" v-bind:class="{'active': index == swiperIndex && isShow}">2019</h3>
-                  <div class="history-item__img img-box" id="img">
-                    <img src="../assets/img/关于我们.png" style="cursor:pointer">
-                  </div>
-                  <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
-                    <p class="cursor">uuunnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</p>
-                  </div>
-                  <div class="t-r">
-                    <div class="more">
-                      <a v-bind:class="{'active': index == swiperIndex && isShow}"></a>
-                    </div>
-                  </div>
-                </div>
-                <i class="history-item__circle"></i>
-                <i class="history-item__arrow icon-right"></i>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="history-item" v-bind:class="{'active': index == swiperIndex && isShow}" @click="toggle(index)">
-                <div class="history-item__wrap">
-                  <h3 class="history-item__year" v-bind:class="{'active': index == swiperIndex && isShow}">2019</h3>
-                  <div class="history-item__img img-box" id="img">
-                    <img src="../assets/img/关于我们.png" style="cursor:pointer">
-                  </div>
-                  <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
-                    <p class="cursor">uuunnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</p>
-                  </div>
-                  <div class="t-r">
-                    <div class="more">
-                      <a v-bind:class="{'active': index == swiperIndex && isShow}"></a>
-                    </div>
-                  </div>
-                </div>
-                <i class="history-item__circle"></i>
-                <i class="history-item__arrow icon-right"></i>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="history-item" v-bind:class="{'active': index == swiperIndex && isShow}" @click="toggle(index)">
-                <div class="history-item__wrap">
-                  <h3 class="history-item__year" v-bind:class="{'active': index == swiperIndex && isShow}">2019</h3>
-                  <div class="history-item__img img-box" id="img">
-                    <img src="../assets/img/关于我们.png" style="cursor:pointer">
-                  </div>
-                  <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
-                    <p class="cursor">uuunnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</p>
-                  </div>
-                  <div class="t-r">
-                    <div class="more">
-                      <a v-bind:class="{'active': index == swiperIndex && isShow}"></a>
-                    </div>
-                  </div>
-                </div>
-                <i class="history-item__circle"></i>
-                <i class="history-item__arrow icon-right"></i>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="history-item" v-bind:class="{'active': index == swiperIndex && isShow}" @click="toggle(index)">
-                <div class="history-item__wrap">
-                  <h3 class="history-item__year" v-bind:class="{'active': index == swiperIndex && isShow}">2019</h3>
-                  <div class="history-item__img img-box" id="img">
-                    <img src="../assets/img/关于我们.png" style="cursor:pointer">
-                  </div>
-                  <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
-                    <p class="cursor">uuunnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</p>
-                  </div>
-                  <div class="t-r">
-                    <div class="more">
-                      <a v-bind:class="{'active': index == swiperIndex && isShow}"></a>
-                    </div>
-                  </div>
-                </div>
-                <i class="history-item__circle"></i>
-                <i class="history-item__arrow icon-right"></i>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="history-item" v-bind:class="{'active': index == swiperIndex && isShow}" @click="toggle(index)">
-                <div class="history-item__wrap">
-                  <h3 class="history-item__year" v-bind:class="{'active': index == swiperIndex && isShow}">2019</h3>
-                  <div class="history-item__img img-box" id="img">
-                    <img src="../assets/img/关于我们.png" style="cursor:pointer">
-                  </div>
-                  <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
-                    <p class="cursor">uuunnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</p>
-                  </div>
-                  <div class="t-r">
-                    <div class="more">
-                      <a v-bind:class="{'active': index == swiperIndex && isShow}"></a>
-                    </div>
-                  </div>
-                </div>
-                <i class="history-item__circle"></i>
-                <i class="history-item__arrow icon-right"></i>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="history-item" v-bind:class="{'active': index == swiperIndex && isShow}" @click="toggle(index)">
-                <div class="history-item__wrap">
-                  <h3 class="history-item__year" v-bind:class="{'active': index == swiperIndex && isShow}">2019</h3>
-                  <div class="history-item__img img-box" id="img">
-                    <img src="../assets/img/关于我们.png" style="cursor:pointer">
-                  </div>
-                  <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
-                    <p class="cursor">uuunnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</p>
-                  </div>
-                  <div class="t-r">
-                    <div class="more">
-                      <a v-bind:class="{'active': index == swiperIndex && isShow}"></a>
-                    </div>
-                  </div>
-                </div>
-                <i class="history-item__circle"></i>
-                <i class="history-item__arrow icon-right"></i>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="history-item" v-bind:class="{'active': index == swiperIndex && isShow}" @click="toggle(index)">
-                <div class="history-item__wrap">
-                  <h3 class="history-item__year" v-bind:class="{'active': index == swiperIndex && isShow}">2019</h3>
-                  <div class="history-item__img img-box" id="img">
-                    <img src="../assets/img/关于我们.png" style="cursor:pointer">
-                  </div>
-                  <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
-                    <p class="cursor">uuunnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</p>
-                  </div>
-                  <div class="t-r">
-                    <div class="more">
-                      <a v-bind:class="{'active': index == swiperIndex && isShow}"></a>
-                    </div>
-                  </div>
-                </div>
-                <i class="history-item__circle"></i>
-                <i class="history-item__arrow icon-right"></i>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="history-item" v-bind:class="{'active': index == swiperIndex && isShow}" @click="toggle(index)">
-                <div class="history-item__wrap">
-                  <h3 class="history-item__year" v-bind:class="{'active': index == swiperIndex && isShow}">2019</h3>
-                  <div class="history-item__img img-box" id="img">
-                    <img src="../assets/img/关于我们.png" style="cursor:pointer">
-                  </div>
-                  <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
-                    <p class="cursor">uuunnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</p>
-                  </div>
-                  <div class="t-r">
-                    <div class="more">
-                      <a v-bind:class="{'active': index == swiperIndex && isShow}"></a>
-                    </div>
-                  </div>
-                </div>
-                <i class="history-item__circle"></i>
-                <i class="history-item__arrow icon-right"></i>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="history-item" v-bind:class="{'active': index == swiperIndex && isShow}" @click="toggle(index)">
-                <div class="history-item__wrap">
-                  <h3 class="history-item__year" v-bind:class="{'active': index == swiperIndex && isShow}">2019</h3>
-                  <div class="history-item__img img-box" id="img">
-                    <img src="../assets/img/关于我们.png" style="cursor:pointer">
-                  </div>
-                  <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
-                    <p class="cursor">uuunnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</p>
-                  </div>
-                  <div class="t-r">
-                    <div class="more">
-                      <a v-bind:class="{'active': index == swiperIndex && isShow}"></a>
-                    </div>
-                  </div>
-                </div>
-                <i class="history-item__circle"></i>
-                <i class="history-item__arrow icon-right"></i>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="history-item" v-bind:class="{'active': index == swiperIndex && isShow}" @click="toggle(index)">
-                <div class="history-item__wrap">
-                  <h3 class="history-item__year" v-bind:class="{'active': index == swiperIndex && isShow}">2019</h3>
-                  <div class="history-item__img img-box" id="img">
-                    <img src="../assets/img/关于我们.png" style="cursor:pointer">
-                  </div>
-                  <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
-                    <p class="cursor">uuunnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</p>
-                  </div>
-                  <div class="t-r">
-                    <div class="more">
-                      <a v-bind:class="{'active': index == swiperIndex && isShow}"></a>
-                    </div>
-                  </div>
-                </div>
-                <i class="history-item__circle"></i>
-                <i class="history-item__arrow icon-right"></i>
-              </div>
-            </swiper-slide>
-          </swiper>
-          <div class="swiper-button-prev" style="top:176px"></div>
-          <div class="swiper-button-next" style="top:176px"></div>
-        </div>
       </div>
     </div>
   </div>
@@ -273,13 +92,21 @@
           stopOnLastSlide: true,
           //centeredSlides : true,
           loop: true,
-          loopFillGroupWithBlank: true,
-          loopAdditionalSlides:4,
+          ////loopFillGroupWithBlank: true,
+          loopAdditionalSlides:0,
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
             hideOnClick: false,
           },
+          initialSlide: 0,
+          observer:true,
+          observeParents:true,
+          on: {
+            click: function (index) {
+              console.log(index)
+            }
+          }
         },
         swipers: [],
         company: '',
@@ -322,15 +149,6 @@
       setTimeout(() =>{
          this.swiperOption;
       }, 1000);
-      
-      //function copyText() {
-      //    var text = document.getElementById("text").innerText;
-      //    var input = document.getElementById("input");
-      //    input.value = text; // 修改文本框的内容
-      //    input.select(); // 选中文本
-      //    document.execCommand("copy"); // 执行浏览器复制命令
-      //    alert("复制成功");
-      //  }
     }
   }
 </script>
