@@ -120,14 +120,14 @@ export default {
       //上一篇
       prev() {
         this.$router.push({
-            path:'mediaDetail',query:{id:this.id}
+            path:'mediaDetail',query:{name:'上一篇',id:this.id}
         })
         this.pageInfo()
       },
       //下一篇
       Next() {
          this.$router.push({
-            path:'mediaDetail',query:{id:this.id_a}
+            path:'mediaDetail',query:{name:'下一篇',id:this.id_a}
         })
         this.pageInfo()
       }

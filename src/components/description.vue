@@ -50,25 +50,25 @@
           <div class="swiper-button-prev" style="top:176px"></div>
           <div class="swiper-button-next" style="top:176px"></div>
         </div>-->
-            <div class="swiper_">
-          <swiper :options="swiperOption" class='swiper-box' v-if="swipers.length">
-            <swiper-slide v-for="(item, index) in swipers" :key="index" >
-              <div class="history-item" v-bind:class="{'active': index == swiperIndex && isShow}" @click="toggle(index)">
+          <div class="swiper_">
+          <swiper :options="swiperOption" class='swiper-box' v-if="swipers.length" >
+            <swiper-slide v-for="(item, index) in swipers" :key="index"  >
+              <div class="history-item" :id="index">
                 <div class="history-item__wrap">
-                  <h3 class="history-item__year" v-bind:class="{'active': index == swiperIndex && isShow}">{{item.CreateTime}}</h3>
-                  <div class="history-item__img img-box" id="img">
+                  <h3 class="history-item__year" >{{item.CreateTime}}</h3>
+                  <div class="history-item__img img-box" >
                     <img :src="item.CoverPhoto" style="cursor:pointer">
                   </div>
-                  <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
+                  <div class="history-item__desc" >
                     <p class="cursor">{{item.Abstract}}</p>
                   </div>
                   <div class="t-r">
                     <div class="more">
-                      <a v-bind:class="{'active': index == swiperIndex && isShow}"></a>
+                      <a ></a>
                     </div>
                   </div>
                 </div>
-                <i class="history-item__circle" v-bind:class="{'active': index == swiperIndex && isShow}"></i>
+                <i class="history-item__circle"></i>
                 <i class="history-item__arrow icon-right"></i>
               </div>
             </swiper-slide>
@@ -88,7 +88,7 @@
         swiperOption: {
           slidesPerView: 4,
           spaceBetween: 0,
-          slidesPerGroup: 4,
+          slidesPerGroup: 6,
           stopOnLastSlide: true,
           //centeredSlides : true,
           loop: true,
@@ -103,18 +103,23 @@
           observer:true,
           observeParents:true,
           on: {
-            click: function (index) {
-              console.log(index)
+            click: function (e) {
+              //alert('当前的slide序号是'+this.realIndex);
+              //alert(this.clickedIndex);
+              console.log(e.target)
+              console.log(this.clickedIndex)
+             
             }
           }
         },
         swipers: [],
         company: '',
         swiperIndex: '',
-        isShow: false,
+        isShow: true,
       };
     },
     methods: {
+      
       ajax() {
         this.$axios
           .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
@@ -146,9 +151,33 @@
     mounted() {
       this.ajax();
       this.shuju();
-      setTimeout(() =>{
-         this.swiperOption;
-      }, 1000);
+      //var mySwiper = new Swiper('.swiper-box',{
+      //    slidesPerView: 4,
+      //    spaceBetween: 0,
+      //    slidesPerGroup: 6,
+      //    stopOnLastSlide: true,
+      //    //centeredSlides : true,
+      //    loop: true,
+      //    ////loopFillGroupWithBlank: true,
+      //    loopAdditionalSlides:0,
+      //    navigation: {
+      //      nextEl: '.swiper-button-next',
+      //      prevEl: '.swiper-button-prev',
+      //      hideOnClick: false,
+      //    },
+      //    initialSlide: 0,
+      //    observer:true,
+      //    observeParents:true,
+      //    on: {
+      //      click: function (e) {
+      //        //alert('当前的slide序号是'+this.realIndex);
+      //        //alert(this.clickedIndex);
+      //        console.log(e.target)
+      //        console.log(this.clickedIndex)
+      //        .toggle();
+      //      }
+      //    }
+      //})
     }
   }
 </script>
@@ -199,9 +228,9 @@
   .cursor {
     cursor:context-menu;
   }
-  #img {
+  /*#img {
    height:160px;
-  }
+  }*/
 .img {
   width: 100%;
   height: auto;
@@ -285,6 +314,7 @@
   .img-box {
     display: block;
     margin: 0 0;
+    height:160px;
     /*position: relative;*/
   }
        .img-box::before {

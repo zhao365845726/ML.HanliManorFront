@@ -177,99 +177,101 @@
           <p>优惠政策</p>
         </div>
         <!--<input type="text" class="form-group-input"/>-->
-        <form id="infoForm" action="/a/daily/weixin/save" method="post">
+        <form id="infoForm" action="/a/daily/weixin/save" method="post" @submit.prevent="submit">
           <div class="form-main mt-50">
             <div class="form-group">
               <h3 class="form-sec-title">基础信息</h3>
             </div>
-
             <div class="mt-20">
               <div class="col col-20">
                 <div class="form-group">
                   <label class="form-group-label" for="franchName">姓名<span>*</span></label>
-                  <input class="form-group-input" type="text" name="franchName" id="franchName">
+                  <input class="form-group-input" type="text" name="franchName" id="franchName" v-model="name">
+                  <!--<p>输入内容：{{name}}</p>-->
                 </div>
               </div>
               <div class="col col-20">
                 <div class="form-group">
                   <label class="form-group-label" for="phone">联系方式<span>*</span></label>
-                  <input class="form-group-input" type="text" name="phone" id="phone">
+                  <input class="form-group-input" type="text" name="phone" id="phone" v-model="phone">
+                  <!--<p>输入内容：{{phone}}</p>-->
                 </div>
               </div>
               <div class="col col-20">
                 <div class="form-group">
                   <div class="form-radio-label" for="gender">性别<span>*</span></div>
-
-                  <input class="form-radio-input" type="radio" name="gender" id="gender" value="1" checked="">
+                  <input class="form-radio-input" type="radio" name="gender" id="gender" value="男" checked="" v-model="value">
                   <label for="gender" class="label-for-radio">
                     男
                   </label>
-                  <input class="form-radio-input" type="radio" name="gender" id="gender2" value="2">
+                  <input class="form-radio-input" type="radio" name="gender" id="gender2" value="女" v-model="value">
                   <label for="gender2" class="label-for-radio">
                     女
                   </label>
+                  <!--<p>输入:{{value}}</p>-->
                 </div>
               </div>
               <div class="col col-20 pc-show">
                 <div class="form-group">
-                  <!--<label class="form-group-label" for="birthday">出生年月<span>*</span></label>-->
-                  <!--<input class="form-group-input" type="text" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false});" name="birthday" id="birthday">-->
                   <label for="birthday" class="form-group-label_b">出生年月<span>*</span></label>
-                  <date @chang="changeTime" :date="startTime" :option="timeoption" :limit="limit"  for="birthday">
-                                        
+                  <date @chang="changeTime" :date="startTime" :option="timeoption" :limit="limit" for="birthday" v-model="startTime">
                   </date>
+                  <!--<p>时间：{{startTime}}</p>-->
                 </div>
               </div>
               <div class="col col-20">
                 <div class="form-group">
                   <div class="form-select">
                     <label class="form-group-label_a js-label-select" for="resourceType">信息来源<span>*</span></label>
-                    <select class="form-group-select" name="resourceType" id="resourceType">
+                    <select class="form-group-select" name="resourceType" id="resourceType" v-model="selected">
                       <option value="">---请选择---</option>
-                      <option value="1">网络查询</option>
-                      <option value="2">朋友推荐</option>
-                      <option value="3">400咨询</option>
-                      <option value="4">门店咨询</option>
-                      <option value="7">良品加盟商推荐</option>
-                      <option value="6">其他</option>
+                      <option value="网络查询">网络查询</option>
+                      <option value="朋友推荐">朋友推荐</option>
+                      <option value="400咨询">400咨询</option>
+                      <option value="门店咨询">门店咨询</option>
+                      <option value="良品加盟商推荐">良品加盟商推荐</option>
+                      <option value="其他">其他</option>
                     </select>
                   </div>
-              
                 </div>
               </div>
+              <!--<p>你选择的是:{{selected}}</p>-->
             </div>
             <div class="form-group mt-50">
               <h3 class="form-sec-title">个人资源<span style="color: #00873c;">*</span><span style="font-size:12px;">(请选择3项)</span></h3>
             </div>
             <div class="form-group form-group-resources mt-10" id="div">
-              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources1" value="1" @click="cktest(this)">
+              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources1" value="行业协会及商会" @click="cktest(this)" v-model="resources">
               <label for="resources1" class="label-for-radio_a" >
                 行业协会及商会
               </label>
-              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources2" value="2" @click="cktest(this)">
+              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources2" value="购物中心" @click="cktest(this)" v-model="resources">
               <label for="resources2" class="label-for-radio_a" >
                 购物中心
               </label>
-              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources3" value="3" @click="cktest(this)">
+              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources3" value="社会资源" @click="cktest(this)" v-model="resources">
               <label for="resources3" class="label-for-radio_a" >
                 社会资源
               </label>
-              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources4" value="4" @click="cktest(this)">
+              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources4" value="品牌连锁" @click="cktest(this)" v-model="resources">
               <label for="resources4" class="label-for-radio_a" >
                 品牌连锁
               </label>
-              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources5" value="5" @click="cktest(this)">
+              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources5" value="交通枢纽" @click="cktest(this)" v-model="resources">
               <label for="resources5" class="label-for-radio_a">
                 交通枢纽
               </label>
-              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources6" value="6" @click="cktest(this)">
+              <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources6" value="其它" @click="cktest(this)" v-model="resources">
               <label for="resources6" class="label-for-radio_a" >
                 其它
               </label>
+              <!--<p>你输入内容:{{resources}}</p>-->
             </div>
+          
             <div class="form-group">
               <label for="specificResource" class="label-for-textarea">具体资源项目：</label>
-              <textarea class="form-textarea" name="specificResource" id="specificResource" rows="3"></textarea>
+              <textarea class="form-textarea" name="specificResource" id="specificResource" rows="3" v-model="specificResource"></textarea>
+              <!--<p>你输入内容：{{specificResource}}</p>-->
             </div>
             <div class="form-group mt-50">
               <h3 class="form-sec-title">加盟意愿</h3>
@@ -279,43 +281,47 @@
                 <div class="form-group">
                   <div class="form-select">
                     <label class="form-group-label_a js-label-select" for="intentionProv">意向发展区域<span>*</span></label>
-                    <select name="intentionProv" id="intentionProv">
+                    <select name="intentionProv" id="intentionProv" v-model="selected_b">
                       <option value="">---请选择---</option>
-                      <option value="420001">汉口</option>
-                      <option value="420002">武昌</option>
-                      <option value="420003">荆州</option>
-                      <option value="320000">江苏</option>
-                      <option value="360000">江西</option>
-                      <option value="410000">河南</option>
-                      <option value="430000">湖南</option>
-                      <option value="440000">深圳</option>
-                      <option value="500000">重庆</option>
-                      <option value="510000">四川</option>
-                      <option value="610000">陕西</option>
-                      <option value="450000">广西</option>
-                      <option value="440100">广东</option>
-                      <option value="340000">安徽</option>
-                      <option value="330000">浙江</option>
+                      <option value="汉口">汉口</option>
+                      <option value="武昌">武昌</option>
+                      <option value="荆州">荆州</option>
+                      <option value="江苏">江苏</option>
+                      <option value="江西">江西</option>
+                      <option value="河南">河南</option>
+                      <option value="湖南">湖南</option>
+                      <option value="深圳">深圳</option>
+                      <option value="重庆">重庆</option>
+                      <option value="四川">四川</option>
+                      <option value="陕西">陕西</option>
+                      <option value="广西">广西</option>
+                      <option value="广东">广东</option>
+                      <option value="安徽">安徽</option>
+                      <option value="浙江">浙江</option>
                     </select>
                   </div>
                 </div>
+                <!--<p style="margin-top:15%;">你的选择是:{{selected_b}}</p>-->
               </div>
               <div class="col col-33">
                 <div class="form-group">
                   <div class="form-select">
                     <label class="form-group-label_a js-label-select" for="ifShop">是否有意向店铺<span>*</span></label>
-                    <select name="ifShop" id="ifShop">
+                    <select name="ifShop" id="ifShop" v-model="selected_a">
                       <option value="">---请选择---</option>
-                      <option value="1">是</option>
-                      <option value="2">否</option>
+                      <option value="是">是</option>
+                      <option value="否">否</option>
                     </select>
                   </div>
                 </div>
+                <!--<p style="margin-top:15%;">你的选择是：{{selected_a}}</p>-->
               </div>
+
               <div class="col col-33">
                 <div class="form-group">
                   <label class="form-group-label" for="intentionAddress">意向店铺地址：</label>
-                  <input class="form-group-input" type="text" name="intentionAddress" id="intentionAddress">
+                  <input class="form-group-input" type="text" name="intentionAddress" id="intentionAddress" v-model="intentionAddress">
+                  <!--<p>你输入内容：{{intentionAddress}}</p>-->
                 </div>
               </div>
             </div>
@@ -325,12 +331,7 @@
               </div>
             </div>
             <div class="t-c mt-60">
-              <a href="javascript:void(0)" class="btn-apply" onclick="$('#infoForm').submit();">
-                <div class="btn-apply__bg">
-                  <img src="/static/weixin/images/vip_bg.svg" alt="">
-                </div>
-                提交
-              </a>
+              <input  value="提交"  type="submit" class="tijiao "/>
             </div>
           </div>
         </form>
@@ -389,6 +390,18 @@
             to:''//这个时间是我自己拼接出来的当前时间，也可以自己写入
           }
         ],
+        //urls: {
+          name: '',//名字
+          phone: '',//电话
+          value: '',//性别
+          selected: '',//信息来源
+          selected_a: '',//是否有意向店铺
+          selected_b:'',//意向发展区域
+          specificResource: '',//具体资源项目
+          intentionAddress: '',//地址
+          resources:[],//个人资源
+        //},
+       
       }
     },
     methods: {
@@ -396,7 +409,7 @@
         var cs = document.getElementsByName('personalResourceList')
         //console.log(cs)
         for (var i = 0; i < cs.length; i++) {
-          console.log(cs[i])
+          //console.log(cs[i])
           var num = 0;
           for (var i = 0; i < cs.length; i++) {
             if (cs[i].checked) {
@@ -418,7 +431,29 @@
           }
         }
       },
-      changeTime() { }
+      changeTime() { },
+      submit: function() {
+         //var formData = JSON.stringify(this.urls); // 表单数据
+        //console.log(formData)
+        var a = this.resources.join();
+        //console.log(a)
+         this.$axios
+           .post('http://hlzy.api.gpscxqyw.com/api/content/recruitsupplies', {
+             "UserName": this.name,//名字
+             "Telephone": this.phone,//电话
+              "Gender":  this.value,//性别
+              "Birthday":  this.startTime.time,//出生日期
+             "InfoSource": this.selected,//信息来源
+             "PersonalResource": a,//个人资源
+              "ProjectDescription":  this.specificResource,//具体资源项目
+              "DevelopmentRegion":  this.selected_b,//意向发展区域
+              "IsIntentionShop":  this.selected_a,//意向店铺选择
+              "Address": this.intentionAddress//地址
+           })
+           .then((res) => {
+             console.log(res)     
+           })
+        }
   },
 mounted() {
   this.$axios
@@ -432,14 +467,14 @@ mounted() {
       var shuju = this.shuju;
       //var shuju_a = shuju.slice(3, 6);
       this.shuju_a = shuju;
-      console.log(res.data.data.lst_categoryarticlelist);
+      //console.log(res.data.data.lst_categoryarticlelist);
       this.$axios
         .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
           "ArticleId": "7d3c8d45-c566-4261-b32b-626ff41f5996"
         })
         .then((res_a) => {
           this.jianjie = res_a.data.data.Body;
-          console.log(this.jianjie);
+          //console.log(this.jianjie);
         })
       this.$axios
         .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
@@ -447,7 +482,7 @@ mounted() {
         })
         .then((res_b) => {
           this.jianjie_a = res_b.data.data.Body;
-          console.log(this.jianjie_a);
+          //console.log(this.jianjie_a);
         })
       //this.$axios
       //  .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
@@ -459,7 +494,7 @@ mounted() {
       //    console.log(this.jianjie_b);
       //  })
     })
-}
+  }
 };
 </script>
 
@@ -1039,7 +1074,23 @@ mounted() {
       overflow: hidden;
       background: #00873c;
     }
-
+  .tijiao {
+     position: absolute;
+      overflow: hidden;
+      background: #00873c;
+      color:white;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      vertical-align: top;
+      width: 286px;
+      height: 68px;
+      font-size: 26px;
+      line-height: 68px;
+      text-align: center;
+      color: #fff;
+      text-decoration: none;
+  }
     .place li {
       float: left;
       width: 33.33%;

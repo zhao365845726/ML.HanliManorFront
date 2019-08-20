@@ -45,24 +45,24 @@
        <div class="contact-con">
          <div class="list">
            <span class="list-title">留言标题</span>
-           <input type="text">
+           <input type="text" v-model="Title">
          </div>
          <div class="list">
            <span class="list-title">留言内容</span>
-           <textarea name="" id="" cols="30" rows="10"></textarea>
+           <textarea name="" id="" cols="30" rows="10" v-model="Body"></textarea>
          </div>
          <div class="list">
            <span class="list-title">联系邮箱</span>
-           <input type="text">
+           <input type="text" v-model="Email">
          </div>
-         <div class="list code">
+         <!--<div class="list code">
            <span class="list-title">验证码</span>
            <input type="text">
-           <div class="code-con"><!--b0a5--></div>
-         </div>
+           <div class="code-con"></div>
+         </div>-->
        </div>
        <div class="submit-box">
-         <div class="submit float_right t-c">提交</div>
+         <div class="submit float_right t-c" @click="submit">提交</div>
        </div>
      </div>
   </div>
@@ -102,8 +102,24 @@ export default {
                     }
                   }
               }],
-              res:[],
+              res: [],
+              Title: '',
+              Body: '',
+              Email:''
             }
+    },
+    methods: {
+      submit() {
+        this.$axios
+          .post('http://hlzy.api.gpscxqyw.com/api/content/leavingmessage', {
+            "Title": this.Title,
+            "Body": this.Body,
+            "Email": this.Email
+          })
+          .then((res) => {
+            //console.log(res)
+          })
+      }
     },
     mounted() {
       this.$axios
