@@ -90,8 +90,8 @@
         ],
         CoverPhoto_a:'',
         isShow: false,
-        speed:20000,
-        falg: true,
+        speed: 1000,
+        falg: false,
         timerS: '',
         width: window.innerWidth,
       };
@@ -148,13 +148,11 @@
           })
         },
       getStyle: function (obj, attr) {
-        //console.log(obj);
-        //console.log(attr);
         return obj.currentStyle ? obj.currentStyle[attr] : window.getComputedStyle(obj, null)[attr];
       },
       animate: function (obj, json, fn) {
         //console.log(json)
-        //console.log(obj)
+        //console.log(obj.timer)
         clearInterval(obj.timer);
         var that = this;
         obj.timer = setInterval(function () {
@@ -162,17 +160,17 @@
           for (var k in json) {
             var leader;
             if (k == 'opacity') {
+              //console.log(that.getStyle(obj,k))
               if (that.getStyle(obj, k) == undefined) {
                 leader = 100;
               } else {
                 leader = parseInt(that.getStyle(obj, k) * 100);
-                //console.log(leader)
+                console.log(leader)
               }
             } else {
               leader = parseInt(that.getStyle(obj, k)) || 0;
             }
             var step = (json[k] - leader) / 10;
-
             step = step > 0 ? Math.ceil(step) : Math.floor(step);
             leader = leader + step;
             if (k == 'zIndex') {
@@ -207,7 +205,7 @@
         }, this.speed);
       },
       fnSwiper() {
-        this.move();
+        //this.move();
         var that = this;
         this.timerS = setInterval(function () {
           that.move(true);
@@ -243,7 +241,7 @@
         var wrap = document.getElementById('wrap');
        
         var liArr = wrap.getElementsByTagName('li');
-        console.log(liArr.length)
+        //console.log(liArr.length)
         var that = this;
         for (var i = 0; i < liArr.length; i++) {
           this.animate(liArr[i], this.size[i], function () {
@@ -252,10 +250,8 @@
         }
       },
     },
-    mounted() {      
-      ////setTimeout(() =>{
-         this.fnSwiper();
-        //},5000);  
+    mounted() {  
+      this.fnSwiper();
       this.ajax();
       //console.log(this.width, this.height)
     }

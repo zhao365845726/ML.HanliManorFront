@@ -152,6 +152,7 @@ export default {
               this.page_a = page.data.data.lst_articlesearchlist;
               })
         })
+       
       }
     },
     mounted() {

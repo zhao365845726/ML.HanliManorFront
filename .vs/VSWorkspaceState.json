@@ -4,8 +4,9 @@
     "\\src",
     "\\src\\assets",
     "\\src\\assets\\css",
-    "\\src\\components"
+    "\\src\\components",
+    "\\src\\router"
   ],
-  "SelectedNode": "\\src\\components\\description.vue",
+  "SelectedNode": "\\src\\components\\media.vue",
   "PreviewInSolutionExplorer": false
 }

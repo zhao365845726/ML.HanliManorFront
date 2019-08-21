@@ -24,42 +24,16 @@
           <h2>PHYSICAL STORE</h2>
           <p>品牌历程</p>
         </div>
-        <!--<div class="swiper_">
-          <swiper :options="swiperOption" class='swiper-box' v-if="swipers.length" prefix="mySwiper">
-            <swiper-slide v-for="(item, index) in swipers" :key="index" :data-index="index">
-              <div class="history-item" v-bind:class="{'active': index == swiperIndex && isShow}" @click="toggle(index)">
-                <div class="history-item__wrap">
-                  <h3 class="history-item__year" v-bind:class="{'active': index == swiperIndex && isShow}">{{item.CreateTime}}</h3>
-                  <div class="history-item__img img-box" id="img">
-                    <img :src="item.CoverPhoto" style="cursor:pointer">
-                  </div>
-                  <div class="history-item__desc" v-bind:class="{'active': index == swiperIndex && isShow}">
-                    <p class="cursor">{{item.Abstract}}</p>
-                  </div>
-                  <div class="t-r">
-                    <div class="more">
-                      <a v-bind:class="{'active': index == swiperIndex && isShow}"></a>
-                    </div>
-                  </div>
-                </div>
-                <i class="history-item__circle" v-bind:class="{'active': index == swiperIndex && isShow}"></i>
-                <i class="history-item__arrow icon-right"></i>
-              </div>
-            </swiper-slide>
-          </swiper>
-          <div class="swiper-button-prev" style="top:176px"></div>
-          <div class="swiper-button-next" style="top:176px"></div>
-        </div>-->
           <div class="swiper_">
           <swiper :options="swiperOption" class='swiper-box' v-if="swipers.length" >
-            <swiper-slide v-for="(item, index) in swipers" :key="index"  >
+            <swiper-slide v-for="(item, index) in swipers" :key="index"  class="list_">
               <div class="history-item" :id="index">
                 <div class="history-item__wrap">
                   <h3 class="history-item__year" >{{item.CreateTime}}</h3>
                   <div class="history-item__img img-box" >
                     <img :src="item.CoverPhoto" style="cursor:pointer">
                   </div>
-                  <div class="history-item__desc" >
+                  <div class="history-item__desc">
                     <p class="cursor">{{item.Abstract}}</p>
                   </div>
                   <div class="t-r">
@@ -104,18 +78,25 @@
           observeParents:true,
           on: {
             click: function (e) {
-              //alert('当前的slide序号是'+this.realIndex);
               //alert(this.clickedIndex);
-              console.log(e.target)
-              console.log(this.clickedIndex)
-             
+              var parent = document.getElementsByClassName("swiper-wrapper")[0].getElementsByClassName('list_');
+              var el = parent[this.clickedIndex].getElementsByClassName("history-item__desc")[0];
+              console.log(el.classList.contains('active1'));           
+              if (el.classList.contains('active1')) {
+                el.classList.remove("active1");
+              } else {
+                for (var i = 0; i < parent.length; i++) {
+                  var list_ = parent[i].getElementsByClassName("history-item__desc")[0];
+                  list_.classList.remove("active1");
+                  el.classList.add("active1");
+                }
+              }
+
             }
           }
         },
         swipers: [],
         company: '',
-        swiperIndex: '',
-        isShow: true,
       };
     },
     methods: {
@@ -128,10 +109,6 @@
           .then((res) => {
             this.company = res.data.data.Body;
           })
-      },
-      toggle(index) {
-        this.swiperIndex = index;
-        this.isShow = !this.isShow;
       },
       shuju() {
         this.$axios
@@ -151,33 +128,6 @@
     mounted() {
       this.ajax();
       this.shuju();
-      //var mySwiper = new Swiper('.swiper-box',{
-      //    slidesPerView: 4,
-      //    spaceBetween: 0,
-      //    slidesPerGroup: 6,
-      //    stopOnLastSlide: true,
-      //    //centeredSlides : true,
-      //    loop: true,
-      //    ////loopFillGroupWithBlank: true,
-      //    loopAdditionalSlides:0,
-      //    navigation: {
-      //      nextEl: '.swiper-button-next',
-      //      prevEl: '.swiper-button-prev',
-      //      hideOnClick: false,
-      //    },
-      //    initialSlide: 0,
-      //    observer:true,
-      //    observeParents:true,
-      //    on: {
-      //      click: function (e) {
-      //        //alert('当前的slide序号是'+this.realIndex);
-      //        //alert(this.clickedIndex);
-      //        console.log(e.target)
-      //        console.log(this.clickedIndex)
-      //        .toggle();
-      //      }
-      //    }
-      //})
     }
   }
 </script>
@@ -287,7 +237,14 @@
   line-height: 28px;
   color: #333;
   margin-top: 65px;
+  -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
+    animation: mymove 5s infinite;
 }
+  @-webkit-keyframes mymove {
+    50% {
+      border-left:15px ;
+    }
+  }
 .about-company::after {
   content: "";
   position: absolute;
@@ -512,10 +469,9 @@
   color: gray;
   margin-top:13px;
 }
-.history-item__desc.active{
+.history-item__desc.active1{
   /*height: auto;*/
   height: auto;
-  overflow: auto;
 }
 .history-item__desc_a {
   margin-bottom: 0.5em;

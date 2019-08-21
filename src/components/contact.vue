@@ -86,21 +86,21 @@ export default {
               plugin: [{
                    pName: 'Geolocation',
                    showMarker:false,
-                   events: {
-                    init(o) {
-                      //定位成功 自动将marker和circle移到定位点
-                    o.getCurrentPosition((status, result) => {
-                      console.log(result);
-                       if (result && result.position) {
-                        self.center=[result.position.lng,result.position.lat]
-                        self.loaded = true; 
-                        }else{
-                         console.log(`定位失败`)
-                        }
-                    });
-                      //console.log(o);
-                    }
-                  }
+                  // events: {
+                  //  init(o) {
+                  //    //定位成功 自动将marker和circle移到定位点
+                  //  o.getCurrentPosition((status, result) => {
+                  //    console.log(result);
+                  //     if (result && result.position) {
+                  //      self.center=[result.position.lng,result.position.lat]
+                  //      self.loaded = true; 
+                  //      }else{
+                  //       console.log(`定位失败`)
+                  //      }
+                  //  });
+                  //    //console.log(o);
+                  //  }
+                  //}
               }],
               res: [],
               Title: '',
