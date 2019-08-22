@@ -1,7 +1,7 @@
 <template>
   <div class="container media margin">
      <img src="../assets/img/媒体聚焦.png" alt="" class="img">
-      <div class="container main margin">
+      <div class="container main margin" id="demo">
           <div class="intro-header">
             <h2 class="t-c">MEDIA FOCUS</h2>
             <p class="t-c">媒体聚焦</p>
@@ -50,6 +50,7 @@
         this.list = res.data.data.lst_categoryarticlelist;
         //console.log(this.list)
       })
+      document.querySelector('#demo').scrollIntoView(true);
   }
 };
 </script>
@@ -97,6 +98,10 @@
   margin: 0 12px 50px;
   padding-top: 50px;
   background-color: #f2f2f2;
+  transition:all 0.3s ease-out;
+    -moz-transition:all 0.3s ease-out;
+    -webkit-transition:all 0.3s ease-out;
+    -o-transition:all 0.3s ease-out;
 }
 .news-item__bg {
   position: absolute;
@@ -161,16 +166,15 @@
   top: 0;
   width: 100%;
   height: 100%;
-   transition:all 0.3s ease-out;
-    -moz-transition:all 0.3s ease-out;
-    -webkit-transition:all 0.3s ease-out;
-    -o-transition:all 0.3s ease-out;
 }
+    /*.news-item:hover .img-box img{
+    transform:scale(1.02,1.02);
+  }*/
 .news-item:hover {
   background: #00873c;
   color: #fff !important;
   text-decoration:none;
-      transform:scale(1.05,1.05);
+    transform:scale(1.05,1.05);
 }
 .news-item:hover .news-item__date,
 .news-item:hover .news-item__date p,

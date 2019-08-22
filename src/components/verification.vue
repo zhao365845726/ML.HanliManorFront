@@ -1,15 +1,13 @@
 <template>
   <div class="container verification margin">
     <img src="../assets/img/产品验证.png" alt="" class="img"> 
-    <div class="container main margin">
+    <div class="container main margin" id="demo">
         <div class="intro-header">
           <h2 class="t-c">MEDIA FOCUS</h2>
           <p class="t-c" >产品验证</p>
         </div>
         <div class="icon">
           <div class="tag">2019<span style="font-size:39px;font-weight:400;">“韩梨”</span><br><span style="font-size:39px;font-weight:400;">全新包装</span></div>
-          <!--<span>2019</span><br />
-          <span>“韩梨”全新包装</span>-->
         </div>
         <div class="story left mt-150">
           <div class="story-inner margin">
@@ -32,7 +30,7 @@
 
         <div class="story right mt-150">
           <div class="story-inner margin">
-            <div class="story-intro story-intro-02">
+            <div class="story-intro-a story-intro-02">
                 <div class="story-intro__txt story-intro-02__txt story-intro-03__txt">
                   <div class="title">{{side_b}}</div>
                   <div class="content" v-html="this.side">
@@ -45,24 +43,24 @@
                     </div> 
                 </div>
             </div>
-            <div class="story-img img-box">
+            <div class="story-img-a img-box">
                 <img :src="this.pop_a">
             </div>
           </div>
      </div>
 
         <ul class="list-btn margin">
-          <li>
+          <li class="li1">
             <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
               <img :src="this.pop_b" alt="">
             </a>
           </li>
-          <li>
+          <li class="li2"> 
             <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
               <img :src="this.pop_c" alt="">
             </a>
           </li>
-          <li>
+          <li class="li3">
             <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
               <img :src="this.pop_d" alt="">
             </a>
@@ -141,6 +139,7 @@ export default {
        .then((res_d) => {
          this.pop_d = res_d.data.data.CoverPhoto;
        })
+      document.querySelector('#demo').scrollIntoView(true);
     }
 };
 </script>
@@ -182,15 +181,43 @@ export default {
 .intro-header h2 {
   font-size: 38px;
     line-height: 27px;
-    width: 100%;
+    width: 15%;
     font-weight: 600;
+     position: relative;
+     animation:myd 3s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+
+	/*/* Safari 和 Chrome */
+	-webkit-animation:myd 3s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
 }
 .intro-header p {
   font-size: 33px;
   margin-top: 36px;
+  width:15%;
+   position: relative;
+   animation:myd 4s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:myd 4s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+}
+@keyframes myd
+{
+	from {left:0px;}
+	to {left:43%;}
+}
+
+@-webkit-keyframes myd 
+{
+	from {left:0px;}
+	to {left:43%;}
 }
 .icon{
-  max-width: 1400px;
+  max-width: 100%;
   height: 552px;
   background: url(../assets/img/icon2.png) center center no-repeat;
   background-size: auto 100%;
@@ -199,6 +226,7 @@ export default {
   margin-bottom: 179px;
   position: relative;
   cursor:pointer;
+  /*border:1px solid;*/
 }
 .icon .tag{
   font-size: 36px;
@@ -207,6 +235,23 @@ export default {
     top: 36px;
     left: 0;
     font-weight: 600;
+     animation:mya 4.55s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:mya 4.55s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+}
+@keyframes mya
+{
+	from {left:0px;}
+	to {left:15%;}
+}
+
+@-webkit-keyframes mya 
+{
+	from {left:0px;}
+	to {left:15%;}
 }
 /* 第一层 */
 .story {
@@ -235,7 +280,7 @@ export default {
 .story-inner {
   position: relative;
   font-size: 0;
-  max-width: 1400px;
+  max-width: 100%;
 }
 .story.right .story-inner {
   text-align: right;
@@ -246,19 +291,86 @@ export default {
 .story.left .story-intro {
   right: 0;
 }
-.story-intro {
-  position: absolute;
+  .story-intro-a {
+    position: relative;
   top: 0;
   bottom: 0;
-  width: 50%;
+  width: 37%;
   text-align: left;
+  /*border:1px solid;*/
+  animation:myb 6s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:myb 6s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+  }
+.story-intro {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  width: 37%;
+  float:right;
+  text-align: left;
+  /*border:1px solid;*/
+  animation:myc 5s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:myc 5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+}
+@keyframes myc
+{
+	from {right:0px;}
+	to {right:13%;}
 }
 
+@-webkit-keyframes myc 
+{
+	from {right:0px;}
+	to {right:13%;}
+}
+  .story-img-a {
+    display: inline-block;
+    vertical-align: top;
+    width: 37%;
+    position: relative;
+    /*border: 1px solid;*/
+    animation:myc 6.5s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:myc 6.5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+  }
 .story-img {
-  display: inline-block;
+  /*display: inline-block;
   vertical-align: top;
   width: 50%;
-  position: relative;
+  position: relative;*/
+  display: inline-block;
+    vertical-align: top;
+    width: 37%;
+    position: relative;
+    /*border: 1px solid;*/
+    animation:myb 4.8s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:myb 4.8s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+}
+@keyframes myb
+{
+	from {left:0px;}
+	to {left:13%;}
+}
+
+@-webkit-keyframes myb 
+{
+	from {left:0px;}
+	to {left:13%;}
 }
 .img-box::before {
   content: "";
@@ -267,6 +379,9 @@ export default {
 .story-img::before {
   padding-top: 66.57143%;
 }
+  .story-img-a::before {
+     padding-top: 66.57143%;
+  }
 .img-box img {
   right: 0;
     position: absolute;
@@ -347,6 +462,44 @@ export default {
   width: 33.33%;
   float: left;
 }
+  .li1 {
+   position: relative;
+  animation:a1 5s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:a1 5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+  }
+  @keyframes a1
+{
+	from {left:-500px;}
+	to {left:0px;}
+}
+
+@-webkit-keyframes a1 
+{
+	from {left:-500px;}
+	to {left:0px;}
+}
+.li2 {
+   position: relative;
+  animation:a1 4s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:a1 4s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+  }
+  .li3 {
+    position: relative;
+  animation:a1 3s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:a1 3s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+  }
 .mall-item {
   display: block;
   margin: 0 40px;

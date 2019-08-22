@@ -1,7 +1,7 @@
 <template>
   <div class="container rule">
     <img src="../assets/img/村规民约.png" alt="" class="img">
-    <div class="chuancheng">
+    <div class="chuancheng" id="demo">
       <img  src="../assets/img/bg11.png" alt="" class="img"/>
     </div>
     <div class="container main margin">
@@ -32,14 +32,14 @@
         <!--<p v-html="this.body_a" style="cursor:pointer"></p>-->
         </div>
         <div class="div2">
-          <div><img :src="this.pop" style="width:100%;height:100%;"/></div>
-          <div><img :src="this.pop_a" style="width:100%;height:100%;" /></div>
+          <div class="img1"><img :src="this.pop" style="width:100%;height:100%;"/></div>
+          <div class="img1"><img :src="this.pop_a" style="width:100%;height:100%;" /></div>
         </div>
       </div>
       <div class="hanli3">
         <div class="div3">
-          <div><img src="http://image.jmta.milisx.com/FjDIMvVSUke-Wgx6hD6QD9fXfmYG" style="width:100%;height:100%;" /></div>
-          <div><img src="http://image.jmta.milisx.com/Fm2bBH2uMQAF3gCt5ZkbqmYvLwnp" style="width:100%;height:100%;" /></div>
+          <div class="img1"><img src="http://image.jmta.milisx.com/FjDIMvVSUke-Wgx6hD6QD9fXfmYG" style="width:100%;height:100%;" /></div>
+          <div class="img1"><img src="http://image.jmta.milisx.com/Fm2bBH2uMQAF3gCt5ZkbqmYvLwnp" style="width:100%;height:100%;" /></div>
         </div>
         <div class="div4">
           <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
@@ -126,11 +126,21 @@
           this.shuju_d = shuju_d;
           //console.log(this.shuju_d)
         })
+       document.querySelector('#demo').scrollIntoView(true);
     }
   }
 </script>
 
 <style scoped>
+  .img1 {
+    transition:all 0.3s ease-out;
+    -moz-transition:all 0.3s ease-out;
+    -webkit-transition:all 0.3s ease-out;
+    -o-transition:all 0.3s ease-out;
+  }
+    .img1:hover {
+      transform:scale(1.02,1.02);
+    }
 .container{
   overflow: hidden;
 }

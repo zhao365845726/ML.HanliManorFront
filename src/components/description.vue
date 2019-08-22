@@ -1,7 +1,7 @@
 <template>
   <div class="container description margin">
     <img src="../assets/img/关于我们.png" alt="" class="img">
-    <div class="container main margin">
+    <div class="container main margin" id="demo">
       <div class="about-company">
         <div class="company-left">
           <div class="intro-header company-intro-header">
@@ -128,6 +128,7 @@
     mounted() {
       this.ajax();
       this.shuju();
+      document.querySelector('#demo').scrollIntoView(true);
     }
   }
 </script>
@@ -189,12 +190,18 @@
 }
 
 .main {
-  max-width: 1400px;
+  /*max-width: 1400px;*/
+  max-width:100%;
 }
 .about-company {
-  position: relative;
+  /*position: relative;
   z-index: 1;
-  font-size: 0;
+  font-size: 0;*/
+      position: relative;
+    z-index: 1;
+    font-size: 0;
+    width: 95%;
+    margin: auto;
 }
 .company-left,
 .company-right {
@@ -202,13 +209,56 @@
   vertical-align: top;
 }
 .company-left {
-  width: 40%;
+  width: 31%;
   margin-top: 50px;
+  position:relative;
+  animation:mymove 3s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+
+	/*/* Safari 和 Chrome */
+	-webkit-animation:mymove 3s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+}
+@keyframes mymove
+{
+	from {left:0px;}
+	to {left:200px;}
+}
+
+@-webkit-keyframes mymove 
+{
+	from {left:0px;}
+	to {left:200px;}
 }
 .company-right {
-  width: 60%;
+  /*width: 60%;
   text-align: right;
-  position: relative;
+  position: relative;*/
+    width: 47%;
+    text-align: right;
+    position: relative;
+    float: right;
+     animation:my 3s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+
+	/*/* Safari 和 Chrome */
+	-webkit-animation:my 3s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+}
+@keyframes my
+{
+	from {right:0px;}
+	to {right:200px;}
+}
+
+@-webkit-keyframes my 
+{
+	from {right:0px;}
+	to {right:200px;}
 }
 .intro-header {
   color: #00873c;
@@ -218,6 +268,25 @@
   width: 100%;
   position: relative;
   font-weight:bolder;
+     animation:mya 5s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+
+	/*/* Safari 和 Chrome */
+	-webkit-animation:mya 5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+}
+@keyframes mya
+{
+	from {left:-100px;}
+	to {left:0px;}
+}
+
+@-webkit-keyframes mya 
+{
+	from {left:-100px;}
+	to {left:0px;}
 }
 .intro-header-line::after {
   content: "";
@@ -231,6 +300,15 @@
 .intro-header p {
   font-size: 33px;
   margin-top: 40px;
+  position: relative;
+  animation:mya 6s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+
+	/*/* Safari 和 Chrome */
+	-webkit-animation:mya 6s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
 }
 .intro-body {
   font-size: 13px;
@@ -240,11 +318,11 @@
   -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
     animation: mymove 5s infinite;
 }
-  @-webkit-keyframes mymove {
+  /*@-webkit-keyframes mymove {
     50% {
       border-left:15px ;
     }
-  }
+  }*/
 .about-company::after {
   content: "";
   position: absolute;
@@ -327,6 +405,10 @@
 }
 .about-history {
   margin-top: 110px;
+      margin-top: 110px;
+    width: 74%;
+    margin-left: 13%;
+    margin-right: 10%;
 }
 .swiper_ {
   width: 100%;
@@ -603,7 +685,7 @@
        height:100px;
       }
   }
-   @media (max-width: 375px) {
+   /*@media (max-width: 375px) {
     .history-item__year{
         position: relative;
         margin-bottom: 0.5em;
@@ -622,5 +704,58 @@
       #img {
        height:78px;
       }
+      .img-boxa img {
+    margin-left: 3.5%;
+    width: 93%;
+}
+      .img-box {
+    height: 46px;
+    border: 1px solid;
+    width: 69px;
+      }
+        .img-box::before {
+              width: 88%;
+             height: 15%;
+        }
+      .history-item__year {
+    font: 700 1px/1 "AvenirLTStd";
+}
+      .history-item {
+    position: relative;
+    padding-left: 18px;
+    padding-bottom: 52px;
+    margin-bottom: 20px;
+}
+  }*/
+  /*@media(max-width:1024px) {
+    .img-box::before {
+    width: 201px;
+}
   }
+   @media(max-width:768px) {
+     .img-box img {
+    width: 100%;
+    height: auto;
+    }
+    .img-box::before {
+    width: 136px;
+    height: 91px;
+    }
+    .img-boxa img {
+    margin-left: 3.5%;
+    }
+    .img-box {
+    height: 93px;
+    }
+    .history-item__year{
+    font: 700 23px/1 "AvenirLTStd";
+    }
+    .swiper-button-next, .swiper-button-prev {
+    margin-top: -79px;
+    }
+    .history-item__desc.active1 {
+    height: 147px;
+    overflow: auto;
+    }
+  }*/
 </style>

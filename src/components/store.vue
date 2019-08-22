@@ -1,37 +1,37 @@
 <template>
     <div class="container store">
        <img src="../assets/img/产品商城.png" alt="" class="img">
-       <div class="container main margin">
+       <div class="container main margin" id="demo">
         <div class="intro-header">
             <h2 class="t-c">ONLINE MALL</h2>
             <p class="t-c">线上商城</p>
         </div>
         <ul class="list">
-          <li>
+          <li class="li1">
             <a href="https://www.taobao.com/" class="mall-item">
                <i class="icon-tianmao"></i>
             </a>
             <div class="mall-item-name">淘宝</div>
           </li>
-          <li>
+          <li class="li2">
             <a href="https://www.tmall.com/?ali_trackid=2:mm_26632258_3504122_48284354:1564882382_136_2104611908&clk1=5606d12bd92d9b482aa48c8d19453b08&upsid=5606d12bd92d9b482aa48c8d19453b08" class="mall-item">
                <t class="icon-tianmao"></t>
             </a>
             <div class="mall-item-name">天猫</div>
           </li>
-          <li>
+          <li class="li3"> 
             <a href="https://www.jd.com/?cu=true&utm_source=baidu-search&utm_medium=cpc&utm_campaign=t_262767352_baidusearch&utm_term=106807362512_0_8c328599297641dfbaa3fbe55a8d7cf1" class="mall-item">
                <j class="icon-tianmao"></j>
             </a>
             <div class="mall-item-name">京东</div>
           </li>
-          <li>
+          <li class="li4">
             <a href="https://www.pinduoduo.com/" class="mall-item">
                <d class="icon-tianmao"></d>
             </a>
             <div class="mall-item-name">拼多多</div>
           </li>
-          <li>
+          <li class="li5">
             <a href="https://www.mogu.com/" class="mall-item">
                <m class="icon-tianmao"></m>
             </a>
@@ -47,7 +47,10 @@ export default {
   name: "store",
   data() {
     return {};
-  }
+    },
+    mounted() {
+      document.querySelector('#demo').scrollIntoView(true);
+    }
 };
 </script>
 
@@ -89,6 +92,62 @@ export default {
   width: 20%;
   float: left;
 }
+  .li1 {
+    position: relative;
+     animation:a1 2s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:a1 2s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+  }
+  @keyframes a1
+{
+	from {left:-300px;}
+	to {left:0px;}
+}
+
+@-webkit-keyframes a1 
+{
+	from {left:-300px;}
+	to {left:0px;}
+}
+  .li2 {
+    position: relative;
+     animation:a1 1.5s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:a1 1.5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+  }
+  .li3 {
+    position: relative;
+     animation:a1 1s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:a1 1s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+  }
+  .li4 {
+    position: relative;
+     animation:a1 .8s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:a1 .8s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+  }
+  .li5 {
+    position: relative;
+     animation:a1 .3s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:a1 .3s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+  }
 .mall-item {
   display: block;
   margin: 0 40px;

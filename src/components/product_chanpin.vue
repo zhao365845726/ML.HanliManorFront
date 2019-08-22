@@ -90,7 +90,7 @@
         ],
         CoverPhoto_a:'',
         isShow: false,
-        speed: 1000,
+        speed: 2000,
         falg: false,
         timerS: '',
         width: window.innerWidth,
@@ -191,7 +191,7 @@
               fn();
             }
           }
-        }, 10);
+        }, 1);
       },
       fnonmouseover() {
         this.isShow = true;
@@ -251,7 +251,7 @@
       },
     },
     mounted() {  
-      this.fnSwiper();
+      //this.fnSwiper();
       this.ajax();
       //console.log(this.width, this.height)
     }

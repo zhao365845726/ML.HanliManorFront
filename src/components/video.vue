@@ -1,7 +1,7 @@
 <template>
   <div class="container video margin">
      <img src="../assets/img/品牌视频.png" alt="" class="img">
-     <div class="container main margin">
+     <div class="container main margin" id="demo">
         <div class="intro-header">
           <h2 class="t-c">MEDIA FOCUS</h2>
           <p class="t-c">品牌视频</p>
@@ -65,7 +65,9 @@ export default {
       this.index_ = index;
     }
   },
-  mounted() {}
+    mounted() {
+      document.querySelector('#demo').scrollIntoView(true);
+    }
 };
 </script>
 

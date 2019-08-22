@@ -1,7 +1,7 @@
 <template>
   <div class="container technology margin">
    <img src="../assets/img/种植技术.png" alt="" class="img"> 
-   <div class="container main margin">
+   <div class="container main margin" id="demo">
      <div class="list">
        <div class="intro-header">
          <h2>MEDIA FOCUS</h2>
@@ -62,6 +62,7 @@ export default {
       .then((res) => {
         console.log(res)
       })
+     document.querySelector('#demo').scrollIntoView(true);
   }
   
 };

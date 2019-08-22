@@ -1,7 +1,7 @@
 <template>
   <div class="container notice margin">
     <img src="../assets/img/企业公告.png" alt="" class="img"> 
-    <div class="container main margin">
+    <div class="container main margin" id="demo">
       <div class="container  list">
         <div class="intro-header">
           <h2>MEDIA FOCUS</h2>
@@ -136,6 +136,7 @@
                 //console.log(this.yj);
               })
           })
+        document.querySelector('#demo').scrollIntoView(true);
       }
     },
     mounted() {
@@ -214,7 +215,27 @@
 }
 .intro-header {
   color: #00873c;
-  margin-top: 72px;
+  /*margin-top: 72px;*/
+  margin-top:-216px;
+   position: relative;
+   animation:myb 3s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+
+	-webkit-animation:myb 3s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+}
+ @keyframes myb
+{
+	from {margin-top:-216px;}
+	to {margin-top:72px;}
+}
+
+@-webkit-keyframes myb 
+{
+	from {margin-top:-216px;}
+	to {margin-top:72px;}
 }
 .intro-header h2 {
   font-size: 36px;
@@ -344,7 +365,14 @@
 .notice-news li .notice-left{
   width: 345px;
   height: 100%;
+   transition:all 0.3s ease-out;
+    -moz-transition:all 0.3s ease-out;
+    -webkit-transition:all 0.3s ease-out;
+    -o-transition:all 0.3s ease-out;
 }
+  .notice-news li :hover .notice-left{
+    transform:scale(1.05,1.05);
+  }
 .notice-right{
   width: calc(100% - 345px);
   padding: 20px 76px 0 76px;

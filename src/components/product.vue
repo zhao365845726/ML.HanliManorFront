@@ -113,8 +113,8 @@
         CoverPhoto:'',
         res_c: [],
         isShow: false,
-        speed:30000,
-        falg: true,
+        speed: 2000,
+        falg: false,
         timerS: '',
         ins: 0,
          width: window.innerWidth,
@@ -338,7 +338,7 @@
       }
     },
     mounted() {
-      this.fnSwiper();
+      //this.fnSwiper();
       this.ajax();
       document.querySelector('#demo').scrollIntoView(true);
     },

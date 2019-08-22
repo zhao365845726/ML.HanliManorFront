@@ -1,17 +1,7 @@
 <template>
   <div class="container brandStory margin">
     <img src="../assets/img/好山好水.png" alt="" class="img">
-    <!--<div style="border:1px solid">
-      <input type="text" v-model="search" style="border:1px solid">
-      <ul>
-        <li v-for="(item,index) in items">
-          <span>{{item.name}}</span>
-          <span>{{item.msg}}</span>
-        </li>
-      </ul>
-    </div>-->
-
-    <div class=" story right">
+    <div class=" story right" id="demo">
       <div class="story-inner margin">
         <div class="story-intro story-intro-01">
           <div class="intro-header">
@@ -33,11 +23,11 @@
     </div>
     <div class="story left mt-150">
       <div class="story-inner margin">
-        <div class="story-img story-img-02 img-box">
+        <div class="story-img-a story-img-02 img-box">
           <!--<img src="http://image.jmta.milisx.com/FktWRJzSQHttdA5M_btwodbAksap">-->
           <img :src="this.CoverPhoto">
         </div>
-        <div class="story-intro story-intro-02">
+        <div class="story-intro-b story-intro-02">
           <div class="story-intro__txt story-intro-02__txt">
             <p v-html="this.media" style="font-size:13px;"></p>
           </div>
@@ -46,7 +36,7 @@
     </div>
     <div class="story right mt-150">
       <div class="story-inner margin">
-        <div class="story-intro">
+        <div class="story-intro-c">
           <div class="story-intro-03__txt">
             <div class="story-dream-title">
               <p>{{this.media_b}}</p>
@@ -57,7 +47,7 @@
             </div>
           </div>
         </div>
-        <div class="story-img img-box">
+        <div class="story-img-b img-box">
           <!--<img src="http://image.jmta.milisx.com/luFSp1cqrp689Jegq9SX5lUBtUJ0">-->
           <img :src="this.CoverPhoto_a">
         </div>
@@ -75,41 +65,11 @@ export default {
       media_c:'',
       media_a: '',
       media_b: '',
-       //search:'',
-       //list:[
-       // {name:'AAA',msg:'aaa文本介绍1'},
-       // {name:'BBB',msg:'bbb文本介绍2'},
-       // {name:'CCC',msg:'ccc文本介绍3'},
-       // {name:'DDD',msg:'ddd文本介绍4'},
-       // {name:'EEE',msg:'eee文本介绍5'},
-       //]
       CoverPhoto_a: '',
       CoverPhoto: '',
       photo:'',
     };
   },
- // computed: {
- // //过滤方法
- // items: function() {
- //  var _search = this.search;
- //  if (_search) {
- //   //不区分大小写处理
- //    var reg = new RegExp(_search, 'ig')
- //    console.log(reg)
- //   //es6 filter过滤匹配，有则返回当前，无则返回所有
- //   return this.list.filter(function(e) {
- //     //匹配所有字段
- //     console.log(e)
- //     return Object.keys(e).some(function (key) {
- //     return e[key].match(reg);
- //    })
- //    //匹配某个字段
- //    // return e.name.match(reg);
- //   })
- //  };
- //  return this.list;
- // }
- //},
     mounted() {
          this.$axios
            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
@@ -138,7 +98,8 @@ export default {
             .then((res_c) => {
               this.photo = res_c.data.data.CoverPhoto;
               console.log(this.photo)
-           })
+            })
+      document.querySelector('#demo').scrollIntoView(true);
     }
 };
 </script>
@@ -166,6 +127,7 @@ export default {
   position: relative;
   z-index: 1;
   padding: 120px 0;
+  /*border:1px solid;*/
 }
 .story::before {
   content: "";
@@ -181,7 +143,9 @@ export default {
 .story-inner {
   position: relative;
   font-size: 0;
-  max-width: 1400px;
+  /*max-width: 1400px;*/
+      max-width: 95%;
+    /*border: 1px solid;*/
 }
 .story.right .story-inner {
   text-align: right;
@@ -192,16 +156,118 @@ export default {
 .story.left .story-intro {
   right: 0;
 }
+  .story-intro-b {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    width: 41%;
+    text-align: left;
+    /*border: 1px solid;*/
+    float:right;
+    animation:myb 8s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+
+	/*/* Safari 和 Chrome */
+	-webkit-animation:myb 8s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+
+  }
+  @keyframes myb
+{
+	from {right:0px;}
+	to {right:100px;}
+}
+
+@-webkit-keyframes myb 
+{
+	from {right:0px;}
+	to {right:100px;}
+}
+  .story-intro-c {
+     position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 41%;
+    text-align: left;
+    /*border: 1px solid;*/
+    animation:myd 9s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+
+	/*/* Safari 和 Chrome */
+	-webkit-animation:myd 9s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+  }
+  @keyframes myd
+{
+	from {left:0px;}
+	to {left:100px;}
+}
+
+@-webkit-keyframes myd 
+{
+	from {left:0px;}
+	to {left:100px;}
+}
 .story-intro {
-  position: absolute;
+  /*position: absolute;
   top: 0;
   bottom: 0;
   width: 50%;
-  text-align: left;
+  text-align: left;*/
+  position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 41%;
+    text-align: left;
+    /*border: 1px solid;*/
+    animation:mymove 3s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+
+	/*/* Safari 和 Chrome */
+	-webkit-animation:mymove 3s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+}
+@keyframes mymove
+{
+	from {right:0px;}
+	to {right:100px;}
+}
+
+@-webkit-keyframes mymove 
+{
+	from {right:0px;}
+	to {right:100px;}
 }
 .story-intro-01 {
   background: url(../assets/img/img.png) center center no-repeat;
   background-size: 76% auto;
+      /*border: 1px solid;*/
+    width: 39%;
+    animation:mymove 3s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+
+	/*/* Safari 和 Chrome */
+	-webkit-animation:mymove 3s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+}
+@keyframes mymove
+{
+	from {left:0px;}
+	to {left:100px;}
+}
+
+@-webkit-keyframes mymove 
+{
+	from {left:0px;}
+	to {left:100px;}
 }
 .intro-header {
   color: #00873c;
@@ -210,11 +276,36 @@ export default {
     font-size: 37px;
     line-height: 27px;
     width: 100%;
+    position: relative;
     font-weight: 600;
+     animation:myn 5s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:myn 5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+}
+@keyframes myn
+{
+	from {left:-100px;}
+	to {left:0px;}
+}
+
+@-webkit-keyframes myn 
+{
+	from {left:-100px;}
+	to {left:0px;}
 }
 .intro-header p {
   font-size: 33px;
   margin-top: 36px;
+   position: relative;
+     animation:myn 6s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:myn 6s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
 }
 .story-intro-01 .intro-header {
   margin-top: -60px;
@@ -229,11 +320,80 @@ export default {
   font-size: 18px;
   line-height: 45px;
 }
+  .story-img-a {
+    display: inline-block;
+  vertical-align: top;
+  width: 43%;
+  position: relative;
+   animation:myy 3s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+
+	/*/* Safari 和 Chrome */
+	-webkit-animation:myy 3s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+  }
+  @keyframes myy
+{
+	from {left:0px;}
+	to {left:100px;}
+}
+
+@-webkit-keyframes myy
+{
+	from {left:0px;}
+	to {left:100px;}
+}
+  .story-img-b {
+    display: inline-block;
+  vertical-align: top;
+  width: 43%;
+  position: relative;
+   animation:myc 10s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+
+	/*/* Safari 和 Chrome */
+	-webkit-animation:myc 10s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+  }
+  @keyframes myc
+{
+	from {right:0px;}
+	to {right:100px;}
+}
+
+@-webkit-keyframes myc 
+{
+	from {right:0px;}
+	to {right:100px;}
+}
 .story-img {
   display: inline-block;
   vertical-align: top;
-  width: 50%;
+  width: 43%;
   position: relative;
+   animation:my 3s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+
+	/*/* Safari 和 Chrome */
+	-webkit-animation:my 3s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+}
+@keyframes my
+{
+	from {right:0px;}
+	to {right:100px;}
+}
+
+@-webkit-keyframes my 
+{
+	from {right:0px;}
+	to {right:100px;}
 }
 .img-box::before {
   content: "";
@@ -242,6 +402,12 @@ export default {
 .story-img::before {
   padding-top: 66.57143%;
 }
+.story-img-a::before {
+  padding-top: 66.57143%;
+}
+  .story-img-b::before {
+    padding-top:66.57143%;
+  }
 .img-box img {
   right: 0;
   position: absolute;

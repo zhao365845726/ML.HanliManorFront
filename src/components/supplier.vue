@@ -516,7 +516,14 @@ mounted() {
     top: 0;
     left: 0;
     cursor:pointer;
+    transition:all 0.3s ease-out;
+    -moz-transition:all 0.3s ease-out;
+    -webkit-transition:all 0.3s ease-out;
+    -o-transition:all 0.3s ease-out;
    }
+        .img_a:hover {
+          transform:scale(1.02,1.02);
+        }
     .supplier {
       margin-bottom:5%;
     }

@@ -12,14 +12,142 @@
   </div>
 
 </template>
+<script>
+  export default {
+     name: "lunbo",
+     data() {
+       return {
+
+       }
+     },
+    methods: {
+      //onload() {
+      //  var btns = document.getElementsByClassName('btn'),
+      //  imgs = document.getElementsByClassName('box')[0].getElementsByTagName('img');
+      //  var index = 2,
+      //   front = 0,
+      //   back = 0,
+      //   offset = false,
+      //   timer = setInterval(timer,5000);
+
+      //  for(var i=0;i<btns.length;i++){
+      //    (function(i){
+      //     btns[i].onclick = function(){click(i)};
+      //    })(i);
+
+      //    btns[i].onmouseover = function(){
+      //     offset = true;
+      //    }
+      //    btns[i].onmouseout = function(){
+      //     offset = false;
+      //    }
+      //  }
+
+      //  for(var i=0;i<imgs.length;i++){
+      //    imgs[i].onmouseover = function(){
+      //     offset = true;
+      //    }
+      //    imgs[i].onmouseout = function(){
+      //     offset = false;
+      //    }
+      //  }
+      //},
+      //timer(){
+      //  console.log(offset)
+      //  if(offset){
+      //   return;
+      //  }
+      //  else{
+      //   click(1)
+      //  }
+      //}
+
+    },
+    mounted() {
+      //onload = function(){
+      //  var btns = document.getElementsByClassName('btn'),
+      //   imgs = document.getElementsByClassName('box')[0].getElementsByTagName('img');
+
+      //  var index = 2,
+      //   front = 0,
+      //   back = 0,
+      //   offset = false,
+      //   timer = setInterval(timer,1000);
+
+
+
+      //  for(var i=0;i<btns.length;i++){
+      //  (function(i){
+      //   btns[i].onclick = function(){click(i)};
+      //  })(i);
+
+      //  btns[i].onmouseover = function(){
+      //   offset = true;
+      //  }
+      //  btns[i].onmouseout = function(){
+      //   offset = false;
+      //  }
+      //  }
+
+      //  for(var i=0;i<imgs.length;i++){
+      //  imgs[i].onmouseover = function(){
+      //   offset = true;
+      //  }
+      //  imgs[i].onmouseout = function(){
+      //   offset = false;
+      //  }
+      //  }
+
+      //  function timer(){
+      //  console.log(offset)
+      //  if(offset){
+      //   return;
+      //  }
+      //  else{
+      //   click(1)
+      //  }
+      //  }
+
+      //  function click(x){
+      //  imgs[index].setAttribute('class','');
+      //  if(x === 0){
+      //   if(--index < 0){
+      //   index = --imgs.length;
+      //   }
+      //   front = back = index;
+      //   if(++front > --imgs.length){front = 0}
+      //   if(--back < 0){back = --imgs.length}
+      //   imgs[front].style.zIndex = '1';
+      //   imgs[back].style.zIndex = '0';
+      //  }
+      //  else{
+      //   if(++index > --imgs.length){
+      //   index = 0;
+      //   }
+      //   front = back = index;
+      //   if(++front > --imgs.length){front = 0}
+      //   if(--back < 0){back = --imgs.length}
+      //   imgs[front].style.zIndex = '0';
+      //   imgs[back].style.zIndex = '1';
+      //  }
+      //  imgs[index].style.zIndex = '10';
+      //  imgs[front].setAttribute('class','front')
+      //  imgs[back].setAttribute('class','back')
+      //  imgs[index].setAttribute('class','active');
+      //  }
+      //  }
+            }
+
+  }
+
+</script>
 <style>
-  .box {
+   .box {
     width: 1200px;
     height: 300px;
     transform-style: perserve-3d;
     margin: 50px auto;
     position: relative;
-    border:1px solid;
   }
 
     .box img {
@@ -35,17 +163,16 @@
     }
 
   .front {
-    left: 37px;
+    left: 0px;
   }
 
   .back {
-    left: 56.5%;
-    border: 3px solid salmon;
+    left: 600px;
   }
 
   .active {
-   left: 48%;
-    transform: scale(1.05);
+    left: 300px;
+    transform: scale(1.5);
     z-index: 10;
   }
 
