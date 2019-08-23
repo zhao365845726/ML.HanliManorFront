@@ -135,7 +135,7 @@
       },
       rou(index) {
         //console.log(index)
-        this.$router.push({ path: 'home', query: { name: this.forklifts[index].Name, id: this.forklifts[index].Id } })
+        this.$router.push({  query: { name: this.forklifts[index].Name, id: this.forklifts[index].Id } })
       },
       btn() {
         var a = this.sreach;
@@ -680,6 +680,7 @@
       background-color: white;
       line-height: 27px;
       padding-top: 5px;
+      z-index:100;
     }
 
     .li {
@@ -754,17 +755,25 @@
     } 
     .nav li:hover .div2 {
       display: block;
-      width: 75px;
+      width: 100px;
       background-color: white;
       line-height: 27px;
       padding-top: 5px;
+      z-index:100;
+      margin-left:-43%;
     }
 
     .li {
       margin-right: 0px;
       margin-bottom: 0px;
+      width:16%;
+      height:56px;
     }
-
+    .a1:hover {
+    color: #009944;
+    background-color: white;
+    height: 56px;
+}
     .nav {
       padding-left: 2%;
     }

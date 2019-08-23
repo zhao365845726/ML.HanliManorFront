@@ -25,9 +25,18 @@ export default {
     },
     methods: {
       backTop() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      }
+        //document.body.scrollTop = 0;
+        //document.documentElement.scrollTop = 0;
+          let timer = setInterval(() => {
+            var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+                 var ispeed=Math.floor(-scrollTop/6);
+            console.log(ispeed)
+            if (scrollTop === ispeed) {
+              clearInterval(timer);
+            }
+                 document.documentElement.scrollTop=document.body.scrollTop=scrollTop+ispeed;
+          },30)
+      },
     }
 };
 </script>

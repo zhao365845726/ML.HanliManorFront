@@ -21,12 +21,12 @@
       </div>
       <div class="about-history">
         <div class="intro-header">
-          <h2>PHYSICAL STORE</h2>
+          <h2 class="h2">PHYSICAL STORE</h2>
           <p>品牌历程</p>
         </div>
           <div class="swiper_">
           <swiper :options="swiperOption" class='swiper-box' v-if="swipers.length" >
-            <swiper-slide v-for="(item, index) in swipers" :key="index"  class="list_">
+            <swiper-slide v-for="(item, index) in swipers" :key="index"  class="list_" >
               <div class="history-item" :id="index">
                 <div class="history-item__wrap">
                   <h3 class="history-item__year" >{{item.CreateTime}}</h3>
@@ -81,7 +81,8 @@
               //alert(this.clickedIndex);
               var parent = document.getElementsByClassName("swiper-wrapper")[0].getElementsByClassName('list_');
               var el = parent[this.clickedIndex].getElementsByClassName("history-item__desc")[0];
-              console.log(el.classList.contains('active1'));           
+              var ml = parent[this.clickedIndex].getElementsByClassName("history-item__circle")[0];
+              var nl = parent[this.clickedIndex].getElementsByClassName("history-item__year")[0];
               if (el.classList.contains('active1')) {
                 el.classList.remove("active1");
               } else {
@@ -92,15 +93,35 @@
                 }
               }
 
+                if (ml.classList.contains('active2')) {
+                ml.classList.remove("active2");
+              } else {
+                for (var i = 0; i < parent.length; i++) {
+                  var list_ = parent[i].getElementsByClassName("history-item__circle")[0];
+                  list_.classList.remove("active2");
+                  ml.classList.add("active2");
+                }
+             }
+
+            if (nl.classList.contains('active')) {
+                nl.classList.remove("active");
+              } else {
+                for (var i = 0; i < parent.length; i++) {
+                  var list_ = parent[i].getElementsByClassName("history-item__year")[0];
+                  list_.classList.remove("active");
+                  nl.classList.add("active");
+                }
             }
+
+            },
+            
           }
         },
         swipers: [],
         company: '',
       };
     },
-    methods: {
-      
+    methods: {    
       ajax() {
         this.$axios
           .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
@@ -128,6 +149,11 @@
     mounted() {
       this.ajax();
       this.shuju();
+      if (window.innerWidth === 375) {
+        this.swiperOption.slidesPerView = 1;
+      } else {
+        this.swiperOption.slidesPerView = 4;
+      }
       document.querySelector('#demo').scrollIntoView(true);
     }
   }
@@ -212,25 +238,25 @@
   width: 31%;
   margin-top: 50px;
   position:relative;
-  animation:mymove 3s;
+  animation:mymove 2s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
 
 	/*/* Safari 和 Chrome */
-	-webkit-animation:mymove 3s;
+	-webkit-animation:mymove 2s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 }
 @keyframes mymove
 {
 	from {left:0px;}
-	to {left:200px;}
+	to {left:11.1%;}
 }
 
 @-webkit-keyframes mymove 
 {
 	from {left:0px;}
-	to {left:200px;}
+	to {left:11.1%;}
 }
 .company-right {
   /*width: 60%;
@@ -240,25 +266,25 @@
     text-align: right;
     position: relative;
     float: right;
-     animation:my 3s;
+     animation:my 2s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
 
 	/*/* Safari 和 Chrome */
-	-webkit-animation:my 3s;
+	-webkit-animation:my 2s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 }
 @keyframes my
 {
 	from {right:0px;}
-	to {right:200px;}
+	to {right:11.1%;}
 }
 
 @-webkit-keyframes my 
 {
 	from {right:0px;}
-	to {right:200px;}
+	to {right:11.1%;}
 }
 .intro-header {
   color: #00873c;
@@ -268,15 +294,29 @@
   width: 100%;
   position: relative;
   font-weight:bolder;
-     animation:mya 5s;
+     animation:mya 2.5s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
 
 	/*/* Safari 和 Chrome */
-	-webkit-animation:mya 5s;
+	-webkit-animation:mya 2.5s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 }
+  .h2 {
+    font-size: 37px;
+  width: 100%;
+  position: relative;
+  font-weight:bolder;
+     animation:mya 2.5s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+
+	/*/* Safari 和 Chrome */
+	-webkit-animation:mya 2.5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+  }
 @keyframes mya
 {
 	from {left:-100px;}
@@ -301,12 +341,12 @@
   font-size: 33px;
   margin-top: 40px;
   position: relative;
-  animation:mya 6s;
+  animation:mya 3s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
 
 	/*/* Safari 和 Chrome */
-	-webkit-animation:mya 6s;
+	-webkit-animation:mya 3s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 }
@@ -315,14 +355,25 @@
   line-height: 28px;
   color: #333;
   margin-top: 65px;
-  -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
-    animation: mymove 5s infinite;
+   position: relative;
+  animation:a 2.5s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:a 2.5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
 }
-  /*@-webkit-keyframes mymove {
-    50% {
-      border-left:15px ;
-    }
-  }*/
+@keyframes a
+{
+	from {top:100px;}
+	to {top:0px;}
+}
+
+@-webkit-keyframes a 
+{
+	from {top:100px;}
+	to {top:0px;}
+}
 .about-company::after {
   content: "";
   position: absolute;
@@ -602,7 +653,7 @@
   background-repeat: no-repeat;
   background-size: 60% auto;
 }
-  .history-item__circle.active {
+  .history-item__circle.active2 {
     border: 6.5px solid #00873C;
     background-color: white;
     margin-left: 3.05px;
@@ -685,77 +736,70 @@
        height:100px;
       }
   }
-   /*@media (max-width: 375px) {
-    .history-item__year{
-        position: relative;
-        margin-bottom: 0.5em;
-        font: 500 14px/1 "AvenirLTStd";
-        color: #b2b2b2;
+  @media(max-width:1024px) {
+    @keyframes mymove
+    {
+	    from {left:0px;}
+	    to {left:3%;}
     }
-    .history-item__desc{
-        margin-bottom: 0.5em;
-        height: 48px;
-        min-height: 48px;
-        overflow: hidden;
-        font-size: 10px;
-        line-height: 16px;
-        color: gray;
+
+    @-webkit-keyframes mymove 
+    {
+	    from {left:0px;}
+	    to {left:3%;}
     }
-      #img {
-       height:78px;
-      }
-      .img-boxa img {
-    margin-left: 3.5%;
-    width: 93%;
-}
-      .img-box {
-    height: 46px;
-    border: 1px solid;
-    width: 69px;
-      }
-        .img-box::before {
-              width: 88%;
-             height: 15%;
-        }
-      .history-item__year {
-    font: 700 1px/1 "AvenirLTStd";
-}
-      .history-item {
-    position: relative;
-    padding-left: 18px;
-    padding-bottom: 52px;
-    margin-bottom: 20px;
-}
-  }*/
-  /*@media(max-width:1024px) {
-    .img-box::before {
-    width: 201px;
-}
+    .about-history{
+    width: 84%;
+    margin-left: 7%;
+    margin-right: 10%;
+    }
+    .h2 {
+   /*border: 1px solid;*/
+    height: 39px;
+    margin-top: 68%;
   }
-   @media(max-width:768px) {
-     .img-box img {
-    width: 100%;
-    height: auto;
-    }
     .img-box::before {
-    width: 136px;
-    height: 91px;
-    }
-    .img-boxa img {
-    margin-left: 3.5%;
-    }
-    .img-box {
-    height: 93px;
-    }
-    .history-item__year{
-    font: 700 23px/1 "AvenirLTStd";
-    }
-    .swiper-button-next, .swiper-button-prev {
-    margin-top: -79px;
-    }
-    .history-item__desc.active1 {
+    width: 81%;
+}
+     .history-item__desc.active1 {
     height: 147px;
     overflow: auto;
     }
-  }*/
+}
+
+   @media(max-width:768px) {
+     @keyframes my
+      {
+	      from {right:0px;}
+	      to {right:20%;}
+      }
+
+      @-webkit-keyframes my 
+      {
+	      from {right:0px;}
+	      to {right:20%;}
+      }
+      .h2 {
+    /*border: 1px solid;*/
+    height: 37px;
+    margin-top: 81%;
+  }
+    .about-history{
+    width: 93%;
+    margin-left: 5%;
+    margin-right: 10%;
+    }
+   .img-box::before {
+    width: 76%;
+  }
+  .history-item__year {
+    font: 700 21px/1 "AvenirLTStd";
+}
+  }
+  @media(max-width:375px) {
+    .img-boxa img {
+    max-width: 100%;
+    margin-left: 21%;
+}
+  }
 </style>

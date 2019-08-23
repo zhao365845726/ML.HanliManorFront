@@ -132,6 +132,7 @@
   }
   .t-c{
       text-align: center;
+      cursor:pointer;
   }
   .t-l{
       text-align: left;

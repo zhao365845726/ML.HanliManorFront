@@ -132,6 +132,7 @@
                   this.CoverPhoto = data.data.data.CoverPhoto;
                   this.title = data.data.data.Title;
                 })
+        document.querySelector('#demo').scrollIntoView(true);
       },
       roub() {
         this.$axios
@@ -144,6 +145,7 @@
                   this.CoverPhoto = data.data.data.CoverPhoto;
                   this.title = data.data.data.Title;
                 })
+        document.querySelector('#demo').scrollIntoView(true);
       },
       rouc() {
         this.$axios
@@ -156,6 +158,7 @@
                   this.CoverPhoto = data.data.data.CoverPhoto;
                   this.title = data.data.data.Title;
                 })
+        document.querySelector('#demo').scrollIntoView(true);
       },
       roud() {
         this.$axios
@@ -168,6 +171,7 @@
                   this.CoverPhoto = data.data.data.CoverPhoto;
                   this.title = data.data.data.Title;
                 })
+        document.querySelector('#demo').scrollIntoView(true);
       },
       roue() {
         this.$axios
@@ -180,6 +184,7 @@
                   this.CoverPhoto = data.data.data.CoverPhoto;
                   this.title = data.data.data.Title;
                 })
+        document.querySelector('#demo').scrollIntoView(true);
       },
       rouf() {
         this.$axios
@@ -192,6 +197,7 @@
                   this.CoverPhoto = data.data.data.CoverPhoto;
                   this.title = data.data.data.Title;
                 })
+        document.querySelector('#demo').scrollIntoView(true);
       },
     roug() {
         this.$axios
@@ -204,6 +210,7 @@
                   this.CoverPhoto = data.data.data.CoverPhoto;
                   this.title = data.data.data.Title;
                 })
+      document.querySelector('#demo').scrollIntoView(true);
       },
       
       ajax() {
@@ -491,8 +498,24 @@
     vertical-align: top;
     width: 50%;
     position: relative;
+     animation:mymo 2s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:mymo 2s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
   }
+  @keyframes mymo
+{
+	from {right:-100px;}
+	to {right:0px;}
+}
 
+@-webkit-keyframes mymo 
+{
+	from {right:-100px;}
+	to {right:0px;}
+}
   .img-box::before {
     content: "";
     display: block;
@@ -517,6 +540,13 @@
     font-size: 14px;
     line-height: 2.57143;
     color: #333;
+    position: relative;
+     animation:mymove 2s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:mymove 2s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
   }
 
   .story-intro-03__txt {
@@ -531,7 +561,25 @@
     font-size: 36px;
     color: #00873c;
     margin-top: 40px;
+     position: relative;
+     animation:mymove 1s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:mymove 1s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
   }
+  @keyframes mymove
+{
+	from {left:-100px;}
+	to {left:0px;}
+}
+
+@-webkit-keyframes mymove 
+{
+	from {left:-100px;}
+	to {left:0px;}
+}
 
   .story-dream-title span {
     display: block;
@@ -539,6 +587,13 @@
     color: #00873c;
     margin-top: 36px;
     margin-bottom: 35px;
+    position: relative;
+     animation:mymove 1.5s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:mymove 1.5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
   }
 
   @media (max-width: 1100px) {

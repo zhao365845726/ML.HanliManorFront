@@ -109,17 +109,27 @@ export default {
 }
 .btns {
   width: 100%;
-  height: 84px;
+  height: 55px;
   margin: 30px 0;
 }
 .btns li {
-  float: left;
+  /*float: left;
   width: 20%;
   height: 100%;
   font-size: 16px;
   color: #000000;
   text-align: center;
-  line-height: 84px;
+  line-height: 84px;*/
+  float: left;
+    width: 17%;
+    height: 100%;
+    font-size: 16px;
+    color: #000000;
+    text-align: center;
+    line-height: 54px;
+    /*border: 1px solid;*/
+    margin-right: 1.5%;
+    margin-left: 1.5%;
 }
 .btns li:hover {
   cursor: pointer;

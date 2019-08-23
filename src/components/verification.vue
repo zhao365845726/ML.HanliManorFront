@@ -181,40 +181,38 @@ export default {
 .intro-header h2 {
   font-size: 38px;
     line-height: 27px;
-    width: 15%;
+    width: 100%;
     font-weight: 600;
      position: relative;
-     animation:myd 3s;
+     animation:myd 2s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
-
-	/*/* Safari 和 Chrome */
-	-webkit-animation:myd 3s;
+	-webkit-animation:myd 2s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 }
 .intro-header p {
   font-size: 33px;
   margin-top: 36px;
-  width:15%;
+  width:100%;
    position: relative;
-   animation:myd 4s;
+   animation:myd 1s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
-	-webkit-animation:myd 4s;
+	-webkit-animation:myd 1s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 }
 @keyframes myd
 {
-	from {left:0px;}
-	to {left:43%;}
+	from {margin-top:-8%;}
+	to {margin-top:0%;}
 }
 
 @-webkit-keyframes myd 
 {
-	from {left:0px;}
-	to {left:43%;}
+	from {margin-top:-8%;}
+	to {margin-top:0%;}
 }
 .icon{
   max-width: 100%;
@@ -235,23 +233,23 @@ export default {
     top: 36px;
     left: 0;
     font-weight: 600;
-     animation:mya 4.55s;
+     animation:mya 2s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
-	-webkit-animation:mya 4.55s;
+	-webkit-animation:mya 2s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 }
 @keyframes mya
 {
-	from {left:0px;}
-	to {left:15%;}
+	from {margin-left:0%;}
+	to {margin-left:15%}
 }
 
 @-webkit-keyframes mya 
 {
-	from {left:0px;}
-	to {left:15%;}
+	from {margin-left:0%;}
+	to {margin-left:15%}
 }
 /* 第一层 */
 .story {
@@ -298,10 +296,10 @@ export default {
   width: 37%;
   text-align: left;
   /*border:1px solid;*/
-  animation:myb 6s;
+  animation:myb 3s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
-	-webkit-animation:myb 6s;
+	-webkit-animation:myb 3s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
   }
@@ -313,10 +311,10 @@ export default {
   float:right;
   text-align: left;
   /*border:1px solid;*/
-  animation:myc 5s;
+  animation:myc 3s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
-	-webkit-animation:myc 5s;
+	-webkit-animation:myc 3s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 }
@@ -337,10 +335,10 @@ export default {
     width: 37%;
     position: relative;
     /*border: 1px solid;*/
-    animation:myc 6.5s;
+    animation:myc 3s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
-	-webkit-animation:myc 6.5s;
+	-webkit-animation:myc 3s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
   }
@@ -354,10 +352,10 @@ export default {
     width: 37%;
     position: relative;
     /*border: 1px solid;*/
-    animation:myb 4.8s;
+    animation:myb 3s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
-	-webkit-animation:myb 4.8s;
+	-webkit-animation:myb 3s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 }
@@ -464,10 +462,10 @@ export default {
 }
   .li1 {
    position: relative;
-  animation:a1 5s;
+  animation:a1 4s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
-	-webkit-animation:a1 5s;
+	-webkit-animation:a1 4s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
   }
@@ -484,10 +482,10 @@ export default {
 }
 .li2 {
    position: relative;
-  animation:a1 4s;
+  animation:a1 3.5s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
-	-webkit-animation:a1 4s;
+	-webkit-animation:a1 3.5s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
   }

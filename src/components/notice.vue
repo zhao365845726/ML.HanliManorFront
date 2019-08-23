@@ -34,7 +34,7 @@
         </ul>
       </div>
       <div class="container list">
-        <div class="intro-header">
+        <div class="intro-header"  id="mo">
           <h2>MEDIA FOCUS</h2>
           <p>企业公告</p>
         </div>
@@ -87,6 +87,7 @@
         this.pageNo = index;
         //console.log(this.pageNo)
         this.pagination()
+         document.querySelector('#mo').scrollIntoView(true);
       },
       pagination() {
         var param = window.location.href.split('=')[2];
@@ -136,11 +137,12 @@
                 //console.log(this.yj);
               })
           })
-        document.querySelector('#demo').scrollIntoView(true);
+      
       }
     },
     mounted() {
       this.pagination();
+       document.querySelector('#demo').scrollIntoView(true);
     }
 };
 </script>
@@ -218,11 +220,11 @@
   /*margin-top: 72px;*/
   margin-top:-216px;
    position: relative;
-   animation:myb 3s;
+   animation:myb 1s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
 
-	-webkit-animation:myb 3s;
+	-webkit-animation:myb 1s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 }

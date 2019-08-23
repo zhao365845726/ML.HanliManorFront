@@ -164,12 +164,12 @@ export default {
     text-align: left;
     /*border: 1px solid;*/
     float:right;
-    animation:myb 8s;
+    animation:myb 3s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
 
 	/*/* Safari 和 Chrome */
-	-webkit-animation:myb 8s;
+	-webkit-animation:myb 3s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 
@@ -192,12 +192,12 @@ export default {
     width: 41%;
     text-align: left;
     /*border: 1px solid;*/
-    animation:myd 9s;
+    animation:myd 3s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
 
 	/*/* Safari 和 Chrome */
-	-webkit-animation:myd 9s;
+	-webkit-animation:myd 3s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
   }
@@ -224,12 +224,12 @@ export default {
     width: 41%;
     text-align: left;
     /*border: 1px solid;*/
-    animation:mymove 3s;
+    animation:mymove 1s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
 
 	/*/* Safari 和 Chrome */
-	-webkit-animation:mymove 3s;
+	-webkit-animation:mymove 1s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 }
@@ -249,12 +249,12 @@ export default {
   background-size: 76% auto;
       /*border: 1px solid;*/
     width: 39%;
-    animation:mymove 3s;
+    animation:mymove 1s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
 
 	/*/* Safari 和 Chrome */
-	-webkit-animation:mymove 3s;
+	-webkit-animation:mymove 1s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 }
@@ -278,10 +278,10 @@ export default {
     width: 100%;
     position: relative;
     font-weight: 600;
-     animation:myn 5s;
+     animation:myn 1.5s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
-	-webkit-animation:myn 5s;
+	-webkit-animation:myn 1.5s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 }
@@ -300,10 +300,10 @@ export default {
   font-size: 33px;
   margin-top: 36px;
    position: relative;
-     animation:myn 6s;
+     animation:myn 2s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
-	-webkit-animation:myn 6s;
+	-webkit-animation:myn 2s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 }
@@ -350,12 +350,12 @@ export default {
   vertical-align: top;
   width: 43%;
   position: relative;
-   animation:myc 10s;
+   animation:myc 3s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
 
 	/*/* Safari 和 Chrome */
-	-webkit-animation:myc 10s;
+	-webkit-animation:myc 3s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
   }
@@ -375,12 +375,12 @@ export default {
   vertical-align: top;
   width: 43%;
   position: relative;
-   animation:my 3s;
+   animation:my 2s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
 
 	/*/* Safari 和 Chrome */
-	-webkit-animation:my 3s;
+	-webkit-animation:my 2s;
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 }
@@ -440,7 +440,26 @@ export default {
   top: 0;
   right: 7%;
   left: 21%;
+  width:81%;
   text-align: left;
+  position: relative;
+   animation:b 2s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation:b 2s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+}
+@keyframes b
+{
+	from {top:100px;}
+	to {top:0px;}
+}
+
+@-webkit-keyframes b 
+{
+	from {top:100px;}
+	to {top:0px;}
 }
 /* 第三层 */
 .story-intro-03__txt {

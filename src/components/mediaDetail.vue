@@ -2,7 +2,7 @@
   <div class="container mediaDetail margin">
     <img src="../assets/img/联系我们.png" alt="" class="img">
     <div class="container main margin">
-      <div class="title">{{this.str}}</div>
+      <div class="title" id="demo">{{this.str}}</div>
       <div class="container content">
         <div class="content-left">
           <div class="time">
@@ -123,6 +123,7 @@ export default {
             path:'mediaDetail',query:{name:'上一篇',id:this.id}
         })
         this.pageInfo()
+        document.querySelector('#demo').scrollIntoView(true);
       },
       //下一篇
       Next() {
@@ -130,11 +131,13 @@ export default {
             path:'mediaDetail',query:{name:'下一篇',id:this.id_a}
         })
         this.pageInfo()
+        document.querySelector('#demo').scrollIntoView(true);
       }
     },
     mounted() {
       this.pageInfo()
       //this.$router.go(0)
+      document.querySelector('#demo').scrollIntoView(true);
     }
 };
 </script>
@@ -155,10 +158,10 @@ export default {
     cursor:pointer;
   }
     .bb:hover {
-      color:red;
+      color:#00873C;
     }
      .bb_a:hover {
-      color:red;
+      color:#00873C;
     }
 .mediaDetail {
   margin-bottom: 5%;

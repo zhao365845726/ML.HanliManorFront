@@ -348,14 +348,14 @@ export default {
       padding: 0px;
       padding-left: 15px;
     }
-    .notice-title[data-v-22eefa20] {
+    .notice-title {
         font-size: 14px;
         color: #595757;
         line-height: 32px;
         height: 33px;
         overflow: hidden;
     }
-    .notice-time[data-v-22eefa20] {
+    .notice-time{
         font-size: 14px;
         color: #00873c;
         margin-top: -53px;
@@ -390,17 +390,70 @@ export default {
       padding: 0px;
       padding-left: 15px;
     }
-    .notice-title[data-v-22eefa20] {
+    .notice-title{
         font-size: 14px;
         color: #595757;
         line-height: 32px;
         height: 33px;
         overflow: hidden;
     }
-    .notice-time[data-v-22eefa20] {
+    .notice-time{
         font-size: 14px;
         color: #00873c;
         margin-top: -53px;
     }
-} 
+    .list-news li{
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    }
+    .news-item .news-item__date, .news-item .news-item__title{
+     margin-right: 0px; 
+     margin-left: 0px; 
+    }
+    .news-item__date p {
+    font: 700 6px/1 "AvenirLTStd";
+    }
+    .news-item__title{
+    margin-bottom: 24px;
+    font-size: 10px;
+    }
+    .list-news{
+    position: relative;
+    font-size: 0;
+     margin-right: 0px; 
+     margin-left: 0px; 
+    }
+    .news-item{
+    margin: 0 12px 22px;
+    padding-top: 18px;
+    }
+    .video-news li {
+    height: 200px;
+    padding: 10px;
+    }
+    .category{
+    margin-bottom: 13px;
+      }
+}
+  @media(max-width: 768px) {
+    .list-news li{
+    width: 33.2%;
+}
+    .list-news{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+    .news-item__date p {
+    font: 700 21px/1 "AvenirLTStd";
+}
+    .video-news li{
+    height: 300px;
+}
+  }
+  @media(max-width:1024px) {
+    .news-item__date p {
+    font: 700 22px/1 "AvenirLTStd";
+}
+    }
 </style>
