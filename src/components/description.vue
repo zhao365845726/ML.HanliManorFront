@@ -149,7 +149,7 @@
     mounted() {
       this.ajax();
       this.shuju();
-      if (window.innerWidth === 375) {
+      if (window.innerWidth === 375 || window.innerWidth===414) {
         this.swiperOption.slidesPerView = 1;
       } else {
         this.swiperOption.slidesPerView = 4;
@@ -716,26 +716,7 @@
   }
 }
 
-  @media (max-width: 414px) {
-    .history-item__year{
-        position: relative;
-        margin-bottom: 0.5em;
-        font: 500 14px/1 "AvenirLTStd";
-        color: #b2b2b2;
-    }
-    .history-item__desc{
-        margin-bottom: 0.5em;
-        height: 48px;
-        min-height: 48px;
-        overflow: hidden;
-        font-size: 10px;
-        line-height: 16px;
-        color: gray;
-    }
-      #img {
-       height:100px;
-      }
-  }
+ 
   @media(max-width:1024px) {
     @keyframes mymove
     {
@@ -798,6 +779,30 @@
   }
   @media(max-width:375px) {
     .img-boxa img {
+    max-width: 100%;
+    margin-left: 21%;
+}
+  }
+   @media (max-width: 414px) {
+    .history-item__year{
+        position: relative;
+        margin-bottom: 0.5em;
+        font: 500 14px/1 "AvenirLTStd";
+        color: #b2b2b2;
+    }
+    .history-item__desc{
+        margin-bottom: 0.5em;
+        height: 48px;
+        min-height: 48px;
+        overflow: hidden;
+        font-size: 10px;
+        line-height: 16px;
+        color: gray;
+    }
+      #img {
+       height:100px;
+      }
+      .img-boxa img {
     max-width: 100%;
     margin-left: 21%;
 }

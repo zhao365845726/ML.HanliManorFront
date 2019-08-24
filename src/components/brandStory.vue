@@ -561,6 +561,105 @@ export default {
     margin-top: 50px;
   }
 }
+@media (max-width: 1024px) {
+
+  .mt-150 {
+    margin-top: 57px;
+    height: 448px;
+}
+  .story-img-a {
+    width: 48%;
+}
+  .story-intro-b{
+    width: 47%;
+}
+  .story.right .story-intro {
+    margin-left: -11%;
+  }
+    /*story-img*/
+    @keyframes my
+  {
+	  from {right:0px;}
+	  to {right:0;}
+  }
+  @-webkit-keyframes my 
+  {
+	  from {right:0px;}
+	  to {right:0;}
+  }
+  /*story-img-a*/
+   @keyframes myy
+{
+	from {left:0px;}
+	to {left:0px;}
+}
+
+@-webkit-keyframes myy
+{
+	from {left:0px;}
+	to {left:0px;}
+}
+.story-img-a::before {
+    padding-top: 2.57143%;
+}
+ /*story-img-b*/
+   @keyframes myc
+  {
+	  from {right:0px;}
+	  to {right:0px;}
+  }
+
+  @-webkit-keyframes myc 
+  {
+	  from {right:0px;}
+	  to {right:0px;}
+  }
+  .story-img-b {
+    margin-left: 17%;
+  }
+  .story-img-b:before {
+    padding-top: 6.57143%;
+}
+  @keyframes b
+{
+	from {top:0px;}
+	to {top:0px;}
+}
+   @keyframes myb
+{
+	from {right:0px;}
+	to {right:0px;}
+}
+
+@-webkit-keyframes myb 
+{
+	from {right:0px;}
+	to {right:0px;}
+}
+@-webkit-keyframes b 
+{
+	from {top:0px;}
+	to {top:0px;}
+}
+ @keyframes myd
+{
+	from {left:0px;}
+	to {left:0px;}
+}
+
+@-webkit-keyframes myd 
+{
+	from {left:0px;}
+	to {left:0px;}
+}
+.story-intro-c{
+    width: 47%;
+}
+.story-img-b{
+    width: 48%;
+}
+}
+
 @media (max-width: 768px) {
   .img{
     margin-bottom: 50px;
@@ -571,5 +670,126 @@ export default {
   .story-intro__txt p{
     font-size: 16px;
   }
+  .story-img-a::before {
+    padding-top: 31.57143%;
 }
+  .story-img-b:before {
+    padding-top: 40.57143%;
+}
+}
+
+@media (max-width: 414px) {
+
+  .mt-150 {
+    margin-top: 57px;
+    height: 150px;
+}
+  .story-img-a {
+    width: 48%;
+}
+  .story-intro__txt {
+    font-size: 14px;
+    line-height: 36px;
+    color: #333;
+    height: 115px;
+    overflow: auto;
+}
+  .story-intro-b{
+    width: 47%;
+    overflow: auto;
+    height: 150px;
+}
+  .story.right .story-intro {
+    margin-left: -27%;
+  }
+  .intro-header p {
+    margin-top:0;
+  }
+  .story-intro-01__txt{
+     margin-top: 0px; 
+}
+    @keyframes my
+  {
+	  from {right:0px;}
+	  to {right:0;}
+  }
+  @-webkit-keyframes my 
+  {
+	  from {right:0px;}
+	  to {right:0;}
+  }
+  /*story-img-a*/
+   @keyframes myy
+{
+	from {left:0px;}
+	to {left:0px;}
+}
+
+@-webkit-keyframes myy
+{
+	from {left:0px;}
+	to {left:0px;}
+}
+.story-img-a::before {
+    padding-top: 2.57143%;
+}
+ /*story-img-b*/
+   @keyframes myc
+  {
+	  from {right:0px;}
+	  to {right:0px;}
+  }
+
+  @-webkit-keyframes myc 
+  {
+	  from {right:0px;}
+	  to {right:0px;}
+  }
+  .story-img-b {
+    margin-left: 17%;
+  }
+  .story-img-b:before {
+    padding-top:  35.57143%;
+}
+  @keyframes b
+{
+	from {top:0px;}
+	to {top:0px;}
+}
+   @keyframes myb
+{
+	from {right:0px;}
+	to {right:0px;}
+}
+
+@-webkit-keyframes myb 
+{
+	from {right:0px;}
+	to {right:0px;}
+}
+@-webkit-keyframes b 
+{
+	from {top:0px;}
+	to {top:0px;}
+}
+ @keyframes myd
+{
+	from {left:0px;}
+	to {left:0px;}
+}
+
+@-webkit-keyframes myd 
+{
+	from {left:0px;}
+	to {left:0px;}
+}
+.story-intro-c{
+    width: 47%;
+}
+.story-img-b{
+    width: 48%;
+
+}
+}
+
 </style>

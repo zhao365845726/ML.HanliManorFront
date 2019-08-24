@@ -7,7 +7,7 @@
           <p class="t-c" >产品验证</p>
         </div>
         <div class="icon">
-          <div class="tag">2019<span style="font-size:39px;font-weight:400;">“韩梨”</span><br><span style="font-size:39px;font-weight:400;">全新包装</span></div>
+          <div class="tag">2019<span class="taga">“韩梨”</span><br><span  class="tagb">全新包装</span></div>
         </div>
         <div class="story left mt-150">
           <div class="story-inner margin">
@@ -151,24 +151,14 @@ export default {
 .verification {
   margin-bottom: 260px;
 }
-  /*.intro-header p::after {
-    content: "";
-    position: absolute;
-    top: 806px;
-    width: 63px;
-    height: 1px;
-    right: 43%;
-    background-color: #00873c;
+  .taga {
+  font-size:39px;
+  font-weight:400;
   }
-   .intro-header p::before {
-    content: "";
-    position: absolute;
-    width: 63px;
-    height: 1px;
-    left: 43%;
-    top: 806px;
-    background-color: #00873c;
-  }*/
+  .tagb {
+  font-size:39px;
+  font-weight:400;
+  }
 .img {
   width: 100%;
   height: auto;
@@ -599,6 +589,45 @@ export default {
     margin-top: 70px;
   }
 }
+  @media (max-width: 1024px) {
+    /*story-img*/
+    @keyframes myb
+{
+	from {left:0px;}
+	to {left:0%;}
+} 
+@-webkit-keyframes myb 
+{
+	from {left:0px;}
+	to {left:0%;}
+}
+/*story-intro*/
+@keyframes myc
+{
+	from {right:0px;}
+	to {right:0%;}
+}
+
+@-webkit-keyframes myc 
+{
+	from {right:0px;}
+	to {right:0%;}
+}
+.story-intro-a{
+    width: 100%;
+}
+.story-img-a::before {
+    padding-top: 0%;
+}
+    .story-img-a {
+      display: inline-block;
+      vertical-align: top;
+      width: 100%;
+    }
+    .story-intro-02__txt[data-v-9f8abeaa], .story-intro-03__txt{
+    margin-bottom: 86px;
+}
+  }
 @media (max-width: 768px) {
   .img{
     margin-bottom: 50px;
@@ -623,5 +652,19 @@ export default {
     color: #00873c;
     margin-bottom: 18%;
 }
+}
+@media(max-width:414px){
+  .icon .tag{
+    font-size: 10px;
+    margin-top: -18%;
+}
+   .taga {
+  font-size:20px;
+  font-weight:400;
+  }
+  .tagb {
+  font-size:20px;
+  font-weight:400;
+  }
 }
 </style>

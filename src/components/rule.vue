@@ -17,7 +17,7 @@
           <!--<p v-html="this.body" style="cursor:pointer"></p>-->
         </div>
         <br /><br /><br />
-        <div>          
+        <div class="diva">          
         </div>
       </div>
       <div class="hanli2">
@@ -33,13 +33,13 @@
         </div>
         <div class="div2">
           <div class="img1"><img :src="this.pop" style="width:100%;height:100%;"/></div>
-          <div class="img1"><img :src="this.pop_a" style="width:100%;height:100%;" /></div>
+          <div class="img2"><img :src="this.pop_a" style="width:100%;height:100%;" /></div>
         </div>
       </div>
       <div class="hanli3">
         <div class="div3">
           <div class="img1"><img src="http://image.jmta.milisx.com/FjDIMvVSUke-Wgx6hD6QD9fXfmYG" style="width:100%;height:100%;" /></div>
-          <div class="img1"><img src="http://image.jmta.milisx.com/Fm2bBH2uMQAF3gCt5ZkbqmYvLwnp" style="width:100%;height:100%;" /></div>
+          <div class="img2"><img src="http://image.jmta.milisx.com/Fm2bBH2uMQAF3gCt5ZkbqmYvLwnp" style="width:100%;height:100%;" /></div>
         </div>
         <div class="div4">
           <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
@@ -132,13 +132,13 @@
 </script>
 
 <style scoped>
-  .img1 {
+  .img1,.img2{
     transition:all 0.3s ease-out;
     -moz-transition:all 0.3s ease-out;
     -webkit-transition:all 0.3s ease-out;
     -o-transition:all 0.3s ease-out;
   }
-    .img1:hover {
+    .img1:hover,.img2:hover {
       transform:scale(1.02,1.02);
     }
 .container{
@@ -272,7 +272,7 @@
     height: 500px;
     margin-left: 8%;
   }
-    .div2 div {
+     .img1,.img2 {
     border: 0px solid;
     width: 80%;
     height: 222px;
@@ -293,7 +293,7 @@
     float: left;
     height: 532px;
   }
-   .div3 div {
+   .img1,.img2 {
     border: 0px solid;
     width: 80%;
     height: 236px;
@@ -355,9 +355,8 @@
       font-size:14px;
       line-height:40px;
     }
-
-  @media(max-width:768px) {
-      .hanli1 {
+     @media(max-width:1200px) {
+    .hanli1 {
           border: 0px solid;
           width: 100%;
           height: 490px;
@@ -373,7 +372,7 @@
        .hanli1 .title {
           border: 0px solid;
           height: auto;
-          width: 393px;
+          width: 424px;
           float: left;
           margin: 0;
           overflow: hidden;
@@ -386,7 +385,7 @@
           width: 50%;
           float: left;
           height: auto;
-          margin-top: 16%;
+          margin-top: 8%;
           margin-left: 9%;
       }
      .hanli2 .title1 {
@@ -399,7 +398,7 @@
         text-overflow: ellipsis;
         font-size:16px;
     }
-     .div2 div {
+     .img1,.img2 {
         border: 0px solid;
         width: 80%;
         height: 200px;
@@ -413,20 +412,20 @@
         width: 50%;
         float: left;
         height: auto;
-        margin-top: 20%;
+        margin-top: 14%;
         margin-left: 8%;
     }
      .hanli3 .title2 {
         border: 0px solid;
         height: auto;
-        width: 235px;
+        width: 249px;
         float: left;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
         font-size:16px;
     }
-     .div3 div{
+     .img1,.img2{
         border: 0px solid;
         width: 80%;
         height: 200px;
@@ -438,7 +437,7 @@
        .hanli4 div .title3 {
         border: 0px solid;
         height: auto;
-        width: 275px;
+        width: 300px;
         float: left;
         margin:0;
         overflow: hidden;
@@ -447,16 +446,9 @@
         font-size:16px;
     }
        .hanli4 {
-          margin-top: 28%;
+          margin-top: 9%;
       }
-       .hanli3{
-            border: 0px solid;
-            width: 100%;
-            height: 533px;
-            margin-top: 5%;
-            margin-bottom: 22%;
-        }
-         .margin{
+        .margin{
           margin-bottom: 90px;
       }
   }
@@ -503,7 +495,7 @@
         text-overflow: ellipsis;
         font-size:16px;
     }
-     .div2 div {
+     .img1,.img2 {
         border: 0px solid;
         width: 80%;
         height: 200px;
@@ -530,7 +522,7 @@
         text-overflow: ellipsis;
         font-size:16px;
     }
-     .div3 div{
+     .img1,.img2{
         border: 0px solid;
         width: 80%;
         height: 200px;
@@ -557,70 +549,8 @@
           margin-bottom: 90px;
       }
   }
-    @media(max-width:414px) {
-      span{
-          font-size: 12px;
-      }
+    @media(max-width:768px) {
       .hanli1 {
-          margin-top: 25.5%;
-      }
-       .hanli1 .title {
-          width: 168px;
-          font-size:12px;
-          }
-       .div1{
-          width: 62%;
-          margin-top: 32%;
-          margin-left: 0%;
-      }
-     .hanli2 .title1 {
-        width: 118px;
-        font-size:12px;
-    }
-     .div2{
-          width: 34%;
-          margin-left: 4%;
-          margin-top: 50%;
-      }
-     .div2 div {
-        height: 100px;
-    }
-     .hanli3 .div4 .p1 span{
-          margin-left: 0px;
-      }
-     .div4 {
-        width: 63%;
-        margin-left: 4%;
-    }
-     .hanli3 .title2 {
-        width: 112px;
-        font-size:12px;
-    }
-     .div3{
-          height: auto;
-          margin-top: 24%;
-      }
-     .div3 div{
-        height: 100px;
-    }
-       .hanli4 div .title3 {
-        width: 146px;
-        font-size:12px;
-    }
-       .hanli4 div{
-          width: 76%;
-          height: auto;
-          margin-left: 0%;
-      }
-       .hanli4 {
-          margin-top: 61%;
-      }
-       .margin{
-          margin-bottom: 90px;
-      }
-  }
-  @media(max-width:1200px) {
-    .hanli1 {
           border: 0px solid;
           width: 100%;
           height: 490px;
@@ -636,7 +566,7 @@
        .hanli1 .title {
           border: 0px solid;
           height: auto;
-          width: 424px;
+          width: 393px;
           float: left;
           margin: 0;
           overflow: hidden;
@@ -649,7 +579,7 @@
           width: 50%;
           float: left;
           height: auto;
-          margin-top: 8%;
+          margin-top: 16%;
           margin-left: 9%;
       }
      .hanli2 .title1 {
@@ -662,7 +592,7 @@
         text-overflow: ellipsis;
         font-size:16px;
     }
-     .div2 div {
+     ..img1,.img2 {
         border: 0px solid;
         width: 80%;
         height: 200px;
@@ -676,20 +606,20 @@
         width: 50%;
         float: left;
         height: auto;
-        margin-top: 14%;
+        margin-top: 20%;
         margin-left: 8%;
     }
      .hanli3 .title2 {
         border: 0px solid;
         height: auto;
-        width: 249px;
+        width: 235px;
         float: left;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
         font-size:16px;
     }
-     .div3 div{
+     ..img1,.img2{
         border: 0px solid;
         width: 80%;
         height: 200px;
@@ -701,7 +631,7 @@
        .hanli4 div .title3 {
         border: 0px solid;
         height: auto;
-        width: 300px;
+        width: 275px;
         float: left;
         margin:0;
         overflow: hidden;
@@ -710,10 +640,175 @@
         font-size:16px;
     }
        .hanli4 {
-          margin-top: 9%;
+          margin-top: 28%;
       }
-        .margin{
+       .hanli3{
+            border: 0px solid;
+            width: 100%;
+            height: 533px;
+            margin-top: 5%;
+            margin-bottom: 22%;
+        }
+         .margin{
           margin-bottom: 90px;
       }
   }
+    @media(max-width:414px) {
+      .img {
+    margin-bottom: 36px;
+}
+      span{
+          font-size: 12px;
+      }
+       .margin{
+          margin-bottom: 90px;
+      }
+       .margin {
+     background: none;
+     border:0px solid;
+     height:auto;
+      }
+       .hanli1 {
+        border: 0px solid;
+        width: 100%;
+        height: 375px;
+        margin-top: 0;
+    }
+       .hanli1 div {
+        border: 0px solid;
+        width: 90%;
+        height:100%;
+        float: none;
+        margin:auto;
+        margin-right: none;
+        margin-top: 0;
+    }
+       .hanli1 div p{
+        line-height: 34px;
+    }
+       .hanli1 .title{
+        border: 0px solid;
+        height: auto;
+        width: 250px;
+        float: left;
+        margin: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 14px;
+    }
+       .hanli2 {
+          border: 0px solid;
+          width: 100%;
+          height: 382px;
+          margin-top: 10%;
+      }
+       .div1{
+        border: 0px solid;
+        width: 90%;
+        float: none;
+        height: auto;
+        margin-top: 0;
+        /* margin-left: 9%; */
+        margin: auto;
+      }
+       .hanli2 .div1 p {
+          font-size: 14px;
+          line-height: 36px;
+      }
+       .hanli2 .title1 {
+          border: 0px solid;
+          height: auto;
+          width: 254px;
+          float: left;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          font-size: 14px;
+      }
+       .div2{
+        border: 0px solid;
+        width: 100%;
+        float: none;
+        height: auto;
+        margin-left: 0;
+        margin-top: 50%;
+    }
+      .img1 {
+        border: 0px solid;
+        width: 40%;
+        float: left;
+        height: auto;
+        margin-left: 5%;
+        margin-top:5%;
+      }
+      .img2 {
+        border: 0px solid;
+        width: 40%;
+        float: left;
+        margin-left: 10%;
+        height: auto;
+        margin-top: 2.5%;
+      }
+      .hanli3 {
+        border: 0px solid;
+        width: 100%;
+        height: 375px;
+        margin-top: 5%;
+        margin-bottom: 22%;
+    }
+      .div3 {
+    border: 0px solid;
+    width: 100%;
+    float: none;
+    height: 127px;
+    }
+      .div4 {
+    border: 0px solid;
+    width: 90%;
+    float: none;
+    height: auto;
+    margin: auto;
+    margin-top: 5%;
+    margin-left: none;
+    }
+      .hanli3 .div4 p {
+    font-size: 14px;
+    line-height: 29px;
+    }
+      .hanli3 .title2{
+    border: 0px solid;
+    height: auto;
+    width: 235px;
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+      .hanli4 div{
+    margin-top: 0;
+    border: 0px solid;
+    width: 90%;
+    height: auto;
+    margin-left: 0;
+    margin: auto;
+}
+      .hanli4 div p {
+    font-size: 14px;
+    line-height: 35px;
+}
+      .hanli4 div .title3{
+    border: 0px solid;
+    height: auto;
+    width: 275px;
+    float: left;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+  }
+ 
 </style>

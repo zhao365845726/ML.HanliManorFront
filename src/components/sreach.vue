@@ -9,7 +9,7 @@
      <div class="container category">
        <p class="title">企业公告</p>
        <ul class="container notice-news" v-for="(item,index) in page_a">
-         <router-link :to="{path:'mediaDetail',query:{id:item.Id}}">
+         <router-link :to="{path:'mediaDetail',query:{name:'搜索',id:item.Id}}">
            <li>
              <img src="../assets/img/bg3.png" alt="" class="notice-left float_left">
              <div class="notice-right float_left">
