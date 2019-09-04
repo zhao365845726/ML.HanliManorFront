@@ -8,7 +8,7 @@
         </div>
         <ul class="list">
           <li class="li1">
-            <a href="https://www.taobao.com/" class="mall-item">
+            <a href=" https://shop238833399.taobao.com/" class="mall-item">
                <i class="icon-tianmao"></i>
             </a>
             <div class="mall-item-name">淘宝</div>
@@ -20,7 +20,7 @@
             <div class="mall-item-name">天猫</div>
           </li>
           <li class="li3"> 
-            <a href="https://www.jd.com/?cu=true&utm_source=baidu-search&utm_medium=cpc&utm_campaign=t_262767352_baidusearch&utm_term=106807362512_0_8c328599297641dfbaa3fbe55a8d7cf1" class="mall-item">
+            <a href="#" class="mall-item">
                <j class="icon-tianmao"></j>
             </a>
             <div class="mall-item-name">京东</div>
@@ -32,7 +32,7 @@
             <div class="mall-item-name">拼多多</div>
           </li>
           <li class="li5">
-            <a href="https://www.mogu.com/" class="mall-item">
+            <a href="http://www.sf-express.com/cn/sc/" class="mall-item">
                <m class="icon-tianmao"></m>
             </a>
             <div class="mall-item-name">顺丰快递</div>
