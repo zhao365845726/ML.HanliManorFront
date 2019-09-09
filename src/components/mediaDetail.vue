@@ -79,7 +79,7 @@ export default {
             "ArticleId": param
           })
           .then((res_a) => {
-            console.log(res_a);
+            //console.log(res_a);
             this.title = res_a.data.data.Title;
             this.Body = res_a.data.data.Body;
             //this.CreateTime = res_a.data.data.CreateTime;
@@ -98,7 +98,7 @@ export default {
                 "ArticleId": res_a.data.obj.NextArticleId   //下一页
               })
               .then((res) => {
-                console.log(res)
+                //console.log(res)
                 this.Title_a = res.data.data.Title;
                 this.Body_a = res.data.data.Body;
                  this.id_a= res.data.data.Id;
@@ -109,7 +109,7 @@ export default {
                 "ArticleId": res_a.data.obj.PreviousArticleId   //上一页
               })
               .then((res_b) => {
-                console.log(res_b)
+                //console.log(res_b)
                 this.Title_b = res_b.data.data.Title;
                 this.Body_b = res_b.data.data.Body;
                 this.id = res_b.data.data.Id;

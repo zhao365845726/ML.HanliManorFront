@@ -141,7 +141,7 @@
           "PageSize": 10
         })
         .then((res) => {
-          console.log(res)
+          //console.log(res)
           this.list = res.data.data.lst_categoryarticlelist;
           this.imgArr = this.list;
           //console.log(this.imgArr);
@@ -165,7 +165,7 @@
                 leader = 100;
               } else {
                 leader = parseInt(that.getStyle(obj, k) * 100);
-                console.log(leader)
+                //console.log(leader)
               }
             } else {
               leader = parseInt(that.getStyle(obj, k)) || 0;

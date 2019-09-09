@@ -102,12 +102,12 @@ export default {
             "PageSize": 5
         })
         .then((res) => {
-          console.log(res)
+          //console.log(res)
           this.Pagesize = res.data.data.articlecount;
           this.records = this.Pagesize;
           //console.log( this.records)
           this.perPage = parseInt(3);
-          console.log(this.perPage)
+          //console.log(this.perPage)
           this.$axios
             .post('http://hlzy.api.gpscxqyw.com/api/content/getarticlesearchlist', {
                 "Title": str,
@@ -115,7 +115,7 @@ export default {
                 "PageSize":  this.perPage
             })
            .then((page) => {
-             console.log(page)
+             //console.log(page)
               this.page_a = page.data.data.lst_articlesearchlist;
               })
         })

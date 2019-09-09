@@ -39,7 +39,7 @@
   },
     mounted() {
       var param = window.location.href.split('=')[2];
-      console.log(param)
+      //console.log(param)
     this.$axios
       .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
         "categoryid": param,

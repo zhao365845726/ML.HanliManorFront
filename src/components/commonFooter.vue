@@ -6,7 +6,7 @@
           <p>官方公众号</p>
         </li>
         <li>
-          <img src="../assets/img/code.png">
+          <img src="../assets/img/code1.png">
           <p>官方淘宝店</p>
         </li>
       </ul>
@@ -30,7 +30,7 @@ export default {
           let timer = setInterval(() => {
             var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
                  var ispeed=Math.floor(-scrollTop/6);
-            console.log(ispeed)
+            //console.log(ispeed)
             if (scrollTop === ispeed) {
               clearInterval(timer);
             }

@@ -130,7 +130,7 @@ export default {
             })
             .then((res) => {
               this.res = res.data.data.lst_categoryarticlelist;
-              console.log(this.res)
+              //console.log(this.res)
             })
     }
 };

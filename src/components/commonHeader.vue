@@ -139,7 +139,7 @@
       },
       btn() {
         var a = this.sreach;
-        console.log(this.sreach)
+        //console.log(this.sreach)
         if (a.length > 0) {
           this.$router.push({ path: 'sreach', query: { name: this.sreach } })
           this.$router.go(0)
@@ -177,7 +177,7 @@
       inputValue: function (e) {
         //console.log(e.target.value)
         this.sreach = e.target.value;
-        console.log(this.sreach)
+        //console.log(this.sreach)
         this.$axios
           .post('http://hlzy.api.gpscxqyw.com/api/content/getarticlesearchlist', {
             "Title": this.sreach,
@@ -193,7 +193,7 @@
         this.seen = true
       },
       router(index) {
-        console.log(index)
+        //console.log(index)
         this.$router.push({ path: 'mediaDetail', query: { id: this.list_b[index].Id } })
         this.$router.go(0)
       },
@@ -208,9 +208,9 @@
         .post('http://hlzy.api.gpscxqyw.com/api/content/homenavigation', {
         })
         .then((res) => {
-          console.log(res)
+          //console.log(res)
           this.forklifts = res.data.data;
-          console.log(this.forklifts)
+          //console.log(this.forklifts)
           //for (var i = 0; i < res.data.data.length; i++) {
           this.$axios.post('http://hlzy.api.gpscxqyw.com/api/content/getnavcategorylist', {
             "navid": this.forklifts[0].Id,

@@ -128,6 +128,7 @@
             "ArticleId": "69a894ea-0502-40f2-96e0-3cb9a6028628"
           })
           .then((res) => {
+            //console.log(res)
             this.company = res.data.data.Body;
           })
       },
@@ -139,7 +140,7 @@
             "PageSize": 10
           })
           .then((res_a) => {
-            console.log(res_a)
+            //console.log(res_a)
             this.swipers = res_a.data.data.lst_categoryarticlelist;
             
           })

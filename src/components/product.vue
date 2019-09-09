@@ -127,7 +127,7 @@
                   "ArticleId": 'e6edd3bd-a483-4d3e-9bb9-aeae9fe16022'
                 })
                 .then((data) => {
-                  console.log(data)
+                  //console.log(data)
                   this.Body = data.data.data.Body;
                   this.CoverPhoto = data.data.data.CoverPhoto;
                   this.title = data.data.data.Title;
@@ -140,7 +140,7 @@
                   "ArticleId": '63834175-3c0d-4706-a985-b8dba2db466c'
                 })
                 .then((data) => {
-                  console.log(data)
+                  //console.log(data)
                   this.Body = data.data.data.Body;
                   this.CoverPhoto = data.data.data.CoverPhoto;
                   this.title = data.data.data.Title;
@@ -153,7 +153,7 @@
                   "ArticleId": '55c5c530-b97f-44b2-9021-4dac8a085e68'
                 })
                 .then((data) => {
-                  console.log(data)
+                  //console.log(data)
                   this.Body = data.data.data.Body;
                   this.CoverPhoto = data.data.data.CoverPhoto;
                   this.title = data.data.data.Title;
@@ -166,7 +166,7 @@
                   "ArticleId": '38a4b177-368d-456e-a0a1-0db8f173c4cd'
                 })
                 .then((data) => {
-                  console.log(data)
+                  //console.log(data)
                   this.Body = data.data.data.Body;
                   this.CoverPhoto = data.data.data.CoverPhoto;
                   this.title = data.data.data.Title;
@@ -179,7 +179,7 @@
                   "ArticleId": '75aa0cee-7b32-41c7-9349-c93ac17bad72'
                 })
                 .then((data) => {
-                  console.log(data)
+                  //console.log(data)
                   this.Body = data.data.data.Body;
                   this.CoverPhoto = data.data.data.CoverPhoto;
                   this.title = data.data.data.Title;
@@ -192,7 +192,7 @@
                   "ArticleId": '7869bae1-2d2c-49ec-91ae-2fd601cee23b'
                 })
                 .then((data) => {
-                  console.log(data)
+                  //console.log(data)
                   this.Body = data.data.data.Body;
                   this.CoverPhoto = data.data.data.CoverPhoto;
                   this.title = data.data.data.Title;
@@ -205,7 +205,7 @@
                   "ArticleId":'38dce4cb-0635-4f69-a6bc-5f154b30f3ae'
                 })
                 .then((data) => {
-                  console.log(data)
+                  //console.log(data)
                   this.Body = data.data.data.Body;
                   this.CoverPhoto = data.data.data.CoverPhoto;
                   this.title = data.data.data.Title;
@@ -238,7 +238,7 @@
               this.title = res.data.data.Title;
               this.Body = res.data.data.Body;
               this.CoverPhoto = res.data.data.CoverPhoto;
-              console.log(res.data.data)
+              //console.log(res.data.data)
             })
       },
       getStyle: function (obj, attr) {
@@ -335,7 +335,7 @@
         }
         var wrap = document.getElementById('wrap');
         var liArr = wrap.getElementsByTagName('li');
-        console.log(liArr.length)
+        //console.log(liArr.length)
         var that = this;
         for (var i = 0; i < liArr.length; i++) {
           this.animate(liArr[i], this.size[i], function () {

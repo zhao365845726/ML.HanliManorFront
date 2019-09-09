@@ -79,7 +79,7 @@ export default {
              this.media = res_a.data.data.Body;
              this.media_c = res_a.data.data.Title;
              this.CoverPhoto = res_a.data.data.CoverPhoto;
-             console.log(res_a)
+             //console.log(res_a)
            })
           this.$axios
            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
@@ -97,7 +97,7 @@ export default {
            })
             .then((res_c) => {
               this.photo = res_c.data.data.CoverPhoto;
-              console.log(this.photo)
+              //console.log(this.photo)
             })
       document.querySelector('#demo').scrollIntoView(true);
     }

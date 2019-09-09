@@ -93,13 +93,13 @@
         .then((res) => {
           //console.log(res)
           this.shuju = res.data.data.lst_categoryarticlelist
-          console.log(this.shuju);
+          //console.log(this.shuju);
           this.$axios
             .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
               "ArticleId": "c9eb96e7-903f-4e61-9add-86b71ad5cb13"
             })
             .then((body) => {
-              console.log(body)
+              //console.log(body)
               this.body = body.data.data.Body;
               this.pop = body.data.data.CoverPhoto;
             })
@@ -108,17 +108,17 @@
               "ArticleId": "78426a52-2bed-479f-b967-6a5329d7c3ec"
             })
             .then((body_a) => {
-              console.log(body_a)
+              //console.log(body_a)
               this.body_a = body_a.data.data.Body;
               this.pop_a = body_a.data.data.CoverPhoto;
             })
           var shuju = this.shuju;
           var shuju_a = shuju.slice(0, 9);
           this.shuju_a = shuju_a;
-          console.log(this.shuju_a);
+          //console.log(this.shuju_a);
           var shuju_b = shuju.slice(10, 15);
           this.shuju_b = shuju_b;
-          console.log(this.shuju_b)
+          //console.log(this.shuju_b)
           var shuju_c = shuju.slice(6, 12);
           this.shuju_c = shuju_c;
           //console.log(this.shuju_c)

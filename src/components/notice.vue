@@ -99,7 +99,7 @@
             "PageSize": 100
           })
           .then((res) => {
-            console.log(res)
+            //console.log(res)
             this.Pagesize = res.data.data.articlecount;
             this.records = this.Pagesize;
             this.perPage = parseInt(5);
@@ -112,8 +112,8 @@
                 "PageSize": this.perPage
               })
               .then((page) => {
-                console.log(this.pageNo)
-                console.log(page)
+                //console.log(this.pageNo)
+                //console.log(page)
                 this.page_a = page.data.data.lst_categoryarticlelist;
               })
             this.$axios
