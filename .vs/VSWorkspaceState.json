@@ -4,9 +4,8 @@
     "\\src",
     "\\src\\assets",
     "\\src\\assets\\css",
-    "\\src\\components",
-    "\\src\\router"
+    "\\src\\components"
   ],
-  "SelectedNode": "\\src\\components\\commonHeader.vue",
+  "SelectedNode": "\\src\\components\\product_chanpin.vue",
   "PreviewInSolutionExplorer": false
 }

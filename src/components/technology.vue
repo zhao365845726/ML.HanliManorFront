@@ -9,10 +9,10 @@
        </div>
        <img src="../assets/img/img2.png" alt="" class="list-img">
        <ul class="container list-btns">
-         <li><img src="http://image.jmta.milisx.com/Fp7XBDjMrdBBd2rwOn0PD3XGrJYD" class="img_b" /><p>太阳能驱虫</p></li>    
-         <li><img src="http://image.jmta.milisx.com/FlSs5tonAlzaGONc7OCDtEPVrEg-" class="img_b" /><p>人工套袋防虫</p></li>
-         <li><img src="http://image.jmta.milisx.com/Fno9fGEaI4TfCtu2f0ahuyUkmTsW" class="img_b" /><p>山泉水灌溉</p></li>
-         <li><img src="http://image.jmta.milisx.com/FozgQMrCqytOxSPuOda1JBmnA2rD" class="img_b" /><p>自产农家肥</p></li>
+         <li><img src="http://image.hanjiazhuang.cn/FlSs5tonAlzaGONc7OCDtEPVrEg-" class="img_b" /><p>太阳能驱虫</p></li>    
+         <li><img src="http://image.hanjiazhuang.cn/Fno9fGEaI4TfCtu2f0ahuyUkmTsW" class="img_b" /><p>人工套袋防虫</p></li>
+         <li><img src="http://image.hanjiazhuang.cn/Fp7XBDjMrdBBd2rwOn0PD3XGrJYD" class="img_b" /><p>山泉水灌溉</p></li>
+         <li><img src="http://image.hanjiazhuang.cn/FozgQMrCqytOxSPuOda1JBmnA2rD" class="img_b" /><p>自产农家肥</p></li>
        </ul>
      </div>
      <div class="list">
@@ -22,10 +22,10 @@
        </div>
        <img src="../assets/img/img5.png" alt="" class="list-img">
        <ul class="container list-btn">
-         <li><img src="http://image.jmta.milisx.com/FjWWUX8BOW3973yhXsXntuMIfuSa" class="img_a" /></li>
-         <li><img src="http://image.jmta.milisx.com/FvpuvoCqONN-fZ8_MjypTAGW75U-" class="img_a" /></li>
-         <li><img src="http://image.jmta.milisx.com/FvSP89jlC8NQbqm0WrlFeMVTbk4Q" class="img_a" /></li>
-         <li><img src="http://image.jmta.milisx.com/FlXf41dEYARghbJQQ5RpsShenYsg" class="img_a" /></li>
+         <li><img src="http://image.hanjiazhuang.cn/FvSP89jlC8NQbqm0WrlFeMVTbk4Q" class="img_a" /></li>
+         <li><img src="http://image.hanjiazhuang.cn/FlXf41dEYARghbJQQ5RpsShenYsg" class="img_a" /></li>
+         <li><img src="http://image.hanjiazhuang.cn/FjWWUX8BOW3973yhXsXntuMIfuSa" class="img_a" /></li>
+         <li><img src="http://image.hanjiazhuang.cn/FvpuvoCqONN-fZ8_MjypTAGW75U-" class="img_a" /></li>
        </ul>
      </div>
      <div class="list"  style="top:50px;">
@@ -35,10 +35,10 @@
        </div>
        <img src="../assets/img/bg6 (4).png" alt="" class="list-img">
        <ul class="container list-btn">
-         <li><img src="http://image.jmta.milisx.com/FsvzFiB5VSL-VFImhE9dsv1mjOts" class="img_a" /></li>
-         <li><img src="http://image.jmta.milisx.com/Ft9ausd23bXVnIRK13_Th7yZEFcF" class="img_a" /></li>
-         <li><img src="http://image.jmta.milisx.com/FkH1zTzy9Luitf0_hGne89aphuw7" class="img_a" /></li>
-         <li><img src="http://image.jmta.milisx.com/FjsyP424Iy_85FEmwmHq-UNAocyF" class="img_a" /></li>
+         <li><img src="http://image.hanjiazhuang.cn/FjsyP424Iy_85FEmwmHq-UNAocyF" class="img_a" /></li>
+         <li><img src="http://image.hanjiazhuang.cn/Fi2DUFNHZbwoJ4HzyCLKpp0f6tbi" class="img_a" /></li>
+         <li><img src="http://image.hanjiazhuang.cn/Ft9ausd23bXVnIRK13_Th7yZEFcF" class="img_a" /></li>
+         <li><img src="http://image.hanjiazhuang.cn/FuLoULzb135H-GRWp5fwge1ek7vy" class="img_a" /></li>
        </ul>
      </div>
    </div>
@@ -54,13 +54,13 @@ export default {
   },
   mounted() {
     this.$axios
-      .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
+      .post('http://api.hanjiazhuang.cn/api/content/getcategoryarticlelist', {
           "categoryid": "b6b4e273-fe79-4a92-9232-05d48696b2af",
           "PageIndex": 1,
           "PageSize": 20
       })
       .then((res) => {
-        //console.log(res)
+        console.log(res)
       })
      document.querySelector('#demo').scrollIntoView(true);
   }

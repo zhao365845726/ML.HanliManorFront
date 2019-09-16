@@ -111,7 +111,7 @@ export default {
     methods: {
       submit() {
         this.$axios
-          .post('http://hlzy.api.gpscxqyw.com/api/content/leavingmessage', {
+          .post('http://api.hanjiazhuang.cn/api/content/leavingmessage', {
             "Title": this.Title,
             "Body": this.Body,
             "Email": this.Email
@@ -123,7 +123,7 @@ export default {
     },
     mounted() {
       this.$axios
-            .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
+            .post('http://api.hanjiazhuang.cn/api/content/getcategoryarticlelist', {
               "categoryid": "24d61bb2-7670-40c0-bc62-a5f6324df3d2",
               "PageIndex": 1,
               "PageSize": 10

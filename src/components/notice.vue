@@ -93,7 +93,7 @@
         var param = window.location.href.split('=')[2];
         //console.log(param)
         this.$axios
-          .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
+          .post('http://api.hanjiazhuang.cn/api/content/getcategoryarticlelist', {
             "categoryid": "cd5c323e-5d09-41f6-82b7-9a98b2431370",
             "PageIndex": 1,
             "PageSize": 100
@@ -106,7 +106,7 @@
             //console.log(this.perPage)
             //console.log(this.records)
             this.$axios
-              .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
+              .post('http://api.hanjiazhuang.cn/api/content/getcategoryarticlelist', {
                 "categoryid": param,
                 "PageIndex": this.pageNo,
                 "PageSize": this.perPage
@@ -117,7 +117,7 @@
                 this.page_a = page.data.data.lst_categoryarticlelist;
               })
             this.$axios
-              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+              .post('http://api.hanjiazhuang.cn/api/content/getarticledetail', {
                 "ArticleId": '67bc35b4-1097-4a58-acac-28d18f082ca4'
               })
               .then((res_sm) => {
@@ -127,7 +127,7 @@
                 //console.log(this.sm);
               })
             this.$axios
-              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+              .post('http://api.hanjiazhuang.cn/api/content/getarticledetail', {
                 "ArticleId": '88f84c01-2c5e-456d-89ff-d9b9b7a151ce'
               })
               .then((res_yj) => {

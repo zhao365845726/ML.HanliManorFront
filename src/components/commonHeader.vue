@@ -3,8 +3,8 @@
     <div class="headerTitle margin">
       <img src="../assets/img/logo1.png" class="icon float_left">
       <div class="container other float_right">
-        <a href="https://www.taobao.com/" class="taobao float_left"></a>
-        <a href="https://www.jd.com/?cu=true&utm_source=baidu-search&utm_medium=cpc&utm_campaign=t_262767352_baidusearch&utm_term=106807362512_0_8c328599297641dfbaa3fbe55a8d7cf1" class="jingdong float_left"></a>
+        <a href="https://shop238833399.taobao.com/" class="taobao float_left"></a>
+        <a  class="jingdong float_left"></a>
 
         <div class="container sreach float_left">
           <input id="sreach" class="float_left" placeholder="搜寻韩梨庄园" type="text" v-model="sreach" @keyup.enter="searchEnterFun" v-on:keyup="inputValue" value="" @click="mounsen()" />
@@ -179,7 +179,7 @@
         this.sreach = e.target.value;
         //console.log(this.sreach)
         this.$axios
-          .post('http://hlzy.api.gpscxqyw.com/api/content/getarticlesearchlist', {
+          .post('http://api.hanjiazhuang.cn/api/content/getarticlesearchlist', {
             "Title": this.sreach,
             "PageIndex": 1,
             "PageSize": 50
@@ -205,14 +205,14 @@
     },
     mounted() {
       this.$axios
-        .post('http://hlzy.api.gpscxqyw.com/api/content/homenavigation', {
+        .post('http://api.hanjiazhuang.cn/api/content/homenavigation', {
         })
         .then((res) => {
           //console.log(res)
           this.forklifts = res.data.data;
           //console.log(this.forklifts)
           //for (var i = 0; i < res.data.data.length; i++) {
-          this.$axios.post('http://hlzy.api.gpscxqyw.com/api/content/getnavcategorylist', {
+          this.$axios.post('http://api.hanjiazhuang.cn/api/content/getnavcategorylist', {
             "navid": this.forklifts[0].Id,
             "PageIndex": 1,
             "PageSize": 10
@@ -222,7 +222,7 @@
               //console.log(this.sub)
             })
           //}
-          this.$axios.post('http://hlzy.api.gpscxqyw.com/api/content/getnavcategorylist', {
+          this.$axios.post('http://api.hanjiazhuang.cn/api/content/getnavcategorylist', {
             "navid": this.forklifts[1].Id,
             "PageIndex": 1,
             "PageSize": 10
@@ -231,7 +231,7 @@
               this.sub_a = res_sub.data.data.lst_viewnavcategory;
               //console.log(this.sub_a)
             })
-          this.$axios.post('http://hlzy.api.gpscxqyw.com/api/content/getnavcategorylist', {
+          this.$axios.post('http://api.hanjiazhuang.cn/api/content/getnavcategorylist', {
             "navid": this.forklifts[2].Id,
             "PageIndex": 1,
             "PageSize": 10
@@ -240,7 +240,7 @@
               this.sub_b = res_sub.data.data.lst_viewnavcategory;
               //console.log(this.sub_b)
             })
-          this.$axios.post('http://hlzy.api.gpscxqyw.com/api/content/getnavcategorylist', {
+          this.$axios.post('http://api.hanjiazhuang.cn/api/content/getnavcategorylist', {
             "navid": this.forklifts[3].Id,
             "PageIndex": 1,
             "PageSize": 10
@@ -249,7 +249,7 @@
               this.sub_c = res_sub.data.data.lst_viewnavcategory;
               //console.log(this.sub_c)
             })
-          this.$axios.post('http://hlzy.api.gpscxqyw.com/api/content/getnavcategorylist', {
+          this.$axios.post('http://api.hanjiazhuang.cn/api/content/getnavcategorylist', {
             "navid": this.forklifts[4].Id,
             "PageIndex": 1,
             "PageSize": 10
@@ -258,7 +258,7 @@
               this.sub_d = res_sub.data.data.lst_viewnavcategory;
               //console.log(this.sub_d)
             })
-          this.$axios.post('http://hlzy.api.gpscxqyw.com/api/content/getnavcategorylist', {
+          this.$axios.post('http://api.hanjiazhuang.cn/api/content/getnavcategorylist', {
             "navid": this.forklifts[5].Id,
             "PageIndex": 1,
             "PageSize": 10

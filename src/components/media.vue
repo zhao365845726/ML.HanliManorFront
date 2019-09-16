@@ -41,7 +41,7 @@
       var param = window.location.href.split('=')[2];
       //console.log(param)
     this.$axios
-      .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
+      .post('http://api.hanjiazhuang.cn/api/content/getcategoryarticlelist', {
         "categoryid": param,
         "PageIndex": 1,
         "PageSize":20

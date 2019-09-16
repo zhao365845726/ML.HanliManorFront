@@ -75,7 +75,7 @@ export default {
         //console.log(s)
         this.str = s;
         this.$axios
-          .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+          .post('http://api.hanjiazhuang.cn/api/content/getarticledetail', {
             "ArticleId": param
           })
           .then((res_a) => {
@@ -94,7 +94,7 @@ export default {
             this.yue = yue;
             this.ri = ri;
             this.$axios
-              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+              .post('http://api.hanjiazhuang.cn/api/content/getarticledetail', {
                 "ArticleId": res_a.data.obj.NextArticleId   //下一页
               })
               .then((res) => {
@@ -105,7 +105,7 @@ export default {
                 //console.log(this.Body_a)
               })
             this.$axios
-              .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+              .post('http://api.hanjiazhuang.cn/api/content/getarticledetail', {
                 "ArticleId": res_a.data.obj.PreviousArticleId   //上一页
               })
               .then((res_b) => {

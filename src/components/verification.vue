@@ -52,12 +52,12 @@
         <ul class="list-btn margin">
           <li class="li1">
             <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-              <img :src="this.pop_b" alt="">
+              <img :src="this.pop_c" alt="">
             </a>
           </li>
           <li class="li2"> 
             <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-              <img :src="this.pop_c" alt="">
+              <img :src="this.pop_b" alt="">
             </a>
           </li>
           <li class="li3">
@@ -89,7 +89,7 @@ export default {
     },
     mounted() {
       //this.$axios
-      //  .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
+      //  .post('http://api.hanjiazhuang.cn/api/content/getcategoryarticlelist', {
       //      "categoryid": "ac1e5571-d81f-4fc7-886c-c4ba6d7a871a",
       //      "PageIndex": 1,
       //      "PageSize": 10
@@ -101,7 +101,7 @@ export default {
       //    this.pop_d= potop.data.data.lst_categoryarticlelist[4].CoverPhoto;
       //  })
      this.$axios//包装箱正面
-      .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+      .post('http://api.hanjiazhuang.cn/api/content/getarticledetail', {
            "ArticleId": "7331d073-2b32-463d-990b-750ece86048b"
       })
        .then((res) => {
@@ -110,7 +110,7 @@ export default {
          this.pop = res.data.data.CoverPhoto;
        })
      this.$axios//包装箱侧面
-      .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+      .post('http://api.hanjiazhuang.cn/api/content/getarticledetail', {
             "ArticleId": "9a340d98-00f6-4f9c-ad8a-2297fb1d049a"
       })
        .then((res_a) => {
@@ -119,21 +119,21 @@ export default {
          this.pop_a = res_a.data.data.CoverPhoto;
        })
       this.$axios//包装2
-      .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+      .post('http://api.hanjiazhuang.cn/api/content/getarticledetail', {
            "ArticleId": "be643d3e-faf3-4807-80a5-73438aa2518c"
       })
        .then((res_b) => {
          this.pop_b = res_b.data.data.CoverPhoto;
        })
       this.$axios//包装3
-      .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+      .post('http://api.hanjiazhuang.cn/api/content/getarticledetail', {
            "ArticleId": "b840bdf1-7188-44c9-9d8e-241795f32d27"
       })
        .then((res_c) => {
          this.pop_c = res_c.data.data.CoverPhoto;
        })
       this.$axios//包装1
-      .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+      .post('http://api.hanjiazhuang.cn/api/content/getarticledetail', {
            "ArticleId": "3de01be2-35b4-4845-b25c-bf3927086267"
       })
        .then((res_d) => {

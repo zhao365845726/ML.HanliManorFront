@@ -96,7 +96,7 @@ export default {
       var str = decodeURI(param);
       //console.log(str)  
       this.$axios
-        .post('http://hlzy.api.gpscxqyw.com/api/content/getarticlesearchlist', {
+        .post('http://api.hanjiazhuang.cn/api/content/getarticlesearchlist', {
             "Title": str,
             "PageIndex": 1,
             "PageSize": 5
@@ -109,7 +109,7 @@ export default {
           this.perPage = parseInt(3);
           //console.log(this.perPage)
           this.$axios
-            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticlesearchlist', {
+            .post('http://api.hanjiazhuang.cn/api/content/getarticlesearchlist', {
                 "Title": str,
                 "PageIndex": this.pageNo,
                 "PageSize":  this.perPage

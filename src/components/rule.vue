@@ -38,8 +38,8 @@
       </div>
       <div class="hanli3">
         <div class="div3">
-          <div class="img1"><img src="http://image.jmta.milisx.com/FjDIMvVSUke-Wgx6hD6QD9fXfmYG" style="width:100%;height:100%;" /></div>
-          <div class="img2"><img src="http://image.jmta.milisx.com/Fm2bBH2uMQAF3gCt5ZkbqmYvLwnp" style="width:100%;height:100%;" /></div>
+          <div class="img1"><img src="http://image.hanjiazhuang.cn/Fv9UD94g7uwkDtjMMwbCrlv4dNbD" style="width:100%;height:100%;" /></div>
+          <div class="img2"><img src="http://image.hanjiazhuang.cn/FuIzB9BLtxS6ZpfoBzZ5n7H9IiIk" style="width:100%;height:100%;" /></div>
         </div>
         <div class="div4">
           <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
@@ -85,17 +85,17 @@
     },
     mounted() {
       this.$axios
-        .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
+        .post('http://api.hanjiazhuang.cn/api/content/getcategoryarticlelist', {
           "categoryid": "a5a566c1-0bc3-4bcb-a43d-aaf9644c13cd",
           "PageIndex": 1,
           "PageSize": 20
         })
         .then((res) => {
-          //console.log(res)
+          console.log(res)
           this.shuju = res.data.data.lst_categoryarticlelist
           //console.log(this.shuju);
           this.$axios
-            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+            .post('http://api.hanjiazhuang.cn/api/content/getarticledetail', {
               "ArticleId": "c9eb96e7-903f-4e61-9add-86b71ad5cb13"
             })
             .then((body) => {
@@ -104,7 +104,7 @@
               this.pop = body.data.data.CoverPhoto;
             })
           this.$axios
-            .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+            .post('http://api.hanjiazhuang.cn/api/content/getarticledetail', {
               "ArticleId": "78426a52-2bed-479f-b967-6a5329d7c3ec"
             })
             .then((body_a) => {

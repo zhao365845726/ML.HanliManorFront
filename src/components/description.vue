@@ -15,7 +15,7 @@
         <div class="company-right">
             <div class="company-photo img-boxa" style="cursor:pointer">
                 <!-- 图片尺寸 692*484 -->
-                <img src="http://image.jmta.milisx.com/lg9SSeviQuETH4wYxVCT7dnqHhG0">
+                <img :src="this.photo">
             </div>
         </div>
       </div>
@@ -119,28 +119,30 @@
         },
         swipers: [],
         company: '',
+        photo:'',
       };
     },
     methods: {    
       ajax() {
         this.$axios
-          .post('http://hlzy.api.gpscxqyw.com/api/content/getarticledetail', {
+          .post('http://api.hanjiazhuang.cn/api/content/getarticledetail', {
             "ArticleId": "69a894ea-0502-40f2-96e0-3cb9a6028628"
           })
           .then((res) => {
-            //console.log(res)
+            console.log(res)
             this.company = res.data.data.Body;
+            this.photo = res.data.data.CoverPhoto;
           })
       },
       shuju() {
         this.$axios
-          .post('http://hlzy.api.gpscxqyw.com/api/content/getcategoryarticlelist', {
+          .post('http://api.hanjiazhuang.cn/api/content/getcategoryarticlelist', {
             "categoryid": "96aeb5cd-8712-4999-a029-e08479ef3b1b",
             "PageIndex": 1,
             "PageSize": 10
           })
           .then((res_a) => {
-            //console.log(res_a)
+            console.log(res_a)
             this.swipers = res_a.data.data.lst_categoryarticlelist;
             
           })
