@@ -1,6 +1,7 @@
 <template>
   <div class="container notice margin">
-    <img src="../assets/img/企业公告.png" alt="" class="img"> 
+    <!--<img src="http://image.hanjiazhuang.cn/%E4%BC%81%E4%B8%9A%E5%85%AC%E5%91%8A.png" alt="" class="img">-->
+    <img v-for="img in imga" v-lazy="img" alt="" class="img">
     <div class="container main margin" id="demo">
       <div class="container  list">
         <div class="intro-header">
@@ -9,7 +10,8 @@
         </div>
         <ul class="container notice-list1">
           <li>
-            <img src="../assets/img/企业公告1.jpg" class="bg">
+            <!--<img src="http://image.hanjiazhuang.cn/%E4%BC%81%E4%B8%9A%E5%85%AC%E5%91%8A1.jpg" class="bg">-->
+            <img v-for="img in imgb" v-lazy="img" class="bg">
             <router-link :to="{path:'mediaDetail',query:{name:'企业公告',id:'67bc35b4-1097-4a58-acac-28d18f082ca4'}}" class="news-item">
               <div class="notice-list1-con">
                 <div class="icon_a"></div>
@@ -20,8 +22,9 @@
             </router-link>
           </li>
           <li>
-            <img src="../assets/img/企业公告2.jpg" class="bg">
-            <router-link  :to="{path:'mediaDetail',query:{name:'企业公告',id:'88f84c01-2c5e-456d-89ff-d9b9b7a151ce'}}" class="news-item">
+            <!--<img src="http://image.hanjiazhuang.cn/%E4%BC%81%E4%B8%9A%E5%85%AC%E5%91%8A2.jpg" class="bg">-->
+            <img v-for="img in imgc" v-lazy="img" class="bg">
+            <router-link :to="{path:'mediaDetail',query:{name:'企业公告',id:'88f84c01-2c5e-456d-89ff-d9b9b7a151ce'}}" class="news-item">
               <div class="notice-list1-con">
                 <div class="icon"></div>
                 <span class="tag">MEDIA FOCUS <br>DMKNI</span>
@@ -34,14 +37,14 @@
         </ul>
       </div>
       <div class="container list">
-        <div class="intro-header"  id="mo">
+        <div class="intro-header" id="mo">
           <h2>MEDIA FOCUS</h2>
           <p>企业公告</p>
         </div>
         <ul class="container notice-news">
           <li v-for="(item,index) in page_a">
             <router-link :to="{path:'mediaDetail',query:{name:'企业公告',id:item.Id}}" class="news-item">
-              <img :src="item.CoverPhoto" class="notice-left float_left">
+              <img v-lazy="item.CoverPhoto" class="notice-left float_left">
               <div class="notice-right float_left">
                 <p class="notice-title ellipsis"> {{item.Title}}</p>
                 <div>
@@ -53,7 +56,7 @@
           </li>
 
         </ul>
-        <pagination v-model="page"  :records="records" :per-page="perPage"  @paginate="recallBack" :options="options" class="page_a"></pagination>
+        <pagination v-model="page" :records="records" :per-page="perPage" @paginate="recallBack" :options="options" class="page_a"></pagination>
       </div>
     </div>
   </div>
@@ -66,6 +69,9 @@
     name:'Pager',
     data() {
       return {
+        imga: ['http://image.hanjiazhuang.cn/%E4%BC%81%E4%B8%9A%E5%85%AC%E5%91%8A.png'],
+        imgb: ['http://image.hanjiazhuang.cn/%E4%BC%81%E4%B8%9A%E5%85%AC%E5%91%8A1.jpg'],
+        imgc:['http://image.hanjiazhuang.cn/%E4%BC%81%E4%B8%9A%E5%85%AC%E5%91%8A2.jpg'],
         page_a:[],
         sm_title: '',
         sm_body: '',
@@ -283,11 +289,11 @@
       background-color: #00873c;
     }
      .notice-list1 li:hover .notice-list1-con .icon_a  {
-        background: url(../assets/img/jiantou1.png) no-repeat;
+        background: url(http://image.hanjiazhuang.cn/jiantou1.png) no-repeat;
         background-size: 100% 100%;
     }
      .notice-list1 li:hover .notice-list1-con .icon  {
-        background: url(../assets/img/jiang.png) no-repeat;
+        background: url(http://image.hanjiazhuang.cn/jiang.png) no-repeat;
         background-size: 100% 100%;
     }
       .notice-list1 li:hover .notice-list1-con .tag,
@@ -309,14 +315,14 @@
 .notice-list1-con .icon {
   width: 55px;
   height: 55px;
-  background: url(../assets/img/11.png) no-repeat;
+  background: url(http://image.hanjiazhuang.cn/11.png) no-repeat;
   background-size: 100% 100%;
   margin-bottom: 55px;
 }
 .notice-list1-con .icon_a {
   width: 55px;
   height: 55px;
-  background: url(../assets/img/jiantou.png) no-repeat;
+  background: url(http://image.hanjiazhuang.cn/jiantou.png) no-repeat;
   background-size: 100% 100%;
   margin-bottom: 55px;
 }

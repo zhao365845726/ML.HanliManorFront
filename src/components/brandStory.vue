@@ -1,6 +1,7 @@
 <template>
   <div class="container brandStory margin">
-    <img src="../assets/img/好山好水.png" alt="" class="img">
+    <!--<img src="http://image.hanjiazhuang.cn/%E5%A5%BD%E5%B1%B1%E5%A5%BD%E6%B0%B4.png" alt="" class="img">-->
+    <img v-for="img in imga" v-lazy="img" alt="" class="img">
     <div class=" story right" id="demo">
       <div class="story-inner margin">
         <div class="story-intro story-intro-01">
@@ -16,7 +17,7 @@
         </div>
         <div class="story-img img-box">
           <!--<img src="http://image.jmta.milisx.com/lg9SSeviQuETH4wYxVCT7dnqHhG0">-->
-          <img :src="this.photo">
+          <img v-lazy="this.photo">
 
         </div>
       </div>
@@ -25,7 +26,7 @@
       <div class="story-inner margin">
         <div class="story-img-a story-img-02 img-box">
           <!--<img src="http://image.jmta.milisx.com/FktWRJzSQHttdA5M_btwodbAksap">-->
-          <img :src="this.CoverPhoto">
+          <img v-lazy="this.CoverPhoto">
         </div>
         <div class="story-intro-b story-intro-02">
           <div class="story-intro__txt story-intro-02__txt">
@@ -49,7 +50,7 @@
         </div>
         <div class="story-img-b img-box">
           <!--<img src="http://image.jmta.milisx.com/luFSp1cqrp689Jegq9SX5lUBtUJ0">-->
-          <img :src="this.CoverPhoto_a">
+          <img v-lazy="this.CoverPhoto_a">
         </div>
       </div>
     </div>
@@ -61,6 +62,9 @@ export default {
   name: "brandStory",
   data() {
     return {
+      imga: [
+        'http://image.hanjiazhuang.cn/%E5%A5%BD%E5%B1%B1%E5%A5%BD%E6%B0%B4.png'
+      ],
       media: '',
       media_c:'',
       media_a: '',
@@ -245,7 +249,7 @@ export default {
 	to {right:100px;}
 }
 .story-intro-01 {
-  background: url(../assets/img/img.png) center center no-repeat;
+  background: url(http://image.hanjiazhuang.cn/img.png) center center no-repeat;
   background-size: 76% auto;
       /*border: 1px solid;*/
     width: 39%;

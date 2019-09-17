@@ -1,30 +1,31 @@
 <template>
   <div class="container media margin">
-     <img src="../assets/img/媒体聚焦.png" alt="" class="img">
-      <div class="container main margin" id="demo">
-          <div class="intro-header">
-            <h2 class="t-c">MEDIA FOCUS</h2>
-            <p class="t-c">媒体聚焦</p>
-          </div>
-          <ul class="container list-news">
-            <li v-for="(item, index) in list">
-              <router-link :to="{path:'mediaDetail',query:{name:'媒体聚焦',id:item.Id}}" class="news-item">
-                  <div class="news-item__bg">
-                  </div>
-                  <div class="news-item__date">
-                    <p>{{item.CreateTime}}</p>
-                      <!--<span>2019</span>-->
-                  </div>
-                  <h3 class="news-item__title">
-                    {{item.Title}}
-                  </h3>
-                  <div class="news-item__img img-box">
-                      <img :src="item.CoverPhoto">
-                  </div>
-              </router-link>
-            </li>
-          </ul>
+    <!--<img src="http://image.hanjiazhuang.cn/%E5%AA%92%E4%BD%93%E8%81%9A%E7%84%A6.png" alt="" class="img">-->
+    <img v-for="img in imga" v-lazy="img" alt="" class="img">
+    <div class="container main margin" id="demo">
+      <div class="intro-header">
+        <h2 class="t-c">MEDIA FOCUS</h2>
+        <p class="t-c">媒体聚焦</p>
       </div>
+      <ul class="container list-news">
+        <li v-for="(item, index) in list">
+          <router-link :to="{path:'mediaDetail',query:{name:'媒体聚焦',id:item.Id}}" class="news-item">
+            <div class="news-item__bg">
+            </div>
+            <div class="news-item__date">
+              <p>{{item.CreateTime}}</p>
+              <!--<span>2019</span>-->
+            </div>
+            <h3 class="news-item__title">
+              {{item.Title}}
+            </h3>
+            <div class="news-item__img img-box">
+              <img v-lazy="item.CoverPhoto">
+            </div>
+          </router-link>
+        </li>
+      </ul>
+    </div>
 
   </div>
 </template>
@@ -35,6 +36,9 @@
   data() {
     return {
       list: [],
+      imga: [
+        'http://image.hanjiazhuang.cn/%E5%AA%92%E4%BD%93%E8%81%9A%E7%84%A6.png'
+      ]
     }
   },
     mounted() {

@@ -1,47 +1,63 @@
 <template>
   <div class="container technology margin">
-   <img src="../assets/img/种植技术.png" alt="" class="img"> 
-   <div class="container main margin" id="demo">
-     <div class="list">
-       <div class="intro-header">
-         <h2>MEDIA FOCUS</h2>
-         <p>庄园理念</p>
-       </div>
-       <img src="../assets/img/img2.png" alt="" class="list-img">
-       <ul class="container list-btns">
-         <li><img src="http://image.hanjiazhuang.cn/FlSs5tonAlzaGONc7OCDtEPVrEg-" class="img_b" /><p>太阳能驱虫</p></li>    
-         <li><img src="http://image.hanjiazhuang.cn/Fno9fGEaI4TfCtu2f0ahuyUkmTsW" class="img_b" /><p>人工套袋防虫</p></li>
-         <li><img src="http://image.hanjiazhuang.cn/Fp7XBDjMrdBBd2rwOn0PD3XGrJYD" class="img_b" /><p>山泉水灌溉</p></li>
-         <li><img src="http://image.hanjiazhuang.cn/FozgQMrCqytOxSPuOda1JBmnA2rD" class="img_b" /><p>自产农家肥</p></li>
-       </ul>
-     </div>
-     <div class="list">
-       <div class="intro-header intro-header2">
-         <h2>MEDIA FOCUS</h2>
-         <p>产品包装</p>
-       </div>
-       <img src="../assets/img/img5.png" alt="" class="list-img">
-       <ul class="container list-btn">
-         <li><img src="http://image.hanjiazhuang.cn/FvSP89jlC8NQbqm0WrlFeMVTbk4Q" class="img_a" /></li>
-         <li><img src="http://image.hanjiazhuang.cn/FlXf41dEYARghbJQQ5RpsShenYsg" class="img_a" /></li>
-         <li><img src="http://image.hanjiazhuang.cn/FjWWUX8BOW3973yhXsXntuMIfuSa" class="img_a" /></li>
-         <li><img src="http://image.hanjiazhuang.cn/FvpuvoCqONN-fZ8_MjypTAGW75U-" class="img_a" /></li>
-       </ul>
-     </div>
-     <div class="list"  style="top:50px;">
-       <div class="intro-header intro-header3">
-         <h2>MEDIA FOCUS</h2>
-         <p>储运发货</p>
-       </div>
-       <img src="../assets/img/bg6 (4).png" alt="" class="list-img">
-       <ul class="container list-btn">
-         <li><img src="http://image.hanjiazhuang.cn/FjsyP424Iy_85FEmwmHq-UNAocyF" class="img_a" /></li>
-         <li><img src="http://image.hanjiazhuang.cn/Fi2DUFNHZbwoJ4HzyCLKpp0f6tbi" class="img_a" /></li>
-         <li><img src="http://image.hanjiazhuang.cn/Ft9ausd23bXVnIRK13_Th7yZEFcF" class="img_a" /></li>
-         <li><img src="http://image.hanjiazhuang.cn/FuLoULzb135H-GRWp5fwge1ek7vy" class="img_a" /></li>
-       </ul>
-     </div>
-   </div>
+    <!--<img src="http://image.hanjiazhuang.cn/%E7%A7%8D%E6%A4%8D%E6%8A%80%E6%9C%AF.png" alt="" class="img">-->
+    <img v-for="img in imga" v-lazy="img" alt="" class="img">
+    <div class="container main margin" id="demo">
+      <div class="list">
+        <div class="intro-header">
+          <h2>MEDIA FOCUS</h2>
+          <p>庄园理念</p>
+        </div>
+        <!--<img src="http://image.hanjiazhuang.cn/img2.png" alt="" class="list-img">-->
+        <img v-for="img in imgb" v-lazy="img" alt="" class="list-img">
+        <ul class="container list-btns">
+          <!--<li><img src="http://image.hanjiazhuang.cn/FlSs5tonAlzaGONc7OCDtEPVrEg-" class="img_b" /><p>太阳能驱虫</p></li>
+               <li><img src="http://image.hanjiazhuang.cn/Fno9fGEaI4TfCtu2f0ahuyUkmTsW" class="img_b" /><p>人工套袋防虫</p></li>
+               <li><img src="http://image.hanjiazhuang.cn/Fp7XBDjMrdBBd2rwOn0PD3XGrJYD" class="img_b" /><p>山泉水灌溉</p></li>
+               <li><img src="http://image.hanjiazhuang.cn/FozgQMrCqytOxSPuOda1JBmnA2rD" class="img_b" /><p>自产农家肥</p></li>-->
+          <li><img v-for="img in img1" v-lazy="img" class="img_b" /><p>太阳能驱虫</p></li>
+          <li><img v-for="img in img2" v-lazy="img" class="img_b" /><p>人工套袋防虫</p></li>
+          <li><img v-for="img in img3" v-lazy="img" class="img_b" /><p>山泉水灌溉</p></li>
+          <li><img v-for="img in img4" v-lazy="img" class="img_b" /><p>自产农家肥</p></li>
+        </ul>
+      </div>
+      <div class="list">
+        <div class="intro-header intro-header2">
+          <h2>MEDIA FOCUS</h2>
+          <p>产品包装</p>
+        </div>
+        <!--<img src="http://image.hanjiazhuang.cn/img5.png" alt="" class="list-img">-->
+        <img v-for="img in imgc" v-lazy="img" alt="" class="list-img">
+        <ul class="container list-btn">
+          <!--<li><img src="http://image.hanjiazhuang.cn/FvSP89jlC8NQbqm0WrlFeMVTbk4Q" class="img_a" /></li>
+             <li><img src="http://image.hanjiazhuang.cn/FlXf41dEYARghbJQQ5RpsShenYsg" class="img_a" /></li>
+             <li><img src="http://image.hanjiazhuang.cn/FjWWUX8BOW3973yhXsXntuMIfuSa" class="img_a" /></li>
+             <li><img src="http://image.hanjiazhuang.cn/FvpuvoCqONN-fZ8_MjypTAGW75U-" class="img_a" /></li>-->
+          <li><img v-for="img in img5" v-lazy="img" class="img_a" /></li>
+          <li><img v-for="img in img6" v-lazy="img" class="img_a" /></li>
+          <li><img v-for="img in img7" v-lazy="img" class="img_a" /></li>
+          <li><img v-for="img in img8" v-lazy="img" class="img_a" /></li>
+        </ul>
+      </div>
+      <div class="list" style="top:50px;">
+        <div class="intro-header intro-header3">
+          <h2>MEDIA FOCUS</h2>
+          <p>储运发货</p>
+        </div>
+        <!--<img src="http://image.hanjiazhuang.cn/bg6%20%284%29.png" alt="" class="list-img">-->
+        <img v-for="img in imgd" v-lazy="img" alt="" class="list-img">
+        <ul class="container list-btn">
+          <!--<li><img src="http://image.hanjiazhuang.cn/FjsyP424Iy_85FEmwmHq-UNAocyF" class="img_a" /></li>
+               <li><img src="http://image.hanjiazhuang.cn/Fi2DUFNHZbwoJ4HzyCLKpp0f6tbi" class="img_a" /></li>
+               <li><img src="http://image.hanjiazhuang.cn/Ft9ausd23bXVnIRK13_Th7yZEFcF" class="img_a" /></li>
+               <li><img src="http://image.hanjiazhuang.cn/FuLoULzb135H-GRWp5fwge1ek7vy" class="img_a" /></li>-->
+          <li><img v-for="img in img9" v-lazy="img" class="img_a" /></li>
+          <li><img v-for="img in img10" v-lazy="img" class="img_a" /></li>
+          <li><img v-for="img in img11" v-lazy="img" class="img_a" /></li>
+          <li><img v-for="img in img12" v-lazy="img" class="img_a" /></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -50,6 +66,22 @@ export default {
   name: "technology",
   data() {
     return {
+      imga: ['http://image.hanjiazhuang.cn/%E7%A7%8D%E6%A4%8D%E6%8A%80%E6%9C%AF.png'],
+      imgb: ['http://image.hanjiazhuang.cn/img2.png'],
+      imgc: ['http://image.hanjiazhuang.cn/img5.png'],
+      imgd:['http://image.hanjiazhuang.cn/bg6%20%284%29.png'],
+      img1:['http://image.hanjiazhuang.cn/FlSs5tonAlzaGONc7OCDtEPVrEg-'],
+      img2:['http://image.hanjiazhuang.cn/Fno9fGEaI4TfCtu2f0ahuyUkmTsW'],
+      img3:['http://image.hanjiazhuang.cn/Fp7XBDjMrdBBd2rwOn0PD3XGrJYD'],
+      img4:['http://image.hanjiazhuang.cn/FozgQMrCqytOxSPuOda1JBmnA2rD'],
+      img5:['http://image.hanjiazhuang.cn/FvSP89jlC8NQbqm0WrlFeMVTbk4Q'],
+      img6:['http://image.hanjiazhuang.cn/FlXf41dEYARghbJQQ5RpsShenYsg'],
+      img7:['http://image.hanjiazhuang.cn/FjWWUX8BOW3973yhXsXntuMIfuSa'],
+      img8:['http://image.hanjiazhuang.cn/FvpuvoCqONN-fZ8_MjypTAGW75U-'],
+      img9:['http://image.hanjiazhuang.cn/FjsyP424Iy_85FEmwmHq-UNAocyF'],
+      img10:['http://image.hanjiazhuang.cn/Fi2DUFNHZbwoJ4HzyCLKpp0f6tbi'],
+      img11:['http://image.hanjiazhuang.cn/Ft9ausd23bXVnIRK13_Th7yZEFcF'],
+      img12:['http://image.hanjiazhuang.cn/FuLoULzb135H-GRWp5fwge1ek7vy'],
     }
   },
   mounted() {

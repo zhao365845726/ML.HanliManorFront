@@ -1,6 +1,7 @@
 <template>
   <div class="container supplier margin">
-    <img src="../assets/img/供应商.png" alt="" class="img">
+    <!--<img src="http://image.hanjiazhuang.cn/%E4%BE%9B%E5%BA%94%E5%95%86.png" alt="" class="img">-->
+    <img v-for="img in imga" v-lazy="img" alt="" class="img">
     <div class="container main margin">
       <div class="intro-header">
         <h2>MEDIA FOCUS SDFDFGCXTHGF</h2>
@@ -31,16 +32,8 @@
         </li>
       </ul>
       <ul class="container place">
-        <!--<li v-for="(item,index) in shuju_a">
-          <span class="icon-img"></span>
-          <router-link :to="{path:'mediaDetail',query:{name:'诚招供应商',id:item.Id}}" class="news-item">
-            <div class="con">
-              <b>{{item.Title}}</b>
-            </div>
-          </router-link>
-        </li>-->
         <li v-for="(item,index) in shuju_a">
-          <img class="icon-img" :src="item.CoverPhoto">
+          <img class="icon-img" v-lazy="item.CoverPhoto">
           <div class="con">
             <b style="cursor:text">{{item.Title}}</b>
             <p style="cursor:text">{{item.Abstract}}</p>
@@ -60,68 +53,68 @@
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="../assets/img/p1.jpg" class="img_a" />
+                <img src="http://image.hanjiazhuang.cn/p1.jpg" class="img_a" />
               </span>
               <h3 class="jc-item__title">认同文化理念</h3>
               <p class="jc-item__desc"></p>
               <!--<h3 class="jc-item__title">{{this.jianjie_b}}</h3>
-  <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
+            <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
             </div>
           </li>
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="../assets/img/p2.jpg" class="img_a" />
+                <img src="http://image.hanjiazhuang.cn/p2.jpg" class="img_a" />
               </span>
               <h3 class="jc-item__title">风险意识</h3>
               <p class="jc-item__desc">经营预测、抗风险能力</p>
               <!--<h3 class="jc-item__title">{{this.jianjie_b}}</h3>
-  <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
+            <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
             </div>
           </li>
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="../assets/img/p3.jpg" class="img_a" />
+                <img src="http://image.hanjiazhuang.cn/p3.jpg" class="img_a" />
               </span>
               <h3 class="jc-item__title">合作</h3>
               <p class="jc-item__desc">有激情、有商誉、有梦想</p>
               <!--<h3 class="jc-item__title">{{this.jianjie_b}}</h3>
-  <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
+            <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
             </div>
           </li>
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="../assets/img/p4.jpg" class="img_a" />
+                <img src="http://image.hanjiazhuang.cn/p4.jpg" class="img_a" />
               </span>
               <h3 class="jc-item__title">了解行业</h3>
               <p class="jc-item__desc">关注、热衷</p>
               <!--<h3 class="jc-item__title">{{this.jianjie_b}}</h3>
-  <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
+            <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
               <p class="jc-item__desc"></p>
             </div>
           </li>
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="../assets/img/p5.jpg" class="img_a" />
+                <img src="http://image.hanjiazhuang.cn/p5.jpg" class="img_a" />
               </span>
               <h3 class="jc-item__title">模式</h3>
               <p class="jc-item__desc">有较成熟的经营模式、理念</p>
               <!--<h3 class="jc-item__title">{{this.jianjie_b}}</h3>
-  <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
+            <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
             </div>
           </li>
           <li>
             <div class="jc-item">
               <span class="jc-item__ico icon-jc01">
-                <img src="../assets/img/p6.jpg" class="img_a" />
+                <img src="http://image.hanjiazhuang.cn/p6.jpg" class="img_a" />
               </span>
               <h3 class="jc-item__title">认同管理</h3>
               <p class="jc-item__desc">懂经营</p>
               <!--<h3 class="jc-item__title">{{this.jianjie_b}}</h3>
-  <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
+            <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
             </div>
           </li>
         </ul>
@@ -242,19 +235,19 @@
             </div>
             <div class="form-group form-group-resources mt-10" id="div">
               <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources1" value="行业协会及商会" @click="cktest(this)" v-model="resources">
-              <label for="resources1" class="label-for-radio_a" >
+              <label for="resources1" class="label-for-radio_a">
                 行业协会及商会
               </label>
               <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources2" value="购物中心" @click="cktest(this)" v-model="resources">
-              <label for="resources2" class="label-for-radio_a" >
+              <label for="resources2" class="label-for-radio_a">
                 购物中心
               </label>
               <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources3" value="社会资源" @click="cktest(this)" v-model="resources">
-              <label for="resources3" class="label-for-radio_a" >
+              <label for="resources3" class="label-for-radio_a">
                 社会资源
               </label>
               <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources4" value="品牌连锁" @click="cktest(this)" v-model="resources">
-              <label for="resources4" class="label-for-radio_a" >
+              <label for="resources4" class="label-for-radio_a">
                 品牌连锁
               </label>
               <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources5" value="交通枢纽" @click="cktest(this)" v-model="resources">
@@ -262,12 +255,12 @@
                 交通枢纽
               </label>
               <input class="form-radio-input_a" type="checkbox" name="personalResourceList" id="resources6" value="其它" @click="cktest(this)" v-model="resources">
-              <label for="resources6" class="label-for-radio_a" >
+              <label for="resources6" class="label-for-radio_a">
                 其它
               </label>
               <!--<p>你输入内容:{{resources}}</p>-->
             </div>
-          
+
             <div class="form-group">
               <label for="specificResource" class="label-for-textarea">具体资源项目：</label>
               <textarea class="form-textarea" name="specificResource" id="specificResource" rows="3" v-model="specificResource"></textarea>
@@ -331,7 +324,7 @@
               </div>
             </div>
             <div class="t-c mt-60">
-              <input  value="提交"  type="submit" class="tijiao "/>
+              <input value="提交" type="submit" class="tijiao " />
             </div>
           </div>
         </form>
@@ -345,6 +338,7 @@
     name: "supplier",
     data() {
       return {
+        imga:['http://image.hanjiazhuang.cn/%E4%BE%9B%E5%BA%94%E5%95%86.png'],
         shuju_a: [],
         jianjie: [],
         jianjie_a: [],
@@ -451,8 +445,14 @@
               "Address": this.intentionAddress//地址
            })
            .then((res) => {
-             //console.log(res)     
+             //console.log(res)
+             if (res.data.status_code === 200) {
+               alert(res.data.status_message)
+             } else {
+               alert(res.data.status_message)
+             } 
            })
+          
         }
   },
 mounted() {

@@ -1,6 +1,6 @@
 <template>
     <div class="container store">
-       <img src="../assets/img/产品商城.png" alt="" class="img">
+       <img src="http://image.hanjiazhuang.cn/%E4%BA%A7%E5%93%81%E5%95%86%E5%9F%8E.png" alt="" class="img">
        <div class="container main margin" id="demo">
         <div class="intro-header">
             <h2 class="t-c">ONLINE MALL</h2>
@@ -166,7 +166,7 @@ export default {
   display: block;
   width: 50%;
   height: 50%;
-  background: url(../assets/img/淘宝.jpg) no-repeat;
+  background: url(http://image.hanjiazhuang.cn/%E6%B7%98%E5%AE%9D.jpg) no-repeat;
   background-size: 100% 100%;
   position: absolute;
   top: 25%;
@@ -177,7 +177,7 @@ export default {
   display: block;
   width: 50%;
   height: 50%;
-  background: url(../assets/img/京东.jpg) no-repeat;
+  background: url(http://image.hanjiazhuang.cn/%E4%BA%AC%E4%B8%9C.jpg) no-repeat;
   background-size: 100% 100%;
   position: absolute;
   top: 25%;
@@ -188,7 +188,7 @@ export default {
   display: block;
     width: 83%;
     height: 53%;
-    background: url(../assets/img/tianmao.jpg) no-repeat;
+    background: url(http://image.hanjiazhuang.cn/tianmao.jpg) no-repeat;
     background-size: 100% 100%;
     position: absolute;
     top: 24%;
@@ -198,7 +198,7 @@ export default {
   display: block;
   width: 50%;
   height: 50%;
-  background: url(../assets/img/pinduoduo.jpg) no-repeat;
+  background: url(http://image.hanjiazhuang.cn/pinduoduo.jpg) no-repeat;
   background-size: 100% 100%;
   position: absolute;
   top: 25%;
@@ -209,7 +209,7 @@ export default {
   display: block;
   width: 50%;
   height: 50%;
-  background: url(../assets/img/顺丰.jpg) no-repeat;
+  background: url(http://image.hanjiazhuang.cn/%E9%A1%BA%E4%B8%B0.jpg) no-repeat;
   background-size: 100% 100%;
   position: absolute;
   top: 25%;
@@ -217,7 +217,7 @@ export default {
   border-radius: 18%;
 }
 .mall-item:hover::before {
-  background: #00873c url(../assets/img/33.png) center center no-repeat;
+  background: #00873c url(http://image.hanjiazhuang.cn/33.png) center center no-repeat;
   background-size: 80% 60%;
   z-index: 3;
 }

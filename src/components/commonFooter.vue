@@ -2,11 +2,13 @@
   <div class="container footer margin" >
       <ul class="code" >
         <li>
-          <img src="../assets/img/code.png" >
+          <img v-for="img in imga" v-lazy="img">
+          <!--<img src="http://image.hanjiazhuang.cn/code1.png">-->
           <p>官方公众号</p>
         </li>
         <li>
-          <img src="../assets/img/code1.png">
+          <img v-for="img in imgb" v-lazy="img">
+          <!--<img src="http://image.hanjiazhuang.cn/code.png">-->
           <p>官方淘宝店</p>
         </li>
       </ul>
@@ -20,7 +22,13 @@ export default {
   name: "commonFooter",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      msg: "Welcome to Your Vue.js App",
+      imga: [
+        'http://image.hanjiazhuang.cn/code1.png',
+      ],
+      imgb: [
+        'http://image.hanjiazhuang.cn/code.png'
+      ]
     };
     },
     methods: {

@@ -11,9 +11,9 @@ import axios from 'axios'
 import Pagination from 'vue-pagination-2'
 import myDatepicker from 'vue-datepicker/vue-datepicker-es6.vue'
 import AMap from 'vue-amap'
+import VueLazyload from 'vue-lazyload'
 
-
-
+Vue.use(VueLazyload)
 Vue.use(AMap)
 //Vue.use(VueI18n)
 Vue.component('date', myDatepicker)
@@ -44,6 +44,12 @@ new Vue({
   template: '<App/>'
   
 })
+//Vue.use(VueLazyload, {
+//  preLoad: 1.3,
+//  error: 'dist/error.png',
+//  loading: 'dist/loading.gif',
+//  attempt: 1
+//})
 //import VueI18n from 'vue-i18n';
 //Vue.use(VueI18n);
 //const i18n = new VueI18n({

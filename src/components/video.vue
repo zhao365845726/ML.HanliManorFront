@@ -1,6 +1,6 @@
 <template>
   <div class="container video margin">
-     <img src="../assets/img/品牌视频.png" alt="" class="img">
+     <img src="http://image.hanjiazhuang.cn/%E5%93%81%E7%89%8C%E8%A7%86%E9%A2%91.png" alt="" class="img">
      <div class="container main margin" id="demo">
         <div class="intro-header">
           <h2 class="t-c">MEDIA FOCUS</h2>
@@ -16,7 +16,7 @@
         </ul>
         <ul class="container list-video">
           <li v-for="(item1, index1) in listVideo[index_]">
-            <video :src="item1.src" controls></video>
+            <video v-lazy="item1.src" controls></video>
           </li>
         </ul>
       </div>

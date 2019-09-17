@@ -1,6 +1,7 @@
 <template>
   <div class="container mediaDetail margin">
-    <img src="../assets/img/联系我们.png" alt="" class="img">
+    <!--<img src="http://image.hanjiazhuang.cn/%E8%81%94%E7%B3%BB%E6%88%91%E4%BB%AC.png" alt="" class="img">-->
+    <img  v-for="img in imgd" v-lazy="img" alt="" class="img">
     <div class="container main margin">
       <div class="title" id="demo">{{this.str}}</div>
       <div class="container content">
@@ -12,25 +13,28 @@
           <!--<div class="content-title"></div>-->
           <div class="content-title">{{title}}</div>
           <p class="share">
-            <img src="../assets/img/sp1.png" alt="">
-            <img src="../assets/img/sp2.png" alt="">
-            <img src="../assets/img/sp3.png" alt="">
+            <!--<img src="http://image.hanjiazhuang.cn/sp1.png" alt="">
+          <img src="http://image.hanjiazhuang.cn/sp2.png" alt="">
+          <img src="http://image.hanjiazhuang.cn/sp3.png" alt="">-->
+            <img v-for="img in imga" v-lazy="img" alt="">
+            <img v-for="img in imgb" v-lazy="img" alt="">
+            <img v-for="img in imgc" v-lazy="img" alt="">
           </p>
           <div class="goback" @click="gotogoods">
             返回上一页
           </div>
         </div>
-        <div class="content-right" >
-          <div style="width:100%;height:300px;"> <img :src="CoverPhoto" /></div>
+        <div class="content-right">
+          <div style="width:100%;height:300px;"> <img v-lazy="CoverPhoto" /></div>
           <p v-html="Body"></p>
         </div>
       </div>
       <div class="pageInfo">
         <!--<router-link :to="{path:'mediaDetail',query:{id:this.id}}" style="text-decoration:none">-->
-          <div class="Prevpage" @click="prev()"><b class="bb">上一篇: {{Title_b}}</b><span></span></div>
+        <div class="Prevpage" @click="prev()"><b class="bb">上一篇: {{Title_b}}</b><span></span></div>
         <!--</router-link>-->
         <!--<router-link :to="{path:'mediaDetail',query:{id:this.id_a}}" style="text-decoration:none">-->
-          <div class="Nextpage" @click="Next()"><b class="bb_a">下一篇: {{Title_a}}</b><span></span></div>
+        <div class="Nextpage" @click="Next()"><b class="bb_a">下一篇: {{Title_a}}</b><span></span></div>
         <!--</router-link>-->
 
       </div>
@@ -44,6 +48,18 @@ export default {
   data() {
     return {
       msg: "Welcome to Your Vue.js App",
+      imgd: [
+        'http://image.hanjiazhuang.cn/%E8%81%94%E7%B3%BB%E6%88%91%E4%BB%AC.png'
+      ],
+      imga: [
+        'http://image.hanjiazhuang.cn/sp1.png',     
+      ],
+      imgb: [
+         'http://image.hanjiazhuang.cn/sp2.png',
+      ],
+      imgc: [
+         'http://image.hanjiazhuang.cn/sp3.png'
+      ],   
       list: [],
       list_a: [],
       title: '',

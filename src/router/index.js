@@ -16,6 +16,7 @@ import Supplier from '@/components/supplier'
 import Contact from '@/components/contact'
 import Sreach from '@/components/sreach'
 import Product_chanpin from '@/components/product_chanpin'
+import lunbo from '@/components/lunbo'
 
 
 Vue.use(Router);
@@ -116,6 +117,11 @@ export default new Router({
       path: '/product_chanpin',
       name: '/product_chanpin',
       component: Product_chanpin
+    },
+    {
+      path: '/lunbo',
+      name: '/lunbo',
+      component: lunbo
     },
   ]
 })

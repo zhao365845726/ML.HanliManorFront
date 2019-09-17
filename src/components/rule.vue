@@ -1,8 +1,10 @@
 <template>
   <div class="container rule">
-    <img src="../assets/img/村规民约.png" alt="" class="img">
+    <!--<img src="http://image.hanjiazhuang.cn/%E6%9D%91%E8%A7%84%E6%B0%91%E7%BA%A6.png" alt="" class="img">-->
+    <img v-for="img in imga" v-lazy="img" alt="" class="img">
     <div class="chuancheng" id="demo">
-      <img  src="../assets/img/bg11.png" alt="" class="img"/>
+      <!--<img src="http://image.hanjiazhuang.cn/bg11.png" alt="" class="img" />-->
+      <img v-for="img in imgb" v-lazy="img" alt="" class="img" />
     </div>
     <div class="container main margin">
       <div class="hanli1">
@@ -10,14 +12,14 @@
           <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
           <p v-for="(item,index) in shuju_a">
             <router-link :to="{path:'mediaDetail',query:{name:'村规民约',id:item.Id}}" style="text-decoration:none">
-              <div class="title">{{item.Title}}</div> 
+              <div class="title">{{item.Title}}</div>
             </router-link>
-           <span>{{item.CreateTime}}</span>
+            <span>{{item.CreateTime}}</span>
           </p>
           <!--<p v-html="this.body" style="cursor:pointer"></p>-->
         </div>
         <br /><br /><br />
-        <div class="diva">          
+        <div class="diva">
         </div>
       </div>
       <div class="hanli2">
@@ -29,22 +31,28 @@
             </router-link>
             <span>{{item.CreateTime}}</span>
           </p>
-        <!--<p v-html="this.body_a" style="cursor:pointer"></p>-->
+          <!--<p v-html="this.body_a" style="cursor:pointer"></p>-->
         </div>
         <div class="div2">
-          <div class="img1"><img :src="this.pop" style="width:100%;height:100%;"/></div>
-          <div class="img2"><img :src="this.pop_a" style="width:100%;height:100%;" /></div>
+          <div class="img1"><img v-lazy="this.pop" style="width:100%;height:100%;" /></div>
+          <div class="img2"><img v-lazy="this.pop_a" style="width:100%;height:100%;" /></div>
         </div>
       </div>
       <div class="hanli3">
         <div class="div3">
-          <div class="img1"><img src="http://image.hanjiazhuang.cn/Fv9UD94g7uwkDtjMMwbCrlv4dNbD" style="width:100%;height:100%;" /></div>
-          <div class="img2"><img src="http://image.hanjiazhuang.cn/FuIzB9BLtxS6ZpfoBzZ5n7H9IiIk" style="width:100%;height:100%;" /></div>
+          <div class="img1">
+            <!--<img src="http://image.hanjiazhuang.cn/Fv9UD94g7uwkDtjMMwbCrlv4dNbD" style="width:100%;height:100%;" />-->
+            <img v-for="img in imgc" v-lazy="img" style="width:100%;height:100%;" />
+          </div>
+          <div class="img2">
+            <!--<img src="http://image.hanjiazhuang.cn/FuIzB9BLtxS6ZpfoBzZ5n7H9IiIk" style="width:100%;height:100%;" />-->
+            <img v-for="img in imgd" v-lazy="img" style="width:100%;height:100%;" />
+          </div>
         </div>
         <div class="div4">
           <p class="p1">韩梨庄园<span class="span1">HANLIZHUANGYUAN</span></p>
           <p v-for="(item,index) in shuju_c">
-            <router-link :to="{path:'mediaDetail',query:{name:'村规民约',id:item.Id}}" style="text-decoration:none" >
+            <router-link :to="{path:'mediaDetail',query:{name:'村规民约',id:item.Id}}" style="text-decoration:none">
               <div class="title2">{{item.Title}}</div>
             </router-link>
             <span>{{item.CreateTime}}</span>
@@ -58,7 +66,7 @@
             <router-link :to="{path:'mediaDetail',query:{name:'村规民约',id:item.Id}}" style="text-decoration:none">
               <div class="title3">{{item.Title}}</div>
             </router-link>
-           <span>{{item.CreateTime}}</span>
+            <span>{{item.CreateTime}}</span>
           </p>
         </div>
       </div>
@@ -72,6 +80,10 @@
     data() {
       return {
         msg: "Welcome to Your Vue.js App",
+        imga: ['http://image.hanjiazhuang.cn/%E6%9D%91%E8%A7%84%E6%B0%91%E7%BA%A6.png'],
+        imgb: ['http://image.hanjiazhuang.cn/bg11.png'],
+        imgc: ['http://image.hanjiazhuang.cn/Fv9UD94g7uwkDtjMMwbCrlv4dNbD'],
+        imgd:['http://image.hanjiazhuang.cn/FuIzB9BLtxS6ZpfoBzZ5n7H9IiIk'],
         shuju: [],
         shuju_a: [],
         shuju_b: [],
@@ -185,14 +197,14 @@
   }
 .rule{
   height: auto;
-  background: url(../assets/img/bg20.png) no-repeat;
+  background: url(http://image.hanjiazhuang.cn/bg20.png) no-repeat;
   background-size: 100% auto;
 }
 .margin{
   max-width: 1400px;
   height: 2171px;
   overflow: hidden;
-  background: url(../assets/img/line.png) no-repeat;
+  background: url(http://image.hanjiazhuang.cn/line.png) no-repeat;
   background-size: 85% 100%;
   margin-bottom: 125px;
   border:0px solid;

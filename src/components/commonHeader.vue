@@ -1,7 +1,8 @@
 <template>
   <div class="header">
     <div class="headerTitle margin">
-      <img src="../assets/img/logo1.png" class="icon float_left">
+      <!--<img src="http://image.hanjiazhuang.cn/logo1.png" class="icon float_left">-->
+      <img v-for="img in imga" v-lazy="img" class="icon float_left">
       <div class="container other float_right">
         <a href="https://shop238833399.taobao.com/" class="taobao float_left"></a>
         <a  class="jingdong float_left"></a>
@@ -113,6 +114,9 @@
     name: "commonFooter",
     data() {
       return {
+        imga: [
+          'http://image.hanjiazhuang.cn/logo1.png'
+        ],
         index_: 0,
         clickIndex_: 0,
         isShow: false,
@@ -390,13 +394,13 @@
     display: block;
     width: 49px;
     height: 49px;
-    background: url(../assets/img/taobao.png) no-repeat;
+    background: url(http://image.hanjiazhuang.cn/taobao.png) no-repeat;
     background-size: 100% 100%;
     margin-right: 17px;
   }
 
   .jingdong {
-    background: url(../assets/img/jingdong.png) no-repeat;
+    background: url(http://image.hanjiazhuang.cn/jingdong.png) no-repeat;
     background-size: 100% 100%;
   }
 
@@ -422,7 +426,7 @@
   .sreachBtn {
     width: 12%;
     height: 100%;
-    background: #fff url(../assets/img/sreach.png) center center no-repeat;
+    background: #fff url(http://image.hanjiazhuang.cn/sreach.png) center center no-repeat;
     background-size: auto 18px;
     border: 1px solid #c9caca;
     border-left: 0;

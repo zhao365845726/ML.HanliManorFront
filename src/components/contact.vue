@@ -1,77 +1,78 @@
 <template>
   <div class="container contact margin">
-     <img src="../assets/img/联系我们.png" alt="" class="img">
-     <div class="main margin">
-       <h2 class="t-c">MEDIA FOCUS</h2>
-       <span class="title t-c">联系我们</span>
-       <!--<div class="map"></div>-->
+    <!--<img src="http://image.hanjiazhuang.cn/%E8%81%94%E7%B3%BB%E6%88%91%E4%BB%AC.png" alt="" class="img">-->
+    <img v-for="img in imga" v-lazy="img" alt="" class="img">
+    <div class="main margin">
+      <h2 class="t-c">MEDIA FOCUS</h2>
+      <span class="title t-c">联系我们</span>
+      <!--<div class="map"></div>-->
 
-       <div class="amap-page-container">
-         <div :style="{width:'100%',height:'566px'}">
-           <el-amap vid="amap" :plugin="plugin" class="amap-demo" :center="center" style="height:566px;width:100%;" :zoom="zoom">
-             <el-amap-marker :position="center" vid="marker" ></el-amap-marker>
-             <el-amap-circle vid="circle"
-                             :center="center"
-                             :radius="radius"
-                             fill-opacity="0.2"
-                             strokeColor="#38f"
-                             strokeOpacity="0.8"
-                             strokeWeight="1"
-                             fillColor="#38f">
-             </el-amap-circle>
-           </el-amap>
+      <div class="amap-page-container">
+        <div :style="{width:'100%',height:'566px'}">
+          <el-amap vid="amap" :plugin="plugin" class="amap-demo" :center="center" style="height:566px;width:100%;" :zoom="zoom">
+            <el-amap-marker :position="center" vid="marker"></el-amap-marker>
+            <el-amap-circle vid="circle"
+                            :center="center"
+                            :radius="radius"
+                            fill-opacity="0.2"
+                            strokeColor="#38f"
+                            strokeOpacity="0.8"
+                            strokeWeight="1"
+                            fillColor="#38f">
+            </el-amap-circle>
+          </el-amap>
 
-         </div>
-         <div class="toolbar">
-           <span v-if="loaded">
-             location: lng = {{ lng }} lat = {{ lat }}
-           </span>
-           <span v-else><!--正在定位--></span>
-         </div>
-         <div v-on:click="req_post()">
-           <!--查询周边-->
-         </div>
-       </div>
+        </div>
+        <div class="toolbar">
+          <span v-if="loaded">
+            location: lng = {{ lng }} lat = {{ lat }}
+          </span>
+          <span v-else><!--正在定位--></span>
+        </div>
+        <div v-on:click="req_post()">
+          <!--查询周边-->
+        </div>
+      </div>
 
-       <ul class="address">
-         <li v-for="(item,index) in res">
-           <div class="item">
-             <span class="address-title">{{item.Title}}</span>
-             <p class="address-con">{{item.Abstract}}</p>
-              <!--<p class="tel"></p>-->
-           </div>
-         </li>
-       </ul>
-       <div class="contact-con">
-         <div class="list">
-           <span class="list-title">留言标题</span>
-           <input type="text" v-model="Title">
-         </div>
-         <div class="list">
-           <span class="list-title">留言内容</span>
-           <textarea name="" id="" cols="30" rows="10" v-model="Body"></textarea>
-         </div>
-         <div class="list">
-           <span class="list-title">联系邮箱</span>
-           <input type="text" v-model="Email">
-         </div>
-         <!--<div class="list code">
-           <span class="list-title">验证码</span>
-           <input type="text">
-           <div class="code-con"></div>
-         </div>-->
-       </div>
-       <div class="submit-box">
-         <div class="submit float_right t-c" @click="submit">提交</div>
-       </div>
-     </div>
+      <ul class="address">
+        <li v-for="(item,index) in res">
+          <div class="item">
+            <span class="address-title">{{item.Title}}</span>
+            <p class="address-con">{{item.Abstract}}</p>
+            <!--<p class="tel"></p>-->
+          </div>
+        </li>
+      </ul>
+      <div class="contact-con">
+        <div class="list">
+          <span class="list-title">留言标题</span>
+          <input type="text" v-model="Title">
+        </div>
+        <div class="list">
+          <span class="list-title">留言内容</span>
+          <textarea name="" id="" cols="30" rows="10" v-model="Body"></textarea>
+        </div>
+        <div class="list">
+          <span class="list-title">联系邮箱</span>
+          <input type="text" v-model="Email">
+        </div>
+        <!--<div class="list code">
+        <span class="list-title">验证码</span>
+        <input type="text">
+        <div class="code-con"></div>
+      </div>-->
+      </div>
+      <div class="submit-box">
+        <div class="submit float_right t-c" @click="submit">提交</div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "contact",
-   data(){
+    data() {
             //const self = this;
             let self = this;
             return {
@@ -103,6 +104,9 @@ export default {
                   //}
               }],
               res: [],
+              imga: [
+                'http://image.hanjiazhuang.cn/%E8%81%94%E7%B3%BB%E6%88%91%E4%BB%AC.png',
+              ],
               Title: '',
               Body: '',
               Email:''
@@ -118,6 +122,11 @@ export default {
           })
           .then((res) => {
             //console.log(res)
+            if (res.data.status_code === 200) {
+              alert(res.data.status_message)
+            } else {
+               alert(res.data.status_message)
+            }          
           })
       }
     },

@@ -1,6 +1,6 @@
 <template >
   <div class="container sreach margin">
-   <img src="../assets/img/bg3.png" alt="" class="img"> 
+   <img src="http://image.hanjiazhuang.cn/bg3.png" alt="" class="img"> 
    <div class="container main margin">
      <div class="intro-header">
        <h2 class="t-c">MEDIA FOCUS</h2>
@@ -11,7 +11,7 @@
        <ul class="container notice-news" v-for="(item,index) in page_a">
          <router-link :to="{path:'mediaDetail',query:{name:'搜索',id:item.Id}}">
            <li>
-             <img src="../assets/img/bg3.png" alt="" class="notice-left float_left">
+             <img src="http://image.hanjiazhuang.cn/bg3.png" alt="" class="notice-left float_left">
              <div class="notice-right float_left">
                <p class="notice-title">{{item.Title}}</p>
                <div style="height:75px;overflow:hidden;">
@@ -40,7 +40,7 @@
                {{item.Title}}
              </h3>
              <div class="news-item__img img-box">
-               <img src="../assets/img/bg3.png" alt="">
+               <img src="http://image.hanjiazhuang.cn/bg3.png" alt="">
              </div>
            </a>
          </li>

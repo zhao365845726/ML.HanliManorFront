@@ -1,22 +1,23 @@
 <template>
   <div class="container description margin">
-    <img src="../assets/img/关于我们.png" alt="" class="img">
+    <!--<img src="http://image.hanjiazhuang.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E4%BB%AC.png" alt="" class="img">-->
+    <img v-for="img in imga" v-lazy="img" alt="" class="img">
     <div class="container main margin" id="demo">
       <div class="about-company">
         <div class="company-left">
           <div class="intro-header company-intro-header">
-              <h2 class="intro-header-line">COMPANY PROFIL</h2>
-              <p>品牌介绍</p>
+            <h2 class="intro-header-line">COMPANY PROFIL</h2>
+            <p>品牌介绍</p>
           </div>
-          <div class="intro-body" >
+          <div class="intro-body">
             <p v-html="this.company" style="cursor:text"></p>
           </div>
         </div>
         <div class="company-right">
-            <div class="company-photo img-boxa" style="cursor:pointer">
-                <!-- 图片尺寸 692*484 -->
-                <img :src="this.photo">
-            </div>
+          <div class="company-photo img-boxa" style="cursor:pointer">
+            <!-- 图片尺寸 692*484 -->
+            <img v-lazy="this.photo">
+          </div>
         </div>
       </div>
       <div class="about-history">
@@ -24,13 +25,14 @@
           <h2 class="h2">PHYSICAL STORE</h2>
           <p>品牌历程</p>
         </div>
-          <div class="swiper_">
-          <swiper :options="swiperOption" class='swiper-box' v-if="swipers.length" >
-            <swiper-slide v-for="(item, index) in swipers" :key="index"  class="list_" >
+        <div class="swiper_">
+          <swiper :options="swiperOption" class='swiper-box' v-if="swipers.length">
+            <swiper-slide v-for="(item, index) in swipers" :key="index" class="list_">
               <div class="history-item" :id="index">
                 <div class="history-item__wrap">
-                  <h3 class="history-item__year" >{{item.CreateTime}}</h3>
-                  <div class="history-item__img img-box" >
+                  <h3 class="history-item__year">{{item.CreateTime}}</h3>
+                  <div class="history-item__img img-box">
+                    <!--<img v-lazy="item.CoverPhoto" style="cursor:pointer">-->
                     <img :src="item.CoverPhoto" style="cursor:pointer">
                   </div>
                   <div class="history-item__desc">
@@ -38,7 +40,7 @@
                   </div>
                   <div class="t-r">
                     <div class="more">
-                      <a ></a>
+                      <a></a>
                     </div>
                   </div>
                 </div>
@@ -59,6 +61,9 @@
     name: "description",
     data() {
       return {
+        imga: [
+          'http://image.hanjiazhuang.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E4%BB%AC.png'
+        ],
         swiperOption: {
           slidesPerView: 4,
           spaceBetween: 0,
@@ -418,7 +423,7 @@
 
     }
     .img-box:hover::before {
-       background: #00873c url(../assets/img/33.png) center center no-repeat;
+       background: #00873c url(http://image.hanjiazhuang.cn/33.png) center center no-repeat;
         background-size: 100% 100%;
         z-index: 3;
         cursor:pointer;

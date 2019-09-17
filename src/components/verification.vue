@@ -1,6 +1,6 @@
 <template>
   <div class="container verification margin">
-    <img src="../assets/img/产品验证.png" alt="" class="img"> 
+    <img src="http://image.hanjiazhuang.cn/%E4%BA%A7%E5%93%81%E9%AA%8C%E8%AF%81.png" alt="" class="img"> 
     <div class="container main margin" id="demo">
         <div class="intro-header">
           <h2 class="t-c">MEDIA FOCUS</h2>
@@ -12,7 +12,7 @@
         <div class="story left mt-150">
           <div class="story-inner margin">
             <div class="story-img story-img-02 img-box">
-                <img :src="this.pop">
+                <img v-lazy="this.pop">
             </div>
             <div class="story-intro story-intro-02">
                 <div class="story-intro__txt story-intro-02__txt">
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="story-img-a img-box">
-                <img :src="this.pop_a">
+                <img v-lazy="this.pop_a">
             </div>
           </div>
      </div>
@@ -52,17 +52,17 @@
         <ul class="list-btn margin">
           <li class="li1">
             <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-              <img :src="this.pop_c" alt="">
+              <img v-lazy="this.pop_c" alt="">
             </a>
           </li>
           <li class="li2"> 
             <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-              <img :src="this.pop_b" alt="">
+              <img v-lazy="this.pop_b" alt="">
             </a>
           </li>
           <li class="li3">
             <a href="https://liangpinpuzi.tmall.com/" class="mall-item">
-              <img :src="this.pop_d" alt="">
+              <img v-lazy="this.pop_d" alt="">
             </a>
           </li>
 
@@ -207,7 +207,7 @@ export default {
 .icon{
   max-width: 100%;
   height: 552px;
-  background: url(../assets/img/icon2.png) center center no-repeat;
+  background: url(http://image.hanjiazhuang.cn/icon2.png) center center no-repeat;
   background-size: auto 100%;
   margin:0 auto;
   margin-top: 97px;

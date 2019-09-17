@@ -2,8 +2,10 @@
   <div class="home">
     <!--<img src="../assets/img/bg.png" alt="">-->
     <swiper :options="swiperOption" class='swiper-box'>
-      <swiper-slide><img src="../assets/img/bg.png" alt=""></swiper-slide>
-      <swiper-slide><img src="../assets/img/首页.png" alt=""></swiper-slide>
+      <swiper-slide><img src="http://image.hanjiazhuang.cn/bg.png" alt=""></swiper-slide>
+      <swiper-slide><img src="http://image.hanjiazhuang.cn/%E9%A6%96%E9%A1%B5.png" alt=""></swiper-slide>
+      <!--<swiper-slide><img v-for="img in imga" v-lazy="img" alt=""></swiper-slide>
+      <swiper-slide><img v-for="img in imgb" v-lazy="img" alt=""></swiper-slide>-->
     </swiper>
     <!--<div class="swiper-button-prev"></div>--><!--左箭头。如果放置在swiper-container外面，需要自定义样式。-->
     <!--<div class="swiper-button-next"></div>--><!--右箭头。如果放置在swiper-container外面，需要自定义样式。-->
@@ -15,7 +17,13 @@
 export default {
   name: 'home',
     data() {
-    return {
+      return {
+        //imga: [
+        //  'http://image.hanjiazhuang.cn/bg.png',        
+        //],
+        //imgb: [
+        //   'http://image.hanjiazhuang.cn/%E9%A6%96%E9%A1%B5.png'
+        //],
       msg: '',
       swiperOption: {
         loop: true,

@@ -1,6 +1,6 @@
 <template>
   <div class="container brandStory margin" style="margin-bottom:12%;">
-    <img src="../assets/img/bg5.png" alt="" class="img">
+    <img src="http://image.hanjiazhuang.cn/bg5.png" alt="" class="img">
     <div class="wrap" id="wrap" @mouseover="fnonmouseover" @mouseout="fnonmouseout">
       <!--<ul class="content">
         <li v-for="(item, index) in imgArr" :key="index">
@@ -9,25 +9,25 @@
       </ul>-->
       <ul class="content">
         <li>
-          <img src="../assets/img/m4.jpg" @click="roua()"><!--油杏-->
+          <img src="http://image.hanjiazhuang.cn/m4.jpg" @click="roua()"><!--油杏-->
         </li>
         <li>
-          <img src="../assets/img/m1.jpg" @click="roub()"><!--西梅-->
+          <img src="http://image.hanjiazhuang.cn/m1.jpg" @click="roub()"><!--西梅-->
         </li>
         <li>
-          <img src="../assets/img/m2.jpg" @click="roud()"><!--李子-->
+          <img src="http://image.hanjiazhuang.cn/m2.jpg" @click="roud()"><!--李子-->
         </li>
         <li>
-          <img src="../assets/img/m7.jpg" @click="rouc()"><!--梨-->
+          <img src="http://image.hanjiazhuang.cn/m7.jpg" @click="rouc()"><!--梨-->
         </li>
         <li>
-          <img src="../assets/img/m5.jpg" @click="roue()"><!--桃子-->
+          <img src="http://image.hanjiazhuang.cn/m5.jpg" @click="roue()"><!--桃子-->
         </li>
         <li>
-          <img src="../assets/img/m6.jpg" @click="rouf()"><!--苹果-->
+          <img src="http://image.hanjiazhuang.cn/m6.jpg" @click="rouf()"><!--苹果-->
         </li>
         <li>
-          <img src="../assets/img/m3.jpg" @click="roug()"><!--石榴-->
+          <img src="http://image.hanjiazhuang.cn/m3.jpg" @click="roug()"><!--石榴-->
         </li>
       </ul>
       <a href="javascript:;" class="prev" @click="fnLeft">&#60;</a>
