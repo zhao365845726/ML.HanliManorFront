@@ -34,7 +34,7 @@ export default {
         effect : 'fade',
       }
     }
-  }
+    }
 }
 </script>
 

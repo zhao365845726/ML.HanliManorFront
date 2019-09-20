@@ -530,7 +530,7 @@
     transform: translateY(0);
   }
 
-  @media (min-width: 769px) {
+  @media(min-width: 769px) {
     .subMenu {
       visibility: hidden;
       opacity: 0;

@@ -1,9 +1,11 @@
 <template>
   <div id="app"  v-cloak>
     <CommonHeader></CommonHeader>
-    <router-view/>
-    <CommonFooter></CommonFooter>
-  </div>
+    <keep-alive>
+      <router-view />
+    </keep-alive>
+      <CommonFooter></CommonFooter>
+</div>
 </template>
 
 <script>

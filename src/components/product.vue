@@ -300,7 +300,7 @@
         }, this.speed);
       },
       fnSwiper() {
-        this.move();
+        //this.move();
         var that = this;
         this.timerS = setInterval(function () {
           that.move(true);
@@ -345,7 +345,7 @@
       }
     },
     mounted() {
-      //this.fnSwiper();
+      this.fnSwiper();
       this.ajax();
       document.querySelector('#demo').scrollIntoView(true);
     },
@@ -356,7 +356,68 @@
    ul {
     list-style: none;
   }
+   .content li:nth-child(4) {
+      width: 217px;
+      height: 630px;
+      top: -41px;
+      left: 480.5px;
+      z-index: 4;
+      opacity: 1;
+    }
 
+    .content li:nth-child(1) {
+      width: 173px;
+      height: 530px;
+      top: 10px;
+      left: -49px;
+      z-index: 1;
+      opacity: 0.7;
+    }
+
+    .content li:nth-child(7) {
+      width: 173px;
+      height: 530px;
+      top: 10px;
+      left: 1055px;
+      z-index: 1;
+      opacity: 0.7;
+    }
+
+    .content li:nth-child(2) {
+      width: 181px;
+      height: 570px;
+      top: -11px;
+      left: 121px;
+      z-index: 2;
+      opacity: 0.8;
+    }
+
+    .content li:nth-child(6) {
+      width: 181px;
+      height: 570px;
+      top: -11px;
+      left: 879px;
+      z-index: 2;
+      opacity: 0.8;
+    }
+
+    .content li:nth-child(3) {
+      width: 188px;
+      height: 600px;
+      top: -26px;
+      left: 296px;
+      z-index: 3;
+      opacity: 0.9;
+    }
+
+    .content li:nth-child(5) {
+      width: 188px;
+      height: 600px;
+      top: -26px;
+      left: 694px;
+      z-index: 3;
+      opacity: 0.9;
+    }
   .wrap {
     position: relative;
     width: 1200px;
