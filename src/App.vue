@@ -1,16 +1,16 @@
 <template>
-  <div id="app"  v-cloak>
-    <CommonHeader></CommonHeader>
-    <keep-alive>
-      <router-view />
-    </keep-alive>
+  <div id="app" v-cloak>
+      <CommonHeader></CommonHeader>
+      <!--<keep-alive>-->
+        <router-view />
+      <!--</keep-alive>-->
       <CommonFooter></CommonFooter>
-</div>
+  </div>
 </template>
 
 <script>
 import CommonHeader from './components/commonHeader'
-  import CommonFooter from './components/commonFooter'
+import CommonFooter from './components/commonFooter'
 
 export default {
   name: 'App',

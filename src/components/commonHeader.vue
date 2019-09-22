@@ -38,7 +38,7 @@
                 <router-link :to="{path:'brandStory',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='好山好水好人家'">{{subitem.Name}}</router-link>
               </li>
               <li class="subMenu-item" v-for="(subitem,index) in sub_b" v-if="item.Name==='产品世界'">
-                <router-link :to="{path:'product_chanpin',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='所有品类'" >{{subitem.Name}}</router-link>
+                <router-link :to="{path:'product_chanpin',query:{name:subitem.Name,id:subitem.Id}}"  class="subMenu-link" v-if="subitem.Name==='所有品类'" >{{subitem.Name}}</router-link>
                 <router-link :to="{path:'verification',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='产品验证'">{{subitem.Name}}</router-link>
                 <router-link :to="{path:'store',query:{name:subitem.Name,id:subitem.Id}}" class="subMenu-link" v-if="subitem.Name==='线上商城'">{{subitem.Name}}</router-link>
               </li>

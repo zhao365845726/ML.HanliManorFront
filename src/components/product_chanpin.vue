@@ -41,7 +41,7 @@
     name: "brandStory",
     data() {
       return {
-        includedComponents: "test-keep-alive",
+        //includedComponents: "test-keep-alive",
         list: [],
         imgArr: [],
         size: [
@@ -96,42 +96,48 @@
         timerS: '',
         width: window.innerWidth,
       };
-
     },
     methods: {
       roua() {
-        this.$router.push({
+        this.$router.replace({
           path: 'product', query: { id: '7869bae1-2d2c-49ec-91ae-2fd601cee23b' },
+          //replace: true,
         })
       },
       roub() {
-        this.$router.push({
-          path: 'product', query: { id: '75aa0cee-7b32-41c7-9349-c93ac17bad72' }
+        this.$router.replace({
+          path: 'product', query: { id: '75aa0cee-7b32-41c7-9349-c93ac17bad72' },
+          //replace: true,
         })
       },
       rouc() {
-        this.$router.push({
-          path: 'product', query: { id: '38a4b177-368d-456e-a0a1-0db8f173c4cd' }
+        this.$router.replace({
+          path: 'product', query: { id: '38a4b177-368d-456e-a0a1-0db8f173c4cd' },
+          //replace: true,
         })
       },
       roud() {
-        this.$router.push({
-          path: 'product', query: { id: '55c5c530-b97f-44b2-9021-4dac8a085e68' }
+        this.$router.replace({
+          path: 'product', query: { id: '55c5c530-b97f-44b2-9021-4dac8a085e68' },
+          //replace: true,
         })
       },
       roue() {
-        this.$router.push({
-          path: 'product', query: { id: '63834175-3c0d-4706-a985-b8dba2db466c' }
+        this.$router.replace({
+          path: 'product', query: { id: '63834175-3c0d-4706-a985-b8dba2db466c' },
+          //replace: true,
         })
       },
       rouf() {
-        this.$router.push({
-          path: 'product', query: { id: 'e6edd3bd-a483-4d3e-9bb9-aeae9fe16022' }
+        this.$router.replace({
+          path: 'product', query: { id: 'e6edd3bd-a483-4d3e-9bb9-aeae9fe16022' },
+          //replace: true,
         })
       },
       roug() {
-        this.$router.push({
-          path: 'product', query: { id: '38dce4cb-0635-4f69-a6bc-5f154b30f3ae' }
+        this.$router.replace({
+          path: 'product', query: { id: '38dce4cb-0635-4f69-a6bc-5f154b30f3ae' },
+          //replace: true,
         })
       },
       ajax() {
@@ -255,13 +261,12 @@
     mounted() {
       this.fnSwiper();
       this.ajax();
-      //window.onfocus = function () {
-      //  this.timerS
-      //}
-      //window.onblur = function () {
-      //  this.timerS
-      //}
-      //console.log(this.width, this.height)
+    },
+    //beforeDestroy ---实例销毁之前调用
+    beforeDestroy() {
+      if (this.timerS) {
+        clearInterval(this.timerS); //关闭
+      }
     }
   }
 </script>

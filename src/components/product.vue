@@ -349,7 +349,12 @@
       this.ajax();
       document.querySelector('#demo').scrollIntoView(true);
     },
-     
+    //beforeDestroy ---实例销毁之前调用
+    beforeDestroy() {
+      if (this.timerS) {
+        clearInterval(this.timerS); //关闭
+      }
+    } 
   };
 </script>
 <style scoped>
