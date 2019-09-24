@@ -17,7 +17,17 @@ export default {
   components:{
     CommonHeader,
     CommonFooter
-  }
+   },
+    mounted() {
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        console.log(hm)
+            hm.src = "https://hm.baidu.com/hm.js?5d63b6ea33af47bf97a1f70af26d1535";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+          })();
+    }
 }
 </script>
 

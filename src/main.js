@@ -12,7 +12,9 @@ import Pagination from 'vue-pagination-2'
 import myDatepicker from 'vue-datepicker/vue-datepicker-es6.vue'
 import AMap from 'vue-amap'
 import VueLazyload from 'vue-lazyload'
+//import jQuery from 'jquery'
 
+//Vue.use(jQuery)
 Vue.use(VueLazyload)
 Vue.use(AMap)
 //Vue.use(VueI18n)
@@ -36,13 +38,23 @@ AMap.initAMapApiLoader({
     "AMap.Geolocation" 
   ]
 })
+//Vue.use(jQuery, {
+//  plugins: [
+//    new webpack.ProvidePlugin({
+//      $: 'jquery',
+//      jQuery: 'jquery'
+//    }),
+//  ]
+//})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
-  
+  template: '<App/>',
+  mounted() {
+    document.onselectstart = new Function("return false");
+  }
 })
 //Vue.use(VueLazyload, {
 //  preLoad: 1.3,

@@ -1,38 +1,19 @@
 
 <template>
-  <div class="container brandStory margin">
+  <div class="container lunbo margin" style="margin-bottom:10%;">
     <img src="http://image.hanjiazhuang.cn/bg5.png" alt="" class="img">
-    <div class="wrap" id="wrap" @mouseover="fnonmouseover" @mouseout="fnonmouseout">
-      <!--<ul class="content">
-    <li v-for="(item, index) in imgArr" :key="item.Id">
-      <img :src="item.CoverPhoto" @click="rou(index)">
-    </li>
-  </ul>-->
+    <div class="wrap" id="wrap">
       <ul class="content">
-        <li>
-          <img src="http://image.hanjiazhuang.cn/m6.jpg" @click="roua()"><!--苹果-->
-        </li>
-        <li>
-          <img src="http://image.hanjiazhuang.cn/m5.jpg" @click="roub()"><!--桃子-->
-        </li>
-        <li>
-          <img src="http://image.hanjiazhuang.cn/m2.jpg" @click="rouc()"><!--李子-->
-        </li>
-        <li>
-          <img src="http://image.hanjiazhuang.cn/m7.jpg" @click="roud()"><!--梨-->
-        </li>
-        <li>
-          <img src="http://image.hanjiazhuang.cn/m1.jpg" @click="roue()"><!--西梅-->
-        </li>
-        <li>
-          <img src="http://image.hanjiazhuang.cn/m4.jpg" @click="rouf()"><!--油杏-->
-        </li>
-        <li>
-          <img src="http://image.hanjiazhuang.cn/m3.jpg" @click="roug()"><!--梨-->
-        </li>
+        <li @click="roua()" style="background-image: url(&quot;http://image.hanjiazhuang.cn/m6.jpg&quot;); top: 10px; left: -47px; width: 173px; height: 530px; z-index: 1; opacity: 0.7;"></li>
+        <li @click="roub()" style="background-image: url(&quot;http://image.hanjiazhuang.cn/m5.jpg&quot;); top: -11px; left: 121px; width: 181px; height: 570px; z-index: 2; opacity: 0.8;"></li>
+        <li @click="rouc()" style="background-image: url(&quot;http://image.hanjiazhuang.cn/m2.jpg&quot;); top: -26px; left: 296px; width: 188px; height: 600px; z-index: 3; opacity: 0.9;"></li>
+        <li @click="roud()" style="background-image: url(&quot;http://image.hanjiazhuang.cn/m7.jpg&quot;); top: -41px; left: 480px; width: 217px; height: 630px; z-index: 4; opacity: 1;"></li>
+        <li @click="roue()" style="background-image: url(&quot;http://image.hanjiazhuang.cn/m1.jpg&quot;); top: -26px; left: 694px; width: 188px; height: 600px; z-index: 3; opacity: 0.9;"></li>
+        <li @click="rouf()" style="background-image: url(&quot;http://image.hanjiazhuang.cn/m4.jpg&quot;); top: -11px; left: 879px; width: 181px; height: 570px; z-index: 2; opacity: 0.8;"></li>
+        <li @click="roug()" style="background-image: url(&quot;http://image.hanjiazhuang.cn/m3.jpg&quot;); top: 10px; left: 1055px; width: 173px; height: 530px; z-index: 1; opacity: 0.7;"></li>
       </ul>
-      <a href="javascript:;" class="prev" @click="fnLeft">&#60;</a>
-      <a href="javascript:;" class="next" @click="fnRight">&#62;</a>
+      <a href="javascript:;" class="prev">&#60;</a>
+      <a href="javascript:;" class="next">&#62;</a>
     </div>
 
     <div class="story right mt-80" id="demo">
@@ -50,7 +31,6 @@
           </div>
         </div>
         <div class="story-img img-box wow fadeInRightSmall">
-          <!-- Size 700*466 -->
           <img v-lazy="CoverPhoto" alt="" style="width:100%;height:100%;cursor:pointer">
         </div>
       </div>
@@ -59,66 +39,33 @@
 </template>
 <script>
   export default {
-    name: "brandStory",
+    name: "lunbo",
     data() {
       return {
-        //imgArr: [],
+        imgArr: [
+          { "path": "http://image.hanjiazhuang.cn/m6.jpg" },
+          { "path": "http://image.hanjiazhuang.cn/m5.jpg" },
+          { "path": "http://image.hanjiazhuang.cn/m2.jpg" },
+          { "path": "http://image.hanjiazhuang.cn/m7.jpg" },
+          { "path": "http://image.hanjiazhuang.cn/m1.jpg" },
+          { "path": "http://image.hanjiazhuang.cn/m4.jpg" },
+          { "path": "http://image.hanjiazhuang.cn/m3.jpg" }
+        ],
         size: [
           { "top": 10, "left": -47, "width": 173, "height": 530, "zIndex": 1, "opacity": 70 },
-          { "top": -11, "left":121, "width": 181, "height": 570, "zIndex": 2, "opacity": 80 },
+          { "top": -11, "left": 121, "width": 181, "height": 570, "zIndex": 2, "opacity": 80 },
           { "top": -26, "left": 296, "width": 188, "height": 600, "zIndex": 3, "opacity": 90 },
           { "top": -41, "left": 480, "width": 217, "height": 630, "zIndex": 4, "opacity": 100 },
           { "top": -26, "left": 694, "width": 188, "height": 600, "zIndex": 3, "opacity": 90 },
-          { "top": -11, "left":879, "width": 181, "height": 570, "zIndex": 2, "opacity": 80 },
+          { "top": -11, "left": 879, "width": 181, "height": 570, "zIndex": 2, "opacity": 80 },
           { "top": 10, "left": 1055, "width": 173, "height": 530, "zIndex": 1, "opacity": 70 }
         ],
-         size_a: [//768
-          { "top": 30, "left": 88, "width":100, "height": 109, "zIndex": 1, "opacity": 0 },
-          { "top": 30, "left": 88, "width":100, "height": 109, "zIndex": 2, "opacity": 60 },
-          { "top": 16, "left": 154, "width":173, "height": 138, "zIndex": 3, "opacity": 80 },
-          { "top": 0, "left": 250, "width": 255, "height": 170, "zIndex": 4, "opacity": 100 },
-          { "top": 16, "left": 432, "width": 173, "height": 138, "zIndex": 3, "opacity": 80 },
-          { "top": 30, "left": 570, "width": 100, "height": 109, "zIndex": 2, "opacity": 60 },
-          { "top": 30, "left": 570, "width": 100, "height": 109, "zIndex": 1, "opacity": 0 }
-        ],
-         size_b: [//414
-          { "top": 13, "left": 37, "width":100, "height": 80, "zIndex": 1, "opacity": 0 },
-          { "top": 13, "left": 37, "width":100, "height": 80, "zIndex": 2, "opacity": 50 },
-          { "top": 8, "left": 73, "width":132, "height": 90, "zIndex": 3, "opacity": 70 },
-          { "top": 0, "left": 120, "width": 145, "height": 105, "zIndex": 4, "opacity": 100 },
-          { "top": 8, "left": 182, "width": 132, "height": 90, "zIndex": 3, "opacity": 70 },
-          { "top": 13, "left": 249, "width": 100, "height": 80, "zIndex": 2, "opacity": 50 },
-          { "top": 13, "left": 249, "width": 100, "height": 80, "zIndex": 1, "opacity": 0 }
-        ],
-         size_c: [//375
-          { "top": 11, "left": 40, "width":80, "height": 66, "zIndex": 1, "opacity": 0 },
-          { "top": 11, "left": 40, "width":80, "height": 66, "zIndex": 2, "opacity": 50 },
-          { "top": 6, "left": 74, "width":100, "height": 76, "zIndex": 3, "opacity": 70 },
-          { "top": 0, "left": 112, "width": 120, "height": 88, "zIndex": 4, "opacity": 100 },
-          { "top": 6, "left": 172, "width": 100, "height": 76, "zIndex": 3, "opacity": 70 },
-          { "top": 11, "left": 226, "width": 80, "height": 66, "zIndex": 2, "opacity": 50 },
-          { "top": 11, "left": 226, "width": 80, "height": 66, "zIndex": 1, "opacity": 0 }
-        ],
-         size_d: [//1024
-           { "top": 31, "left": 101, "width":245, "height": 160, "zIndex": 1, "opacity": 0 },
-          { "top": 31, "left": 101, "width": 245, "height": 160, "zIndex": 2, "opacity": 40 },
-          { "top": 16, "left": 196, "width": 300, "height": 190, "zIndex": 3, "opacity": 70 },
-          { "top": 0, "left": 315, "width": 360, "height": 220, "zIndex": 4, "opacity": 100 },
-          { "top": 16, "left": 490, "width": 300, "height": 190, "zIndex": 3, "opacity": 70 },
-          { "top": 31, "left": 648, "width": 245, "height":160, "zIndex": 2, "opacity": 40 },
-          { "top": 31, "left": 648, "width": 245, "height": 160, "zIndex": 1, "opacity": 0 }
-        ],
+        liArr: [],
+        list: [],
         title: '',
         Body: '',
         CoverPhoto:'',
-        res_c: [],
-        isShow: false,
-        speed: 2000,
-        falg: false,
-        timerS: '',
-        ins: 0,
-         width: window.innerWidth,
-      };
+      }
     },
     methods: {
       roua() {
@@ -212,24 +159,9 @@
                 })
       document.querySelector('#demo').scrollIntoView(true);
       },
-      
+
       ajax() {
          var param = window.location.href.split('=')[1];
-          //console.log(param);
-          var str = decodeURI(param);
-          //console.log(str)
-          this.$axios
-            .post('http://api.hanjiazhuang.cn/api/content/getcategoryarticlelist', {
-              "categoryid": "a460675f-8a68-4bbb-b0cd-825f7578fe00",
-              "PageIndex": 1,
-              "PageSize": 10
-            })
-            .then((res_c) => {
-              this.res_c = res_c.data.data.lst_categoryarticlelist;
-              //this.imgArr = this.res_c;
-              //console.log(this.list_a)
-              //console.log(this.res_c)
-            })
           this.$axios
             .post('http://api.hanjiazhuang.cn/api/content/getarticledetail', {
               "ArticleId": param
@@ -242,13 +174,9 @@
             })
       },
       getStyle: function (obj, attr) {
-        //console.log(obj);
-        //console.log(attr);
         return obj.currentStyle ? obj.currentStyle[attr] : window.getComputedStyle(obj, null)[attr];
       },
       animate: function (obj, json, fn) {
-        //console.log(json)
-        //console.log(obj)
         clearInterval(obj.timer);
         var that = this;
         obj.timer = setInterval(function () {
@@ -265,7 +193,6 @@
               leader = parseInt(that.getStyle(obj, k)) || 0;
             }
             var step = (json[k] - leader) / 10;
-
             step = step > 0 ? Math.ceil(step) : Math.floor(step);
             leader = leader + step;
             if (k == 'zIndex') {
@@ -280,6 +207,7 @@
               bool = false;
             }
           }
+
           if (bool) {
             clearInterval(obj.timer);
             if (fn) {
@@ -288,41 +216,50 @@
           }
         }, 10);
       },
-      fnonmouseover() {
-        this.isShow = true;
-        clearInterval(this.timerS);
-      },
-      fnonmouseout() {
-        this.isShow = false;
+      lunbo: function () {
         var that = this;
-        this.timerS = setInterval(function () {
-          that.move(true);
-        }, this.speed);
-      },
-      fnSwiper() {
-        //this.move();
-        var that = this;
-        this.timerS = setInterval(function () {
-          that.move(true);
-        }, this.speed)
-         if (this.width === 768) {
-          this.size = this.size_a;
-        } else if (this.width === 414) {
-          this.size = this.size_b;
-        }else if (this.width === 375) {
-          this.size = this.size_c;
-        }else if (this.width === 1024) {
-          this.size = this.size_d;
+        var imgsum = this.imgArr.length;//imgArr数组长度7，照片的
+        var wrap = document.getElementById('wrap');//id=wrap
+        var cont = wrap.firstElementChild || wrap.firstChild;//firstElementChild=获取指定元素下第一个子元素节点。firstChild=返回文档节点的第一节点。
+        var btnArr = wrap.getElementsByTagName('a');//按钮
+        var speed = 2000;
+        var falg = true;
+        wrap.onmouseover = function () {
+          //for (var i = 0; i < btnArr.length; i++) {
+          //  btnArr[i].style.display = 'block';
+          //}
+          clearInterval(wrap.timer);
         }
-      },
-      fnLeft() {
-        if (this.falg) {
-          this.move(true);
+        wrap.onmouseout = function () {
+          //for (var i=0;i<btnArr.length;i++) {
+          //  btnArr[i].style.display='none';
+          //}
+          wrap.timer = setInterval(function () {
+            that.move(true);
+          }, speed);
         }
-      },
-      fnRight() {
-        if (this.falg) {
-          this.move(false);
+        for (var i = 0; i < imgsum; i++) {
+          var lis = document.createElement('li');//createElement() 方法通过指定名称创建一个元素
+          lis.style.backgroundImage = 'url(' + this.imgArr[i].path + ')';//获取imgArr数组照片
+          cont.appendChild(lis);//appendChild() 方法可向节点的子节点列表的末尾添加新的子节点。
+          //console.log(cont.appendChild(lis))
+        }
+        var liArr = cont.children;//children 属性只返回元素节点
+        this.liArr = liArr;
+        that.move();
+        clearInterval(wrap.timer);
+        wrap.timer = setInterval(function () {
+          that.move(true);
+        }, speed);
+        btnArr[1].onclick = function () {
+          if (falg) {
+            that.move(true);
+          }
+        }
+        btnArr[0].onclick = function () {
+          if (falg) {
+            that.move(false);
+          }
         }
       },
       move: function (bool) {
@@ -333,96 +270,25 @@
             this.size.push(this.size.shift());
           }
         }
-        var wrap = document.getElementById('wrap');
-        var liArr = wrap.getElementsByTagName('li');
-        //console.log(liArr.length)
-        var that = this;
-        for (var i = 0; i < liArr.length; i++) {
-          this.animate(liArr[i], this.size[i], function () {
+        var that = this
+        for (var i = 0; i < that.liArr.length; i++) {
+          this.animate(that.liArr[i], this.size[i], function () {
             that.falg = true;
-          });
+          })
         }
       }
     },
     mounted() {
-      this.fnSwiper();
+      this.lunbo();
       this.ajax();
       document.querySelector('#demo').scrollIntoView(true);
     },
-    //beforeDestroy ---实例销毁之前调用
-    beforeDestroy() {
-      if (this.timerS) {
-        clearInterval(this.timerS); //关闭
-      }
-    } 
-  };
+  }
 </script>
-<style scoped>
-   ul {
+<style>
+  ul {
     list-style: none;
   }
-   .content li:nth-child(4) {
-      width: 217px;
-      height: 630px;
-      top: -41px;
-      left: 480.5px;
-      z-index: 4;
-      opacity: 1;
-    }
-
-    .content li:nth-child(1) {
-      width: 173px;
-      height: 530px;
-      top: 10px;
-      left: -49px;
-      z-index: 1;
-      opacity: 0.7;
-    }
-
-    .content li:nth-child(7) {
-      width: 173px;
-      height: 530px;
-      top: 10px;
-      left: 1055px;
-      z-index: 1;
-      opacity: 0.7;
-    }
-
-    .content li:nth-child(2) {
-      width: 181px;
-      height: 570px;
-      top: -11px;
-      left: 121px;
-      z-index: 2;
-      opacity: 0.8;
-    }
-
-    .content li:nth-child(6) {
-      width: 181px;
-      height: 570px;
-      top: -11px;
-      left: 879px;
-      z-index: 2;
-      opacity: 0.8;
-    }
-
-    .content li:nth-child(3) {
-      width: 188px;
-      height: 600px;
-      top: -26px;
-      left: 296px;
-      z-index: 3;
-      opacity: 0.9;
-    }
-
-    .content li:nth-child(5) {
-      width: 188px;
-      height: 600px;
-      top: -26px;
-      left: 694px;
-      z-index: 3;
-      opacity: 0.9;
-    }
   .wrap {
     position: relative;
     width: 1200px;
@@ -565,22 +431,22 @@
     width: 50%;
     position: relative;
      animation:mymo 2s;
-	animation-iteration-count:1;
-	animation-fill-mode:forwards;
-	-webkit-animation:mymo 2s;
-	-webkit-animation-iteration-count:1;
-	-webkit-animation-fill-mode:forwards;
+  animation-iteration-count:1;
+  animation-fill-mode:forwards;
+  -webkit-animation:mymo 2s;
+  -webkit-animation-iteration-count:1;
+  -webkit-animation-fill-mode:forwards;
   }
   @keyframes mymo
 {
-	from {right:-100px;}
-	to {right:0px;}
+  from {right:-100px;}
+  to {right:0px;}
 }
 
-@-webkit-keyframes mymo 
+@-webkit-keyframes mymo
 {
-	from {right:-100px;}
-	to {right:0px;}
+  from {right:-100px;}
+  to {right:0px;}
 }
   .img-box::before {
     content: "";
@@ -608,11 +474,11 @@
     color: #333;
     position: relative;
      animation:mymove 2s;
-	animation-iteration-count:1;
-	animation-fill-mode:forwards;
-	-webkit-animation:mymove 2s;
-	-webkit-animation-iteration-count:1;
-	-webkit-animation-fill-mode:forwards;
+  animation-iteration-count:1;
+  animation-fill-mode:forwards;
+  -webkit-animation:mymove 2s;
+  -webkit-animation-iteration-count:1;
+  -webkit-animation-fill-mode:forwards;
   }
 
   .story-intro-03__txt {
@@ -629,22 +495,22 @@
     margin-top: 40px;
      position: relative;
      animation:mymove 1s;
-	animation-iteration-count:1;
-	animation-fill-mode:forwards;
-	-webkit-animation:mymove 1s;
-	-webkit-animation-iteration-count:1;
-	-webkit-animation-fill-mode:forwards;
+  animation-iteration-count:1;
+  animation-fill-mode:forwards;
+  -webkit-animation:mymove 1s;
+  -webkit-animation-iteration-count:1;
+  -webkit-animation-fill-mode:forwards;
   }
   @keyframes mymove
 {
-	from {left:-100px;}
-	to {left:0px;}
+  from {left:-100px;}
+  to {left:0px;}
 }
 
-@-webkit-keyframes mymove 
+@-webkit-keyframes mymove
 {
-	from {left:-100px;}
-	to {left:0px;}
+  from {left:-100px;}
+  to {left:0px;}
 }
 
   .story-dream-title span {
@@ -655,204 +521,10 @@
     margin-bottom: 35px;
     position: relative;
      animation:mymove 1.5s;
-	animation-iteration-count:1;
-	animation-fill-mode:forwards;
-	-webkit-animation:mymove 1.5s;
-	-webkit-animation-iteration-count:1;
-	-webkit-animation-fill-mode:forwards;
+  animation-iteration-count:1;
+  animation-fill-mode:forwards;
+  -webkit-animation:mymove 1.5s;
+  -webkit-animation-iteration-count:1;
+  -webkit-animation-fill-mode:forwards;
   }
-
-  @media (max-width: 1100px) {
-    .story-dream-title span {
-      font-size: 30px;
-    }
-
-    .intro-header h2 {
-      font-size: 30px;
-    }
-
-    .story {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-
-    .intro-header p {
-      font-size: 24px;
-    }
-
-    .story-img-02 {
-      margin-bottom: 30px;
-    }
-
-    .story-img {
-      width: 100%;
-    }
-
-    .story-intro-03__txt {
-      position: relative;
-      top: auto;
-      right: auto;
-      left: auto;
-    }
-
-    .story::before, .story-img::before {
-      display: none;
-    }
-
-    .story-intro {
-      position: relative;
-      width: 100%;
-    }
-
-    .story.right .story-intro {
-      left: 0;
-    }
-
-    .story-inner p {
-      text-align: left;
-    }
-
-    .img-box img {
-      position: relative;
-    }
-
-    .story-dream-title p {
-      font-size: 20px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .brandStory {
-      margin-bottom: 40px;
-    }
-     .img1 {
-      border: 0px solid;
-      width: 20%;
-      height: 200px;
-      margin-top: -28%;
-    }
-    .wrap {
-    position: relative;
-    width: 100%;
-    height: 122px;
-    margin: 100px auto;
-    margin-top: -30%;
-  }
-    .content {
-    position: absolute;
-    width: 100%;
-    height: 200px;
-  }
-    .wrap a {
-    position: absolute;
-    z-index: 2;
-    top: 48%;
-    width: 60px;
-    height: 60px;
-    margin-top: -30px;
-    font: 36px/60px "宋体";
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    background: rgb(255, 100, 0);
-    background: rgba(255, 100, 0, .2);
-    transition: background 1s ease;
-    margin-left:-2px;
-    margin-right:-22px;
-  }
-  }
-   @media (max-width: 1024px) {
-    .img1 {
-      border: 0px solid;
-      width: 20%;
-      height: 160px;
-      margin-top: -28%;
-    }
-    .wrap a{
-    position: absolute;
-    z-index: 2;
-    top: 65%;
-    width: 60px;
-    height: 60px;
-    margin-top: -30px;
-    font: 36px/60px "\5B8B\4F53";
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    background: rgb(255, 100, 0);
-    background: rgba(255, 100, 0, .2);
-    -webkit-transition: background 1s ease;
-    transition: background 1s ease;
-    margin-left: -27px;
-    margin-right: -29px;
-}
-    .wrap {
-    position: relative;
-    width: 100%;
-    height: 175px;
-    margin: 100px auto;
-    margin-top: -30%;
-}
-    .content{
-    position: absolute;
-    width: auto;
-    height: 360px;
-}
-  }
-  @media(max-width:414px) {
-    .wrap a {
-      position: absolute;
-      z-index: 2;
-      top: 193%;
-      width: 30px;
-      height: 30px;
-      margin-top: -50px;
-      font: 25px/32px "\5B8B\4F53";
-      text-align: center;
-      text-decoration: none;
-      color: #fff;
-      background: rgb(255, 100, 0);
-      background: rgba(255, 100, 0, .2);
-      -webkit-transition: background 1s ease;
-      transition: background 1s ease;
-      margin-left: -29px;
-      margin-right: -30px;
-    }
-
-    .wrap {
-      position: relative;
-      width: 100%;
-      height: 46px;
-      margin: 100px auto;
-      margin-top: -30%;
-    }
-  }
-    @media(max-width:375px) {
-      .wrap a {
-        position: absolute;
-        z-index: 2;
-        top: 176%;
-        width: 30px;
-        height: 30px;
-        margin-top: -50px;
-        font: 25px/32px "\5B8B\4F53";
-        text-align: center;
-        text-decoration: none;
-        color: #fff;
-        background: rgb(255, 100, 0);
-        background: rgba(255, 100, 0, .2);
-        -webkit-transition: background 1s ease;
-        transition: background 1s ease;
-        margin-left: -29px;
-        margin-right: -30px;
-      }
-
-      .wrap {
-        position: relative;
-        width: 100%;
-        height: 46px;
-        margin: 100px auto;
-        margin-top: -30%;
-      }
-    }
 </style>
