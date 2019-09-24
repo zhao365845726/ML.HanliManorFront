@@ -66,12 +66,6 @@ module.exports = {
         }
       }
     ],
-    plugins: [
-      new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery'
-      }),
-    ]
   },
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue

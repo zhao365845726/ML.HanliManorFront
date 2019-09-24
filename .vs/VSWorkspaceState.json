@@ -3,8 +3,8 @@
     "",
     "\\src",
     "\\src\\assets",
-    "\\src\\assets\\css"
+    "\\src\\router"
   ],
-  "SelectedNode": "\\src\\router",
+  "SelectedNode": "\\src\\main.js",
   "PreviewInSolutionExplorer": false
 }
