@@ -1,11 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\build",
     "\\src",
-    "\\src\\assets",
-    "\\src\\router"
+    "\\src\\components"
   ],
-  "SelectedNode": "\\build\\webpack.base.conf.js",
+  "SelectedNode": "\\src\\components\\contact.vue",
   "PreviewInSolutionExplorer": false
 }

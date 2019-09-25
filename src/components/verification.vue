@@ -145,6 +145,9 @@ export default {
 </script>
 
 <style scoped>
+  .main {
+    max-width:none;
+  }
 .container{
   overflow: hidden;
 }

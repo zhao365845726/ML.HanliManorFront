@@ -705,6 +705,7 @@ mounted() {
     .list-jc {
       margin-right: -40px;
       margin-left: -40px;
+      margin:0;
     }
 
     .list-6 > li {
