@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="content-right">
-          <div style="width:100%;height:300px;"> <img v-lazy="CoverPhoto" /></div>
+          <div style="width:100%;height:300px;"> <img :src="CoverPhoto" /></div>
           <p v-html="Body"></p>
         </div>
       </div>
