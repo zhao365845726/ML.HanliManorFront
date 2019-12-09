@@ -4,13 +4,13 @@
     <img src="http://image.hanjiazhuang.cn/bg5.png" alt="" class="img">
     <div class="wrap" id="wrap">
       <ul class="content">
-        <li @click="roua()" style="background-image: url(&quot;http://image.hanjiazhuang.cn/m4.jpg&quot;); top: 10px; left: -47px; width: 173px; height: 530px; z-index: 1; opacity: 0.7;"></li>
+        <li @click="roua()" style="background-image: url(&quot;http://image.hanjiazhuang.cn/%E6%9D%8F.jpg&quot;); top: 10px; left: -47px; width: 173px; height: 530px; z-index: 1; opacity: 0.7;"></li>
         <li @click="roub()" style="background-image: url(&quot;http://image.hanjiazhuang.cn/m1.jpg&quot;); top: -11px; left: 121px; width: 181px; height: 570px; z-index: 2; opacity: 0.8;"></li>
-        <li @click="roud()" style="background-image: url(&quot;http://image.hanjiazhuang.cn/m2.jpg&quot;); top: -26px; left: 296px; width: 188px; height: 600px; z-index: 3; opacity: 0.9;"></li>
+        <li @click="roud()" style="background-image: url(&quot;http://image.hanjiazhuang.cn/%E6%9D%8E%E5%AD%90.jpg&quot;); top: -26px; left: 296px; width: 188px; height: 600px; z-index: 3; opacity: 0.9;"></li>
         <li @click="rouc()" style="background-image: url(&quot;http://image.hanjiazhuang.cn/m7.jpg&quot;); top: -41px; left: 480px; width: 217px; height: 630px; z-index: 4; opacity: 1;"></li>
         <li @click="roue()" style="background-image: url(&quot;http://image.hanjiazhuang.cn/m5.jpg&quot;); top: -26px; left: 694px; width: 188px; height: 600px; z-index: 3; opacity: 0.9;"></li>
         <li @click="rouf()" style="background-image: url(&quot;http://image.hanjiazhuang.cn/m6.jpg&quot;); top: -11px; left: 879px; width: 181px; height: 570px; z-index: 2; opacity: 0.8;"></li>
-        <li @click="roug()" style="background-image: url(&quot;http://image.hanjiazhuang.cn/m3.jpg&quot;); top: 10px; left: 1055px; width: 173px; height: 530px; z-index: 1; opacity: 0.7;"></li>
+        <li @click="roug()" style="background-image: url(&quot;http://image.hanjiazhuang.cn/%E6%A2%A8.jpg&quot;); top: 10px; left: 1055px; width: 173px; height: 530px; z-index: 1; opacity: 0.7;"></li>
       </ul>
       <a href="javascript:;" class="prev">&#60;</a>
       <a href="javascript:;" class="next">&#62;</a>
