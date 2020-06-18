@@ -327,7 +327,8 @@ export default {
     vertical-align: top;
     width: 37%;
     position: relative;
-    /*border: 1px solid;*/
+     overflow:hidden;
+     cursor:pointer;
     animation:myc 3s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
@@ -336,15 +337,12 @@ export default {
 	-webkit-animation-fill-mode:forwards;
   }
 .story-img {
-  /*display: inline-block;
-  vertical-align: top;
-  width: 50%;
-  position: relative;*/
   display: inline-block;
     vertical-align: top;
     width: 37%;
     position: relative;
-    /*border: 1px solid;*/
+    overflow:hidden;
+     cursor:pointer;
     animation:myb 3s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
@@ -352,6 +350,22 @@ export default {
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 }
+  .story-img img {
+     transition: all 0.3s ease;
+     width:100%;
+     height:100%;
+  }
+  .story-img img:hover {
+    transform: scale(1.2);
+  }
+   .story-img-a img {
+     transition: all 0.3s ease;
+     width:100%;
+     height:100%;
+  }
+  .story-img-a img:hover {
+    transform: scale(1.2);
+  }
 @keyframes myb
 {
 	from {left:0px;}
@@ -367,13 +381,13 @@ export default {
   content: "";
   display: block;
 }
-.story-img::before {
+
+  /*.story-img::before {
   padding-top: 66.57143%;
 }
   .story-img-a::before {
      padding-top: 66.57143%;
-  }
-.img-box img {
+  }.img-box img {
   right: 0;
     position: absolute;
     top: 0;
@@ -387,7 +401,8 @@ export default {
 }
   .img-box img:hover {
     transform:scale(1.05,1.05);
-  }
+  }*/
+
 .story-intro-02__txt{
   position: absolute;
   top: 0;

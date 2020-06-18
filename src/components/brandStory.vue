@@ -16,16 +16,13 @@
           </div>
         </div>
         <div class="story-img img-box">
-          <!--<img src="http://image.jmta.milisx.com/lg9SSeviQuETH4wYxVCT7dnqHhG0">-->
           <img v-lazy="this.photo">
-
         </div>
       </div>
     </div>
     <div class="story left mt-150">
       <div class="story-inner margin">
         <div class="story-img-a story-img-02 img-box">
-          <!--<img src="http://image.jmta.milisx.com/FktWRJzSQHttdA5M_btwodbAksap">-->
           <img v-lazy="this.CoverPhoto">
         </div>
         <div class="story-intro-b story-intro-02">
@@ -49,7 +46,6 @@
           </div>
         </div>
         <div class="story-img-b img-box">
-          <!--<img src="http://image.jmta.milisx.com/luFSp1cqrp689Jegq9SX5lUBtUJ0">-->
           <img v-lazy="this.CoverPhoto_a">
         </div>
       </div>
@@ -329,6 +325,8 @@ export default {
   vertical-align: top;
   width: 43%;
   position: relative;
+  overflow:hidden;
+    cursor:pointer;
    animation:myy 3s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
@@ -354,6 +352,8 @@ export default {
   vertical-align: top;
   width: 43%;
   position: relative;
+  overflow:hidden;
+    cursor:pointer;
    animation:myc 3s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
@@ -379,6 +379,8 @@ export default {
   vertical-align: top;
   width: 43%;
   position: relative;
+  overflow:hidden;
+    cursor:pointer;
    animation:my 2s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
@@ -388,6 +390,27 @@ export default {
 	-webkit-animation-iteration-count:1;
 	-webkit-animation-fill-mode:forwards;
 }
+  .story-img img {
+       transition: all 0.3s ease;
+       width:100%;
+  }
+  .story-img img:hover {
+    transform: scale(1.2);
+  }
+   .story-img-b img {
+       transition: all 0.3s ease;
+       width:100%;
+  }
+  .story-img-b img:hover {
+    transform: scale(1.2);
+  }
+   .story-img-a img {
+       transition: all 0.3s ease;
+       width:100%;
+  }
+  .story-img-a img:hover {
+    transform: scale(1.2);
+  }
 @keyframes my
 {
 	from {right:0px;}
@@ -403,7 +426,8 @@ export default {
   content: "";
   display: block;
 }
-.story-img::before {
+
+/*.story-img::before {
   padding-top: 66.57143%;
 }
 .story-img-a::before {
@@ -411,8 +435,7 @@ export default {
 }
   .story-img-b::before {
     padding-top:66.57143%;
-  }
-.img-box img {
+  }.img-box img {
   right: 0;
   position: absolute;
   top: 0;
@@ -428,7 +451,7 @@ export default {
   }
     .img-box img:hover {
     transform:scale(1.05,1.05);
-  }
+  }*/
     
 /* 第二层 */
 .mt-150 {

@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="company-right">
-          <div class="company-photo img-boxa" style="cursor:pointer">
+          <div class="company-photo">
             <!-- 图片尺寸 692*484 -->
             <img v-lazy="this.photo">
           </div>
@@ -168,6 +168,19 @@
 </script>
 
 <style scoped>
+  .company-photo {
+  max-width: 692px;
+   overflow: hidden;
+  cursor:pointer;
+}
+  .company-photo img {
+     transition: all 0.3s ease;
+     width:100%;
+     height:100%;
+  }
+  .company-photo img:hover {
+    transform: scale(1.2);
+  }
   .more{
             width: 12px;
             height: 12px;
@@ -270,7 +283,7 @@
   /*width: 60%;
   text-align: right;
   position: relative;*/
-    width: 47%;
+    width: 37%;
     text-align: right;
     position: relative;
     float: right;
@@ -392,19 +405,7 @@
   width: 68%;
   background-color: #f7f7f7;
 }
-.company-photo {
-  width: 100%;
-  max-width: 692px;
-}
-  .company-photo img {
-    transition:all 0.3s ease-out;
-    -moz-transition:all 0.3s ease-out;
-    -webkit-transition:all 0.3s ease-out;
-    -o-transition:all 0.3s ease-out;
-  }
-  .company-photo img:hover {
-    transform:scale(1.05,1.05);
-  }
+
   .img-box {
     display: block;
     margin: 0 0;
@@ -434,13 +435,12 @@
   top: 0;
   max-width: 692px;
 }
-.img-boxa img {
+/*.img-boxa img {
   right: 0;
-  /*position: absolute;*/
   top: 0;
   max-width: 692px;
   margin-left:21%;
-}
+}*/
 .company-photo::before {
   padding-top: 69.9422%;
 }
@@ -680,20 +680,26 @@
   line-height: 24px;
   text-align: right;
 }
-@media (max-width: 1400px) {
+@media (max-width: 1436px) {
+  .company-photo{
+    margin-top: 78px;
+}
   .main {
     padding: 0 15px;
   }
 }
 @media (max-width: 1100px) {
   .company-left {
-    width: 100%;
+    width: 86%;
     padding-right: 0;
   }
   .company-right {
     width: 100%;
     max-width: 820px;
   }
+  .company-photo{
+    margin-left: 12%;
+}
   .about-company::after {
     display: none;
   }
@@ -712,7 +718,11 @@
   }
   .about-history{
     margin-top: 50px;
+    float:left;
   }
+  .img-box::before {
+    width: 80%;
+}
   .swiper_{
     margin-top: 40px;
   }
@@ -745,7 +755,6 @@
     .h2 {
    /*border: 1px solid;*/
     height: 39px;
-    margin-top: 68%;
   }
     .img-box::before {
     width: 81%;
@@ -768,10 +777,12 @@
 	      from {right:0px;}
 	      to {right:20%;}
       }
+      .company-right{
+    width: 80%;
+}
       .h2 {
     /*border: 1px solid;*/
     height: 37px;
-    margin-top: 81%;
   }
     .about-history{
     width: 93%;
@@ -786,10 +797,19 @@
 }
   }
   @media(max-width:375px) {
-    .img-boxa img {
-    max-width: 100%;
-    margin-left: 21%;
-}
+     .company-photo{
+        max-width: 692px;
+        height: 142px;
+        overflow: hidden;
+        margin-left: 38%;
+        cursor: pointer;
+    }
+    .company-photo img {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    width: 100%;
+    height: 100%;
+    }
   }
    @media (max-width: 414px) {
     .history-item__year{
@@ -810,9 +830,6 @@
       #img {
        height:100px;
       }
-      .img-boxa img {
-    max-width: 100%;
-    margin-left: 21%;
-}
+
   }
 </style>

@@ -265,7 +265,9 @@
   height: 687px;
   position: relative;
   margin-left: 33px;
+  overflow:hidden;
 }
+ 
 .notice-list1 li:first-child {
   margin-left: 0;
 }

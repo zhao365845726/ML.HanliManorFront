@@ -115,8 +115,8 @@ export default {
                 "PageSize":  this.perPage
             })
            .then((page) => {
-             //console.log(page)
-              this.page_a = page.data.data.lst_articlesearchlist;
+             //console.log(page.data.data.lst_articlesearchlist)
+             this.page_a = page.data.data.lst_articlesearchlist;
               })
         })
        

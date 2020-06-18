@@ -56,7 +56,7 @@
                 <img src="http://image.hanjiazhuang.cn/p1.jpg" class="img_a" />
               </span>
               <h3 class="jc-item__title">认同文化理念</h3>
-              <p class="jc-item__desc"></p>
+              <p class="jc-item__desc">憨厚、诚信、良善</p>
               <!--<h3 class="jc-item__title">{{this.jianjie_b}}</h3>
             <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
             </div>
@@ -101,7 +101,7 @@
                 <img src="http://image.hanjiazhuang.cn/p5.jpg" class="img_a" />
               </span>
               <h3 class="jc-item__title">模式</h3>
-              <p class="jc-item__desc">有较成熟的经营模式、理念</p>
+              <p class="jc-item__desc">较成熟的经营模式、理念</p>
               <!--<h3 class="jc-item__title">{{this.jianjie_b}}</h3>
             <p class="jc-item__desc" v-html="this.jianjie_c"></p>-->
             </div>

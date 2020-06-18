@@ -125,18 +125,19 @@
               this.pop_a = body_a.data.data.CoverPhoto;
             })
           var shuju = this.shuju;
+         // console.log(shuju)
           var shuju_a = shuju.slice(0, 9);
           this.shuju_a = shuju_a;
-          //console.log(this.shuju_a);
+         // console.log(this.shuju_a);
           var shuju_b = shuju.slice(10, 15);
           this.shuju_b = shuju_b;
           //console.log(this.shuju_b)
           var shuju_c = shuju.slice(6, 12);
           this.shuju_c = shuju_c;
           //console.log(this.shuju_c)
-          var shuju_d = shuju.slice(10, 15);
+          var shuju_d = shuju.slice(13, 18);
           this.shuju_d = shuju_d;
-          //console.log(this.shuju_d)
+         // console.log(this.shuju_d)
         })
        document.querySelector('#demo').scrollIntoView(true);
     }
@@ -144,15 +145,23 @@
 </script>
 
 <style scoped>
-  .img1,.img2{
-    transition:all 0.3s ease-out;
-    -moz-transition:all 0.3s ease-out;
-    -webkit-transition:all 0.3s ease-out;
-    -o-transition:all 0.3s ease-out;
-  }
-    .img1:hover,.img2:hover {
-      transform:scale(1.02,1.02);
+   .img1,.img2 {
+    border: 0px solid;
+    width: 80%;
+    height: 236px;
+    margin-left:7%;
+    margin-top: 5%;
+    background-color: darkgray;
+    cursor: -webkit-zoom-in;
+    overflow:hidden;
     }
+    .img1 img, .img2 img {
+      transition: all 0.3s ease;
+    }
+     .img1 img:hover, .img2 img:hover {
+      transform: scale(1.2);
+    }
+ 
 .container{
   overflow: hidden;
 }
@@ -284,15 +293,6 @@
     height: 500px;
     margin-left: 8%;
   }
-     .img1,.img2 {
-    border: 0px solid;
-    width: 80%;
-    height: 222px;
-    margin: auto;
-    margin-top: 5%;
-    background-color: darkgray;
-    cursor: -webkit-zoom-in;
-    }
   .hanli3 {
     border:0px solid;
     width:100%;
@@ -305,15 +305,7 @@
     float: left;
     height: 532px;
   }
-   .img1,.img2 {
-    border: 0px solid;
-    width: 80%;
-    height: 236px;
-    margin-left:7%;
-    margin-top: 5%;
-    background-color: darkgray;
-    cursor: -webkit-zoom-in;
-    }
+  
   .div4 {
      border: 0px solid;
     width: 50%;
