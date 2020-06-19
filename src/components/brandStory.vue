@@ -546,10 +546,21 @@ export default {
   }
   .story-img-02 {
     margin-bottom: 30px;
+    width: 58%;
   }
+   @keyframes myy
+{
+	from {left:0px;}
+	to {left:228px;}
+}
   .story-img {
-    width: 100%;
+    width: 58%;
   }
+  @keyframes my
+{
+	from {right:0px;}
+	to {right:186px;}
+}
   .story-intro-02__txt,
   .story-intro-03__txt {
     width: 100%;
@@ -575,6 +586,7 @@ export default {
   .story-intro-01 {
     margin-bottom: 40px;
     background-size: contain;
+    width: 85%;
   }
   .img-box img {
     position: relative;

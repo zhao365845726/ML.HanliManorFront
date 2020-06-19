@@ -796,22 +796,7 @@
     font: 700 21px/1 "AvenirLTStd";
 }
   }
-  @media(max-width:375px) {
-     .company-photo{
-        max-width: 692px;
-        height: 142px;
-        overflow: hidden;
-        margin-left: 38%;
-        cursor: pointer;
-    }
-    .company-photo img {
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    width: 100%;
-    height: 100%;
-    }
-  }
-   @media (max-width: 414px) {
+    @media (max-width: 414px) {
     .history-item__year{
         position: relative;
         margin-bottom: 0.5em;
@@ -830,6 +815,30 @@
       #img {
        height:100px;
       }
+      .img-box::before {
+            width: 78.5%;
+        }
+      
 
   }
+  @media(max-width:375px) {
+     .company-photo{
+        max-width: 692px;
+        height: 142px;
+        overflow: hidden;
+        margin-left: 19%;
+        margin-top:0px;
+        cursor: pointer;
+    }
+    .company-photo img {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    width: 100%;
+    height: 100%;
+    }
+    .img-box::before {
+          width: 86.5%;
+      }
+  }
+  
 </style>

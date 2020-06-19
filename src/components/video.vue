@@ -16,7 +16,7 @@
         </ul>
         <ul class="container list-video">
           <li v-for="(item1, index1) in listVideo[index_]">
-            <video v-lazy="item1.src" controls></video>
+            <video src="item1.src" controls></video>
           </li>
         </ul>
       </div>
@@ -37,15 +37,15 @@ export default {
         { id: 4, title: "品牌视频" }
       ],
       listVideo: [
-        [{ src: "https://img.51miz.com/Video/10/68/106810_32251f512b485e2ad607e2a8b96dbca6.mp4" }],
+        [{ src: "https://img.51miz.com/Video/10/65/106540_a59efe61e8b775d91e5a5f03413d90b8.mp4" }],
         [
-          { src: "https://img.51miz.com/Video/2018/12/12/12/20181212127936_V108776_water_bb5c9aaa.mp4" },
-          { src: "https://img.51miz.com/Video/2017/08/17/10/20170817109422_V106989_water_09774bd5.mp4" }
+          { src: "https://img.51miz.com/Video/10/65/106540_a59efe61e8b775d91e5a5f03413d90b8.mp4" },
+          { src: "https://img.51miz.com/Video/10/65/106540_a59efe61e8b775d91e5a5f03413d90b8.mp4" }
         ],
         [
-          { src: "https://img.51miz.com/Video/2017/11/16/15/20171116157857_V108137_water_9cea1023.mp4" },
-          { src: "https://img.51miz.com/Video/10/67/106757_62301c728c841eb8c7e468414be38a69.mp4" },
-          { src: "https://img.51miz.com/Video/10/60/106010_8f79dade40d324f299cfd8134b520f17.mp4" }
+          { src: "https://img.51miz.com/Video/10/65/106540_a59efe61e8b775d91e5a5f03413d90b8.mp4" },
+          { src: "https://img.51miz.com/Video/10/65/106540_a59efe61e8b775d91e5a5f03413d90b8.mp4" },
+          { src: "https://img.51miz.com/Video/10/65/106540_a59efe61e8b775d91e5a5f03413d90b8.mp4" }
         ],
         [
           { src: "https://img.51miz.com/Video/10/66/106656_820eb46f25152b5dcbf34024c6b07d53.mp4" },
@@ -64,6 +64,7 @@ export default {
     fnIndex(index) {
       this.index_ = index;
     }
+    
   },
     mounted() {
       document.querySelector('#demo').scrollIntoView(true);
@@ -149,7 +150,7 @@ export default {
   vertical-align: top;
   width: 50%;
   height: 420px;
-  padding: 20px 0px;
+  padding: 20px 10px;
 }
 .list-video li video {
   width: 100%;

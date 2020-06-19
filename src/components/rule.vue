@@ -100,7 +100,7 @@
         .post('http://api.hanjiazhuang.cn/api/content/getcategoryarticlelist', {
           "categoryid": "a5a566c1-0bc3-4bcb-a43d-aaf9644c13cd",
           "PageIndex": 1,
-          "PageSize": 20
+          "PageSize": 50
         })
         .then((res) => {
           console.log(res)
@@ -125,19 +125,19 @@
               this.pop_a = body_a.data.data.CoverPhoto;
             })
           var shuju = this.shuju;
-         // console.log(shuju)
+         console.log(shuju)
           var shuju_a = shuju.slice(0, 9);
           this.shuju_a = shuju_a;
-         // console.log(this.shuju_a);
-          var shuju_b = shuju.slice(10, 15);
+         //console.log(this.shuju_a);
+          var shuju_b = shuju.slice(9, 14);
           this.shuju_b = shuju_b;
           //console.log(this.shuju_b)
-          var shuju_c = shuju.slice(6, 12);
+          var shuju_c = shuju.slice(14, 20);
           this.shuju_c = shuju_c;
           //console.log(this.shuju_c)
-          var shuju_d = shuju.slice(13, 18);
+          var shuju_d = shuju.slice(20, 25);
           this.shuju_d = shuju_d;
-         // console.log(this.shuju_d)
+          //console.log(this.shuju_d)
         })
        document.querySelector('#demo').scrollIntoView(true);
     }
